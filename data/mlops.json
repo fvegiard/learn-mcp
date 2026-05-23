@@ -1,38 +1,511 @@
 [
-  {"topic":"mlops","type":"course","title":"MLOps Specialization (Duke/Google Cloud on Coursera)","description":"4-course specialization covering production ML systems, data pipelines, deployment patterns, and monitoring. Includes hands-on labs with Kubernetes, Kubeflow, and TFX.","url":"https://www.coursera.org/specializations/machine-learning-engineering-for-production-mlops","tags":["coursera","duke","google-cloud","production","kubeflow"],"difficulty":"intermediate"},
-  {"topic":"mlops","type":"course","title":"MLOps: Machine Learning Operations (Udacity)","description":"Hands-on nanodegree covering ML pipeline orchestration, model versioning, CI/CD for ML, monitoring, and cloud deployment with AWS and GCP.","url":"https://www.udacity.com/course/machine-learning-operations-nanodegree--nd0821","tags":["udacity","nanodegree","ci-cd","aws","gcp"],"difficulty":"intermediate"},
-  {"topic":"mlops","type":"course","title":"Full Stack ML Engineer Bootcamp (4th Brain)","description":"Intensive bootcamp covering ML model deployment, Docker, Kubernetes, CI/CD, model monitoring, A/B testing, and production ML system design.","url":"https://fullstackdeeplearning.com/","tags":["full-stack","deployment","docker","kubernetes","bootcamp"],"difficulty":"intermediate"},
-  {"topic":"mlops","type":"course","title":"Made With ML: MLOps Course","description":"Free comprehensive course covering ML pipelines, model serving, monitoring, CI/CD, testing, and deployment patterns. Practical examples with Ray Serve and FastAPI.","url":"https://madewithml.com/","tags":["free","practical","ray-serve","fastapi","deployment"],"difficulty":"beginner"},
-  {"topic":"mlops","type":"course","title":"Deploying Machine Learning Models (DeepLearning.AI)","description":"Course covering model deployment patterns: batch, real-time, edge. Includes containerization with Docker, orchestration with Kubernetes, and model serving with Triton and TF Serving.","url":"https://www.deeplearning.ai/courses/deploying-machine-learning-models-in-production/","tags":["deployment","docker","kubernetes","triton","serving"],"difficulty":"intermediate"},
-  {"topic":"mlops","type":"course","title":"Practical MLOps (O'Reilly)","description":"Book and course covering operationalizing ML models with Kubernetes, Docker, CI/CD pipelines, feature stores, and model monitoring. Real-world examples from production systems.","url":"https://www.oreilly.com/library/view/practical-mlops/9781098103002/","tags":["oreilly","production","kubernetes","monitoring","feature-stores"],"difficulty":"advanced"},
-  {"topic":"mlops","type":"course","title":"ZenML MLOps Fundamentals","description":"Free course by ZenML covering MLOps fundamentals: pipeline orchestration, experiment tracking, model versioning, deployment, and monitoring using ZenML and various stack components.","url":"https://zenml.io/learn","tags":["zenml","free","pipelines","experiment-tracking","deployment"],"difficulty":"beginner"},
-  {"topic":"mlops","type":"workflow","title":"CI/CD Pipeline for ML Models","description":"Step-by-step workflow for setting up continuous integration and deployment for ML models.","tags":["ci-cd","pipeline","github-actions","automation"],"difficulty":"intermediate","workflow":["Set up model registry: MLflow or Weights & Biases for versioning","Create training pipeline: data ingestion, preprocessing, training, evaluation","Write model validation tests: accuracy, latency, fairness, drift detection","Set up GitHub Actions workflow: trigger on model config changes","Build Docker image with model + dependencies","Run integration tests: API endpoint returns correct format and latency","Deploy to staging: Kubernetes canary deployment with 10% traffic","Run A/B test: compare new model vs baseline on real traffic","Promote to production if metrics meet SLOs","Rollback plan: keep previous model version warm for instant rollback"]},
-  {"topic":"mlops","type":"workflow","title":"Docker + Kubernetes ML Deployment","description":"Step-by-step workflow for deploying ML models with Docker and Kubernetes.","tags":["docker","kubernetes","deployment","serving"],"difficulty":"advanced","workflow":["Create model serving API with FastAPI or Flask","Write Dockerfile: FROM python:3.14-slim, install deps, copy model and API","Build and test locally: docker build -t my-model . && docker run -p 8000:8000 my-model","Push to container registry: docker push registry/my-model:v1","Create Kubernetes Deployment: replicas, resource limits, GPU requests","Create Kubernetes Service: ClusterIP for internal, LoadBalancer for external","Add Horizontal Pod Autoscaler: scale based on CPU/memory/custom metrics","Configure liveness and readiness probes for model health checks","Set up rolling update strategy: maxSurge=1, maxUnavailable=0","Monitor with Prometheus: model latency, throughput, error rate metrics"]},
-  {"topic":"mlops","type":"workflow","title":"Model Monitoring and Alerting Setup","description":"Set up production model monitoring with drift detection and alerting.","tags":["monitoring","alerting","drift","prometheus"],"difficulty":"intermediate","workflow":["Deploy MLflow or W&B for experiment tracking and model registry","Implement prediction logging: log inputs, outputs, timestamps, model version","Set up feature store: Feast or Tecton for feature serving and monitoring","Configure data drift detection: compare input distributions with KS test or PSI","Configure concept drift detection: monitor prediction accuracy over time","Set up Prometheus metrics: request latency P50/P95/P99, error rate, throughput","Create Grafana dashboards: model performance, feature distributions, drift scores","Configure alerting rules: alert on drift score > threshold or accuracy drop > 5%","Implement shadow deployment: run new model in parallel without serving traffic","Set up retraining trigger: auto-retrain when drift exceeds threshold"]},
-  {"topic":"mlops","type":"workflow","title":"Feature Store Setup with Feast","description":"Step-by-step workflow for setting up a feature store with Feast for ML feature management.","tags":["feast","feature-store","online-serving","offline-computing"],"difficulty":"intermediate","workflow":["Install Feast: pip install feast","Create feature repository: feast init my_feature_repo","Define entity and feature views in feature_definitions.py","Set up offline store: BigQuery, Snowflake, or Redshift for training data","Set up online store: Redis or DynamoDB for low-latency serving","Register feature definitions: feast apply","Materialize features: feast materialize to populate online store","Build training dataset: feast.get_historical_features for model training","Serve features in production: feast.get_online_features for real-time inference","Monitor feature drift: compare online vs offline feature statistics"]},
-  {"topic":"mlops","type":"workflow","title":"ML Model Testing Pipeline","description":"Comprehensive testing pipeline for ML models before production deployment.","tags":["testing","validation","pipeline","production"],"difficulty":"intermediate","workflow":["Unit tests: test data preprocessing functions with known inputs/outputs","Integration tests: test full pipeline end-to-end with sample data","Model performance tests: verify accuracy > threshold on held-out test set","Latency tests: measure P50, P95, P99 inference latency with production load","Memory tests: verify model fits in GPU/CPU memory with production batch size","Fairness tests: check model performance across demographic groups","Robustness tests: test with adversarial inputs, edge cases, missing data","Data drift tests: compare input feature distributions with training data","Schema validation: verify input schema matches expected format","Smoke test: deploy to staging and verify health endpoint responds"]},
-  {"topic":"mlops","type":"example","title":"MLflow Experiment Tracking and Model Registry","description":"Python code for tracking ML experiments and registering models with MLflow.","tags":["mlflow","experiment-tracking","model-registry","deployment"],"difficulty":"beginner","code":"import mlflow\nimport mlflow.sklearn\nfrom sklearn.ensemble import RandomForestClassifier\n\n# Set tracking URI and experiment\nmlflow.set_tracking_uri(\"http://127.0.0.1:5000\")\nmlflow.set_experiment(\"fraud-detection\")\n\n# Train and log model\nwith mlflow.start_run(run_name=\"rf-v1\"):\n    # Log parameters\n    mlflow.log_param(\"n_estimators\", 100)\n    mlflow.log_param(\"max_depth\", 10)\n    \n    # Train model\n    model = RandomForestClassifier(n_estimators=100, max_depth=10)\n    model.fit(X_train, y_train)\n    \n    # Log metrics\n    accuracy = model.score(X_test, y_test)\n    mlflow.log_metric(\"accuracy\", accuracy)\n    mlflow.log_metric(\"f1_score\", f1_score(y_test, model.predict(X_test)))\n    \n    # Log model\n    mlflow.sklearn.log_model(model, \"model\")\n\n# Register model\nmlflow.register_model(\n    f\"runs:/{mlflow.active_run().info.run_id}/model\",\n    \"fraud-detection-model\"\n)"},
-  {"topic":"mlops","type":"example","title":"FastAPI Model Serving with Health Checks","description":"Production FastAPI server for ML model serving with health checks and metrics.","tags":["fastapi","serving","production","healthcheck"],"difficulty":"intermediate","code":"from fastapi import FastAPI, HTTPException\nfrom pydantic import BaseModel\nimport time\n\napp = FastAPI(title=\"ML Model Server\", version=\"1.0.0\")\nmodel = None\nmodel_version = \"v1.0.0\"\nrequest_count = 0\n\nclass PredictionRequest(BaseModel):\n    features: list[float]\n\nclass PredictionResponse(BaseModel):\n    prediction: float\n    probability: float\n    model_version: str\n    latency_ms: float\n\n@app.on_event(\"startup\")\nasync def load_model():\n    global model\n    # Load model here\n    model = \"loaded\"\n\n@app.get(\"/health\")\nasync def health():\n    return {\"status\": \"healthy\", \"model_version\": model_version}\n\n@app.post(\"/predict\", response_model=PredictionResponse)\nasync def predict(request: PredictionRequest):\n    global request_count\n    start = time.time()\n    result = model.predict([request.features])\n    latency = (time.time() - start) * 1000\n    request_count += 1\n    return PredictionResponse(\n        prediction=float(result[0]),\n        probability=float(result[1]),\n        model_version=model_version,\n        latency_ms=latency\n    )"},
-  {"topic":"mlops","type":"example","title":"Docker Compose for ML Stack","description":"Docker Compose configuration for a complete ML serving stack with model server, feature store, monitoring, and model registry.","tags":["docker-compose","ml-stack","serving","monitoring"],"difficulty":"intermediate","code":"services:\n  model-server:\n    build: ./model-server\n    ports: [\"127.0.0.1:8000:8000\"]\n    environment:\n      MLFLOW_TRACKING_URI: http://mlflow:5000\n      FEAST_ONLINE_URL: redis://redis:6379\n    healthcheck:\n      test: [\"CMD\", \"curl\", \"-sf\", \"http://127.0.0.1:8000/health\"]\n      interval: 30s\n    deploy:\n      resources:\n        reservations:\n          devices:\n            - driver: nvidia\n              count: all\n              capabilities: [gpu]\n\n  mlflow:\n    image: ghcr.io/mlflow/mlflow:v2.18.0\n    ports: [\"127.0.0.1:5000:5000\"]\n    environment:\n      MLFLOW_BACKEND_STORE_URI: postgresql://mlflow:mlflow@db:5432/mlflow\n\n  redis:\n    image: redis:7-alpine\n    ports: [\"127.0.0.1:6379:6379\"]\n\n  prometheus:\n    image: prom/prometheus\n    ports: [\"127.0.0.1:9090:9090\"]\n\n  grafana:\n    image: grafana/grafana\n    ports: [\"127.0.0.1:3000:3000\"]"},
-  {"topic":"mlops","type":"example","title":"GitHub Actions CI/CD for ML Models","description":"GitHub Actions workflow for automated ML model training, testing, and deployment.","tags":["github-actions","ci-cd","automation","deployment"],"difficulty":"intermediate","code":"name: ML Pipeline\non:\n  push:\n    paths: [\"model/**\", \"data/**\"]\n\njobs:\n  train-and-deploy:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - uses: actions/setup-python@v5\n        with: {python-version: \"3.14\"}\n      - run: pip install -r requirements.txt\n      - run: python train.py\n      - run: pytest tests/ -v\n      - run: python validate_model.py --threshold 0.95\n      - name: Deploy to staging\n        if: success()\n        run: |\n          docker build -t model-server:${{ github.sha }} .\n          docker push registry/model-server:${{ github.sha }}\n          kubectl set image deployment/model-server \\\n            model-server=registry/model-server:${{ github.sha }} \\\n            --namespace=staging"},
-  {"topic":"mlops","type":"example","title":"Data Drift Detection with Evidently","description":"Python code for detecting data and concept drift in production ML models using Evidently.","tags":["evidently","drift-detection","monitoring","production"],"difficulty":"intermediate","code":"from evidently import ColumnMapping\nfrom evidently.report import Report\nfrom evidently.metric_preset import DataDriftPreset, RegressionPreset\nimport pandas as pd\n\n# Load reference (training) and current (production) data\nreference_data = pd.read_parquet(\"data/train.parquet\")\ncurrent_data = pd.read_parquet(\"data/production_2026_05.parquet\")\n\ncolumn_mapping = ColumnMapping(\n    target=\"target\",\n    prediction=\"prediction\",\n    numerical_features=[\"age\", \"income\", \"score\"],\n    categorical_features=[\"category\", \"region\"]\n)\n\n# Generate drift report\ndrift_report = Report(metrics=[\n    DataDriftPreset(),\n    RegressionPreset()\n])\ndrift_report.run(\n    reference_data=reference_data,\n    current_data=current_data,\n    column_mapping=column_mapping\n)\n\n# Check drift status\ndrift_result = drift_report.as_dict()\nif drift_result[\"data_drift\"][\"share\"] > 0.3:\n    print(\"WARNING: Data drift detected! Retraining recommended.\")\n    # Trigger retraining pipeline\nelse:\n    print(\"No significant drift detected. Model is healthy.\")"},
-  {"topic":"mlops","type":"tool","title":"MLflow","description":"Open-source platform for ML lifecycle management: experiment tracking, model registry, model serving, and deployment. Supports PyTorch, TensorFlow, HuggingFace, and custom models.","url":"https://mlflow.org/","tags":["mlflow","experiment-tracking","model-registry","deployment"],"difficulty":"beginner"},
-  {"topic":"mlops","type":"tool","title":"Kubeflow","description":"Kubernetes-native ML platform for managing ML workflows: pipelines, training jobs, hyperparameter tuning, model serving, and notebook servers. Best for teams already on Kubernetes.","url":"https://www.kubeflow.org/","tags":["kubeflow","kubernetes","pipelines","training","serving"],"difficulty":"advanced"},
-  {"topic":"mlops","type":"tool","title":"Weights & Biases (W&B)","description":"Experiment tracking, dataset versioning, model evaluation, and hyperparameter sweeps platform. Collaborative dashboards for ML teams with rich visualization.","url":"https://wandb.ai/","tags":["wandb","experiment-tracking","sweeps","collaboration"],"difficulty":"beginner"},
-  {"topic":"mlops","type":"tool","title":"Evidently","description":"Open-source ML monitoring tool for data drift detection, model quality monitoring, and data quality checks. Generates interactive HTML reports and integrates with MLflow.","url":"https://github.com/evidentlyai/evidently","tags":["evidently","drift","monitoring","data-quality"],"difficulty":"beginner"},
-  {"topic":"mlops","type":"tool","title":"Feast","description":"Open-source feature store for ML: online serving (Redis/DynamoDB) for real-time inference, offline computing (BigQuery/Snowflake) for training. Prevents feature skew between training and serving.","url":"https://feast.dev/","tags":["feast","feature-store","online-serving","offline-computing"],"difficulty":"intermediate"},
-  {"topic":"mlops","type":"tool","title":"BentoML","description":"Open-source framework for building production-ready ML services. Handles model packaging, API serving, containerization, and deployment to Kubernetes, AWS, GCP, and Azure.","url":"https://bentoml.com/","tags":["bentoml","serving","containerization","deployment"],"difficulty":"intermediate"},
-  {"topic":"mlops","type":"tool","title":"DVC (Data Version Control)","description":"Git-like version control for data and ML models. Tracks data files, models, and metrics alongside code. Enables reproducible experiments and data pipelines.","url":"https://dvc.org/","tags":["dvc","version-control","data","reproducibility"],"difficulty":"beginner"},
-  {"topic":"mlops","type":"tool","title":"Great Expectations","description":"Open-source data quality platform: define expectations (assertions) about your data, validate data at pipeline boundaries, and generate data quality reports.","url":"https://greatexpectations.io/","tags":["great-expectations","data-quality","validation","testing"],"difficulty":"intermediate"},
-  {"topic":"mlops","type":"pattern","title":"Shadow Deployment Pattern","description":"Deploy a new model version alongside the production model. Route real traffic to the production model but also send copies to the shadow model. Compare outputs without affecting users. Promote when shadow model meets SLOs.","tags":["shadow-deployment","canary","safe-deployment","testing"],"difficulty":"intermediate"},
-  {"topic":"mlops","type":"pattern","title":"Feature Store Pattern","description":"Centralize feature computation and serving. Train on offline features (batch), serve from online store (low-latency). Prevents training-serving skew by using the same feature definitions for both. Feast is the canonical open-source implementation.","tags":["feature-store","training-serving-skew","online-offline","feast"],"difficulty":"intermediate"},
-  {"topic":"mlops","type":"pattern","title":"Canary Deployment Pattern","description":"Route a small percentage (1-5%) of production traffic to a new model version. Monitor metrics (latency, accuracy, error rate). Gradually increase traffic if metrics are good. Rollback instantly if issues detected.","tags":["canary","deployment","monitoring","rollback"],"difficulty":"beginner"},
-  {"topic":"mlops","type":"pattern","title":"Model Registry Pattern","description":"Centralize model versioning, metadata, and lifecycle management. Track model versions, stages (staging/production/archived), and lineage. MLflow Model Registry is the standard open-source implementation.","tags":["model-registry","versioning","lifecycle","mlflow"],"difficulty":"beginner"},
-  {"topic":"mlops","type":"pattern","title":"Data Pipeline Pattern (Medallion Architecture)","description":"Organize data in three layers: Bronze (raw ingestion), Silver (cleaned, deduplicated), Gold (feature-engineered, ready for ML). Enables incremental processing and clear data lineage.","tags":["medallion","bronze-silver-gold","data-pipeline","lineage"],"difficulty":"intermediate"},
-  {"topic":"mlops","type":"tutorial","title":"MLflow Quickstart Guide","description":"Official quickstart for MLflow: install, track experiments, register models, and serve models with MLflow.","url":"https://mlflow.org/docs/latest/quickstart.html","tags":["mlflow","quickstart","experiment-tracking","serving"],"difficulty":"beginner"},
-  {"topic":"mlops","type":"tutorial","title":"Kubeflow Pipelines Tutorial","description":"Official Kubeflow Pipelines tutorial covering pipeline creation, component definition, execution, and monitoring on Kubernetes.","url":"https://www.kubeflow.org/docs/components/pipelines/v2/","tags":["kubeflow","pipelines","kubernetes","tutorial"],"difficulty":"intermediate"},
-  {"topic":"mlops","type":"tutorial","title":"DVC Getting Started Guide","description":"Official DVC tutorial covering data versioning, pipeline definitions, experiment tracking, and collaboration with Git and DVC remote storage.","url":"https://dvc.org/doc/start","tags":["dvc","version-control","pipeline","collaboration"],"difficulty":"beginner"},
-  {"topic":"mlops","type":"book","title":"Designing Machine Learning Systems (Chip Huyen)","description":"Comprehensive guide to ML system design: data management, feature engineering, model evaluation, deployment patterns, monitoring, and continuous learning. The canonical MLOps reference.","url":"https://www.oreilly.com/library/view/designing-machine-learning/9781098107956/","tags":["book","system-design","deployment","monitoring","continuous-learning"],"difficulty":"intermediate"},
-  {"topic":"mlops","type":"book","title":"Building Machine Learning Powered Applications (Emmanuel Ameisen)","description":"Practical guide to going from ML prototype to production: iterative development, data pipelines, model iteration, deployment, and monitoring. Focuses on the engineering challenges of ML products.","url":"https://www.oreilly.com/library/view/building-machine-learning/9781492045108/","tags":["book","production","engineering","iteration","deployment"],"difficulty":"intermediate"},
-  {"topic":"mlops","type":"book","title":"Machine Learning Engineering in Action (Ben Wilson)","description":"Hands-on guide to ML engineering patterns: feature stores, CI/CD for ML, model testing, deployment strategies, and monitoring. Written by MLflow maintainers.","url":"https://www.manning.com/books/machine-learning-engineering-in-action","tags":["book","mlops","feature-stores","ci-cd","testing"],"difficulty":"advanced"}
+  {
+    "topic": "mlops",
+    "type": "course",
+    "title": "MLOps Specialization (Coursera/Board Infinity)",
+    "description": "3-course series covering DevOps for ML, cloud platforms for ML (AWS SageMaker, Azure ML, GCP Vertex AI), and model serving systems with A/B testing and latency optimization.",
+    "url": "https://www.coursera.org/specializations/machine-learning-operations-mlops",
+    "tags": ["coursera", "ci-cd", "cloud", "model-serving", "ab-testing"],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "mlops",
+    "type": "course",
+    "title": "LLMOps Specialization (Duke University/Coursera)",
+    "description": "6-course series covering generative AI, operationalizing LLMs on Azure, advanced data engineering, GenAI on AWS, Databricks to local LLMs, and open-source LLMOps solutions. 20+ hands-on projects.",
+    "url": "https://www.coursera.org/specializations/large-language-model-operations",
+    "tags": ["coursera", "duke", "llmops", "azure", "aws"],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "mlops",
+    "type": "course",
+    "title": "LLMOps Short Course (DeepLearning.AI)",
+    "description": "Concise course on supervised fine-tuning pipelines, data/model versioning with BigQuery and Kubeflow, and responsible AI safety scoring. Taught by Google Cloud engineers.",
+    "url": "https://www.deeplearning.ai/courses/llmops",
+    "tags": ["deeplearning-ai", "llmops", "fine-tuning", "kubeflow"],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "mlops",
+    "type": "course",
+    "title": "Machine Learning in Production (DeepLearning.AI)",
+    "description": "Andrew Ng course covering the full ML project lifecycle: deployment, concept drift, data pipelines, error analysis, monitoring, and continuous improvement. 11 hours of content.",
+    "url": "https://www.deeplearning.ai/courses/machine-learning-in-production",
+    "tags": ["deeplearning-ai", "production", "deployment", "monitoring"],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "mlops",
+    "type": "course",
+    "title": "MLOps and LLMOps BootCamp (AgileFever)",
+    "description": "6-week live bootcamp with 16 modules covering Python, Git, CI/CD, MLflow, DVC, Docker, Kubernetes, Airflow, Grafana, GCP Vertex AI, RAG, and LLM deployment. Includes 2 capstone projects.",
+    "url": "https://agilefever.com/bootcamps/mlops-bootcamp/",
+    "tags": ["bootcamp", "live", "kubernetes", "llmops", "gcp"],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "mlops",
+    "type": "course",
+    "title": "LLMOps Masterclass 2026 (Udemy)",
+    "description": "17-hour course covering generative AI, prompt engineering, LLM app deployment with FastAPI/Docker/Kubernetes, CI/CD with GitHub Actions, and LLM monitoring with WhyLabs and Langkit.",
+    "url": "https://www.udemy.com/course/llmops-masterclass-generative-ai-mlops-aiops/",
+    "tags": ["udemy", "llmops", "docker", "kubernetes", "monitoring"],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "mlops",
+    "type": "course",
+    "title": "LLMOps: Building Production-Ready LLM Systems (Educative)",
+    "description": "Interactive 3-hour course covering RAG architecture, prompt management as versioned artifacts, LLM evaluation with LLM-as-a-judge, and production hardening with OWASP security and containerization.",
+    "url": "https://www.educative.io/courses/llmops",
+    "tags": ["educative", "rag", "llm-evaluation", "production"],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "mlops",
+    "type": "course",
+    "title": "MLOps Engineering on AWS (EnterOne)",
+    "description": "3-day live course covering MLOps on AWS with SageMaker, Step Functions, SageMaker Pipelines, model monitoring, CI/CD for ML, and the MLOps maturity framework.",
+    "url": "https://www.enterone.com/platforms/amazon-web-services/courses/aws-mlpops",
+    "tags": ["aws", "sagemaker", "ci-cd", "live-course", "monitoring"],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "mlops",
+    "type": "workflow",
+    "title": "CI/CD Pipeline for ML Models",
+    "description": "Step-by-step workflow for setting up continuous integration and deployment for ML models with automated testing, canary deployment, and rollback.",
+    "tags": ["ci-cd", "pipeline", "github-actions", "automation"],
+    "difficulty": "intermediate",
+    "workflow": [
+      "Set up model registry: MLflow or Weights & Biases for versioning",
+      "Create training pipeline: data ingestion, preprocessing, training, evaluation",
+      "Write model validation tests: accuracy, latency, fairness, drift detection",
+      "Set up GitHub Actions workflow: trigger on model config changes",
+      "Build Docker image with model and dependencies",
+      "Run integration tests: API endpoint returns correct format and latency",
+      "Deploy to staging: Kubernetes canary deployment with 10% traffic",
+      "Run A/B test: compare new model vs baseline on real traffic",
+      "Promote to production if metrics meet SLOs",
+      "Rollback plan: keep previous model version warm for instant rollback"
+    ]
+  },
+  {
+    "topic": "mlops",
+    "type": "workflow",
+    "title": "Docker + Kubernetes ML Deployment",
+    "description": "Step-by-step workflow for deploying ML models with Docker containers and Kubernetes orchestration including autoscaling and health checks.",
+    "tags": ["docker", "kubernetes", "deployment", "serving"],
+    "difficulty": "advanced",
+    "workflow": [
+      "Create model serving API with FastAPI or BentoML",
+      "Write Dockerfile: FROM python:3.12-slim, install deps, copy model and API",
+      "Build and test locally: docker build -t my-model . && docker run -p 8000:8000 my-model",
+      "Push to container registry: docker push registry/my-model:v1",
+      "Create Kubernetes Deployment: replicas, resource limits, GPU requests",
+      "Create Kubernetes Service: ClusterIP for internal, LoadBalancer for external",
+      "Add Horizontal Pod Autoscaler: scale based on CPU/memory/custom metrics",
+      "Configure liveness and readiness probes for model health checks",
+      "Set up rolling update strategy: maxSurge=1, maxUnavailable=0",
+      "Monitor with Prometheus: model latency, throughput, error rate metrics"
+    ]
+  },
+  {
+    "topic": "mlops",
+    "type": "workflow",
+    "title": "Model Monitoring and Alerting Setup",
+    "description": "Set up production model monitoring with drift detection, Prometheus metrics, and Grafana alerting for ML models.",
+    "tags": ["monitoring", "alerting", "drift", "prometheus"],
+    "difficulty": "intermediate",
+    "workflow": [
+      "Deploy MLflow or W&B for experiment tracking and model registry",
+      "Implement prediction logging: log inputs, outputs, timestamps, model version",
+      "Set up feature store: Feast for feature serving and monitoring",
+      "Configure data drift detection: Evidently with KS test or PSI",
+      "Configure concept drift detection: monitor prediction accuracy over time",
+      "Set up Prometheus metrics: request latency P50/P95/P99, error rate, throughput",
+      "Create Grafana dashboards: model performance, feature distributions, drift scores",
+      "Configure alerting rules: alert on drift score > threshold or accuracy drop > 5%",
+      "Implement shadow deployment: run new model in parallel without serving traffic",
+      "Set up retraining trigger: auto-retrain when drift exceeds threshold"
+    ]
+  },
+  {
+    "topic": "mlops",
+    "type": "workflow",
+    "title": "Feature Store Setup with Feast",
+    "description": "Step-by-step workflow for setting up a feature store with Feast for ML feature management, online serving, and training-serving consistency.",
+    "tags": ["feast", "feature-store", "online-serving", "offline-computing"],
+    "difficulty": "intermediate",
+    "workflow": [
+      "Install Feast: pip install feast",
+      "Create feature repository: feast init my_feature_repo",
+      "Define entity and feature views in feature_definitions.py",
+      "Set up offline store: BigQuery, Snowflake, or Redshift for training data",
+      "Set up online store: Redis or DynamoDB for low-latency serving",
+      "Register feature definitions: feast apply",
+      "Materialize features: feast materialize to populate online store",
+      "Build training dataset: feast.get_historical_features for model training",
+      "Serve features in production: feast.get_online_features for real-time inference",
+      "Monitor feature drift: compare online vs offline feature statistics"
+    ]
+  },
+  {
+    "topic": "mlops",
+    "type": "workflow",
+    "title": "ML Model Testing Pipeline",
+    "description": "Comprehensive testing pipeline for ML models before production deployment covering unit, integration, performance, fairness, and robustness tests.",
+    "tags": ["testing", "validation", "pipeline", "production"],
+    "difficulty": "intermediate",
+    "workflow": [
+      "Unit tests: test data preprocessing functions with known inputs/outputs",
+      "Integration tests: test full pipeline end-to-end with sample data",
+      "Model performance tests: verify accuracy > threshold on held-out test set",
+      "Latency tests: measure P50, P95, P99 inference latency with production load",
+      "Memory tests: verify model fits in GPU/CPU memory with production batch size",
+      "Fairness tests: check model performance across demographic groups",
+      "Robustness tests: test with adversarial inputs, edge cases, missing data",
+      "Data drift tests: compare input feature distributions with training data",
+      "Schema validation: verify input schema matches expected format",
+      "Smoke test: deploy to staging and verify health endpoint responds"
+    ]
+  },
+  {
+    "topic": "mlops",
+    "type": "workflow",
+    "title": "Canary Deployment with KServe and Prometheus",
+    "description": "Progressive canary rollout for ML models on Kubernetes using KServe traffic splitting, Prometheus metrics, and automated rollback based on error rate and latency thresholds.",
+    "tags": ["canary", "kserve", "prometheus", "progressive-delivery"],
+    "difficulty": "advanced",
+    "workflow": [
+      "Deploy baseline InferenceService with 100% traffic on KServe",
+      "Create canary InferenceService with new model version",
+      "Set canaryTrafficPercent to 5 for initial canary rollout",
+      "Configure Prometheus ServiceMonitor to scrape prediction latency, errors, confidence per model version",
+      "Add Prometheus alert rules for canary error rate > 1%, latency P99 > threshold, confidence drop > 5%",
+      "Implement automated canary controller: progressively shift traffic 5-10-25-50-75-100%",
+      "Monitor Grafana dashboards comparing baseline vs canary metrics",
+      "On alert: automatically rollback by setting canaryTrafficPercent to 0",
+      "On success: promote canary by removing canaryTrafficPercent field",
+      "Tag-based A/B routing for explicit experiment URLs alongside canary"
+    ]
+  },
+  {
+    "topic": "mlops",
+    "type": "example",
+    "title": "MLflow 3 Experiment Tracking and GenAI Evaluation",
+    "description": "Python code for tracking ML experiments, registering models, and evaluating LLM outputs using MLflow 3 genai evaluation with built-in scorers.",
+    "tags": ["mlflow", "experiment-tracking", "genai", "evaluation"],
+    "difficulty": "beginner",
+    "code": "import mlflow\nfrom mlflow.genai import evaluate, make_judge\nfrom mlflow.genai.scorers import Correctness, Safety, RelevanceToQuery\n\n# Set tracking URI and experiment\nmlflow.set_tracking_uri(\"http://127.0.0.1:5000\")\nmlflow.set_experiment(\"fraud-detection\")\n\n# Train and log model\nwith mlflow.start_run(run_name=\"rf-v1\"):\n    mlflow.log_param(\"n_estimators\", 100)\n    mlflow.log_param(\"max_depth\", 10)\n\n    model = RandomForestClassifier(n_estimators=100, max_depth=10)\n    model.fit(X_train, y_train)\n\n    accuracy = model.score(X_test, y_test)\n    mlflow.log_metric(\"accuracy\", accuracy)\n    mlflow.sklearn.log_model(model, \"model\")\n\n# Register model\nmlflow.register_model(\n    f\"runs:/{mlflow.active_run().info.run_id}/model\",\n    \"fraud-detection-model\"\n)\n\n# Evaluate LLM outputs with built-in scorers\njudge = make_judge(model=\"openai://gpt-4o\")\nresult = evaluate(\n    data=eval_df,\n    scorers=[Correctness(), Safety(), RelevanceToQuery()],\n    judge=judge\n)"
+  },
+  {
+    "topic": "mlops",
+    "type": "example",
+    "title": "FastAPI Model Serving with Health Checks and Metrics",
+    "description": "Production FastAPI server for ML model serving with health checks, Prometheus metrics, and structured response format.",
+    "tags": ["fastapi", "serving", "production", "healthcheck"],
+    "difficulty": "intermediate",
+    "code": "from fastapi import FastAPI, HTTPException\nfrom pydantic import BaseModel\nfrom prometheus_client import Counter, Histogram, generate_latest\nimport time\n\napp = FastAPI(title=\"ML Model Server\", version=\"1.0.0\")\nmodel = None\nmodel_version = \"v1.0.0\"\n\nPREDICTION_COUNT = Counter(\"predictions_total\", \"Total predictions\")\nPREDICTION_LATENCY = Histogram(\"prediction_latency_seconds\", \"Prediction latency\")\n\nclass PredictionRequest(BaseModel):\n    features: list[float]\n\nclass PredictionResponse(BaseModel):\n    prediction: float\n    probability: float\n    model_version: str\n    latency_ms: float\n\n@app.on_event(\"startup\")\nasync def load_model():\n    global model\n    model = load_model_from_registry()\n\n@app.get(\"/health\")\nasync def health():\n    return {\"status\": \"healthy\", \"model_version\": model_version}\n\n@app.post(\"/predict\", response_model=PredictionResponse)\nasync def predict(request: PredictionRequest):\n    start = time.time()\n    result = model.predict([request.features])\n    latency = (time.time() - start) * 1000\n    PREDICTION_COUNT.inc()\n    PREDICTION_LATENCY.observe(latency / 1000)\n    return PredictionResponse(\n        prediction=float(result[0]),\n        probability=float(result[1]),\n        model_version=model_version,\n        latency_ms=latency\n    )\n\n@app.get(\"/metrics\")\nasync def metrics():\n    return Response(generate_latest(), media_type=\"text/plain\")"
+  },
+  {
+    "topic": "mlops",
+    "type": "example",
+    "title": "Docker Compose for ML Stack with MLflow, Redis, Prometheus, and Grafana",
+    "description": "Docker Compose configuration for a complete ML serving stack with model server, feature store, monitoring, and model registry.",
+    "tags": ["docker-compose", "ml-stack", "serving", "monitoring"],
+    "difficulty": "intermediate",
+    "code": "services:\n  model-server:\n    build: ./model-server\n    ports: [\"127.0.0.1:8000:8000\"]\n    environment:\n      MLFLOW_TRACKING_URI: http://mlflow:5000\n      FEAST_ONLINE_URL: redis://redis:6379\n    healthcheck:\n      test: [\"CMD\", \"curl\", \"-sf\", \"http://127.0.0.1:8000/health\"]\n      interval: 30s\n    deploy:\n      resources:\n        reservations:\n          devices:\n            - driver: nvidia\n              count: all\n              capabilities: [gpu]\n\n  mlflow:\n    image: ghcr.io/mlflow/mlflow:v2.22.0\n    ports: [\"127.0.0.1:5000:5000\"]\n    environment:\n      MLFLOW_BACKEND_STORE_URI: postgresql://mlflow:mlflow@db:5432/mlflow\n\n  redis:\n    image: redis:7-alpine\n    ports: [\"127.0.0.1:6379:6379\"]\n\n  prometheus:\n    image: prom/prometheus\n    ports: [\"127.0.0.1:9090:9090\"]\n\n  grafana:\n    image: grafana/grafana\n    ports: [\"127.0.0.1:3000:3000\"]"
+  },
+  {
+    "topic": "mlops",
+    "type": "example",
+    "title": "GitHub Actions CI/CD for ML Models",
+    "description": "GitHub Actions workflow for automated ML model training, testing, validation, and Kubernetes deployment.",
+    "tags": ["github-actions", "ci-cd", "automation", "deployment"],
+    "difficulty": "intermediate",
+    "code": "name: ML Pipeline\non:\n  push:\n    paths: [\"model/**\", \"data/**\"]\n\njobs:\n  train-and-deploy:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - uses: actions/setup-python@v5\n        with: {python-version: \"3.12\"}\n      - run: pip install -r requirements.txt\n      - run: python train.py\n      - run: pytest tests/ -v\n      - run: python validate_model.py --threshold 0.95\n      - name: Deploy to staging\n        if: success()\n        run: |\n          docker build -t model-server:${{ github.sha }} .\n          docker push registry/model-server:${{ github.sha }}\n          kubectl set image deployment/model-server \\\n            model-server=registry/model-server:${{ github.sha }} \\\n            --namespace=staging"
+  },
+  {
+    "topic": "mlops",
+    "type": "example",
+    "title": "Data Drift Detection with Evidently",
+    "description": "Python code for detecting data and concept drift in production ML models using Evidently with PSI and KS test statistical methods.",
+    "tags": ["evidently", "drift-detection", "monitoring", "production"],
+    "difficulty": "intermediate",
+    "code": "from evidently import ColumnMapping\nfrom evidently.report import Report\nfrom evidently.metric_preset import DataDriftPreset, RegressionPreset\nimport pandas as pd\n\nreference_data = pd.read_parquet(\"data/train.parquet\")\ncurrent_data = pd.read_parquet(\"data/production_2026_05.parquet\")\n\ncolumn_mapping = ColumnMapping(\n    target=\"target\",\n    prediction=\"prediction\",\n    numerical_features=[\"age\", \"income\", \"score\"],\n    categorical_features=[\"category\", \"region\"]\n)\n\ndrift_report = Report(metrics=[\n    DataDriftPreset(),\n    RegressionPreset()\n])\ndrift_report.run(\n    reference_data=reference_data,\n    current_data=current_data,\n    column_mapping=column_mapping\n)\n\ndrift_result = drift_report.as_dict()\nif drift_result[\"data_drift\"][\"share\"] > 0.3:\n    print(\"WARNING: Data drift detected! Retraining recommended.\")\nelse:\n    print(\"No significant drift detected. Model is healthy.\")"
+  },
+  {
+    "topic": "mlops",
+    "type": "example",
+    "title": "A/B Testing with Consistent Hash-Based Routing",
+    "description": "Python implementation of hash-based A/B traffic splitting for ML models with deterministic user assignment and statistical significance testing.",
+    "tags": ["ab-testing", "routing", "statistics", "production"],
+    "difficulty": "advanced",
+    "code": "import hashlib\nimport numpy as np\nfrom scipy import stats\n\ndef get_variant(user_id: str, variants: dict[str, float]) -> str:\n    \"\"\"Deterministic hash-based variant assignment.\"\"\"\n    hash_val = int(hashlib.md5(user_id.encode()).hexdigest(), 16)\n    bucket = (hash_val % 10000) / 10000.0\n    cumulative = 0.0\n    for variant, weight in variants.items():\n        cumulative += weight\n        if bucket < cumulative:\n            return variant\n    return list(variants.keys())[-1]\n\ndef analyze_ab_test(\n    control: np.ndarray, treatment: np.ndarray, alpha: float = 0.05\n) -> dict:\n    \"\"\"Welch's t-test for A/B test significance.\"\"\"\n    t_stat, p_value = stats.ttest_ind(control, treatment, equal_var=False)\n    ci = stats.t.interval(\n        0.95,\n        df=len(control) + len(treatment) - 2,\n        loc=np.mean(treatment) - np.mean(control),\n        scale=stats.sem(treatment - control)\n    )\n    return {\n        \"significant\": p_value < alpha,\n        \"p_value\": p_value,\n        \"effect_size\": np.mean(treatment) - np.mean(control),\n        \"confidence_interval\": ci\n    }"
+  },
+  {
+    "topic": "mlops",
+    "type": "example",
+    "title": "GPU Scheduling with Kubernetes DRA",
+    "description": "Kubernetes manifest for GPU workload scheduling using Dynamic Resource Allocation with time-slicing and MIG partitioning for cost optimization.",
+    "tags": ["kubernetes", "gpu", "scheduling", "cost-optimization"],
+    "difficulty": "advanced",
+    "code": "apiVersion: resource.k8s.io/v1beta1\nkind: ResourceClaimTemplate\nmetadata:\n  name: gpu-claim-template\nspec:\n  spec:\n    devices:\n      requests:\n        - name: gpu\n          deviceClassName: nvidia.com/gpu\n          allocationMode: ExactCount\n          count: 1\n---\napiVersion: apps/v1\nkind: Deployment\nmetadata:\n  name: ml-training\nspec:\n  replicas: 2\n  selector:\n    matchLabels: {app: ml-training}\n  template:\n    metadata:\n      labels: {app: ml-training}\n    spec:\n      resourceClaims:\n        - name: gpu-claim\n          resourceClaimTemplateName: gpu-claim-template\n      containers:\n        - name: trainer\n          image: ml-training:v1\n          resources:\n            claims:\n              - name: gpu-claim\n          env:\n            - name: NVIDIA_VISIBLE_DEVICES\n              value: \"all\"\n          volumeMounts:\n            - name: model-output\n              mountPath: /output\n      volumes:\n        - name: model-output\n          persistentVolumeClaim:\n            claimName: model-pvc"
+  },
+  {
+    "topic": "mlops",
+    "type": "tool",
+    "title": "MLflow",
+    "description": "Open-source platform for the complete ML lifecycle: experiment tracking, model registry, model serving, AI Gateway for LLMs, prompt management, tracing, and genai evaluation. Version 3.x adds LLM judge scorers and budget alerts.",
+    "url": "https://mlflow.org/",
+    "tags": ["mlflow", "experiment-tracking", "model-registry", "genai", "serving"],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "mlops",
+    "type": "tool",
+    "title": "Kubeflow",
+    "description": "Kubernetes-native ML platform for managing ML workflows: pipelines (KFP v2), training operators, hyperparameter tuning (Katib), model serving (KServe), and notebook servers. Best for teams already on Kubernetes.",
+    "url": "https://www.kubeflow.org/",
+    "tags": ["kubeflow", "kubernetes", "pipelines", "training", "serving"],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "mlops",
+    "type": "tool",
+    "title": "Weights & Biases (W&B)",
+    "description": "Experiment tracking, dataset versioning, hyperparameter sweeps, model evaluation, and collaborative dashboards. W&B Weave adds LLM observability with tracing and structured evaluation.",
+    "url": "https://wandb.ai/",
+    "tags": ["wandb", "experiment-tracking", "sweeps", "llm-observability"],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "mlops",
+    "type": "tool",
+    "title": "Evidently",
+    "description": "Open-source ML monitoring and LLM observability with 100+ built-in metrics for data drift, data quality, model performance, embeddings drift, and text descriptors. Integrates with Prometheus, Grafana, and MLflow.",
+    "url": "https://www.evidentlyai.com/",
+    "tags": ["evidently", "drift", "monitoring", "llm-observability", "data-quality"],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "mlops",
+    "type": "tool",
+    "title": "Feast",
+    "description": "Open-source feature store for ML: online serving (Redis/DynamoDB) for real-time inference, offline computing (BigQuery/Snowflake) for training. Prevents training-serving skew. Kubernetes-native deployment with RBAC and HPA.",
+    "url": "https://feast.dev/",
+    "tags": ["feast", "feature-store", "online-serving", "offline-computing"],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "mlops",
+    "type": "tool",
+    "title": "BentoML",
+    "description": "Production-grade Python framework for building and deploying AI/ML model inference APIs. Handles adaptive batching, multi-model composition, GPU scheduling, and auto-generates Docker images. Supports LLM serving via vLLM.",
+    "url": "https://bentoml.com/",
+    "tags": ["bentoml", "serving", "containerization", "llm", "deployment"],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "mlops",
+    "type": "tool",
+    "title": "DVC (Data Version Control)",
+    "description": "Git-like version control for data and ML models. Tracks data files, models, and metrics alongside code. Enables reproducible experiments, data pipelines (dvc.yaml), and collaboration via DVC Studio.",
+    "url": "https://dvc.org/",
+    "tags": ["dvc", "version-control", "data", "reproducibility", "pipelines"],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "mlops",
+    "type": "tool",
+    "title": "KitOps",
+    "description": "CNCF Sandbox tool for packaging, versioning, and sharing AI/ML models as OCI artifacts (ModelKit format). Tamper-proof with SHA-256 digests, signable with Cosign, compatible with all major OCI registries. Integrates with MLflow, KServe, and Kubeflow.",
+    "url": "https://kitops.ml/",
+    "tags": ["kitops", "model-packaging", "oci", "supply-chain", "cncf"],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "mlops",
+    "type": "tool",
+    "title": "KServe",
+    "description": "Kubernetes-native model serving with first-class LLM support (v0.15+). Provides canary deployments, autoscaling (KEDA), scale-to-zero, GPU time-slicing, and multi-framework inference (vLLM, Triton, MLServer). Standard inference protocol V2.",
+    "url": "https://kserve.github.io/",
+    "tags": ["kserve", "kubernetes", "serving", "canary", "autoscaling"],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "mlops",
+    "type": "pattern",
+    "title": "Shadow Deployment Pattern",
+    "description": "Deploy a new model version alongside the production model. Route real traffic to the production model but also send copies to the shadow model. Compare outputs without affecting users. Promote when shadow model meets SLOs.",
+    "tags": ["shadow-deployment", "canary", "safe-deployment", "testing"],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "mlops",
+    "type": "pattern",
+    "title": "Feature Store Pattern",
+    "description": "Centralize feature computation and serving. Train on offline features (batch), serve from online store (low-latency). Prevents training-serving skew by using the same feature definitions for both. Feast is the canonical open-source implementation.",
+    "tags": ["feature-store", "training-serving-skew", "online-offline", "feast"],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "mlops",
+    "type": "pattern",
+    "title": "Canary Deployment Pattern",
+    "description": "Route a small percentage (1-5%) of production traffic to a new model version. Monitor metrics (latency, accuracy, error rate). Gradually increase traffic if metrics are good. Rollback instantly if issues detected. KServe provides native canary support.",
+    "tags": ["canary", "deployment", "monitoring", "rollback"],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "mlops",
+    "type": "pattern",
+    "title": "Model Registry Pattern",
+    "description": "Centralize model versioning, metadata, and lifecycle management. Track model versions, stages (staging/production/archived), and lineage. MLflow Model Registry is the standard open-source implementation with GenAI prompt registry in v3+.",
+    "tags": ["model-registry", "versioning", "lifecycle", "mlflow"],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "mlops",
+    "type": "pattern",
+    "title": "Data Pipeline Pattern (Medallion Architecture)",
+    "description": "Organize data in three layers: Bronze (raw ingestion), Silver (cleaned, deduplicated), Gold (feature-engineered, ready for ML). Enables incremental processing and clear data lineage. Standard pattern with Great Expectations validation at each boundary.",
+    "tags": ["medallion", "bronze-silver-gold", "data-pipeline", "lineage"],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "mlops",
+    "type": "pattern",
+    "title": "Infrastructure as Code for ML Platforms",
+    "description": "Manage ML infrastructure (GPU clusters, feature stores, model serving endpoints) with Terraform or Pulumi. Define environments as code for reproducible, auditable deployments. Use Policy-as-Code (OPA) for cost governance and security compliance before apply.",
+    "tags": ["iac", "terraform", "pulumi", "gpu", "policy-as-code"],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "mlops",
+    "type": "pattern",
+    "title": "GPU Cost Optimization Pattern",
+    "description": "Reduce GPU costs through MIG partitioning (7 isolated instances per A100), time-slicing for dev/test, gang scheduling (Volcano) for distributed training, and autoscaling (KEDA) for inference. Use OpenCost for GPU cost attribution and HAMi for GPU virtualization.",
+    "tags": ["gpu", "cost-optimization", "mig", "autoscaling", "scheduling"],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "mlops",
+    "type": "tutorial",
+    "title": "MLflow GenAI Tutorial Series",
+    "description": "12 step-by-step notebooks covering MLflow 3 GenAI: experiment tracking, tracing, prompt management, framework integrations (OpenAI, LangChain, LlamaIndex), agent evaluation, prompt optimization (GEPA), RAG, and multi-agent patterns.",
+    "url": "https://github.com/dmatrix/mlflow-genai-tutorials",
+    "tags": ["mlflow", "genai", "tracing", "evaluation", "tutorial"],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "mlops",
+    "type": "tutorial",
+    "title": "MLflow Official Quickstart",
+    "description": "Official quickstart for MLflow: install, track experiments, register models, and serve models with the MLflow tracking server. Covers both classical ML and GenAI workflows.",
+    "url": "https://mlflow.org/docs/latest/quickstart.html",
+    "tags": ["mlflow", "quickstart", "experiment-tracking", "serving"],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "mlops",
+    "type": "tutorial",
+    "title": "Kubeflow Pipelines V2 on Kubernetes",
+    "description": "End-to-end tutorial for building ML pipelines with Kubeflow Pipelines V2 SDK: typed Input/Output artifacts, data validation with Great Expectations, multi-model training, conditional execution, and KServe model deployment.",
+    "url": "https://oneuptime.com/blog/post/2026-02-09-kubeflow-pipelines-v2-kubernetes/view",
+    "tags": ["kubeflow", "pipelines", "kubernetes", "kserve"],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "mlops",
+    "type": "tutorial",
+    "title": "DVC Getting Started Guide",
+    "description": "Official DVC tutorial covering data versioning, pipeline definitions (dvc.yaml), experiment tracking with DVCLive, and collaboration with Git and DVC remote storage.",
+    "url": "https://dvc.org/doc/start",
+    "tags": ["dvc", "version-control", "pipeline", "collaboration"],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "mlops",
+    "type": "tutorial",
+    "title": "Canary Model Rollouts with KServe and Prometheus",
+    "description": "End-to-end tutorial for canary deployments with KServe traffic splitting, Prometheus alert rules for error rate and latency, automated progressive traffic shifting (5-10-25-50-75-100%), and rollback based on metric thresholds.",
+    "url": "https://oneuptime.com/blog/post/2026-02-09-canary-model-rollouts-kserve/view",
+    "tags": ["canary", "kserve", "prometheus", "progressive-delivery"],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "mlops",
+    "type": "tutorial",
+    "title": "ML Model Serving with BentoML and Kubernetes",
+    "description": "Comprehensive guide for packaging ML models with BentoML, auto-generating Docker images, deploying to Kubernetes with HPA autoscaling, and serving LLMs via vLLM with GPU acceleration.",
+    "url": "https://www.youngju.dev/blog/ai-platform/2026-03-03-bentoml-model-serving-guide.en",
+    "tags": ["bentoml", "kubernetes", "serving", "docker", "llm"],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "mlops",
+    "type": "tutorial",
+    "title": "IaC Patterns for ML Platforms (Terraform)",
+    "description": "6 major infrastructure-as-code patterns for ML: platform modules, blue-green infrastructure deployment, canary infrastructure with weighted DNS, self-destructing GPU experiments, OPA policy-as-code, and GPU quota management.",
+    "url": "https://engineersofai.com/docs/mlops/infrastructure-as-code/IaC-Patterns-for-ML-Platforms",
+    "tags": ["terraform", "iac", "gpu", "policy-as-code", "platform-engineering"],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "mlops",
+    "type": "book",
+    "title": "Machine Learning in Production (Christian Kastner)",
+    "description": "Practical 616-page textbook from CMU covering the full ML system lifecycle: requirements, design, quality assurance, operations, and responsible AI. Based on the popular CMU 17-645 course. Released under Creative Commons license.",
+    "url": "https://mlip-cmu.github.io/book/",
+    "tags": ["book", "production", "system-design", "responsible-ai", "textbook"],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "mlops",
+    "type": "book",
+    "title": "Machine Learning Platform Engineering (Manning)",
+    "description": "Shows how to build an internal developer platform for ML and AI systems. Covers Kubeflow, MLflow, BentoML, Evidently, Feast, and LangChain for end-to-end MLOps/LLMOps platform setup.",
+    "url": "https://www.manning.com/books/machine-learning-platform-engineering",
+    "tags": ["book", "platform-engineering", "kubeflow", "mlflow", "llmops"],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "mlops",
+    "type": "book",
+    "title": "Machine Learning Engineering on AWS (2nd Edition)",
+    "description": "Practical guide to building production-ready ML systems on AWS with Amazon Bedrock, next-gen SageMaker, RAG-powered GenAI, LLMOps workflows, AI agents, model deployment, monitoring, cost optimization, and security compliance.",
+    "url": "https://www.packtpub.com/en-us/product/machine-learning-engineering-on-aws-9781835881095",
+    "tags": ["book", "aws", "sagemaker", "bedrock", "llmops"],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "mlops",
+    "type": "book",
+    "title": "Designing Machine Learning Systems (Chip Huyen)",
+    "description": "The canonical MLOps reference covering ML system design, data management, feature engineering, model evaluation, deployment patterns, monitoring, and continuous learning. Accompanied by a curated MLOps tools list on GitHub.",
+    "url": "https://www.oreilly.com/library/view/designing-machine-learning/9781098107956/",
+    "tags": ["book", "system-design", "deployment", "monitoring", "continuous-learning"],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "mlops",
+    "type": "book",
+    "title": "AI Engineering (Chip Huyen)",
+    "description": "2025 follow-up to Designing ML Systems, focused on building applications with foundation models. Covers the AI landscape, LLM evaluation, prompt engineering, RAG, fine-tuning, and efficient deployment of GenAI systems.",
+    "url": "https://huyenchip.com/books/",
+    "tags": ["book", "ai-engineering", "foundation-models", "llmops", "evaluation"],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "mlops",
+    "type": "book",
+    "title": "Machine Learning Engineering in Action (Ben Wilson)",
+    "description": "Hands-on guide to ML engineering patterns: feature stores, CI/CD for ML, model testing, deployment strategies, and monitoring. Written by MLflow maintainers with production-tested patterns.",
+    "url": "https://www.manning.com/books/machine-learning-engineering-in-action",
+    "tags": ["book", "mlops", "feature-stores", "ci-cd", "testing"],
+    "difficulty": "advanced"
+  }
 ]
