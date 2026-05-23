@@ -942,7 +942,7 @@
   },
   {
     "topic": "agents",
-    "type": "example",
+    "type": "pattern",
     "title": "LangGraph AI Assistant Tutorial: 7-Module Structured Course",
     "description": "A structured 7-module GitHub tutorial repository covering LangGraph basics, chatbot with StateGraph, tools with @tool decorator and ToolNode, memory with checkpointers, advanced patterns (HITL, multi-agent, retries), production (streaming, rate limiting, observability), and a complete agent with Streamlit UI and FastAPI.",
     "url": "https://github.com/girijesh-ai/langgraph-ai-assistant-tutorial",
@@ -1017,7 +1017,7 @@
   },
   {
     "topic": "agents",
-    "type": "example",
+    "type": "pattern",
     "title": "All Agentic Architectures: 17+ Implementations with LangGraph and CrewAI",
     "description": "Implementation of 17+ agentic architecture patterns including ReAct, Plan-and-Execute, LATS, Reflexion, Multi-Agent Supervisor, Multi-Agent Swarm, Multi-Agent Graph, and more. Each pattern is a runnable implementation using LangGraph and/or CrewAI, designed for practical use across different domains.",
     "url": "https://github.com/FareedKhan-dev/all-agentic-architectures",
@@ -1032,7 +1032,7 @@
   },
   {
     "topic": "agents",
-    "type": "example",
+    "type": "pattern",
     "title": "Agentic RAG for Dummies: Modular LangGraph Implementation",
     "description": "A modular agentic RAG system built with LangGraph that teaches retrieval-augmented generation from the ground up. Covers adaptive retrieval, iterative evidence gathering, and self-correcting generation patterns in an accessible tutorial format.",
     "url": "https://github.com/GiovanniPasq/agentic-rag-for-dummies",
@@ -1061,7 +1061,7 @@
   },
   {
     "topic": "agents",
-    "type": "example",
+    "type": "pattern",
     "title": "AutoGen Tutorial: Async Programming, Multi-Agent Teams, and Human-in-the-Loop",
     "description": "Hands-on GitHub tutorial covering async programming, single agents, tool integration, multi-agent teams with RoundRobinGroupChat, and human-in-the-loop workflows. Uses autogen-agentchat and autogen-ext[openai] packages with Tavily and OpenWeather tool integrations.",
     "url": "https://github.com/alfredang/autogen_tutorial",
@@ -1195,7 +1195,7 @@
   },
   {
     "topic": "agents",
-    "type": "example",
+    "type": "pattern",
     "title": "Google Gemini Fullstack LangGraph Quickstart",
     "description": "Official Google quickstart for building fullstack agents with Gemini 2.5 and LangGraph. Includes a complete starter project with agent graph, streaming, and a web frontend, demonstrating production patterns for Gemini-powered agents.",
     "url": "https://github.com/google-gemini/gemini-fullstack-langgraph-quickstart",
@@ -1240,7 +1240,7 @@
   },
   {
     "topic": "agents",
-    "type": "example",
+    "type": "pattern",
     "title": "CrewAI Studio: GUI for Managing and Running CrewAI Agents",
     "description": "A user-friendly, multi-platform GUI for managing and running CrewAI agents and tasks. Provides visual workflow configuration, agent monitoring, and real-time execution tracking without writing code.",
     "url": "https://github.com/strnad/CrewAI-Studio",
@@ -1254,7 +1254,7 @@
   },
   {
     "topic": "agents",
-    "type": "example",
+    "type": "pattern",
     "title": "Full-Stack AI Agent Template: FastAPI + Next.js with CrewAI Agents and RAG",
     "description": "Production-ready full-stack template combining FastAPI backend with Next.js frontend, featuring CrewAI agents, RAG integration, streaming responses, and a complete deployment pipeline. Serves as a starter for building agent-powered web applications.",
     "url": "https://github.com/vstorm-co/full-stack-ai-agent-template",
