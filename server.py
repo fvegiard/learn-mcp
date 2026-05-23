@@ -9,7 +9,6 @@ from __future__ import annotations
 
 import json
 import os
-import httpx
 from mcp.server.fastmcp import FastMCP
 
 mcp = FastMCP("learn", host="0.0.0.0", port=8001)

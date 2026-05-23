@@ -1,0 +1,850 @@
+[
+  {
+    "topic": "autonomous-agents",
+    "type": "tutorial",
+    "title": "LangGraph ReAct Agent Tutorial (v1.0 API)",
+    "description": "Official LangGraph tutorial for building a ReAct agent from scratch using the stable v1.0 API. Covers StateGraph, MessagesState, ToolNode, conditional edges, checkpointing with MemorySaver, and the create_react_agent shortcut. Includes migration guide from deprecated v0.1 patterns.",
+    "url": "https://dev.to/agentsindex/langgraph-tutorial-build-a-working-react-agent-with-the-v10-api-3bc1",
+    "tags": [
+      "langgraph",
+      "react",
+      "agent-loop",
+      "tool-calling",
+      "state-graph",
+      "python"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "example",
+    "title": "ReAct Agent from Scratch with LangGraph",
+    "description": "Complete working Python example building a ReAct (Reasoning + Acting) agent using LangGraph's StateGraph. Demonstrates the core autonomous agent loop: think about what to do, invoke a tool, observe the result, and decide whether to continue or finish.",
+    "url": "https://langchain-ai-langgraph-40.mintlify.app/tutorials/react-agent",
+    "tags": [
+      "langgraph",
+      "react",
+      "agent-loop",
+      "tool-calling",
+      "python",
+      "from-scratch"
+    ],
+    "difficulty": "intermediate",
+    "code": "from typing import Annotated, Sequence, TypedDict\nfrom langchain_core.messages import BaseMessage, SystemMessage\nfrom langgraph.graph import StateGraph, START, END, add_messages\nfrom langgraph.prebuilt import ToolNode\nfrom langchain_openai import ChatOpenAI\nfrom langchain_core.tools import tool\n\nMAX_ITERATIONS = 10\n\n@tool\ndef search_wikipedia(query: str) -> str:\n    \"\"\"Search Wikipedia for information.\"\"\"\n    return f\"Wikipedia results for: {query}\"\n\n@tool\ndef calculate_math(expression: str) -> str:\n    \"\"\"Evaluate a math expression.\"\"\"\n    try:\n        return str(eval(expression))\n    except Exception as e:\n        return f\"Error: {e}\"\n\ntools = [search_wikipedia, calculate_math]\n\nclass ReactState(TypedDict):\n    messages: Annotated[Sequence[BaseMessage], add_messages]\n    iterations: int\n\nREACT_PROMPT = \"\"\"You are a ReAct agent. Think step by step.\nWhen you need information, use search_wikipedia.\nWhen you need to calculate, use calculate_math.\nIf you have enough information to answer, respond directly.\"\"\"\n\nmodel = ChatOpenAI(model=\"gpt-4o-mini\", temperature=0)\nmodel_with_tools = model.bind_tools(tools)\n\ndef agent_node(state: ReactState) -> dict:\n    messages = [SystemMessage(content=REACT_PROMPT), *state[\"messages\"]]\n    response = model_with_tools.invoke(messages)\n    return {\"messages\": [response], \"iterations\": state.get(\"iterations\", 0) + 1}\n\ntool_node = ToolNode(tools)\n\ndef should_continue(state: ReactState) -> str:\n    if state.get(\"iterations\", 0) >= MAX_ITERATIONS:\n        return \"end\"\n    if state[\"messages\"][-1].tool_calls:\n        return \"continue\"\n    return \"end\"\n\ngraph = StateGraph(ReactState)\ngraph.add_node(\"agent\", agent_node)\ngraph.add_node(\"tools\", tool_node)\ngraph.add_edge(START, \"agent\")\ngraph.add_conditional_edges(\"agent\", should_continue, {\"continue\": \"tools\", \"end\": END})\ngraph.add_edge(\"tools\", \"agent\")\napp = graph.compile()\n\nresult = app.invoke({\"messages\": [\"What is the population of France times 3?\"], \"iterations\": 0})\nprint(result[\"messages\"][-1].content)"
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "example",
+    "title": "Self-Correcting Agent Loop with Verification Step",
+    "description": "A minimal Python implementation of the plan-execute-verify-retry pattern. The agent generates a solution, runs verification checks, and autonomously retries with error context if verification fails. Demonstrates the core self-correction loop used in autonomous coding agents.",
+    "url": "https://www.dailydoseofds.com/ai-agents-crash-course-part-10-with-implementation/#self-correcting",
+    "tags": [
+      "self-correcting",
+      "verification",
+      "retry-loop",
+      "autonomous",
+      "python"
+    ],
+    "difficulty": "intermediate",
+    "code": "import json\nfrom openai import OpenAI\n\nclient = OpenAI()\n\ndef execute_code(code: str, inputs: dict) -> dict:\n    \"\"\"Execute Python code and return results.\"\"\"\n    try:\n        local_vars = {\"inputs\": inputs}\n        exec(code, {}, local_vars)\n        return {\"success\": True, \"output\": local_vars.get(\"result\", None)}\n    except Exception as e:\n        return {\"success\": False, \"error\": str(e), \"error_type\": type(e).__name__}\n\ndef verify_solution(code: str, test_cases: list) -> dict:\n    \"\"\"Run test cases against generated code.\"\"\"\n    results = []\n    for tc in test_cases:\n        result = execute_code(code, tc[\"inputs\"])\n        passed = result[\"success\"] and result[\"output\"] == tc[\"expected\"]\n        results.append({\"test\": tc[\"name\"], \"passed\": passed, **result})\n    return {\"all_passed\": all(r[\"passed\"] for r in results), \"results\": results}\n\ndef self_correcting_agent(problem: str, test_cases: list, max_retries: int = 3) -> str:\n    \"\"\"Autonomous agent with plan-execute-verify-retry loop.\"\"\"\n    messages = [{\"role\": \"user\", \"content\": f\"Write Python code to solve: {problem}\"}]\n\n    for attempt in range(max_retries):\n        print(f\"\\n--- Attempt {attempt + 1} ---\")\n\n        # 1. PLAN + EXECUTE: Generate solution\n        response = client.chat.completions.create(\n            model=\"gpt-4o-mini\",\n            messages=messages,\n            response_format={\"type\": \"json_object\"}\n        )\n        code = json.loads(response.choices[0].message.content)[\"code\"]\n\n        # 2. VERIFY: Run test cases\n        verification = verify_solution(code, test_cases)\n\n        if verification[\"all_passed\"]:\n            print(\"All tests passed!\")\n            return code\n\n        # 3. RETRY: Feed errors back as context\n        failed = [r for r in verification[\"results\"] if not r[\"passed\"]]\n        error_msg = f\"Code failed these tests:\\n{json.dumps(failed, indent=2)}\\nFix the code.\"\n        messages.append({\"role\": \"assistant\", \"content\": code})\n        messages.append({\"role\": \"user\", \"content\": error_msg})\n        print(f\"Tests failed, retrying with error context...\")\n\n    print(\"Max retries reached.\")\n    return code\n\n# Example usage\ntests = [\n    {\"name\": \"even\", \"inputs\": {\"n\": 4}, \"expected\": True},\n    {\"name\": \"odd\", \"inputs\": {\"n\": 7}, \"expected\": False},\n]\nsolution = self_correcting_agent(\"Check if a number is even\", tests)\nprint(f\"Final solution:\\n{solution}\")"
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "workflow",
+    "title": "Plan-Execute-Verify-Retry Self-Correction Loop",
+    "description": "The foundational pattern for autonomous agents that self-correct. The agent plans a solution, executes it, verifies the result against success criteria, and if verification fails, retries with the error context. This loop continues until success or a max-iteration limit is reached.",
+    "url": "https://arxiv.org/html/2503.07693v1#plan-execute-verify",
+    "tags": [
+      "self-correcting",
+      "verification",
+      "retry",
+      "autonomous-loop",
+      "plan-execute"
+    ],
+    "difficulty": "beginner",
+    "workflow": [
+      "Define the task goal and success criteria (test cases, assertions, acceptance conditions)",
+      "Agent generates a candidate solution (code, plan, document, etc.)",
+      "Execute the candidate solution in a sandboxed environment",
+      "Run verification checks against the success criteria",
+      "If verification passes, return the solution as final output",
+      "If verification fails, extract error details (stack traces, diff from expected output, failed assertions)",
+      "Feed the error context back to the agent as a new message including the original solution and error details",
+      "Agent generates a revised solution incorporating the error feedback",
+      "Repeat from step 3 until success or max_retries is reached",
+      "If max retries exhausted, return best-attempt solution with failure report"
+    ]
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "workflow",
+    "title": "Autonomous Code Generation with Multi-Agent Debugging (SEIDR Pattern)",
+    "description": "The SEIDR (Synthesize, Execute, Instruct, Debug, Repair) pattern uses multiple specialized agents that collaborate in an iterative loop. A synthesis agent generates code, an execution agent runs it, an instruction agent analyzes failures, and a debug-repair agent fixes them. This hierarchical escalation handles increasingly complex failures.",
+    "url": "https://arxiv.org/html/2503.07693v1#SEIDR",
+    "tags": [
+      "multi-agent",
+      "code-generation",
+      "self-debugging",
+      "hierarchical",
+      "SEIDR"
+    ],
+    "difficulty": "advanced",
+    "workflow": [
+      "Receive problem specification and test suite",
+      "Synthesis agent generates initial code solution",
+      "Execution agent runs code against test cases in sandboxed environment",
+      "If all tests pass, return solution immediately",
+      "If tests fail, collect error traces and failed test details",
+      "Instruction agent analyzes errors and generates targeted debug instructions",
+      "Debug agent attempts repair: if error is simple (typo, off-by-one), apply targeted fix",
+      "If debug agent cannot fix, escalate to repair agent: regenerate the problematic function or module entirely",
+      "Re-run tests on the repaired code",
+      "Track repair-replace trade-off: if targeted fix fails more than twice, switch to regeneration strategy",
+      "Repeat from step 3 for up to max_iterations",
+      "Return best solution found across all attempts"
+    ]
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "pattern",
+    "title": "ReAct: Reasoning and Acting in Language Models",
+    "description": "The ReAct pattern interleaves reasoning (Chain-of-Thought) with action (tool use) in an iterative loop. The agent thinks about what to do, selects a tool, observes the result, and reasons again. This is the foundational pattern for most modern autonomous agents including LangGraph, CrewAI, and Claude Code.",
+    "url": "https://tutorialq.com/ai/dl-applications/react-pattern",
+    "tags": [
+      "react",
+      "reasoning",
+      "tool-calling",
+      "agent-loop",
+      "foundational-pattern"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "pattern",
+    "title": "Tree-of-Thought: Deliberate Problem Solving with LLMs",
+    "description": "Tree-of-Thought (ToT) extends Chain-of-Thought by exploring multiple reasoning paths as a tree. At each step, the agent generates several candidate thoughts, evaluates them, and pursues the most promising branches. This enables backtracking when a reasoning path hits a dead end, making it effective for complex planning and creative problem-solving.",
+    "url": "https://callsphere.ai/blog/agent-reasoning-planning-chain-of-thought-react-tree-of-thought-2026.md#tree-of-thought",
+    "tags": [
+      "tree-of-thought",
+      "reasoning",
+      "planning",
+      "backtracking",
+      "deliberate-search"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "pattern",
+    "title": "Reflexion: Learning from Verbal Feedback in Autonomous Agents",
+    "description": "Reflexion adds self-evaluation and verbal reinforcement to the agent loop. After each attempt, the agent receives evaluative feedback, stores a reflexion in memory, and uses that memory to improve on the next attempt. Unlike simple retry, Reflexion accumulates specific verbal critique that guides future reasoning.",
+    "url": "https://docs.reactiveagents.dev/guides/reasoning/#reflexion",
+    "tags": [
+      "reflexion",
+      "self-evaluation",
+      "verbal-feedback",
+      "learning-from-failure",
+      "autonomous"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "tutorial",
+    "title": "LangGraph: Build Stateful AI Agents in Python (Real Python)",
+    "description": "Full-length Real Python tutorial building an email processing agent for a real estate company. Covers StateGraph with TypedDict-based custom state, conditional edges for routing (escalation vs. no-escalation), cycles for follow-up question loops, and building an autonomous agent using MessagesState, ToolNode, and ChatOpenAI.bind_tools().",
+    "url": "https://realpython.com/langgraph-python/",
+    "tags": [
+      "langgraph",
+      "stateful-agent",
+      "email-agent",
+      "conditional-edges",
+      "tutorial"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "tutorial",
+    "title": "CrewAI Quickstart: Build Your First Crew with Flows",
+    "description": "Official CrewAI quickstart guide for building autonomous agent crews using the 2025 Flows pattern. Covers environment setup, CLI scaffolding, YAML-based agent/task configuration, tool integration, and execution. Flows provide event-driven orchestration with @start and @listen decorators.",
+    "url": "https://docs.crewai.com/en/quickstart#quickstart",
+    "tags": [
+      "crewai",
+      "flows",
+      "multi-agent",
+      "orchestration",
+      "tutorial"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "example",
+    "title": "CrewAI Autonomous Crew for Code Generation and Review",
+    "description": "Working CrewAI example implementing a three-agent sequential crew: a Senior Software Engineer writes code, a QA Engineer reviews for bugs, and a Chief QA Engineer provides final validation. Demonstrates CrewAI's Process.sequential for ordered agent execution and the @agent, @task, @crew decorator pattern.",
+    "url": "https://workos.com/blog/how-to-build-a-game-building-agent-system-with-crewai",
+    "tags": [
+      "crewai",
+      "code-generation",
+      "multi-agent",
+      "sequential-process",
+      "python"
+    ],
+    "difficulty": "intermediate",
+    "code": "from crewai import Agent, Crew, Process, Task\nfrom crewai.project import CrewBase, agent, crew, task\n\n@CrewBase\nclass CodeReviewCrew:\n    agents_config = 'config/agents.yaml'\n    tasks_config = 'config/tasks.yaml'\n\n    @agent\n    def senior_engineer(self) -> Agent:\n        return Agent(\n            config=self.agents_config['senior_engineer'],\n            allow_delegation=False,\n            verbose=True\n        )\n\n    @agent\n    def qa_engineer(self) -> Agent:\n        return Agent(\n            config=self.agents_config['qa_engineer'],\n            allow_delegation=False,\n            verbose=True\n        )\n\n    @agent\n    def chief_qa(self) -> Agent:\n        return Agent(\n            config=self.agents_config['chief_qa'],\n            allow_delegation=True,\n            verbose=True\n        )\n\n    @task\n    def write_code(self) -> Task:\n        return Task(\n            config=self.tasks_config['write_code'],\n            agent=self.senior_engineer()\n        )\n\n    @task\n    def review_code(self) -> Task:\n        return Task(\n            config=self.tasks_config['review_code'],\n            agent=self.qa_engineer()\n        )\n\n    @task\n    def final_validation(self) -> Task:\n        return Task(\n            config=self.tasks_config['final_validation'],\n            agent=self.chief_qa()\n        )\n\n    @crew\n    def crew(self) -> Crew:\n        return Crew(\n            agents=self.agents,\n            tasks=self.tasks,\n            process=Process.sequential,\n            verbose=True\n        )\n\n# Run the crew\nresult = CodeReviewCrew().crew().kickoff(\n    inputs={'task': 'Build a Python function that validates email addresses'}\n)\nprint(result)"
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "pattern",
+    "title": "CrewAI Flows: Event-Driven Agent Orchestration",
+    "description": "CrewAI Flows provide precise, event-driven orchestration for production autonomous systems. Unlike Crews (which let agents self-organize), Flows use @start and @listen decorators to define explicit execution order, conditional routing with @router, and state management. This pattern is recommended for production deployments where deterministic control flow is needed.",
+    "url": "https://docs.crewai.com/en/quickstart#flows",
+    "tags": [
+      "crewai",
+      "flows",
+      "event-driven",
+      "orchestration",
+      "production"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "tutorial",
+    "title": "Agent Reasoning and Planning: CoT, ReAct, and ToT Patterns (CallSphere)",
+    "description": "Comprehensive guide comparing Chain-of-Thought, ReAct, and Tree-of-Thought patterns with full Python implementations. Includes a HybridAgent that routes between patterns based on problem complexity, comparison tables of latency/cost/tradeoffs, and best practices for verification passes and search strategies.",
+    "url": "https://callsphere.ai/blog/agent-reasoning-planning-chain-of-thought-react-tree-of-thought-2026.md#comparison",
+    "tags": [
+      "chain-of-thought",
+      "react",
+      "tree-of-thought",
+      "reasoning",
+      "hybrid-agent",
+      "comparison"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "tutorial",
+    "title": "LangChain Two-Agent Debate with Tools",
+    "description": "LangChain OpenTutorial demonstrating a two-agent debate with integrated tools (document search and web search). Uses DialogueAgent, DialogueSimulator, and DialogueAgentWithTools classes. A Moderator agent centrally manages speaking turns in a round-robin fashion. Each agent uses RAG and Tavily search to support their arguments.",
+    "url": "https://langchain-opentutorial.gitbook.io/langchain-opentutorial/15-agent/10-twoagentdebatewithtools",
+    "tags": [
+      "multi-agent",
+      "debate",
+      "tool-calling",
+      "langchain",
+      "moderator-pattern"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "workflow",
+    "title": "CrewAI Debate Pattern: Optimist vs Pessimist vs Realist",
+    "description": "A multi-agent debate orchestration pattern using CrewAI where four agents (Optimist, Pessimist, Realist, Synthesizer) argue different perspectives on a topic. The Optimist argues for benefits, the Pessimist identifies risks, the Realist provides balance, and the Synthesizer produces a final integrated analysis. Uses Process.sequential for ordered execution.",
+    "url": "https://threepointformula.wordpress.com/2025/11/04/agentic-orchestration-pattern-debate-pattern-crewai/",
+    "tags": [
+      "crewai",
+      "debate-pattern",
+      "multi-agent",
+      "synthesis",
+      "orchestration"
+    ],
+    "difficulty": "intermediate",
+    "workflow": [
+      "Define the topic or question to debate",
+      "Optimist agent generates arguments highlighting benefits and opportunities",
+      "Pessimist agent reviews the optimist's output and identifies risks, downsides, and failure modes",
+      "Realist agent reads both perspectives and provides a balanced analysis weighing evidence",
+      "Synthesizer agent integrates all three perspectives into a cohesive final recommendation",
+      "If confidence is below threshold, loop back for another round with the previous synthesis as context",
+      "Return final synthesis as the output"
+    ]
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "tutorial",
+    "title": "LangChain Multi-Agent Research Assistant (7-Agent Team)",
+    "description": "LangChain blog tutorial building a multi-agent research assistant with a 7-agent team: Chief Editor, GPT Researcher, Editor, Reviewer, Reviser, Writer, Publisher. Demonstrates sub-graphs within graphs to solve race conditions from parallel execution, and uses the STORM paper pattern for multi-step research workflows.",
+    "url": "https://www.langchain.com/blog/how-to-build-the-ultimate-ai-automation-with-multi-agent-collaboration#7-agent-team",
+    "tags": [
+      "multi-agent",
+      "langgraph",
+      "research-assistant",
+      "sub-graph",
+      "STORM"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "pattern",
+    "title": "Six Agent Workflow Patterns (Union AI / Flyte)",
+    "description": "A comprehensive taxonomy of six agent workflow patterns: Planner (known decomposition, maximize speed), ReAct (exploration, unknown steps), Reflection (high quality single outputs), Debate (accuracy through consensus), Sequential (predictable workflows), and Manager-Worker (quality control, complex projects). Each pattern includes Jupyter notebooks and best-use-case guidance.",
+    "url": "https://github.com/unionai/workshops/tree/main/tutorials/multi-agent-workflows",
+    "tags": [
+      "workflow-patterns",
+      "planner",
+      "react",
+      "reflection",
+      "debate",
+      "manager-worker",
+      "taxonomy"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "example",
+    "title": "Autonomous Research Agent with Adaptive Query Refinement",
+    "description": "A LangGraph research agent that searches the web, evaluates results, and loops until it has enough information. Implements adaptive query refinement where queries get smarter on each iteration based on analysis of previous results. Includes a max_iterations safety limit and InMemoryStore for cross-session long-term memory.",
+    "url": "https://dev.to/jangwook_kim_e31e7291ad98/build-your-first-ai-agent-with-langgraph-step-by-step-python-tutorial-2026-56cb",
+    "tags": [
+      "langgraph",
+      "research-agent",
+      "adaptive-queries",
+      "loop",
+      "memory",
+      "python"
+    ],
+    "difficulty": "intermediate",
+    "code": "from typing import TypedDict, Annotated\nfrom langgraph.graph import StateGraph, START, END\nfrom langgraph.graph.message import add_messages\nfrom langchain_openai import ChatOpenAI\nfrom langchain_community.tools.tavily_search import TavilySearchResults\n\nMAX_ITERATIONS = 5\n\nclass ResearchState(TypedDict):\n    research_topic: str\n    search_queries: list\n    sources: list\n    analysis: str\n    iteration: int\n    sufficient: bool\n\ntool = TavilySearchResults(max_results=3)\nmodel = ChatOpenAI(model=\"gpt-4o-mini\", temperature=0)\n\ndef generate_queries(state: ResearchState) -> dict:\n    \"\"\"Generate refined search queries based on current analysis.\"\"\"\n    prompt = f\"Topic: {state['research_topic']}\\n\"\n    if state.get('analysis'):\n        prompt += f\"Current analysis: {state['analysis']}\\n\"\n        prompt += \"Generate 2 refined queries to fill information gaps.\"\n    else:\n        prompt += \"Generate 3 initial search queries.\"\n    response = model.invoke(prompt)\n    queries = [line.strip('- ') for line in response.content.split('\\n') if line.strip().startswith('-')]\n    return {\"search_queries\": queries[:3], \"iteration\": state.get(\"iteration\", 0) + 1}\n\ndef search_web(state: ResearchState) -> dict:\n    \"\"\"Execute search queries and collect sources.\"\"\"\n    all_sources = []\n    for query in state[\"search_queries\"]:\n        results = tool.invoke(query)\n        all_sources.extend(results)\n    return {\"sources\": state.get(\"sources\", []) + all_sources}\n\ndef analyze_results(state: ResearchState) -> dict:\n    \"\"\"Analyze sources and determine if more research is needed.\"\"\"\n    prompt = f\"Analyze these sources on '{state['research_topic']}':\\n{state['sources'][-6:]}\"\n    response = model.invoke(prompt)\n    sufficient = state[\"iteration\"] >= 2 or len(state.get(\"sources\", [])) >= 5\n    return {\"analysis\": response.content, \"sufficient\": sufficient}\n\ndef should_continue(state: ResearchState) -> str:\n    if state.get(\"sufficient\", False) or state[\"iteration\"] >= MAX_ITERATIONS:\n        return \"write_report\"\n    return \"search\"\n\ngraph = StateGraph(ResearchState)\ngraph.add_node(\"generate_queries\", generate_queries)\ngraph.add_node(\"search_web\", search_web)\ngraph.add_node(\"analyze_results\", analyze_results)\ngraph.add_edge(START, \"generate_queries\")\ngraph.add_edge(\"generate_queries\", \"search_web\")\ngraph.add_edge(\"search_web\", \"analyze_results\")\ngraph.add_conditional_edges(\"analyze_results\", should_continue,\n    {\"search\": \"generate_queries\", \"write_report\": END})\napp = graph.compile()\n\nresult = app.invoke({\"research_topic\": \"autonomous AI agents 2025\", \"iteration\": 0})\nprint(result[\"analysis\"])"
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "tutorial",
+    "title": "Claude Code Worktrees: Parallel Agents Without Conflicts",
+    "description": "Official documentation for running multiple Claude Code agents in parallel using git worktrees. Each worktree gets its own branch, files, and working directory, preventing file conflicts. Covers the --worktree flag, subagent isolation with worktrees, the three-terminal pattern for independent parallel work, and auto-cleanup of unchanged worktrees.",
+    "url": "https://code.claude.com/docs/en/worktrees",
+    "tags": [
+      "claude-code",
+      "worktrees",
+      "parallel-agents",
+      "git-isolation",
+      "file-conflicts"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "tutorial",
+    "title": "Claude Code: Run Agents in Parallel",
+    "description": "Official guide to four parallel execution methods in Claude Code: Subagents (side tasks in own context), Agent View (monitor independent tasks from one screen), Agent Teams (experimental multi-agent coordination with shared task lists and inter-agent messaging), and /batch (mechanical repo-wide changes split into worktree-isolated PRs).",
+    "url": "https://code.claude.com/docs/en/agents.md#parallel",
+    "tags": [
+      "claude-code",
+      "parallel-agents",
+      "agent-teams",
+      "batch-mode",
+      "coordination"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "workflow",
+    "title": "Claude Code Parallel Agent Team Workflow",
+    "description": "Experimental multi-agent coordination pattern where a lead agent plans and assigns tasks to teammates. Each teammate has its own context window and can be interacted with directly. Teammates communicate via SendMessage tool using agent IDs. Enabled via CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1. Combines with worktree isolation for file-level conflict prevention.",
+    "url": "https://code.claude.com/docs/en/agents.md#agent-teams",
+    "tags": [
+      "claude-code",
+      "agent-teams",
+      "lead-agent",
+      "task-assignment",
+      "parallel"
+    ],
+    "difficulty": "advanced",
+    "workflow": [
+      "Enable agent teams: set CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1",
+      "Lead agent receives the task and creates a plan",
+      "Lead agent breaks the plan into subtasks and assigns each to a teammate",
+      "Each teammate works in its own context window with isolated state",
+      "Teammates can send messages to each other via SendMessage tool using agent IDs",
+      "For file-editing tasks, use worktree isolation (isolation: worktree in agent frontmatter) to prevent conflicts",
+      "Lead agent monitors progress and reassigns tasks if a teammate is stuck",
+      "When all subtasks complete, lead agent synthesizes results",
+      "Auto-cleanup: worktrees with no changes are removed automatically; dirty worktrees prompt before removal"
+    ]
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "pattern",
+    "title": "Claude Code Three-Terminal Parallel Pattern",
+    "description": "A practical pattern for running multiple autonomous Claude Code agents simultaneously in separate terminals. Each agent gets its own worktree via the --worktree flag, enabling truly independent parallel work on overlapping files. Limitations: worktrees isolate files but not shared resources like databases, ports, or .env files.",
+    "url": "https://refactix.com/ai-development-engineering/claude-code-worktrees-parallel-agents",
+    "tags": [
+      "claude-code",
+      "worktrees",
+      "parallel-execution",
+      "three-terminal",
+      "isolation"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "tutorial",
+    "title": "AutoGPT: Creating and Deploying Autonomous AI Agents Locally (DataCamp)",
+    "description": "DataCamp guide covering AutoGPT setup, agent creation, and deployment. Includes the 2025 platform approach with SmartDecisionMakerBlock agent mode for autonomous tool execution with iteration limits, dry-run verification loops, and error recovery patterns.",
+    "url": "https://www.datacamp.com/tutorial/autogpt-guide",
+    "tags": [
+      "autogpt",
+      "agent-mode",
+      "tool-execution",
+      "dry-run",
+      "self-correction"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "pattern",
+    "title": "MIRIX: Six-Component Modular Memory for LLM Agents",
+    "description": "MIRIX proposes a six-component memory architecture: Core Memory (persistent user info), Episodic Memory (time-stamped events), Semantic Memory (abstract knowledge), Procedural Memory (task instructions), Resource Memory (documents/files), and Knowledge Vault (sensitive data). Uses multi-agent management with Active Retrieval that automatically generates topics without explicit user prompts. Achieves 35% accuracy improvement over RAG baselines.",
+    "url": "https://arxiv.org/html/2507.07957v1",
+    "tags": [
+      "memory-system",
+      "episodic",
+      "semantic",
+      "procedural",
+      "MIRIX",
+      "multi-agent-memory"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "pattern",
+    "title": "Procedural Memory for LLM Agents: Build, Retrieve, and Update Strategies",
+    "description": "Research on procedural memory as a first-class optimization target for agents. Identifies three build strategies (Trajectory: raw traces, Script: abstracted procedures, Proceduralization: combined), three retrieval strategies (Random, Query-based, AveFact), and three update strategies (Vanilla, Validation: only successful traces, Adjustment: reflexion-based correction). Key finding: procedural memory from stronger models transfers to weaker models (+5% accuracy, -1.6 steps).",
+    "url": "https://arxiv.org/pdf/2508.06433",
+    "tags": [
+      "procedural-memory",
+      "memory-transfer",
+      "reflexion",
+      "build-retrieve-update",
+      "cross-model"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "pattern",
+    "title": "PISA: Psych-Inspired Unified Memory with Schema Evolution",
+    "description": "PISA grounds agent memory in Piaget's schema theory with assimilation (update existing schemas) and accommodation (create new schemas). Uses a hierarchical Schema Engine (Pool > Bucket > Schema > Element-Value) with tri-modal adaptation. Combines symbolic SQL reasoning with neural RAG retrieval. Achieves SOTA on LOCOMO and the new AggQA benchmark for data analysis tasks.",
+    "url": "https://www.arxiv.org/pdf/2510.15966",
+    "tags": [
+      "memory-system",
+      "piaget",
+      "schema-theory",
+      "assimilation",
+      "accommodation",
+      "hybrid-retrieval"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "pattern",
+    "title": "GEAR: Graph-Enhanced Agent for Multi-Hop RAG",
+    "description": "GEAR combines graph-based retrieval (SyncGE) with a multi-step agent framework for multi-hop QA. Uses Diverse Triple Beam Search to expand from initial triples through a knowledge graph, maintaining beam diversity to improve recall. Implements Gist Memory that accumulates proximal triples across iterations, modeling hippocampal-neocortex synergy. Achieves SOTA on MuSiQue, HotpotQA, and 2WikiMultihopQA with fewer LLM tokens.",
+    "url": "https://aclanthology.org/2025.findings-acl.624.pdf",
+    "tags": [
+      "agentic-rag",
+      "multi-hop",
+      "knowledge-graph",
+      "beam-search",
+      "gist-memory"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "pattern",
+    "title": "PRISM: Precision-Recall Iterative Selection for Agentic RAG",
+    "description": "PRISM is a three-agent agentic RAG framework: a Question Analyzer decomposes complex queries, a Selector removes distractors (precision-focused), and an Adder recovers missing evidence (recall-focused). The Selector-Adder loop iteratively refines the evidence set. Model-agnostic: works with GPT-4o, Gemini-2.5-Flash-Lite, and DeepSeek. Outperforms IRCoT, RankZephyr, and SETR on multi-hop benchmarks.",
+    "url": "https://arxiv.org/pdf/2510.14278",
+    "tags": [
+      "agentic-rag",
+      "multi-hop",
+      "precision-recall",
+      "question-decomposition",
+      "iterative-refinement"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "pattern",
+    "title": "FAIR-RAG: Faithful Adaptive Iterative Refinement RAG",
+    "description": "FAIR-RAG introduces a Structured Evidence Assessment module that deconstructs queries into a checklist of required findings, audits evidence to identify confirmed facts and explicit gaps, and generates targeted sub-queries for the next iteration. Features Adaptive Routing (by complexity) and Adaptive LLM Allocation (assigning different-sized models to different tasks). Achieves new SOTA for iterative RAG on HotpotQA, 2WikiMultihopQA, and MuSiQue.",
+    "url": "https://arxiv.org/pdf/2509.01238#FAIR-RAG",
+    "tags": [
+      "agentic-rag",
+      "iterative-refinement",
+      "evidence-assessment",
+      "adaptive-routing",
+      "SOTA"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "pattern",
+    "title": "HopRAG: Multi-Hop Reasoning for Logic-Aware Retrieval",
+    "description": "HopRAG constructs a passage graph where pseudo-queries serve as directed edges connecting logically related passages. Retrieval follows a retrieve-reason-prune paradigm: start from similar passages, hop through the graph guided by LLM reasoning, then prune using a Helpfulness metric combining similarity and logical importance. Achieves approximately 36% higher answer accuracy and 21% higher retrieval F1 vs. conventional retrievers.",
+    "url": "https://aclanthology.org/2025.findings-acl.97.pdf",
+    "tags": [
+      "agentic-rag",
+      "multi-hop",
+      "passage-graph",
+      "pseudo-queries",
+      "pruning"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "workflow",
+    "title": "Agentic RAG: Iterative Retrieval with Gap Analysis",
+    "description": "The iterative retrieval pattern for RAG agents that reason about what they know and don't know. The agent decomposes a query into sub-questions, retrieves evidence for each, identifies gaps in the evidence, generates targeted sub-queries to fill those gaps, and iterates until the evidence set is sufficient or a max-iteration limit is reached.",
+    "url": "https://arxiv.org/pdf/2509.01238#agentic-rag-workflow",
+    "tags": [
+      "agentic-rag",
+      "iterative-retrieval",
+      "gap-analysis",
+      "multi-hop",
+      "sub-queries"
+    ],
+    "difficulty": "intermediate",
+    "workflow": [
+      "Receive query and decompose into sub-questions",
+      "For each sub-question, retrieve candidate evidence from knowledge sources",
+      "Assess evidence quality: identify confirmed facts and explicit information gaps",
+      "Generate targeted sub-queries to fill identified gaps",
+      "Retrieve additional evidence using the targeted sub-queries",
+      "Re-assess evidence completeness: are all sub-questions adequately answered?",
+      "If gaps remain and iterations < max_iterations, go back to step 4",
+      "If evidence is sufficient or max_iterations reached, synthesize final answer",
+      "Include citations for each confirmed fact in the final output"
+    ]
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "pattern",
+    "title": "AnchorRAG: Multi-Agent Open-World KG-RAG",
+    "description": "AnchorRAG addresses open-world settings where anchor entities are not predefined. Uses three agents: a Predictor identifies candidate anchor entities via semantic matching and context-aware disambiguation, multiple parallel Retriever Agents explore from different candidates via iterative multi-hop KG traversal, and a Supervisor aggregates evidence and decides sufficiency. Only 2.7-5.1% accuracy drop in open-world vs. 6-23.4% for prior methods.",
+    "url": "https://arxiv.org/pdf/2510.22344",
+    "tags": [
+      "agentic-rag",
+      "open-world",
+      "multi-agent",
+      "knowledge-graph",
+      "entity-linking"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "tool",
+    "title": "SurfAgent: Lightweight Browser Automation API for AI Agents",
+    "description": "A lightweight npm package that connects to local Chrome via CDP and exposes an HTTP API for AI agents. Implements a Recon-Act-Read workflow: /recon maps the page structure, /click, /fill, /read, /navigate, /scroll perform actions, /eval runs JavaScript. Works with any agent framework. 20-60ms per API call vs. 2-5s for vision-based approaches.",
+    "url": "https://github.com/AllAboutAI-YT/surfagent",
+    "tags": [
+      "browser-automation",
+      "CDP",
+      "tool-use",
+      "fast-api",
+      "agent-tool"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "tutorial",
+    "title": "LangChain Browser Automation Agents (nadimtuhin)",
+    "description": "Comprehensive tutorial on building production-ready browser agents using LangGraph + Playwright. Covers the ReAct loop for browser automation, DynamicStructuredTool with Zod schemas for typed function calling, streaming step tracking, cost analysis ($23/month for 2000 tasks with GPT-4o-mini), and advanced patterns like task templates, error recovery, and step validation with audit logging.",
+    "url": "https://nadimtuhin.com/blog/langchain-browser-automation",
+    "tags": [
+      "browser-automation",
+      "langgraph",
+      "playwright",
+      "production",
+      "cost-analysis"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "pattern",
+    "title": "CODESIM: Simulation-Driven Multi-Agent Code Generation and Debugging",
+    "description": "CODESIM uses a three-agent framework (Planning, Coding, Debugging) where simulation verifies plans before coding begins. The Planning agent generates a solution plan and mentally simulates its execution to catch logical flaws. Only verified plans proceed to the Coding agent. The Debugging agent uses step-by-step simulation to trace errors. Achieves 95.1% pass@1 on HumanEval with GPT-4o.",
+    "url": "https://aclanthology.org/2025.findings-naacl.285.pdf",
+    "tags": [
+      "code-generation",
+      "multi-agent",
+      "simulation",
+      "planning",
+      "debugging",
+      "CODESIM"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "book",
+    "title": "SRE for AI Agent Systems: Observability, Incident Response, and Operational Patterns",
+    "description": "Comprehensive guide applying Site Reliability Engineering to autonomous AI agents. Introduces judgment SLOs (decision quality metrics), token budget management as both cost control and reliability signal, graceful degradation hierarchies (retry, fallback model, queue, explicit decline), model fallback chains, human-in-the-loop thresholds (80-95% by risk domain), and OpenTelemetry GenAI semantic conventions for agent telemetry.",
+    "url": "https://zylos.ai/research/2026-03-22-sre-ai-agent-systems-observability-incident-response#overview",
+    "tags": [
+      "production",
+      "SRE",
+      "monitoring",
+      "cost-control",
+      "graceful-degradation",
+      "observability"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "pattern",
+    "title": "Sovereign-OS: Charter-Governed Autonomous Agents with Fiscal Discipline",
+    "description": "A governance-first OS for autonomous agents with YAML-based constitutional schemas defining mission scope and fiscal boundaries. Features a CFO/Treasury layer with three fiscal checks (balance, daily burn cap, job profitability floor at 35% margin), Earned-Autonomy TrustScore (start at 50, gain +5 on success, lose -15 on failure), and auction-based worker selection by confidence, cost, priority, and trust.",
+    "url": "https://arxiv.org/abs/2603.14011v1",
+    "tags": [
+      "governance",
+      "fiscal-discipline",
+      "trust-score",
+      "auction-selection",
+      "production"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "pattern",
+    "title": "VIGIL: Reflective Runtime for Self-Healing LLM Agents",
+    "description": "VIGIL runs a second out-of-band agent that watches the task agent and performs maintenance rather than task execution. Features an EmoBank (affective memory with decay and coalescing policies) to detect soft failures invisible to traditional monitoring, Roses/Buds/Thorns diagnosis, and stage-gated pipeline (start, eb_updated, diagnosed, prompt_done, diff_done) with illegal transition detection. Demonstrated self-healing of its own diagnostic pipeline.",
+    "url": "https://arxiv.org/html/2512.07094v1",
+    "tags": [
+      "self-healing",
+      "monitoring",
+      "reflective-runtime",
+      "affective-memory",
+      "stage-gated"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "pattern",
+    "title": "HASHIRU: Hierarchical Multi-Agent System with Economic Budget Management",
+    "description": "HASHIRU implements a CEO-Employee hierarchy with dynamic hiring and firing of specialized agents. Features an economic model with transaction costs (starting bonus for hiring, salary for invocation, expense for external APIs) that discourages excessive agent churn. Prioritizes smaller local LLMs (3B-7B via Ollama) and escalates to larger models only when justified. Refuses external API use when budget is exceeded.",
+    "url": "https://arxiv.org/pdf/2506.04255",
+    "tags": [
+      "hierarchical",
+      "economic-model",
+      "budget-management",
+      "local-LLM",
+      "dynamic-hiring"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "example",
+    "title": "Production Agent with Token Budget Tracking and Model Fallback",
+    "description": "A practical Python implementation of a production autonomous agent that tracks token consumption per task, enforces budget limits, and falls back to cheaper models when approaching limits. Includes OpenTelemetry-compatible metrics emission and a graceful degradation chain for LLM provider failures.",
+    "url": "https://zylos.ai/research/2026-03-22-sre-ai-agent-systems-observability-incident-response#degradation-code",
+    "tags": [
+      "production",
+      "token-budget",
+      "model-fallback",
+      "graceful-degradation",
+      "monitoring",
+      "python"
+    ],
+    "difficulty": "advanced",
+    "code": "import time\nimport logging\nfrom dataclasses import dataclass, field\nfrom typing import Optional\nfrom openai import OpenAI\n\nlogger = logging.getLogger(\"agent\")\n\n@dataclass\nclass TokenBudget:\n    \"\"\"Track and enforce token spending across tasks.\"\"\"\n    total_budget: int = 1_000_000\n    daily_budget: int = 100_000\n    task_budget: int = 10_000\n    spent: int = 0\n    daily_spent: int = 0\n    task_spent: int = 0\n\n    def check_and_record(self, tokens: int, task_id: str) -> bool:\n        \"\"\"Check if spending is within budget; record if allowed.\"\"\"\n        if self.spent + tokens > self.total_budget:\n            logger.error(f\"Total budget exceeded: {self.spent}/{self.total_budget}\")\n            return False\n        if self.daily_spent + tokens > self.daily_budget:\n            logger.warning(f\"Daily budget limit: {self.daily_spent}/{self.daily_budget}\")\n            return False\n        if self.task_spent + tokens > self.task_budget:\n            logger.warning(f\"Task budget exceeded for {task_id}\")\n            return False\n        self.spent += tokens\n        self.daily_spent += tokens\n        self.task_spent += tokens\n        return True\n\n    def reset_daily(self):\n        self.daily_spent = 0\n\n    def reset_task(self):\n        self.task_spent = 0\n\n@dataclass\nclass ModelTier:\n    model: str\n    max_tokens: int\n    cost_per_1k: float\n    client: OpenAI\n\nclass ProductionAgent:\n    \"\"\"Autonomous agent with budget tracking, fallback, and degradation.\"\"\"\n    def __init__(self, budget: TokenBudget):\n        self.budget = budget\n        self.models = [\n            ModelTier(\"gpt-4o\", 4096, 0.005, OpenAI()),\n            ModelTier(\"gpt-4o-mini\", 4096, 0.00015, OpenAI()),\n            ModelTier(\"gpt-3.5-turbo\", 2048, 0.0005, OpenAI()),\n        ]\n        self.metrics = {\"requests\": 0, \"fallbacks\": 0, \"budget_refusals\": 0}\n\n    def run(self, prompt: str, task_id: str = \"default\") -> Optional[str]:\n        self.budget.reset_task()\n        for tier in self.models:\n            try:\n                start = time.time()\n                response = tier.client.chat.completions.create(\n                    model=tier.model,\n                    messages=[{\"role\": \"user\", \"content\": prompt}],\n                    max_tokens=tier.max_tokens\n                )\n                tokens = response.usage.total_tokens\n                if not self.budget.check_and_record(tokens, task_id):\n                    self.metrics[\"budget_refusals\"] += 1\n                    continue\n                self.metrics[\"requests\"] += 1\n                logger.info(f\"{tier.model}: {tokens} tokens, {time.time()-start:.2f}s\")\n                return response.choices[0].message.content\n            except Exception as e:\n                logger.warning(f\"{tier.model} failed: {e}\")\n                self.metrics[\"fallbacks\"] += 1\n                continue\n        logger.error(\"All models failed or budget exceeded\")\n        return None\n\n# Usage\nbudget = TokenBudget(total_budget=500_000, daily_budget=50_000, task_budget=5_000)\nagent = ProductionAgent(budget)\nresult = agent.run(\"Explain autonomous AI agents in 3 sentences\", task_id=\"explain-v1\")\nprint(result)\nprint(f\"Metrics: {agent.metrics}\")\nprint(f\"Budget used: {budget.spent}/{budget.total_budget}\")"
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "workflow",
+    "title": "Osprey Plan-First Architecture for Safety-Critical Agent Systems",
+    "description": "The Osprey pattern used at Lawrence Berkeley National Laboratory for managing particle accelerators. The agent generates a complete execution plan with explicit dependencies before any action. Operators review, modify, or reject plans. Capability classification prevents prompt inflation. Multi-layer safety includes pattern detection, PV boundary checking, and separate read-only vs. write-enabled containers. Failures trigger structured retries or re-planning.",
+    "url": "https://arxiv.org/html/2508.15066",
+    "tags": [
+      "production",
+      "safety-critical",
+      "plan-first",
+      "review-gate",
+      "container-isolation"
+    ],
+    "difficulty": "advanced",
+    "workflow": [
+      "Agent receives task specification and available capabilities",
+      "Agent generates a complete execution plan with explicit dependencies and expected outcomes",
+      "Plan is submitted for human review and approval (review gate)",
+      "Operator reviews, modifies, or rejects the plan; if rejected, agent revises",
+      "Upon approval, agent executes the plan step by step in order of dependencies",
+      "Each action is executed in the appropriate container (read-only for observations, write-enabled for modifications)",
+      "If an action fails: structured retry with exponential backoff for transient errors",
+      "If retry fails or error is non-transient: re-plan from the failure point with the error context",
+      "All actions, outcomes, and errors are logged for audit trail",
+      "Plan completion is verified against original success criteria"
+    ]
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "pattern",
+    "title": "Cogito: Reverse-Sequence Learning for Code Agents (Debug-Code-Plan)",
+    "description": "Cogito takes a reverse learning sequence (Debug, then Code, then Plan) inspired by how humans learn: observation before practice before mastery. Features a hippocampus-like memory module with CA1-CA4 and DG regions storing different experience types. Reduces token consumption by up to 66% and API calls by 70% compared to MapCoder, with 12.2% average improvement across benchmarks.",
+    "url": "https://arxiv.org/pdf/2501.18653",
+    "tags": [
+      "code-generation",
+      "reverse-learning",
+      "hippocampal-memory",
+      "token-reduction",
+      "debug-first"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "tool",
+    "title": "LangGraph Official ReAct Agent Template",
+    "description": "The official LangGraph ReAct agent template repository (728+ stars). Designed for LangGraph Studio with Claude Sonnet as the default model and Tavily as the default search tool. Core logic in src/react_agent/graph.py. Easily customizable tools, prompts, and models. MIT Licensed.",
+    "url": "https://github.com/langchain-ai/react-agent",
+    "tags": [
+      "langgraph",
+      "react-agent",
+      "template",
+      "claude-sonnet",
+      "tavily"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "workflow",
+    "title": "Multi-Agent Research Workflow (STORM Pattern)",
+    "description": "The STORM multi-step research workflow used by LangChain's 7-agent research assistant. A Chief Editor coordinates: GPT Researcher gathers sources, Editor reviews, Reviewer evaluates quality, Reviser improves based on feedback, Writer composes, Publisher formats. Sub-graphs handle the reviewer-reviser cycle to prevent race conditions in parallel execution.",
+    "url": "https://www.langchain.com/blog/how-to-build-the-ultimate-ai-automation-with-multi-agent-collaboration#STORM-workflow",
+    "tags": [
+      "multi-agent",
+      "research",
+      "STORM",
+      "sub-graph",
+      "reviewer-reviser",
+      "workflow"
+    ],
+    "difficulty": "advanced",
+    "workflow": [
+      "Chief Editor receives research topic and creates outline with section assignments",
+      "GPT Researcher agent gathers relevant sources for each section using web search tools",
+      "Editor agent reviews gathered sources for relevance, credibility, and completeness",
+      "Reviewer agent evaluates the quality of each section draft against editorial standards",
+      "If reviewer rejects a section: Reviser agent improves it based on reviewer feedback (sub-graph loop)",
+      "If reviewer accepts: section moves to Writer agent for final composition",
+      "Writer agent composes the full research report integrating all accepted sections",
+      "Publisher agent formats the report for the target output (markdown, PDF, etc.)",
+      "Chief Editor performs final quality check against the original research brief"
+    ]
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "pattern",
+    "title": "Plan-Execute-Reflect: Structured Multi-Step Agent Reasoning",
+    "description": "The Plan-Execute-Reflect pattern separates the agent's workflow into three distinct phases: first planning a structured JSON plan of subtasks, then executing each subtask, and finally reflecting on the results to identify gaps or errors. Uses structured JSON plan engines, SQLite persistence for plan state, cross-step data interpolation, and novelty-based dynamic stopping when new results add less than 20% new information.",
+    "url": "https://docs.reactiveagents.dev/guides/reasoning/#plan-execute-reflect",
+    "tags": [
+      "plan-execute-reflect",
+      "structured-planning",
+      "reflection",
+      "dynamic-stopping",
+      "JSON-plan"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "example",
+    "title": "Self-Correcting Code Agent with Hierarchical Debugging Escalation",
+    "description": "A Python implementation of the UniDebugger-inspired hierarchical debugging pattern. Simple bugs are fixed at level 1 (Locator+Fixer), complex bugs escalate to level 2 (adds Slicer+Summarizer for context), and cross-file bugs escalate to level 3 (adds Helper for web search). Each level adds more specialized agents and context to handle increasingly complex failures.",
+    "url": "https://aclanthology.org/2025.emnlp-main.921.pdf",
+    "tags": [
+      "self-debugging",
+      "hierarchical-escalation",
+      "multi-agent",
+      "code-fixing",
+      "python"
+    ],
+    "difficulty": "advanced",
+    "code": "from openai import OpenAI\nfrom typing import Optional\nimport subprocess\n\nclient = OpenAI()\n\ndef run_code(code: str, test: str) -> dict:\n    \"\"\"Execute code against a test and return results.\"\"\"\n    try:\n        result = subprocess.run(\n            [\"python\", \"-c\", code + \"\\n\" + test],\n            capture_output=True, text=True, timeout=10\n        )\n        return {\"success\": result.returncode == 0, \"stdout\": result.stdout,\n                \"stderr\": result.stderr, \"returncode\": result.returncode}\n    except subprocess.TimeoutExpired:\n        return {\"success\": False, \"stderr\": \"Timeout: infinite loop?\"}\n\ndef locate_bug(code: str, error: str) -> str:\n    \"\"\"L1: Simple bug location.\"\"\"\n    resp = client.chat.completions.create(\n        model=\"gpt-4o-mini\", messages=[\n            {\"role\": \"system\", \"content\": \"Locate the bug. Return only the line number.\"},\n            {\"role\": \"user\", \"content\": f\"Code:\\n{code}\\n\\nError:\\n{error}\"}\n        ])\n    return resp.choices[0].message.content\n\ndef fix_bug(code: str, bug_location: str, error: str) -> str:\n    \"\"\"L1: Simple bug fix.\"\"\"\n    resp = client.chat.completions.create(\n        model=\"gpt-4o-mini\", messages=[\n            {\"role\": \"system\", \"content\": \"Fix the bug at the indicated location. Return ONLY the fixed code.\"},\n            {\"role\": \"user\", \"content\": f\"Code:\\n{code}\\nBug at: {bug_location}\\nError: {error}\"}\n        ])\n    return resp.choices[0].message.content\n\ndef get_context(code: str, error: str) -> str:\n    \"\"\"L2: Slice relevant code and summarize context.\"\"\"\n    resp = client.chat.completions.create(\n        model=\"gpt-4o\", messages=[\n            {\"role\": \"system\", \"content\": \"Analyze the code to provide debugging context. \"\n         \"Identify related functions, data flow, and potential cross-dependencies.\"},\n            {\"role\": \"user\", \"content\": f\"Code:\\n{code}\\nError: {error}\"}\n        ])\n    return resp.choices[0].message.content\n\ndef hierarchical_debug(code: str, test: str, max_levels: int = 3) -> str:\n    \"\"\"Hierarchical debugging with escalation.\"\"\"\n    current_code = code\n    for level in range(1, max_levels + 1):\n        result = run_code(current_code, test)\n        if result[\"success\"]:\n            print(f\"Fixed at level {level}!\")\n            return current_code\n\n        error = result.get(\"stderr\", result.get(\"stdout\", \"Unknown error\"))\n        print(f\"Level {level} attempt. Error: {error[:100]}\")\n\n        if level == 1:\n            bug_loc = locate_bug(current_code, error)\n            current_code = fix_bug(current_code, bug_loc, error)\n        elif level == 2:\n            context = get_context(current_code, error)\n            bug_loc = locate_bug(current_code, f\"{error}\\nContext: {context}\")\n            current_code = fix_bug(current_code, bug_loc, f\"{error}\\nContext: {context}\")\n        elif level == 3:\n            resp = client.chat.completions.create(\n                model=\"gpt-4o\", messages=[\n                    {\"role\": \"system\", \"content\": \"This bug requires cross-file analysis. \"\n                 \"Rewrite the entire function considering all edge cases.\"},\n                    {\"role\": \"user\", \"content\": f\"Code:\\n{current_code}\\nError: {error}\\nPrevious attempts failed.\"}\n                ])\n            current_code = resp.choices[0].message.content\n\n    print(\"All levels exhausted.\")\n    return current_code\n\n# Usage\ncode = \"\"\"def fibonacci(n):\n    if n <= 0:\n        return []\n    elif n == 1:\n        return [0]\n    result = [0, 1]\n    for i in range(2, n):\n        result.append(result[i] + result[i-1])  # Bug: should be i-1 + i-2\n    return result\n\"\"\"\ntest = \"assert fibonacci(5) == [0, 1, 1, 2, 3]\"\nfixed = hierarchical_debug(code, test)\nprint(fixed)"
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "tutorial",
+    "title": "Weights & Biases: Building AI Agents with CrewAI",
+    "description": "Practical walkthrough building an AI News Research Agent with two agents using CrewAI: an AI News Researcher that finds news via SerperDevTool and an AI Story Investigator that produces 300-word analyses. Uses the inline Python format for simplicity and integrates Weave for debugging and observability of API calls.",
+    "url": "https://wandb.ai/byyoung3/Generative-AI/reports/Tutorial-Building-AI-agents-with-CrewAI--VmlldzoxMTUwNTA4Ng",
+    "tags": [
+      "crewai",
+      "news-agent",
+      "serper-dev",
+      "observability",
+      "wandb"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "tutorial",
+    "title": "Build an AI Agent with AutoGPT: Step-by-Step 2026 Guide",
+    "description": "Step-by-step guide for building autonomous AI agents with AutoGPT in 2026. Covers the SmartDecisionMakerBlock with agent mode (autonomous tool execution with iteration limits), the dry-run verification pattern, and error recovery where tool exceptions are caught and converted to error responses for the LLM to adapt its strategy.",
+    "url": "https://aiagentskit.com/blog/build-autogpt-agent-step-by-step/",
+    "tags": [
+      "autogpt",
+      "agent-mode",
+      "step-by-step",
+      "dry-run",
+      "verification"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "tutorial",
+    "title": "Implementing the ReAct Agentic Pattern from Scratch",
+    "description": "Daily Dose of DS tutorial implementing the ReAct pattern with both CrewAI and pure Python. Shows the Thought-Action-Observation cycle, the action protocol format for deterministic behavior, and compares high-level framework abstractions versus from-scratch implementation. Emphasizes that the action protocol format is what makes agent behavior traceable.",
+    "url": "https://www.dailydoseofds.com/ai-agents-crash-course-part-10-with-implementation/#react-pattern",
+    "tags": [
+      "react",
+      "from-scratch",
+      "crewai",
+      "action-protocol",
+      "implementation"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "pattern",
+    "title": "Democratic Multi-Agent Debate with Consensus Mechanisms",
+    "description": "A pattern for multi-agent debate where agents solve the same task independently, engage in multi-round debate critiquing each other, then reach consensus through unanimous agreement, majority vote, or a judge/synthesizer agent. Compares centralized (moderator-managed) vs. decentralized (self-coordinated) vs. framework-managed (LangGraph, Semantic Kernel GroupChat) orchestration approaches.",
+    "url": "https://medium.com/@edoardo.schepis/patterns-for-democratic-multi-agent-ai-debate-based-consensus-part-2-implementation-2348bf28f6a6",
+    "tags": [
+      "multi-agent",
+      "debate",
+      "consensus",
+      "orchestration",
+      "democratic"
+    ],
+    "difficulty": "intermediate"
+  }
+]

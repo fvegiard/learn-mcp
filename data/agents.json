@@ -1,0 +1,836 @@
+[
+  {
+    "topic": "agents",
+    "type": "tutorial",
+    "title": "Anthropic: Building Effective Agents",
+    "description": "Anthropic's foundational guide on agent patterns, distinguishing workflows (predefined code paths) from agents (LLM-directed processes). Covers prompt chaining, routing, parallelization, orchestrator-workers, and evaluator-optimizer patterns. Emphasizes starting simple and adding complexity only when measurably beneficial.",
+    "url": "https://www.anthropic.com/engineering/building-effective-agents",
+    "tags": [
+      "patterns",
+      "orchestration",
+      "anthropic",
+      "fundamentals",
+      "workflows"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "agents",
+    "type": "tutorial",
+    "title": "ReAct Pattern - Reasoning and Acting in Language Models",
+    "description": "Tutorial on the ReAct (Reason+Act) pattern where agents interleave thought, action, and observation steps in a loop. Explains why ReAct is the default agent pattern, its strengths (adaptive, grounded, debuggable), and weaknesses (linear token cost, myopic planning). Includes practical decision guidance for choosing between ReAct, Plan-and-Execute, ReWOO, and Reflexion.",
+    "url": "https://tutorialq.com/ai/dl-applications/react-pattern",
+    "tags": [
+      "react",
+      "fundamentals",
+      "planning",
+      "reasoning",
+      "patterns"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "agents",
+    "type": "pattern",
+    "title": "Four Single-Agent Patterns: ReAct, Plan-and-Execute, ReWOO, Reflexion",
+    "description": "Comparative analysis of the four dominant single-agent patterns. ReAct loops Thought-Action-Observation; Plan-and-Execute plans all steps upfront then executes with cheaper models; ReWOO uses only 2 LLM calls via placeholder substitution; Reflexion adds self-critique retries. Includes hybrid strategies used in production.",
+    "url": "https://theaiengineer.substack.com/p/the-4-single-agent-patterns",
+    "tags": [
+      "react",
+      "plan-execute",
+      "rewoo",
+      "reflexion",
+      "patterns",
+      "comparison"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "agents",
+    "type": "tutorial",
+    "title": "LangGraph Official: Human-in-the-Loop Quickstart",
+    "description": "Official LangGraph tutorial covering both Graph API (StateGraph with nodes and conditional edges) and Functional API (@task, @entrypoint decorators) for building HITL agents. Demonstrates the newer interrupt() function for pausing execution inside nodes, with Command(resume=...) for resuming. Requires a checkpointer for state persistence.",
+    "url": "https://langchain-ai.github.io/langgraph/tutorials/get-started/4-human-in-the-loop/",
+    "tags": [
+      "langgraph",
+      "hitl",
+      "state-machine",
+      "interrupt",
+      "checkpointing"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "agents",
+    "type": "tutorial",
+    "title": "LangGraph Human-in-the-Loop: Interrupt Patterns in Python",
+    "description": "Comprehensive guide to three HITL patterns in LangGraph: binary approve/reject, approve/edit/reject, and tool-level routing where safe tools auto-approve while sensitive tools require human review. Addresses the double-execution problem and recommends focused approval nodes. Production patterns use PostgresSaver or RedisSaver instead of MemorySaver.",
+    "url": "https://turion.ai/blog/langgraph-human-in-the-loop-interrupt-tutorial/",
+    "tags": [
+      "langgraph",
+      "hitl",
+      "interrupt",
+      "production",
+      "patterns"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "agents",
+    "type": "example",
+    "title": "LangGraph ReAct Agent: Build from Scratch",
+    "description": "In-depth walkthrough building a ReAct agent using LangGraph's StateGraph from first principles. Covers state definition with MessagesState, tool creation with @tool decorator, node functions, conditional routing with should_continue, and graph compilation. Compares manual construction against the create_react_agent() shortcut function.",
+    "url": "https://machinelearningplus.com/gen-ai/langgraph-react-agent-from-scratch/",
+    "tags": [
+      "langgraph",
+      "react",
+      "state-machine",
+      "code-example"
+    ],
+    "difficulty": "intermediate",
+    "code": "from langchain_openai import ChatOpenAI\nfrom langchain_core.tools import tool\nfrom langchain_core.messages import HumanMessage\nfrom langgraph.prebuilt import create_react_agent\n\n@tool\ndef get_weather(city: str) -> str:\n    \"\"\"Get the current weather for a city.\"\"\"\n    weather_data = {\"tokyo\": \"80F, Sunny\", \"london\": \"58F, Rainy\"}\n    return weather_data.get(city.lower(), f\"No data for {city}\")\n\n@tool\ndef add_numbers(a: int, b: int) -> str:\n    \"\"\"Add two numbers together.\"\"\"\n    return f\"Result: {a + b}\"\n\ntools = [get_weather, add_numbers]\nagent = create_react_agent(\n    model=\"openai:gpt-4o-mini\",\n    tools=tools,\n    prompt=\"You are a helpful assistant. Be concise.\"\n)\n\nresult = agent.invoke(\n    {\"messages\": [HumanMessage(content=\"What's the weather in Tokyo?\")]}\n)\nprint(result[\"messages\"][-1].content)"
+  },
+  {
+    "topic": "agents",
+    "type": "tutorial",
+    "title": "Building a Multi-Step AI Agent with LangGraph StateGraph and OpenAI",
+    "description": "Tutorial building a research assistant agent with multi-step StateGraph: plan_research, execute_search, summarize_results, answer_question. Demonstrates conditional routing via next_step state field, Tavily search tool integration, and advanced concepts including human-in-the-loop, error handling, memory, and self-reflect agent patterns.",
+    "url": "https://langchain-tutorials.github.io/langgraph-stategraph-multi-step-ai-agent/",
+    "tags": [
+      "langgraph",
+      "state-machine",
+      "multi-step",
+      "conditional-routing",
+      "research-agent"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "agents",
+    "type": "workflow",
+    "title": "LangGraph: Build a ReAct Agent with Human-in-the-Loop Approval",
+    "description": "End-to-end workflow for building a production LangGraph ReAct agent with interrupt-based human approval gates. Covers defining tools, building a StateGraph with agent and tool nodes, compiling with a checkpointer, interrupting before sensitive actions, inspecting and updating state, and resuming after human approval.",
+    "url": "https://machinelearningmastery.com/building-a-human-in-the-loop-approval-gate-for-autonomous-agents/",
+    "tags": [
+      "langgraph",
+      "react",
+      "hitl",
+      "approval-gate",
+      "state-machine"
+    ],
+    "difficulty": "intermediate",
+    "workflow": [
+      "Define tools using @tool decorator (safe tools like lookup_inventory and sensitive tools like send_notification)",
+      "Build a StateGraph with agent node (LLM call) and tools node (tool execution)",
+      "Add conditional routing: if the LLM calls a tool, route to tools node; if not, end",
+      "Compile the graph with MemorySaver checkpointer and interrupt_before on sensitive action nodes",
+      "Invoke the graph with initial user input; execution pauses before the sensitive node",
+      "Inspect state with app.get_state(config) to see the pending tool call",
+      "Optionally update state with app.update_state(config, {approved: True}) to approve",
+      "Resume execution with app.stream(None, config); the agent processes the approved action and continues"
+    ]
+  },
+  {
+    "topic": "agents",
+    "type": "tutorial",
+    "title": "CrewAI Official Documentation",
+    "description": "Comprehensive documentation for CrewAI covering agents (role, goal, backstory), crews (sequential and hierarchical processes), tasks (guardrails, structured output, context dependencies), and flows (event-driven orchestration with @start and @listen decorators). Includes YAML-based configuration, checkpointing, streaming, and async execution.",
+    "url": "https://docs.crewai.com/",
+    "tags": [
+      "crewai",
+      "agents",
+      "crews",
+      "tasks",
+      "documentation"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "agents",
+    "type": "tutorial",
+    "title": "CrewAI: Build Your First Crew",
+    "description": "Step-by-step guide to scaffolding a CrewAI project using the CLI. Covers project structure (config/, tools/, crew.py, main.py), YAML agent and task definitions with {topic} placeholders, @agent/@task/@crew decorators, and running with crewai run. Demonstrates sequential process with SerperDevTool for web search.",
+    "url": "https://blog.crewai.com/getting-started-with-crewai-build-your-first-crew/",
+    "tags": [
+      "crewai",
+      "beginner",
+      "scaffolding",
+      "yaml-config",
+      "sequential-process"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "agents",
+    "type": "example",
+    "title": "CrewAI: Build a Game-Building Agent System",
+    "description": "Complete tutorial building a Python game generator using three CrewAI agents in a sequential pipeline: senior_engineer_agent writes initial code, qa_engineer_agent reviews for errors, chief_qa_engineer_agent validates. Demonstrates @CrewBase decorator, YAML configuration, context passing between tasks, and allow_delegation controls.",
+    "url": "https://workos.com/blog/how-to-build-a-game-building-agent-system-with-crewai",
+    "tags": [
+      "crewai",
+      "sequential",
+      "code-generation",
+      "multi-agent",
+      "example"
+    ],
+    "difficulty": "intermediate",
+    "code": "from crewai import Agent, Crew, Process, Task\nfrom crewai.project import CrewBase, agent, crew, task\n\n@CrewBase\nclass GameBuilderCrew:\n    agents_config = 'config/agents.yaml'\n    tasks_config = 'config/tasks.yaml'\n\n    @agent\n    def senior_engineer_agent(self) -> Agent:\n        config = self.agents_config['senior_engineer_agent']\n        config['backstory'] += f\"\\n\\nGame Design Requirements:\\n{self.game_design}\"\n        return Agent(config=config, allow_delegation=False, verbose=True)\n\n    @agent\n    def qa_engineer_agent(self) -> Agent:\n        return Agent(config=self.agents_config['qa_engineer_agent'],\n                      allow_delegation=False, verbose=True)\n\n    @task\n    def write_code_task(self) -> Task:\n        return Task(config=self.tasks_config['write_code_task'],\n                    agent=self.senior_engineer_agent())\n\n    @task\n    def review_code_task(self) -> Task:\n        return Task(config=self.tasks_config['review_code_task'],\n                    agent=self.qa_engineer_agent())\n\n    @crew\n    def crew(self) -> Crew:\n        return Crew(\n            agents=self.agents,\n            tasks=self.tasks,\n            process=Process.sequential,\n            verbose=True\n        )"
+  },
+  {
+    "topic": "agents",
+    "type": "tutorial",
+    "title": "CrewAI: Build Your First Flow (Event-Driven Orchestration)",
+    "description": "Tutorial on CrewAI Flows, the newest orchestration pattern combining direct LLM calls, crews, and procedural code. Uses @start() and @listen() decorators for event-driven orchestration, Pydantic models for structured state management, and section-by-section processing with accumulated context. Visualize with crewai flow plot.",
+    "url": "https://docs.crewai.com/en/guides/flows/first-flow",
+    "tags": [
+      "crewai",
+      "flows",
+      "event-driven",
+      "orchestration",
+      "pydantic"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "agents",
+    "type": "tutorial",
+    "title": "CrewAI Examples: Write a Book with Flows",
+    "description": "Official CrewAI example demonstrating multi-crew orchestration with Flows. An outline crew generates structure, then chapter crews process each section in parallel with accumulated context, and a final join step compiles the complete book. Illustrates @start, @listen, and @router decorators for complex workflow control.",
+    "url": "https://github.com/crewAIInc/crewAI-examples/tree/main/flows/write_a_book_with_flows",
+    "tags": [
+      "crewai",
+      "flows",
+      "multi-crew",
+      "parallel-processing",
+      "example"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "agents",
+    "type": "tutorial",
+    "title": "AG2 (AutoGen) Official Quickstart Guide",
+    "description": "Getting started guide for AG2, the open-source successor to AutoGen. Covers installation (pip install ag2[openai]), core agent types (ConversableAgent, UserProxyAgent, GroupChatManager), LLMConfig for model configuration, and basic two-agent conversation patterns. Note: ag2 and autogen are PyPI aliases for the same package.",
+    "url": "https://docs.ag2.ai/latest/docs/home/quickstart/",
+    "tags": [
+      "autogen",
+      "ag2",
+      "quickstart",
+      "conversational-agent",
+      "group-chat"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "agents",
+    "type": "tutorial",
+    "title": "AG2: GroupChat Advanced Concepts",
+    "description": "Deep dive into AG2 GroupChat covering speaker selection strategies (auto, round_robin, random, manual), constrained speaker transitions with allowed_or_disallowed_speaker_transitions, send_introductions for agent self-introduction, sequential chats with initiate_chats(), and custom speaker selection callables.",
+    "url": "https://docs.ag2.ai/latest/docs/user-guide/advanced-concepts/groupchat/groupchat/",
+    "tags": [
+      "autogen",
+      "ag2",
+      "group-chat",
+      "speaker-selection",
+      "transitions"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "agents",
+    "type": "tutorial",
+    "title": "AG2: Perform Research with Multi-Agent Group Chat",
+    "description": "Real-world tutorial constructing a research team with Admin, Engineer, Scientist, Planner, Critic, and Executor agents. Uses GroupChat with up to 50 rounds for collaborative research. Compares results with and without a Critic agent to demonstrate how adversarial review improves output quality.",
+    "url": "https://docs.ag2.ai/latest/docs/use-cases/notebooks/notebooks/agentchat_groupchat_research/",
+    "tags": [
+      "autogen",
+      "ag2",
+      "research",
+      "multi-agent",
+      "critic-agent"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "agents",
+    "type": "tutorial",
+    "title": "OpenAI Agents SDK: Official Documentation",
+    "description": "Official documentation for the OpenAI Agents SDK covering core primitives (agents, handoffs, guardrails), the built-in agent loop, Python-first design, function tools with automatic schema generation, MCP server tool calling, sessions for persistent memory, human-in-the-loop, tracing for debugging, and realtime/voice agent support.",
+    "url": "https://openai.github.io/openai-agents-python/",
+    "tags": [
+      "openai",
+      "agents-sdk",
+      "handoffs",
+      "guardrails",
+      "documentation"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "agents",
+    "type": "tutorial",
+    "title": "OpenAI Agents SDK: Quickstart",
+    "description": "Official quickstart guide for the OpenAI Agents SDK. Covers installation (pip install openai-agents), hello world with Runner.run_sync(), adding function tools with @function_tool, multi-agent handoffs with handoff_description and triage routing, and basic tracing for debugging agent execution flows.",
+    "url": "https://openai.github.io/openai-agents-python/quickstart/",
+    "tags": [
+      "openai",
+      "agents-sdk",
+      "quickstart",
+      "handoffs",
+      "tools"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "agents",
+    "type": "example",
+    "title": "OpenAI Agents SDK: Handoffs and Guardrails Example",
+    "description": "Official example combining agent handoffs with input and tool guardrails. Shows how to define specialist agents with handoff_description, create a triage agent that routes to specialists, implement input guardrails (blocking math homework requests), and add tool guardrails (blocking secrets in tool calls). Demonstrates the recommended RECOMMENDED_PROMPT_PREFIX for handoff prompts.",
+    "url": "https://openai.github.io/openai-agents-python/handoffs/",
+    "tags": [
+      "openai",
+      "agents-sdk",
+      "handoffs",
+      "guardrails",
+      "code-example"
+    ],
+    "difficulty": "intermediate",
+    "code": "from agents import Agent, Runner, handoff, InputGuardrail, GuardrailFunctionOutput\nfrom agents.extensions.handoff_prompt import RECOMMENDED_PROMPT_PREFIX\nfrom pydantic import BaseModel\n\nclass MathHomeworkOutput(BaseModel):\n    is_math_homework: bool\n    reasoning: str\n\nguardrail_agent = Agent(\n    name=\"Guardrail check\",\n    instructions=\"Check if the user is asking you to do their math homework.\",\n    output_type=MathHomeworkOutput,\n)\n\nasync def math_guardrail(ctx, agent, input_data):\n    result = await Runner.run(guardrail_agent, input_data, context=ctx.context)\n    return GuardrailFunctionOutput(\n        output_info=result.final_output,\n        tripwire_triggered=result.final_output.is_math_homework,\n    )\n\nbilling_agent = Agent(name=\"Billing agent\", handoff_description=\"Handles billing questions\")\nrefund_agent = Agent(name=\"Refund agent\", handoff_description=\"Handles refund requests\")\n\ntriage_agent = Agent(\n    name=\"Triage agent\",\n    instructions=f\"{RECOMMENDED_PROMPT_PREFIX}\\nRoute each question to the right specialist.\",\n    handoffs=[billing_agent, refund_agent],\n    input_guardrails=[InputGuardrail(guardrail_function=math_guardrail)],\n)\n\nresult = await Runner.run(triage_agent, \"I need a refund for my order\")\nprint(result.final_output)\nprint(result.last_agent.name)"
+  },
+  {
+    "topic": "agents",
+    "type": "tutorial",
+    "title": "OpenAI Agents SDK: Orchestration and Handoffs Guide",
+    "description": "Official API guide on agent orchestration patterns: handoffs (agent-to-agent transfer), agents as tools (nested invocation without transfer), and the difference between them. Handoffs transfer control to the new agent; agents-as-tools return results to the calling agent. Covers recommended prompts, input filtering, and streaming handoffs.",
+    "url": "https://developers.openai.com/api/docs/guides/agents/orchestration",
+    "tags": [
+      "openai",
+      "agents-sdk",
+      "orchestration",
+      "handoffs",
+      "agents-as-tools"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "agents",
+    "type": "tutorial",
+    "title": "Building Agents with the Claude Agent SDK",
+    "description": "Practical guidance on building agents using the Claude Agent SDK covering the agent loop (gather context, take action, verify work, repeat), context gathering strategies (agentic search, semantic search, subagents, compaction), action mechanisms (tools, Bash/scripts, code generation, MCPs), and verification methods (defined rules, visual feedback, LLM-as-judge).",
+    "url": "https://anthropic.com/engineering/building-agents-with-the-claude-agent-sdk",
+    "tags": [
+      "claude",
+      "agent-sdk",
+      "sub-agents",
+      "orchestration",
+      "verification"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "agents",
+    "type": "tutorial",
+    "title": "Claude Code: Create Custom Sub-Agents",
+    "description": "Official documentation for Claude Code sub-agents system. Covers built-in sub-agents (Explore, Plan, General-purpose), custom sub-agent definitions as Markdown files with YAML frontmatter in .claude/agents/, tool restrictions (whitelist/blacklist), model selection per subagent (sonnet, opus, haiku), persistent memory scopes, hooks, MCP server scoping, and experimental Agent Teams for peer-to-peer coordination.",
+    "url": "https://code.claude.com/docs/en/sub-agents.md",
+    "tags": [
+      "claude-code",
+      "sub-agents",
+      "orchestration",
+      "custom-agents",
+      "agent-teams"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "agents",
+    "type": "pattern",
+    "title": "Claude Code Sub-Agents and the Orchestrator Pattern",
+    "description": "Detailed guide to the orchestrator pattern with Claude Code sub-agents. Covers the four phases: clarify (identify affected projects), plan inside-out (backend to frontend), dispatch with context packets (project path, rules, task, acceptance criteria), and verify cross-project consistency (type alignment, imports, error handling). Key insight: three focused agents consistently outperform one generalist working three times as long.",
+    "url": "https://www.channel.tel/blog/claude-code-subagents-orchestrator-pattern",
+    "tags": [
+      "claude-code",
+      "orchestrator-pattern",
+      "sub-agents",
+      "context-packets",
+      "multi-project"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "agents",
+    "type": "pattern",
+    "title": "Building Specialized AI Sub-Agents in Claude Code: Multi-Agent Orchestration",
+    "description": "Practical comparison of Skills vs Sub-agents vs Agent Teams in Claude Code. Skills operate in the same context window, sub-agents get isolated context for cognitive focus, and Agent Teams coordinate as peers with shared state. Includes a decision framework: single agent for single-file fixes, sub-agents for 2-3 layer features, agent teams for API contract negotiation, and external orchestrators for 5+ parallel agents.",
+    "url": "https://techarion.com/blog/building-specialized-ai-sub-agents-claude-code-multi-agent-orchestration",
+    "tags": [
+      "claude-code",
+      "sub-agents",
+      "skills",
+      "agent-teams",
+      "decision-framework"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "agents",
+    "type": "tutorial",
+    "title": "Agentic Memory: A-Mem Paper (Zettelkasten-Inspired Agent Memory)",
+    "description": "Research paper on A-Mem, a Zettelkasten-inspired memory architecture for LLM agents. Creates interconnected knowledge networks through dynamic note construction, link generation, and memory evolution. Achieves 85-93% token reduction vs baselines while doubling multi-hop reasoning performance on LoCoMo and DialSim datasets.",
+    "url": "https://arxiv.org/abs/2502.12110",
+    "tags": [
+      "memory",
+      "episodic",
+      "long-term",
+      "zettelkasten",
+      "research-paper"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "agents",
+    "type": "tutorial",
+    "title": "MIRIX: Multi-Agent Memory System for LLM-Based Agents",
+    "description": "Research paper on MIRIX, a multi-agent memory system with six specialized components: Core Memory (user facts), Episodic Memory (time-stamped events), Semantic Memory (entity relationships), Procedural Memory (task instructions), Resource Memory (documents/media), and Knowledge Vault (sensitive data). Features active retrieval and achieves 85.4% on LOCOMO with 99.9% storage reduction.",
+    "url": "https://arxiv.org/html/2507.07957v1",
+    "tags": [
+      "memory",
+      "multi-agent",
+      "episodic",
+      "semantic",
+      "procedural",
+      "research-paper"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "agents",
+    "type": "tool",
+    "title": "LangMem: Memory Management for LangGraph Agents",
+    "description": "LangChain's official memory layer for agents. Provides create_manage_memory_tool() and create_search_memory_tool() for in-conversation memory operations, plus a background memory manager that automatically extracts, consolidates, and updates knowledge. Native integration with LangGraph's Long-term Memory Store using InMemoryStore (dev) or AsyncPostgresStore (production).",
+    "url": "https://github.com/langchain-ai/langmem",
+    "tags": [
+      "memory",
+      "langchain",
+      "langmem",
+      "long-term",
+      "tools"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "agents",
+    "type": "tool",
+    "title": "Mem0: Production-Ready Long-Term Memory for AI Agents",
+    "description": "Open-source memory layer (56K+ GitHub stars) that dynamically extracts, consolidates, and retrieves salient information from conversations. Graph-based variant captures complex relational structures. Achieves 26% relative improvement over OpenAI's memory on LOCOMO with 91% lower p95 latency and >90% token cost savings vs full-context approaches. Evaluated against MemGPT, LangMem, Zep, and RAG baselines.",
+    "url": "https://github.com/mem0ai/mem0",
+    "tags": [
+      "memory",
+      "mem0",
+      "long-term",
+      "graph-memory",
+      "production"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "agents",
+    "type": "tutorial",
+    "title": "LangChain Long-Term Memory Documentation",
+    "description": "Official LangChain documentation on long-term memory that persists across threads and sessions, unlike short-term per-thread memory. Built on LangGraph stores saving JSON documents organized by namespace and key. Supports InMemoryStore for development and PostgresStore for production. Provides structured memory types: semantic, episodic, and procedural.",
+    "url": "https://docs.langchain.com/oss/python/langchain/long-term-memory",
+    "tags": [
+      "memory",
+      "langchain",
+      "langgraph",
+      "long-term",
+      "episodic",
+      "procedural"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "agents",
+    "type": "pattern",
+    "title": "Multi-Agent Orchestration Patterns: Supervisor, Swarm, Hierarchical, Router, Pipeline, Consensus",
+    "description": "Comprehensive comparison of six orchestration patterns with trade-off matrices. Supervisor (hub-and-spoke) for structured workflows; Hierarchical for 10+ agents; Swarm for decentralized exploration; Router for classification-based dispatch; Pipeline for sequential stages; Consensus for high-stakes decisions. Includes anti-patterns (over-orchestration, infinite loops, no cost attribution) and a decision framework.",
+    "url": "https://lushbinary.com/blog/multi-agent-orchestration-patterns-supervisor-swarm-pipeline-router-guide/",
+    "tags": [
+      "orchestration",
+      "supervisor",
+      "swarm",
+      "hierarchical",
+      "patterns",
+      "comparison"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "agents",
+    "type": "workflow",
+    "title": "Pipeline Pattern: Sequential Agent Stages for Content Generation",
+    "description": "Pipeline pattern where agents are chained sequentially, each transforming and enriching data before passing to the next stage. Ideal for content generation (research, outline, draft, edit), data ETL, and compliance verification. Latency is the sum of all stages; failures cascade. Each stage should validate inputs and handle errors gracefully.",
+    "url": "https://fast.io/resources/multi-agent-orchestration-patterns/",
+    "tags": [
+      "orchestration",
+      "pipeline",
+      "sequential",
+      "content-generation",
+      "pattern"
+    ],
+    "difficulty": "beginner",
+    "workflow": [
+      "Define the sequential stages (e.g., Researcher -> Outliner -> Writer -> Editor)",
+      "Create a specialist agent for each stage with clear input/output contracts",
+      "Pass the user request to the first stage agent",
+      "Each agent processes its input and produces structured output for the next stage",
+      "Validate output at each stage before passing to the next (guardrails)",
+      "If any stage fails, retry with modified instructions or halt with a clear error",
+      "The final stage agent produces the output delivered to the user",
+      "Log all intermediate results for debugging and audit trails"
+    ]
+  },
+  {
+    "topic": "agents",
+    "type": "workflow",
+    "title": "Evaluator-Optimizer Pattern: Iterative Refinement with Dual Agents",
+    "description": "Workflow where one LLM generates output and another evaluates it in a feedback loop. The generator produces a draft, the evaluator provides structured critique, and the generator revises based on feedback. Best for tasks with clear evaluation criteria (code review, translation quality, factual accuracy). Add a max_iterations cap to prevent infinite loops.",
+    "url": "https://www.anthropic.com/engineering/building-effective-agents",
+    "tags": [
+      "patterns",
+      "evaluator-optimizer",
+      "refinement",
+      "feedback-loop",
+      "dual-agent"
+    ],
+    "difficulty": "intermediate",
+    "workflow": [
+      "Define clear evaluation criteria and rubric for the evaluator agent",
+      "Generator agent produces an initial draft/output based on the task",
+      "Evaluator agent reviews the output against the rubric and provides structured feedback",
+      "If the output meets criteria (score above threshold), accept and return to user",
+      "If not, feed evaluator feedback back to the generator for revision",
+      "Generator revises the output incorporating the feedback",
+      "Repeat the evaluate-revise cycle until criteria are met or max_iterations is reached",
+      "Return the best-scoring output to the user"
+    ]
+  },
+  {
+    "topic": "agents",
+    "type": "workflow",
+    "title": "Plan-and-Execute Pattern: Upfront Planning with Step-by-Step Execution",
+    "description": "A powerful model plans all steps upfront as a JSON step list or DAG, then a cheaper model executes each step. On failure, only remaining steps are revised. Best for structured, predictable workflows like insurance claims or financial reports. More token-efficient than ReAct for predictable tasks, but rigid when reality surprises. Hybrid approach: drop into ReAct for steps that surprise.",
+    "url": "https://dev.to/gabrielanhaia/react-plan-and-execute-or-reflection-the-three-agent-patterns-every-engineer-needs-in-2026-355p",
+    "tags": [
+      "patterns",
+      "plan-execute",
+      "planning",
+      "hybrid",
+      "workflow"
+    ],
+    "difficulty": "intermediate",
+    "workflow": [
+      "Receive user request and pass to the Planner agent (powerful model)",
+      "Planner decomposes the task into an ordered list of steps with dependencies",
+      "Planner outputs a structured plan (JSON or DAG) specifying step order and data flow",
+      "Executor agent (cheaper model) processes each step sequentially or in parallel where possible",
+      "If a step fails, feed the error back to the Planner for re-planning of remaining steps",
+      "Completed step results are preserved; only future steps are revised",
+      "After all steps complete, synthesize results into the final output",
+      "For steps that produce unexpected results, optionally switch to ReAct mode for that step"
+    ]
+  },
+  {
+    "topic": "agents",
+    "type": "workflow",
+    "title": "Router Pattern: Classification-Based Agent Dispatch",
+    "description": "A lightweight classifier agent routes incoming requests to the appropriate specialist agent without planning or aggregation. Adds minimal latency (one classification call). Best for customer support, mixed-workload APIs, and help desks. Cannot handle tasks requiring multiple specialists to collaborate. Misclassification sends tasks to the wrong agent, so include a fallback/escalation path.",
+    "url": "https://www.anthropic.com/engineering/building-effective-agents",
+    "tags": [
+      "patterns",
+      "router",
+      "classification",
+      "dispatch",
+      "triage"
+    ],
+    "difficulty": "beginner",
+    "workflow": [
+      "Define specialist agents with clear, non-overlapping domain descriptions",
+      "Create a router agent with descriptions of each specialist and their capabilities",
+      "Receive user input and pass to the router agent for classification",
+      "Router classifies the input type and selects the matching specialist",
+      "Forward the input to the selected specialist agent",
+      "Specialist processes the request and returns the result directly to the user",
+      "If the router cannot classify with confidence, route to a generalist or escalate to a human",
+      "Log classification decisions for monitoring and continuous improvement"
+    ]
+  },
+  {
+    "topic": "agents",
+    "type": "tutorial",
+    "title": "Function Calling Deep Dive: Building LLM-Powered Tools and Agents",
+    "description": "Comprehensive guide covering basic function calling with OpenAI (tool definitions, parameter schemas, execution dispatchers), parallel function execution with ThreadPoolExecutor and async patterns using AsyncOpenAI, function calling with Claude (Anthropic's tool use API), multi-step agent workflows with a ToolAgent class, and error handling with Pydantic schemas.",
+    "url": "https://dataa.dev/2025/04/15/function-calling-deep-dive-building-llm-powered-tools-and-agents/",
+    "tags": [
+      "tool-use",
+      "function-calling",
+      "openai",
+      "claude",
+      "parallel-execution"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "agents",
+    "type": "tutorial",
+    "title": "From Basic Tool Calling to Advanced ReAct Agents: A Complete Implementation Guide",
+    "description": "Progressive tutorial building from basic OpenAI tool calling through LangChain (@tool decorator, AgentExecutor) to advanced LangGraph workflows (StateGraph, ToolNode, MemorySaver). Concludes with a full ReAct agent implementation with multiple tools (calculator, text analyzer, random number generator, time functions) and production considerations for error handling and security.",
+    "url": "https://thedataguy.pro/blog/2025/08/llm-tool-calling-to-react-agent/",
+    "tags": [
+      "tool-use",
+      "function-calling",
+      "react",
+      "langgraph",
+      "langchain",
+      "progressive"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "agents",
+    "type": "tutorial",
+    "title": "Microsoft AI Agents for Beginners: Tool Use Lesson",
+    "description": "Lesson 4 of Microsoft's 12-lesson AI agents course covering tool use design patterns, function/tool calling fundamentals with Azure OpenAI, implementation using Microsoft Agent Framework (@tool decorator, AzureAIProjectAgentProvider), Azure AI Agent Service with built-in tools (Bing Search, File Search, Code Interpreter, Azure Functions), and security considerations (read-only database roles, sandboxed environments).",
+    "url": "https://github.com/microsoft/ai-agents-for-beginners/blob/main/04-tool-use/README.md",
+    "tags": [
+      "tool-use",
+      "function-calling",
+      "microsoft",
+      "azure",
+      "beginner-course"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "agents",
+    "type": "pattern",
+    "title": "Tool Use: How AI Agents Interact with the Real World",
+    "description": "In-depth guide on tool use design principles: clear descriptions, constrained parameters, atomic operations, meaningful return values. Covers code execution sandboxing (never run untrusted code directly), multi-tool orchestration class (ToolOrchestrator), parallel tool execution with asyncio.gather, three tool use patterns (RAG, Verification Loop, Progressive Disclosure), and security best practices (allowlists per role, input validation, rate limiting, audit logging).",
+    "url": "https://hopx.ai/blog/ai-agents/tool-use-pattern-ai-agents/",
+    "tags": [
+      "tool-use",
+      "design-principles",
+      "sandboxing",
+      "security",
+      "patterns"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "agents",
+    "type": "example",
+    "title": "ReAct Agent from Scratch with Gemini 2.5 and LangGraph",
+    "description": "Step-by-step implementation of a ReAct agent using Google's Gemini 2.5 Pro/2.0 Flash with LangGraph. Includes a real-world weather tool using the Open-Meteo API, multi-turn conversation continuation, state management with MessagesState, and conditional routing. Demonstrates how to swap LLM providers without changing the agent graph structure.",
+    "url": "https://www.philschmid.de/langgraph-gemini-2-5-react-agent",
+    "tags": [
+      "react",
+      "langgraph",
+      "gemini",
+      "weather-tool",
+      "code-example"
+    ],
+    "difficulty": "intermediate",
+    "code": "from langgraph.graph import StateGraph, MessagesState, START, END\nfrom langgraph.prebuilt import ToolNode, tools_condition\nfrom langchain_core.tools import tool\nfrom langchain_google_genai import ChatGoogleGenerativeAI\n\n@tool\ndef get_weather(city: str) -> str:\n    \"\"\"Get current weather using Open-Meteo API.\"\"\"\n    import requests\n    geocode_url = f\"https://geocoding-api.open-meteo.com/v1/search?name={city}\"\n    geocode = requests.get(geocode_url).json()\n    if not geocode.get(\"results\"):\n        return f\"City '{city}' not found.\"\n    lat = geocode[\"results\"][0][\"latitude\"]\n    lon = geocode[\"results\"][0][\"longitude\"]\n    weather_url = (\n        f\"https://api.open-meteo.com/v1/forecast\"\n        f\"?latitude={lat}&longitude={lon}&current_weather=true\"\n    )\n    weather = requests.get(weather_url).json()\n    temp = weather[\"current_weather\"][\"temperature\"]\n    code = weather[\"current_weather\"][\"weathercode\"]\n    return f\"Weather in {city}: {temp}C, weather code {code}\"\n\ntools = [get_weather]\nllm = ChatGoogleGenerativeAI(model=\"gemini-2.0-flash\").bind_tools(tools)\n\ndef agent_node(state: MessagesState):\n    return {\"messages\": [llm.invoke(state[\"messages\"])]}\n\ngraph = StateGraph(MessagesState)\ngraph.add_node(\"agent\", agent_node)\ngraph.add_node(\"tools\", ToolNode(tools))\ngraph.add_edge(START, \"agent\")\ngraph.add_conditional_edges(\"agent\", tools_condition)\ngraph.add_edge(\"tools\", \"agent\")\napp = graph.compile()\n\nresult = app.invoke({\"messages\": [(\"user\", \"What's the weather in Tokyo?\")]})\nprint(result[\"messages\"][-1].content)"
+  },
+  {
+    "topic": "agents",
+    "type": "tutorial",
+    "title": "SWE-bench: Evaluating Agents on Real-World GitHub Issues",
+    "description": "SWE-bench evaluates LLM-based agents on real GitHub issues. Given a codebase and issue description, agents must generate patches evaluated against the repo's test suite. SWE-bench Verified (500 human-validated tasks) has contamination concerns. SWE-bench Pro (1,865 multi-language tasks from GPL/private code) shows Claude Opus 4.5 at 45.9% and GPT-5.2 at roughly 23%. SWE-bench Live adds 50 new issues monthly to prevent contamination.",
+    "url": "https://github.com/SWE-bench/SWE-bench/",
+    "tags": [
+      "evaluation",
+      "benchmarks",
+      "swe-bench",
+      "code-generation",
+      "contamination"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "agents",
+    "type": "tutorial",
+    "title": "WebArena: Realistic Web Environment for Agent Evaluation",
+    "description": "Self-hostable benchmark with 812 tasks across e-commerce, GitLab, Reddit-like forums, CMS, and maps. Agents must navigate, fill forms, click buttons, and complete multi-step tasks. Human baseline is approximately 78%; best agents reached 61.7% as of early 2026. Identified validity issues: substring matching inflates scores, LLM-as-Judge accepts empty replies for N/A tasks, overestimating performance by 1.4-5.2%.",
+    "url": "https://webarena.dev/og/",
+    "tags": [
+      "evaluation",
+      "benchmarks",
+      "web-agents",
+      "webarena",
+      "browser-automation"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "agents",
+    "type": "tutorial",
+    "title": "AI Agent Benchmarks Explained: SWE-bench, WebArena and AgentBench",
+    "description": "Comprehensive analysis of agent benchmark validity issues across SWE-bench (contamination concerns, insufficient test coverage, UTBoost finding 24% of top-50 positions are incorrect), WebArena (substring matching and LLM-Judge inflating scores), and TAU-bench (do-nothing agent achieving 38% on airline tasks). Introduces the Agentic Benchmark Checklist (ABC) methodology for rigorous evaluation.",
+    "url": "https://www.paperclipped.de/en/blog/ai-agent-benchmarks-swe-bench-webarena/",
+    "tags": [
+      "evaluation",
+      "benchmarks",
+      "swe-bench",
+      "webarena",
+      "validity",
+      "comparison"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "agents",
+    "type": "tutorial",
+    "title": "Establishing Best Practices for Building Rigorous Agentic Benchmarks",
+    "description": "Major research paper proposing the Agentic Benchmark Checklist (ABC) for systematic assessment of 10 benchmarks. Found all 10 had reporting limitations, 7 had outcome validity flaws, and 7 had task validity flaws. Applying ABC to CVE-Bench reduced performance overestimation by 33%. Critical for anyone designing or interpreting agent evaluations.",
+    "url": "https://arxiv.org/html/2507.02825v5",
+    "tags": [
+      "evaluation",
+      "benchmarks",
+      "validity",
+      "best-practices",
+      "research-paper"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "agents",
+    "type": "pattern",
+    "title": "Anthropic Agent Design Patterns: Tool Surface, Programmatic Tool Calling, and Caching",
+    "description": "Technical reference from Anthropic's skills repository covering tool surface design (when to use bash vs dedicated tools), programmatic tool calling (PTC) for composing tool calls into scripts to reduce latency and token cost, scaling with tool search and Skills for on-demand loading, context management with editing and compaction, and caching workarounds for agent contexts.",
+    "url": "https://github.com/anthropics/skills/blob/main/skills/claude-api/shared/agent-design.md",
+    "tags": [
+      "patterns",
+      "tool-design",
+      "caching",
+      "context-management",
+      "anthropic"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "agents",
+    "type": "workflow",
+    "title": "Swarm Pattern: Decentralized Agent Orchestration with Emergent Coordination",
+    "description": "Decentralized orchestration where agents operate as autonomous peers using shared state (blackboard pattern), local rules, and handoff protocols. Best for brainstorming, research exploration, and fault-tolerant systems. Hardest to debug due to distributed tracing challenges. Requires guardrails to prevent agents spawning excessive subagents and budget limits to control costs.",
+    "url": "https://blog.premai.io/multi-agent-ai-systems-architecture-communication-and-coordination/",
+    "tags": [
+      "orchestration",
+      "swarm",
+      "decentralized",
+      "blackboard",
+      "emergent"
+    ],
+    "difficulty": "advanced",
+    "workflow": [
+      "Define the shared state/blackboard that all agents can read and write",
+      "Create specialist agents with clear role descriptions and local decision rules",
+      "Implement handoff protocols: each agent can transfer control to another with context",
+      "Set iteration caps and budget limits to prevent runaway agent spawning",
+      "Initialize the swarm with the user request on the shared blackboard",
+      "Each agent reads the shared state, decides if it can contribute, and acts",
+      "Agents write their outputs to the shared state for other agents to build upon",
+      "Continue until a termination condition is met (max rounds, consensus, or explicit completion)",
+      "Aggregate final state into a coherent output for the user"
+    ]
+  },
+  {
+    "topic": "agents",
+    "type": "example",
+    "title": "AG2 Group Chat with Research Team: Planner, Scientist, Critic, and Executor",
+    "description": "Real-world AG2 example constructing a multi-agent research team with Admin, Engineer, Scientist, Planner, Critic, and Executor agents. Uses GroupChat with up to 50 rounds for collaborative research, constrained speaker transitions, and demonstrates how a Critic agent improves output quality through adversarial review.",
+    "url": "https://github.com/ag2ai/ag2/blob/main/notebook/agentchat_groupchat.ipynb",
+    "tags": [
+      "autogen",
+      "ag2",
+      "research-team",
+      "group-chat",
+      "critic-agent"
+    ],
+    "difficulty": "intermediate",
+    "code": "import autogen\n\nllm_config = autogen.LLMConfig(\n    config_list=[{\"model\": \"gpt-4o\", \"api_key\": \"...\"}]\n)\n\nplanner = autogen.AssistantAgent(\n    name=\"Planner\",\n    system_message=\"Suggest a research plan. After the plan is approved, say DONE.\",\n    llm_config=llm_config,\n)\n\nscientist = autogen.AssistantAgent(\n    name=\"Scientist\",\n    system_message=\"Execute research steps and report findings.\",\n    llm_config=llm_config,\n)\n\ncritic = autogen.AssistantAgent(\n    name=\"Critic\",\n    system_message=\"Review and critique the research plan. Suggest improvements.\",\n    llm_config=llm_config,\n)\n\ngroupchat = autogen.GroupChat(\n    agents=[planner, scientist, critic],\n    messages=[],\n    max_round=20,\n    speaker_selection_method=\"auto\",\n)\nmanager = autogen.GroupChatManager(groupchat=groupchat, llm_config=llm_config)\n\nplanner.initiate_chat(\n    manager,\n    message=\"Research the latest advances in quantum computing.\"\n)"
+  },
+  {
+    "topic": "agents",
+    "type": "workflow",
+    "title": "Hierarchical Pattern: Multi-Level Supervision for Enterprise Scale",
+    "description": "Hierarchical orchestration where supervisors manage other supervisors in a tree structure. A top-level manager delegates to mid-level supervisors, who manage leaf-level workers. Best for complex tasks requiring 10+ agents, domain-specific sub-teams, and enterprise-scale deployments with 50+ agents. Information loss occurs between levels due to summarization, and latency accumulates at each level (~2s per LLM call per level).",
+    "url": "https://fast.io/resources/multi-agent-orchestration-patterns/",
+    "tags": [
+      "orchestration",
+      "hierarchical",
+      "enterprise",
+      "multi-level",
+      "scaling"
+    ],
+    "difficulty": "advanced",
+    "workflow": [
+      "Define the hierarchy: top-level manager, mid-level supervisors, leaf-level workers",
+      "Top-level manager receives the user request and decomposes into domain-specific subtasks",
+      "Each mid-level supervisor receives its subtask and further decomposes into worker-level assignments",
+      "Leaf-level workers execute individual assignments and return results to their supervisor",
+      "Mid-level supervisors aggregate worker results, verify domain consistency, and summarize",
+      "Summaries propagate up to the top-level manager (information loss at each level is expected)",
+      "Top-level manager synthesizes all domain summaries into a coherent final response",
+      "Implement escalation paths: workers can flag issues to supervisors, supervisors to the top manager",
+      "Monitor latency at each level (~2s per LLM call) and set timeouts for each hierarchical tier"
+    ]
+  },
+  {
+    "topic": "agents",
+    "type": "course",
+    "title": "DeepLearning.AI: AI Agents in LangGraph (Andrew Ng)",
+    "description": "Andrew Ng's short course covering ReAct agents, LangGraph state machines, tool use, human-in-the-loop, and multi-agent orchestration. Includes hands-on coding exercises building agents progressively from simple tool-calling to complex multi-agent systems with persistence and memory.",
+    "url": "https://www.deeplearning.ai/short-courses/ai-agents-in-langgraph/",
+    "tags": [
+      "course",
+      "langgraph",
+      "react",
+      "multi-agent",
+      "beginner"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "agents",
+    "type": "pattern",
+    "title": "Parallelization Pattern: Sectioning and Voting for Speed and Reliability",
+    "description": "Anthropic's parallelization pattern where tasks are sectioned into independent subtasks processed simultaneously (for speed) or voted on by multiple agents (for reliability). Sectioning works for partitionable tasks like reviewing different sections of a document. Voting runs multiple perspectives and aggregates results. Best when subtasks are truly independent; adds latency when they are not.",
+    "url": "https://www.anthropic.com/engineering/building-effective-agents",
+    "tags": [
+      "patterns",
+      "parallelization",
+      "voting",
+      "reliability",
+      "speed"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "agents",
+    "type": "example",
+    "title": "Building Governed AI Agents: Handoffs, Guardrails, and Centralized Policy Enforcement",
+    "description": "OpenAI's official cookbook example combining handoffs, guardrails, tracing, and centralized policy enforcement for a private equity firm assistant. Shows how to build a PEConcierge triage agent with DealScreeningAgent and PortfolioAgent specialists, input guardrails blocking invalid queries, and the RECOMMENDED_PROMPT_PREFIX for reliable handoff prompts.",
+    "url": "https://developers.openai.com/cookbook/examples/partners/agentic_governance_guide/agentic_governance_cookbook",
+    "tags": [
+      "openai",
+      "agents-sdk",
+      "governance",
+      "handoffs",
+      "guardrails",
+      "code-example"
+    ],
+    "difficulty": "advanced",
+    "code": "from agents import Agent, Runner, handoff, InputGuardrail, GuardrailFunctionOutput\nfrom agents.extensions.handoff_prompt import RECOMMENDED_PROMPT_PREFIX\nfrom pydantic import BaseModel\n\nclass PEQueryCheck(BaseModel):\n    is_valid: bool\n    reasoning: str\n\nguardrail_agent = Agent(\n    name=\"PE Query Guardrail\",\n    instructions=\"Check if the user is asking a valid question for a PE firm.\",\n    output_type=PEQueryCheck,\n)\n\nasync def pe_guardrail(ctx, agent, input_data):\n    result = await Runner.run(guardrail_agent, input_data, context=ctx.context)\n    final_output = result.final_output_as(PEQueryCheck)\n    return GuardrailFunctionOutput(\n        output_info=final_output,\n        tripwire_triggered=not final_output.is_valid,\n    )\n\ndeal_screening_agent = Agent(\n    name=\"DealScreeningAgent\",\n    handoff_description=\"Handles deal sourcing, screening, and initial evaluation.\",\n    instructions=f\"{RECOMMENDED_PROMPT_PREFIX}\\nYou are a deal screening specialist.\",\n)\n\nportfolio_agent = Agent(\n    name=\"PortfolioAgent\",\n    handoff_description=\"Handles questions about existing portfolio companies.\",\n    instructions=f\"{RECOMMENDED_PROMPT_PREFIX}\\nYou are a portfolio management specialist.\",\n)\n\npe_concierge = Agent(\n    name=\"PEConcierge\",\n    instructions=f\"{RECOMMENDED_PROMPT_PREFIX}\\nRoute each question to the right specialist.\",\n    handoffs=[deal_screening_agent, portfolio_agent],\n    input_guardrails=[InputGuardrail(guardrail_function=pe_guardrail)],\n)"
+  }
+]
