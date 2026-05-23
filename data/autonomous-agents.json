@@ -15,7 +15,7 @@
     "workflow": [
       "PLAN: Generate one or more candidate action trajectories for the task",
       "INSPECT: Execute each trajectory in a sandbox and compute structured textual gradients encoding plan-vs-execution discrepancies",
-      "EVOLVE: Using the discrepancy signals, repair only the unsupported suffix after the earliest divergence point — never regenerate the full plan",
+      "EVOLVE: Using the discrepancy signals, repair only the unsupported suffix after the earliest divergence point \u2014 never regenerate the full plan",
       "VERIFY: Run a final global constraint check on the evolved trajectory; accept only if it improves over the previous best (monotonic acceptance)",
       "RETRY: If verification fails or constraints are unsatisfied, loop back to EVOLVE with the updated gradient signals; exit after max iterations or acceptance"
     ]
@@ -58,7 +58,7 @@
     "workflow": [
       "RECEIVE: Parse the user query and identify sub-questions that require external evidence",
       "RETRIEVE: For each sub-question, generate targeted search queries and retrieve documents from the knowledge base",
-      "ASSESS: Evaluate retrieved evidence for relevance, grounding, and adequacy — use an Evidence Sufficiency Controller or Triple-Check verification",
+      "ASSESS: Evaluate retrieved evidence for relevance, grounding, and adequacy \u2014 use an Evidence Sufficiency Controller or Triple-Check verification",
       "COMMIT or RETRY: If evidence is sufficient, synthesize an answer; if gaps remain, generate new retrieval queries targeting the gaps and loop back",
       "SYNTHESIZE: Merge all sub-answers into a coherent response with citations; flag any remaining uncertainty"
     ]
@@ -79,7 +79,7 @@
     "workflow": [
       "PLAN: Break the task into independent subtasks that can run in parallel without file-level conflicts",
       "DISPATCH: Launch each subtask as a separate Claude Code session with `claude --worktree <name>`, creating isolated git checkouts under `.claude/worktrees/`",
-      "EXECUTE: Each worktree session independently reads, edits, tests, and commits changes on its own branch — no merge conflicts during execution",
+      "EXECUTE: Each worktree session independently reads, edits, tests, and commits changes on its own branch \u2014 no merge conflicts during execution",
       "REVIEW: Use `claude agents` to monitor all background sessions; review each worktree's changes before merging",
       "MERGE: Merge completed worktree branches back into the main branch; auto-cleanup removes empty worktrees, dirty ones prompt keep-or-discard"
     ]
@@ -100,7 +100,7 @@
     "difficulty": "advanced",
     "workflow": [
       "INSTRUMENT: Emit OpenTelemetry spans for every agent decision, tool call, and token spend; define judgment SLOs (decision quality, not just latency/uptime)",
-      "BUDGET: Set per-agent and per-operation-class token budgets; track token_cost_per_task as a leading indicator — a 40% spike precedes visible quality degradation by 24-48 hours",
+      "BUDGET: Set per-agent and per-operation-class token budgets; track token_cost_per_task as a leading indicator \u2014 a 40% spike precedes visible quality degradation by 24-48 hours",
       "DEGRADE: Implement a 4-level fallback chain: (1) retry with exponential backoff, (2) model fallback (Opus -> Sonnet -> Haiku), (3) queue and defer non-urgent tasks, (4) graceful decline with user notification",
       "RESPOND: When an alert fires (cost spike, quality drop, loop detection), execute the runbook: kill the runaway agent, fall back to cheaper model, notify the oncall, and preserve forensic traces",
       "LEARN: Run weekly behavioral chaos tests (inject malformed tool responses, contradictory instructions) to surface failure modes before they hit production"
@@ -180,7 +180,7 @@
     "topic": "autonomous-agents",
     "type": "example",
     "title": "MCP Tool Definition for Autonomous Agents (TypeScript)",
-    "description": "A Model Context Protocol (MCP) server that exposes tools for autonomous agents to discover and use at runtime. Demonstrates the tool definition pattern that enables dynamic tool discovery, progressive disclosure, and code-mode execution — reducing token consumption by up to 98.7% compared to loading all tool definitions upfront.",
+    "description": "A Model Context Protocol (MCP) server that exposes tools for autonomous agents to discover and use at runtime. Demonstrates the tool definition pattern that enables dynamic tool discovery, progressive disclosure, and code-mode execution \u2014 reducing token consumption by up to 98.7% compared to loading all tool definitions upfront.",
     "url": "https://www.anthropic.com/engineering/code-execution-with-mcp",
     "tags": [
       "MCP",
@@ -344,7 +344,7 @@
     "topic": "autonomous-agents",
     "type": "pattern",
     "title": "Synapse: Spreading Activation for Episodic-Semantic Memory in Agents",
-    "description": "Synapse implements a unified episodic-semantic memory graph with spreading activation, lateral inhibition, and temporal decay. It combines semantic similarity, activation-based traversal, and PageRank structural priors for retrieval. Achieves 40.5 average F1 on LoCoMo, with 96.6 on adversarial queries — dramatically outperforming A-Mem and Zep.",
+    "description": "Synapse implements a unified episodic-semantic memory graph with spreading activation, lateral inhibition, and temporal decay. It combines semantic similarity, activation-based traversal, and PageRank structural priors for retrieval. Achieves 40.5 average F1 on LoCoMo, with 96.6 on adversarial queries \u2014 dramatically outperforming A-Mem and Zep.",
     "url": "https://arxiv.org/pdf/2601.02744",
     "tags": [
       "memory-systems",
@@ -629,7 +629,7 @@
   {
     "topic": "autonomous-agents",
     "type": "pattern",
-    "title": "ACE: Agentic Context Evolution — Metacognitive To Retrieve or To Think",
+    "title": "ACE: Agentic Context Evolution \u2014 Metacognitive To Retrieve or To Think",
     "description": "ACE uses a multi-agent orchestrator with majority voting to dynamically decide between RETRIEVE (external search) and THINK (internal reasoning/sub-query generation) at each step. Achieves 62.8% on HotpotQA (vs. 38.9% for vanilla RAG) using 42% fewer tokens than brute-force IterDRAG, avoiding contextual saturation from over-retrieval.",
     "url": "https://arxiv.org/pdf/2601.08747",
     "tags": [
@@ -734,7 +734,7 @@
     "topic": "autonomous-agents",
     "type": "tutorial",
     "title": "LangGraph Tutorial by OpnCrafter: Cycles, Persistence, and Human-in-the-Loop",
-    "description": "A practical tutorial emphasizing that linear chains are insufficient for production agents — cycles via LangGraph are essential. Covers human-in-the-loop with interrupt_before, parallel node execution, persistence and time-travel with checkpointers, and recursion_limit as an essential safety guard (set to N_expected_hops * 2).",
+    "description": "A practical tutorial emphasizing that linear chains are insufficient for production agents \u2014 cycles via LangGraph are essential. Covers human-in-the-loop with interrupt_before, parallel node execution, persistence and time-travel with checkpointers, and recursion_limit as an essential safety guard (set to N_expected_hops * 2).",
     "url": "https://opncrafter.space/guide/langgraph-tutorial",
     "tags": [
       "LangGraph",
@@ -787,7 +787,7 @@
     "topic": "autonomous-agents",
     "type": "tool",
     "title": "Anthropic MCP: 10,000+ Community Servers and Registry API for Dynamic Tool Discovery",
-    "description": "The Model Context Protocol has grown to 10,000+ community-built servers enabling LLMs to connect to external tools, data sources, and APIs. The upcoming Registry API will enable agents to dynamically search for and discover new MCP servers on demand — a key enabler for autonomous tool acquisition. New features include Elicitation (server-initiated user input) and Tasks (durable execution wrappers).",
+    "description": "The Model Context Protocol has grown to 10,000+ community-built servers enabling LLMs to connect to external tools, data sources, and APIs. The upcoming Registry API will enable agents to dynamically search for and discover new MCP servers on demand \u2014 a key enabler for autonomous tool acquisition. New features include Elicitation (server-initiated user input) and Tasks (durable execution wrappers).",
     "url": "https://www.anthropic.com/news/model-context-protocol",
     "tags": [
       "MCP",
@@ -840,6 +840,96 @@
       "frameworks",
       "multi-agent",
       "production"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "course",
+    "title": "Agentic AI \u2014 Building Autonomous Agents with LangGraph and CrewAI (EITT)",
+    "description": "Live advanced workshop covering agentic system architecture (ReAct, Plan-and-Execute, Reflexion), LangGraph state machines with cycles and human-in-the-loop, CrewAI role-based agents with task delegation, tool use, MCP, memory systems, multi-agent orchestration, and production deployment. Available live online or on-site.",
+    "url": "https://eitt.academy/trainings/agentic-ai-building-autonomous-agents-langgraph-crewai/",
+    "tags": [
+      "langgraph",
+      "crewai",
+      "multi-agent",
+      "production",
+      "workshop"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "course",
+    "title": "Agentic AI Nanodegree (Udacity)",
+    "description": "53-hour nanodegree covering advanced prompting (CoT, ReAct, feedback loops), agentic workflow patterns (Routing, Parallelization, Prompt Chaining, Evaluator-Optimizer, Orchestrator-Workers), building agents with tools and structured outputs (Pydantic), state management, short/long-term memory, multi-agent system design, and multi-agent RAG. Projects: multi-agent travel planner, AI project manager, automated sales system.",
+    "url": "https://www.udacity.com/course/agentic-ai--nd900",
+    "tags": [
+      "agentic-ai",
+      "multi-agent",
+      "orchestration",
+      "pydantic",
+      "nanodegree"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "course",
+    "title": "Agentic AI (DeepLearning.AI/Andrew Ng)",
+    "description": "7.75-hour course by Andrew Ng covering four core agentic design patterns: Reflection, Tool Use, Planning, and Multi-Agent. Includes integrating AI with external tools (databases, APIs, web search, code execution), evaluating and optimizing AI systems with performance metrics and error analysis, and practical Python implementation from first principles.",
+    "url": "https://www.deeplearning.ai/courses/agentic-ai",
+    "tags": [
+      "agentic-ai",
+      "andrew-ng",
+      "reflection",
+      "planning",
+      "multi-agent"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "course",
+    "title": "AI Agents and Agentic AI with Python & Generative AI (Coursera/Vanderbilt)",
+    "description": "10-hour course by Dr. Jules White (Vanderbilt) covering core agentic AI concepts, the GAME framework (Goals, Actions, Memory, Environment), flipped interaction, agent loops, programmatic prompting, tool management, function calling, and building a complete agent framework in Python. 425+ reviews, 4.25 rating.",
+    "url": "https://www.coursera.org/learn/ai-agents-python/",
+    "tags": [
+      "agentic-ai",
+      "python",
+      "game-framework",
+      "vanderbilt",
+      "beginner"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "course",
+    "title": "Microsoft Agentic AI on Azure (Udacity Nanodegree)",
+    "description": "56-hour nanodegree built on the Microsoft Azure AI ecosystem. Uses Microsoft Semantic Kernel SDK and Azure AI Foundry Agent Service with Azure-specific integrations (Cosmos DB, Bing Search, Azure SQL). Covers multi-agent orchestration and state coordination with Semantic Kernel. Projects: AeroTurbine supply chain agent, AgentQuant data analysis, VectraBank agentic RAG for banking.",
+    "url": "https://www.udacity.com/course/microsoft-agentic-ai--nd904",
+    "tags": [
+      "agentic-ai",
+      "azure",
+      "semantic-kernel",
+      "multi-agent",
+      "production"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "course",
+    "title": "Building Agents: Tool Integration and Agent State (Udacity)",
+    "description": "11-hour course covering tool integration and function calling with OpenAI SDK, structured outputs with Pydantic, agent state management, short/long-term memory, external APIs, web search agents (Tavily), database agents (SQLAlchemy), and agentic RAG with ChromaDB. Project: UdaPlay AI Research Agent for the video game industry.",
+    "url": "https://www.udacity.com/course/building-agents--cd14524",
+    "tags": [
+      "agents",
+      "function-calling",
+      "pydantic",
+      "memory",
+      "rag"
     ],
     "difficulty": "intermediate"
   }

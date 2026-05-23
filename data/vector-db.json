@@ -847,5 +847,35 @@
       "cost"
     ],
     "difficulty": "intermediate"
+  },
+  {
+    "topic": "vector-db",
+    "type": "course",
+    "title": "Qdrant Multi-Vector Search Course (Advanced)",
+    "description": "4-6 hour advanced course covering late interaction models (ColBERT, ColPali), MaxSim scoring, multi-stage retrieval with prefetch and reranking, quantization, MUVERA indexing for billion-scale search, and evaluation metrics (Recall@k, NDCG, MRR). Final project: build a production-ready multi-modal search system.",
+    "url": "https://qdrant.tech/course/multi-vector-search/",
+    "tags": [
+      "qdrant",
+      "multi-vector",
+      "colbert",
+      "reranking",
+      "advanced"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "vector-db",
+    "type": "tutorial",
+    "title": "Qdrant Vector Database Complete Guide 2026 (Codeboxr)",
+    "description": "Comprehensive 2026 guide covering Qdrant's Rust-based architecture, strong metadata filtering, hybrid search, named vectors, quantization, and mature RAG ecosystem integrations. Includes feature comparison, use cases, and production deployment patterns.",
+    "url": "https://codeboxr.com/qdrant-vector-database-complete-guide-2026-features-tutorial-use-cases/",
+    "tags": [
+      "qdrant",
+      "hybrid-search",
+      "metadata-filtering",
+      "production",
+      "2026"
+    ],
+    "difficulty": "intermediate"
   }
 ]

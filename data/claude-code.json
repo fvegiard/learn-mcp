@@ -804,5 +804,50 @@
       "workflows"
     ],
     "difficulty": "beginner"
+  },
+  {
+    "topic": "claude-code",
+    "type": "course",
+    "title": "Claude Code Complete Course (Developers Digest)",
+    "description": "12-module structured course with exercises and screenshot checklists covering setup, prompt engineering, diff review, settings/memory, MCP integration, GitHub Actions, cost engineering, security/governance, team rollout, and incident scenarios. Includes a capstone project with scoring rubric.",
+    "url": "https://www.developersdigest.tech/guides/claude-code-complete-course",
+    "tags": [
+      "claude-code",
+      "course",
+      "mcp",
+      "github-actions",
+      "security"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "claude-code",
+    "type": "tutorial",
+    "title": "Claude Code Ultimate Guide (GitHub, 4.3K+ stars)",
+    "description": "24K+ lines of documentation across 16 specialized guides, 181 production-ready templates (agents, commands, hooks, skills), 271-question quiz, 48 Mermaid diagrams, 28 CVE-mapped security vulnerabilities, and a 7-module learning path (8-11 hours, beginner to advanced). Includes an MCP server for querying the guide from any Claude Code session.",
+    "url": "https://github.com/FlorianBruniaux/claude-code-ultimate-guide",
+    "tags": [
+      "claude-code",
+      "templates",
+      "security",
+      "hooks",
+      "mcp"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "claude-code",
+    "type": "tutorial",
+    "title": "Claude How-To: Visual Example-Driven Guide (GitHub, 5.9K+ stars)",
+    "description": "Visual, example-driven guide with copy-paste templates across 10 tutorial modules covering slash commands, memory, skills, hooks, MCP, subagents, and plugins. Includes interactive self-assessment quizzes, 15-minute quick start, and Mermaid architecture diagrams. Compatible with Claude Code v2.1+.",
+    "url": "https://github.com/yinquan529/claude-howto",
+    "tags": [
+      "claude-code",
+      "templates",
+      "visual",
+      "quick-start",
+      "hooks"
+    ],
+    "difficulty": "beginner"
   }
 ]

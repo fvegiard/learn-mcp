@@ -894,5 +894,49 @@
       "frameworks"
     ],
     "difficulty": "intermediate"
+  },
+  {
+    "topic": "agents",
+    "type": "course",
+    "title": "AI Agents with LangChain and LangGraph (Udacity)",
+    "description": "15-hour intermediate course covering ReAct agent pattern, multi-agent interaction, self-reflection, LangChain streaming, structured outputs, RAG, function calling, LangGraph state machines, human-in-the-loop, checkpointing, observability with MLflow, and agent evaluation with RAGAS. Capstone: HealthBot patient education system.",
+    "url": "https://www.udacity.com/course/ai-agents-with-langchain-and-langgraph--cd13764",
+    "tags": [
+      "langgraph",
+      "langchain",
+      "react",
+      "multi-agent",
+      "ragas"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "agents",
+    "type": "course",
+    "title": "Building and Deploying AI Agents with LLMs and LangChain (Coursera Specialization)",
+    "description": "12-week, 3-course specialization: (1) AI Agent Architecture with Mem0 and Pydantic-AI, (2) Designing Multi-Agent Systems with CrewAI and Agno, (3) Deploying AI Agents with FastAPI, monitoring, and evaluation. Includes real projects like Business Workflow Assistant with Slack/Notion/CRM integrations. Updated May 2026.",
+    "url": "https://www.coursera.org/specializations/building-and-deploying-ai-agents-with-llms-and-langchain",
+    "tags": [
+      "langchain",
+      "crewai",
+      "multi-agent",
+      "deployment",
+      "fastapi"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "agents",
+    "type": "course",
+    "title": "Building Autonomous AI Agents with LangGraph (Coursera/Packt)",
+    "description": "6-hour course covering AI agents deep dive, building first agents and complex queries, LangGraph tools, memory, human-in-the-loop patterns, and a capstone project building a Financial Report Writer AI Agent with GUI. 7,800+ enrolled.",
+    "url": "https://www.coursera.org/learn/packt-building-autonomous-ai-agents-with-langgraph-oyjym",
+    "tags": [
+      "langgraph",
+      "autonomous",
+      "human-in-the-loop",
+      "capstone"
+    ],
+    "difficulty": "intermediate"
   }
 ]

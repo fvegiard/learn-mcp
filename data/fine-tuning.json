@@ -949,5 +949,50 @@
       "2026"
     ],
     "difficulty": "advanced"
+  },
+  {
+    "topic": "fine-tuning",
+    "type": "course",
+    "title": "Advanced LoRA & PEFT for Efficient LLM Training (ApXML)",
+    "description": "6-chapter course covering LoRA theory, SVD math, QLoRA, multi-adapter training, and evaluation. Includes hands-on practicals for basic LoRA, adapter tuning, QLoRA with paged optimizers, and distributed training. Compares PEFT methods (Adapters, Prefix Tuning, Prompt Tuning).",
+    "url": "https://apxml.com/courses/lora-peft-efficient-llm-training",
+    "tags": [
+      "lora",
+      "qlora",
+      "peft",
+      "efficient-training",
+      "math"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "fine-tuning",
+    "type": "course",
+    "title": "Fine-Tuning LLMs Using LoRA and QLoRA (Educative.io)",
+    "description": "2-hour interactive course with in-browser coding environment. Covers fine-tuning basics, quantization (int8, bitsandbytes), LoRA, and QLoRA with hands-on fine-tuning of Llama 3 on custom datasets. No local setup required.",
+    "url": "https://www.educative.io/courses/lora-fine-tuning",
+    "tags": [
+      "lora",
+      "qlora",
+      "llama3",
+      "educative",
+      "interactive"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "fine-tuning",
+    "type": "course",
+    "title": "Fine-Tuning LLMs on Custom Data (EngineeringHulk)",
+    "description": "Free 4-week course fine-tuning Llama 3 8B and Mistral 7B on custom datasets using QLoRA on a free Colab T4 GPU. Includes 3 portfolio projects (Customer Support Bot, Domain Code Generator, Medical QA), RLHF/DPO basics, and GGUF/Ollama deployment.",
+    "url": "https://engineeringhulk.com/courses/fine-tuning-llms-course/",
+    "tags": [
+      "qlora",
+      "llama3",
+      "mistral",
+      "colab",
+      "deployment"
+    ],
+    "difficulty": "advanced"
   }
 ]

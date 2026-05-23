@@ -875,5 +875,65 @@
       "benchmark"
     ],
     "difficulty": "advanced"
+  },
+  {
+    "topic": "inference",
+    "type": "course",
+    "title": "LLM Inference Engineering: Theory, Practicals and Research (Maven/Vizuara)",
+    "description": "45-hour live course by MIT PhDs with 9 guest lectures from Anthropic, NVIDIA, Apple, Microsoft, AWS. Covers complete LLM inference stack, KV cache mechanics (chunked prefill, prefix caching, H2O, StreamingLLM), GPU architecture and roofline models, quantization (FP16 to GGUF), vLLM/SGLang/TensorRT-LLM, speculative decoding (EAGLE, Medusa), and 4 hardware labs including Raspberry Pi, Jetson Orin, and Apple Silicon.",
+    "url": "https://maven.com/vizuara/inference-workshop",
+    "tags": [
+      "inference",
+      "vllm",
+      "sglang",
+      "kv-cache",
+      "quantization"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "inference",
+    "type": "course",
+    "title": "vLLM Course (Uplatz)",
+    "description": "10-hour self-paced course covering vLLM architecture, PagedAttention, continuous batching, model loading from HuggingFace, quantization (FP8, INT8, 4-bit), tensor/pipeline parallelism, OpenAI-compatible API server, FastAPI integration, Kubernetes deployment, and RAG pipeline integration. Includes capstone project building a full LLM inference server.",
+    "url": "https://training.uplatz.com/online-it-course.php?id=vllm-1080",
+    "tags": [
+      "vllm",
+      "pagedattention",
+      "quantization",
+      "kubernetes",
+      "api-server"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "inference",
+    "type": "tutorial",
+    "title": "vLLM in Production: Open-Source LLM Inference Engine Guide 2026 (Effloow)",
+    "description": "Comprehensive production guide covering vLLM v0.17.1 with Model Runner V2 (56% higher throughput on NVIDIA GB200), PagedAttention, continuous batching, speculative decoding, disaggregated prefill/decode, benchmarks vs SGLang/TGI/TensorRT-LLM, Kubernetes deployment, and observability (TTFT, ITL, KV cache utilization).",
+    "url": "https://effloow.com/articles/vllm-production-inference-guide-2026",
+    "tags": [
+      "vllm",
+      "production",
+      "benchmarks",
+      "deployment",
+      "observability"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "inference",
+    "type": "tutorial",
+    "title": "vLLM Complete Setup Guide for Local LLMs 2026 (Local AI Master)",
+    "description": "32-minute guide covering full vLLM installation (pip, Docker, source, AMD ROCm), comparison table vs Ollama/llama.cpp/TensorRT-LLM/SGLang, quantization recipes (AWQ-INT4, FP8, GPTQ, W8A8), PagedAttention and KV-cache tuning, continuous batching, tensor parallelism, Docker/Kubernetes deployment with Helm+KServe, and GPU-specific tuning for RTX 3090/4090/5090/H100.",
+    "url": "https://localaimaster.com/blog/vllm-complete-setup-guide",
+    "tags": [
+      "vllm",
+      "setup",
+      "quantization",
+      "gpu-tuning",
+      "kubernetes"
+    ],
+    "difficulty": "intermediate"
   }
 ]

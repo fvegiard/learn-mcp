@@ -838,5 +838,65 @@
       "ab-testing"
     ],
     "difficulty": "intermediate"
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "course",
+    "title": "Advanced Prompt Engineering for LLMs (DAIR.AI/Maven)",
+    "description": "4-day cohort-based course by Elvis Saravia (DAIR.AI founder, ex-Meta AI). Covers few-shot/many-shot, Chain-of-Thought, self-reflection, meta prompting, automatic prompt engineering, ReAct, RAG, fine-tuning, function calling, agentic workflows, LLM evaluation, and adversarial prompting. Trusted by professionals at Apple, Google, Microsoft, OpenAI.",
+    "url": "https://maven.com/dair-ai/prompt-engineering-llms",
+    "tags": [
+      "prompt-engineering",
+      "chain-of-thought",
+      "agentic",
+      "evaluation",
+      "adversarial"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "course",
+    "title": "Advanced Prompt Engineering (Learn Prompting)",
+    "description": "Self-paced course by Sander Schulhoff covering Chain-of-Thought, Tree-of-Thoughts, self-correction, decomposition, AI agents, ReAct, RAG, function calling, multi-modal prompting, prompt optimization, and evaluation frameworks. Over 3 million students. Authored by the creator of the 76-page Prompt Report survey.",
+    "url": "https://learnprompting.thinkific.com/courses/advanced-prompt-engineering",
+    "tags": [
+      "prompt-engineering",
+      "chain-of-thought",
+      "agents",
+      "multimodal",
+      "evaluation"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "course",
+    "title": "Advanced Prompt Engineering (Intentional Prompts)",
+    "description": "21-lesson project-based course by Martin Szummer (Google DeepMind, Microsoft Research, MIT, Cambridge). Covers prompt chaining, Program-Aided Language (PAL), ReAct prompting, and building agentic chatbots with Flowise AI (no-code LLM workflow builder).",
+    "url": "https://www.intentionalprompts.com/courses/advanced-prompt-engineering.html",
+    "tags": [
+      "prompt-engineering",
+      "agentic",
+      "no-code",
+      "flowise",
+      "project-based"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "course",
+    "title": "Prompt Engineering Specialization (Vanderbilt/Coursera)",
+    "description": "3-course series by Dr. Jules White (Vanderbilt) with 130,000+ enrolled. Covers prompt patterns, ChatGPT advanced data analysis, trustworthy generative AI, automation, and data visualization. University-accredited certificate with beginner-friendly progression.",
+    "url": "https://www.coursera.org/specializations/prompt-engineering",
+    "tags": [
+      "prompt-engineering",
+      "vanderbilt",
+      "coursera",
+      "certification",
+      "beginner"
+    ],
+    "difficulty": "beginner"
   }
 ]

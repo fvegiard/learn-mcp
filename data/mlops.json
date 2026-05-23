@@ -811,5 +811,50 @@
       "production"
     ],
     "difficulty": "intermediate"
+  },
+  {
+    "topic": "mlops",
+    "type": "course",
+    "title": "Harvard AC215: MLOps, LLMOps & AIOps \u2014 Productionizing AI Systems",
+    "description": "Harvard IACS course covering the full production AI lifecycle: containerization, cloud infrastructure, data pipelines, advanced training and inference workflows. Includes LLM-specific topics (RAG, agentic systems, LangChain, LlamaIndex, fine-tuning, deployment at scale) with a team project building a working web/mobile AI application.",
+    "url": "https://github.com/Harvard-IACS/2026-AC215",
+    "tags": [
+      "mlops",
+      "llmops",
+      "harvard",
+      "production",
+      "deployment"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "mlops",
+    "type": "course",
+    "title": "Scale AI Safely: Master MLOps & LLMOps for Production Success (LunarTech)",
+    "description": "9-hour course covering MLOps foundations, governance with MLflow, LLMOps and prompt engineering, Databricks pipelines, trace and monitoring, and ROI analysis. Focuses on governance, lineage, auditability, and risk-averse LLM deployment using Databricks and Unity Catalog.",
+    "url": "https://academy.lunartech.ai/courses/scale-ai-safely-master-mlops-llmops-for-production-success",
+    "tags": [
+      "mlops",
+      "llmops",
+      "databricks",
+      "mlflow",
+      "governance"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "mlops",
+    "type": "course",
+    "title": "LLMOps Course: Deploy & Scale Production LLMs (School of Core AI)",
+    "description": "12-week live cohort with 6 production projects and measurable infra artifacts (load tests, dashboards, eval gates, runbooks). Deep coverage of vLLM, LangServe, LangSmith/Langfuse, MLflow, Kubernetes, Triton, and DeepSpeed across 6 operational pillars: Serving, Fine-Tuning Ops, Observability, CI/CD, Security, and Cost Control.",
+    "url": "https://schoolofcoreai.com/courses/llmops-course",
+    "tags": [
+      "llmops",
+      "vllm",
+      "kubernetes",
+      "production",
+      "observability"
+    ],
+    "difficulty": "advanced"
   }
 ]

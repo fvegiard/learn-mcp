@@ -900,5 +900,65 @@
       "free"
     ],
     "difficulty": "intermediate"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "course",
+    "title": "GPU Programming with C++ and CUDA (Coursera/Packt)",
+    "description": "10-module course covering parallel programming fundamentals, CUDA kernel execution, SIMD execution, GPU thread/block/grid configurations, shared memory, streams and events, parallel algorithms (matrix ops, reduction), performance optimization with NVIDIA Nsight Compute, multi-GPU programming, debugging with VS Code, and Python integration (Ctypes, cuBLAS, Thrust).",
+    "url": "https://www.coursera.org/learn/packt-gpu-programming-with-c-and-cuda",
+    "tags": [
+      "cuda",
+      "gpu",
+      "nsight",
+      "multi-gpu",
+      "python-integration"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "tutorial",
+    "title": "Fundamentals of Accelerated Computing with Modern CUDA C++ (NVIDIA)",
+    "description": "Free self-paced tutorial with Jupyter notebooks (run on Google Colab or NVIDIA Brev). Covers execution spaces, parallel algorithms, vocabulary types, mdspan, asynchrony, CUDA streams, Nsight profiling, pinned memory, CUDA kernels, histogram algorithms, shared memory, and cooperative groups.",
+    "url": "https://github.com/NVIDIA/accelerated-computing-hub/tree/main/tutorials/cuda-cpp",
+    "tags": [
+      "cuda",
+      "nvidia",
+      "gpu",
+      "colab",
+      "free"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "course",
+    "title": "GPU Programming using CUDA (HLRS, University of Stuttgart)",
+    "description": "2-part online course (Jan 2026) covering CUDA basics, kernels, memory management, profiling, GPU architecture, modern C++ and GPUs (Part 1), plus shared/constant memory, bank conflicts, atomics, CUDA streams, multi-GPU, warp shuffles, CUB, cooperative groups, kernel-level profiling, and OpenMP interoperability (Part 2). Hands-on exercises on HLRS HPC cluster.",
+    "url": "https://www.hlrs.de/training/2026/cuda1",
+    "tags": [
+      "cuda",
+      "hpc",
+      "stuttgart",
+      "multi-gpu",
+      "profiling"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "course",
+    "title": "GPU Programming Part 1: Foundations (J\u00fclich Supercomputing Centre)",
+    "description": "3-day on-site course (March 2026) at J\u00fclich, Germany, with NVIDIA instructor. Covers GPU architecture, CUDA programming model, debugging and profiling tools, GPU libraries (cuBLAS, cuFFT), and introduction to multi-GPU programming. Limited to 26 participants.",
+    "url": "https://www.fz-juelich.de/en/jsc/news/events/training-courses/training-courses-2026/gpu-cuda",
+    "tags": [
+      "cuda",
+      "hpc",
+      "juelich",
+      "nvidia",
+      "gpu-libraries"
+    ],
+    "difficulty": "intermediate"
   }
 ]

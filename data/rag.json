@@ -861,5 +861,35 @@
       "deep-lake"
     ],
     "difficulty": "beginner"
+  },
+  {
+    "topic": "rag",
+    "type": "course",
+    "title": "Advanced RAG: Build & Deploy Production GenAI Apps (Udemy)",
+    "description": "11-hour course building RAGWire, a production-grade RAG toolkit with LangChain, Qdrant, and LangGraph. Covers BM25 hybrid search, agentic RAG, self-correcting agents, multi-agent systems (CrewAI, AutoGen), FastAPI backend, and cloud deployment to AWS/GCP/Azure.",
+    "url": "https://www.udemy.com/course/advanced-rag-build-deploy-production-genai-apps/",
+    "tags": [
+      "rag",
+      "production",
+      "hybrid-search",
+      "agentic-rag",
+      "deployment"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "rag",
+    "type": "course",
+    "title": "Advanced RAG: GraphRAG, Hybrid Retrieval & RAGAS Eval (FindSkill.ai)",
+    "description": "2-hour advanced course covering graph-augmented retrieval, hybrid search (91% accuracy benchmark), agentic RAG, corrective RAG, RAGAS evaluation, and production infrastructure decisions. Includes vector DB comparison across Pinecone, Weaviate, Qdrant, Chroma, and pgvector.",
+    "url": "https://findskill.ai/courses/advanced-rag-systems/",
+    "tags": [
+      "rag",
+      "graphrag",
+      "hybrid-search",
+      "ragas",
+      "evaluation"
+    ],
+    "difficulty": "advanced"
   }
 ]
