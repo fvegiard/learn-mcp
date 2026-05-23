@@ -953,113 +953,61 @@
   {
     "topic": "fine-tuning",
     "type": "tool",
-    "title": "WeClone",
-    "description": "One-stop solution for creating your AI twin from chat history. 17k+ stars. Fine-tunes LLMs with your chat logs to capture unique style, then binds to a chatbot.",
-    "url": "https://github.com/xming521/WeClone",
+    "title": "DeepSpeed ReadTheDocs: Complete API Reference",
+    "description": "Comprehensive DeepSpeed API reference covering model setup, training API, inference API, checkpointing (including ZeRO checkpoint recovery), ZeRO API (memory-centric tiling, GPU memory management), Mixture of Experts (MoE), pipeline parallelism, custom optimizers (FusedAdam, FusedLamb, 1-bit Adam/LAMB), autotuning, Flops Profiler, and monitoring integrations. The definitive reference for configuring ZeRO stages 1-3, offloading, and multi-node training.",
+    "url": "https://deepspeed.readthedocs.io/en/stable/index.html",
     "tags": [
-      "fine-tuning",
-      "chat-data",
-      "personalization",
-      "llm"
+      "deepspeed",
+      "api",
+      "documentation",
+      "zero",
+      "reference"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "fine-tuning",
+    "type": "tool",
+    "title": "DeepSpeed-MII: Low-Latency Inference with DeepSpeed",
+    "description": "DeepSpeed Model Implementations for Inference (MII) enables low-latency, high-throughput LLM inference. Supports tensor parallelism, DeepSpeed-ZeRO inference, ONNX runtime, and automatic model quantization. Provides 2-4x latency reduction and 3-5x throughput improvement over vanilla HuggingFace inference for supported models.",
+    "url": "https://github.com/deepspeedai/DeepSpeed-MII",
+    "tags": [
+      "deepspeed",
+      "inference",
+      "low-latency",
+      "quantization",
+      "deployment"
     ],
     "difficulty": "intermediate"
   },
   {
     "topic": "fine-tuning",
     "type": "tool",
-    "title": "H2O LLM Studio",
-    "description": "Framework and no-code GUI for fine-tuning LLMs. 4.9k+ stars. Visual interface for configuring SFT, DPO, and RLHF training with experiment tracking.",
-    "url": "https://github.com/h2oai/h2o-llmstudio",
+    "title": "HuggingFace Accelerate: Distributed PyTorch Training Made Easy",
+    "description": "HuggingFace Accelerate provides a simple API for distributed PyTorch training across GPUs, TPUs, and CPUs with minimal code changes. Supports automatic mixed precision (including FP8), FSDP, DeepSpeed integration, gradient accumulation, and multi-node training. The accelerate launch CLI and config system handle environment setup automatically, replacing manual torchrun and environment variable management.",
+    "url": "https://github.com/huggingface/accelerate",
     "tags": [
-      "fine-tuning",
-      "gui",
-      "no-code",
-      "h2o"
+      "accelerate",
+      "huggingface",
+      "distributed",
+      "mixed-precision",
+      "fsdp"
     ],
     "difficulty": "beginner"
   },
   {
     "topic": "fine-tuning",
-    "type": "tool",
-    "title": "LlamaGym",
-    "description": "Fine-tune LLM agents with online reinforcement learning. 1.2k+ stars. Provides a Gym-style interface for training LLM-based agents through RL feedback loops.",
-    "url": "https://github.com/KhoomeiK/LlamaGym",
+    "type": "tutorial",
+    "title": "NVIDIA Blog: Eliminating Pipeline Friction in AI Model Serving",
+    "description": "2026 NVIDIA Technical Blog covering 18 best practices for production inference pipelines: early export validation in CI/CD, ONNX operator set versioning, TensorRT plugin extensions for unsupported ops, dynamic optimization profiles for varying input sizes, NVIDIA NGC containers for reproducibility, profiling with trtexec and Nsight Systems, and Dynamo-Triton integration with dynamic batching and model versioning. Addresses the top deployment blockers: export issues, unsupported operations, dynamic inputs, and version mismatches.",
+    "url": "https://developer.nvidia.com/blog/how-to-eliminate-pipeline-friction-in-ai-model-serving/",
     "tags": [
-      "fine-tuning",
-      "reinforcement-learning",
-      "agents",
-      "rl"
+      "inference",
+      "production",
+      "tensorrt",
+      "triton",
+      "deployment"
     ],
     "difficulty": "advanced"
-  },
-  {
-    "topic": "fine-tuning",
-    "type": "tool",
-    "title": "mlx-tune",
-    "description": "Fine-tune LLMs on Mac with Apple Silicon using MLX. 1.2k+ stars. Supports SFT, DPO, GRPO, Vision, TTS, STT, Embedding, and OCR fine-tuning with Unsloth-compatible API.",
-    "url": "https://github.com/ARahim3/mlx-tune",
-    "tags": [
-      "fine-tuning",
-      "mlx",
-      "apple-silicon",
-      "mac"
-    ],
-    "difficulty": "intermediate"
-  },
-  {
-    "topic": "fine-tuning",
-    "type": "pattern",
-    "title": "Fine-Tuning LLMs Book (dvgodoy)",
-    "description": "Official repository of 'A Hands-On Guide to Fine-Tuning LLMs with PyTorch and Hugging Face' book. 825+ stars. Covers SFT, DPO, and RLHF with practical code examples.",
-    "url": "https://github.com/dvgodoy/FineTuningLLMs",
-    "tags": [
-      "fine-tuning",
-      "book",
-      "pytorch",
-      "huggingface"
-    ],
-    "difficulty": "intermediate"
-  },
-  {
-    "topic": "fine-tuning",
-    "type": "tool",
-    "title": "Memento - Fine-tuning LLM Agents",
-    "description": "Official code for Memento: fine-tuning LLM agents' policy networks without modifying the base LLM. 2.4k+ stars. Enables agent specialization at a fraction of the cost of full LLM fine-tuning.",
-    "url": "https://github.com/Memento-Teams/Memento",
-    "tags": [
-      "fine-tuning",
-      "agents",
-      "efficient",
-      "policy"
-    ],
-    "difficulty": "advanced"
-  },
-  {
-    "topic": "fine-tuning",
-    "type": "tool",
-    "title": "MLX-GRPO",
-    "description": "Pure MLX-based training pipeline for fine-tuning LLMs using GRPO on Apple Silicon. 240+ stars. Enables reinforcement learning fine-tuning on Mac hardware.",
-    "url": "https://github.com/Doriandarko/MLX-GRPO",
-    "tags": [
-      "fine-tuning",
-      "grpo",
-      "mlx",
-      "apple-silicon"
-    ],
-    "difficulty": "advanced"
-  },
-  {
-    "topic": "fine-tuning",
-    "type": "pattern",
-    "title": "LLM-Zero-to-Hundred",
-    "description": "Collection of LLM chatbot projects (RAG, agents) and well-known techniques for training and fine-tuning LLMs. 553+ stars. Progressive learning path from basics to advanced.",
-    "url": "https://github.com/Farzad-R/LLM-Zero-to-Hundred",
-    "tags": [
-      "fine-tuning",
-      "rag",
-      "agents",
-      "learning-path"
-    ],
-    "difficulty": "beginner"
   }
 ]
