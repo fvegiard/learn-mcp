@@ -842,7 +842,7 @@
   },
   {
     "topic": "mlops",
-    "type": "example",
+    "type": "pattern",
     "title": "Awesome MLOps Contents",
     "description": "Comprehensive curated collection of DataOps and MLOps contents. 132+ stars. Covers courses, books, blogs, tools, and best practices for ML operations.",
     "url": "https://github.com/MLOpsKR/Awesome-MLOps-Contents",

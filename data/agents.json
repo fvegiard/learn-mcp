@@ -897,7 +897,7 @@
   },
   {
     "topic": "agents",
-    "type": "example",
+    "type": "pattern",
     "title": "AI Agents Frameworks Playground",
     "description": "Playground to learn, experiment with, and compare modern open-source AI agent frameworks. 560+ stars. Covers LangGraph, CrewAI, AutoGen, OpenAI Agents SDK, and more with side-by-side implementations.",
     "url": "https://github.com/martimfasantos/ai-agents-frameworks",

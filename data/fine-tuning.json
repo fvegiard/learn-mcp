@@ -1008,7 +1008,7 @@
   },
   {
     "topic": "fine-tuning",
-    "type": "example",
+    "type": "pattern",
     "title": "Fine-Tuning LLMs Book (dvgodoy)",
     "description": "Official repository of 'A Hands-On Guide to Fine-Tuning LLMs with PyTorch and Hugging Face' book. 825+ stars. Covers SFT, DPO, and RLHF with practical code examples.",
     "url": "https://github.com/dvgodoy/FineTuningLLMs",
@@ -1050,7 +1050,7 @@
   },
   {
     "topic": "fine-tuning",
-    "type": "example",
+    "type": "pattern",
     "title": "LLM-Zero-to-Hundred",
     "description": "Collection of LLM chatbot projects (RAG, agents) and well-known techniques for training and fine-tuning LLMs. 553+ stars. Progressive learning path from basics to advanced.",
     "url": "https://github.com/Farzad-R/LLM-Zero-to-Hundred",

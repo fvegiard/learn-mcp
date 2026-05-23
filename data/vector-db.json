@@ -920,7 +920,7 @@
   },
   {
     "topic": "vector-db",
-    "type": "example",
+    "type": "pattern",
     "title": "Write You a Vector DB",
     "description": "A vector database tutorial built over CMU-DB's BusTub system. 750+ stars. Excellent educational resource for understanding vector database internals: indexing, similarity search, and query optimization.",
     "url": "https://github.com/skyzh/write-you-a-vector-db",

@@ -892,7 +892,7 @@
   },
   {
     "topic": "rag",
-    "type": "example",
+    "type": "pattern",
     "title": "RAGHub",
     "description": "Community-driven collection of RAG frameworks, projects, and resources. 1.7k+ stars. The go-to directory for discovering RAG tools, libraries, and evaluation benchmarks.",
     "url": "https://github.com/Andrew-Jang/RAGHub",
@@ -906,7 +906,7 @@
   },
   {
     "topic": "rag",
-    "type": "example",
+    "type": "pattern",
     "title": "Simple Local RAG (mrdbourke)",
     "description": "Build a RAG pipeline from scratch that runs entirely locally. 980+ stars. Hands-on tutorial from Daniel Bourke covering document loading, embedding, vector search, and generation.",
     "url": "https://github.com/mrdbourke/simple-local-rag",
@@ -934,7 +934,7 @@
   },
   {
     "topic": "rag",
-    "type": "example",
+    "type": "pattern",
     "title": "Cloudflare RAG",
     "description": "Full-stack Chat with your PDFs RAG app built entirely on Cloudflare Workers. 600+ stars. Demonstrates serverless RAG with D1, Vectorize, and Workers AI.",
     "url": "https://github.com/RafalWilinski/cloudflare-rag",
@@ -962,7 +962,7 @@
   },
   {
     "topic": "rag",
-    "type": "example",
+    "type": "pattern",
     "title": "Azure RAG Design and Evaluation",
     "description": "Comprehensive recommendations for building RAG solutions following best practices, with tools for testing, evaluation, and reusable code snippets. From Azure-Samples.",
     "url": "https://github.com/Azure-Samples/Design-and-evaluation-of-RAG-solutions",

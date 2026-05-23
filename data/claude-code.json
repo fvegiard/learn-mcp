@@ -835,7 +835,7 @@
   },
   {
     "topic": "claude-code",
-    "type": "example",
+    "type": "pattern",
     "title": "Claude Code MCP Install Guide",
     "description": "Easy guide to installing Claude Code MCPs globally on your machine. 237+ stars. Covers configuration, settings, and common MCP server setups for Claude Code.",
     "url": "https://github.com/undeadpickle/claude-code-mcpinstall",
