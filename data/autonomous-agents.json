@@ -15,7 +15,7 @@
     "workflow": [
       "PLAN: Generate one or more candidate action trajectories for the task",
       "INSPECT: Execute each trajectory in a sandbox and compute structured textual gradients encoding plan-vs-execution discrepancies",
-      "EVOLVE: Using the discrepancy signals, repair only the unsupported suffix after the earliest divergence point — never regenerate the full plan",
+      "EVOLVE: Using the discrepancy signals, repair only the unsupported suffix after the earliest divergence point \u2014 never regenerate the full plan",
       "VERIFY: Run a final global constraint check on the evolved trajectory; accept only if it improves over the previous best (monotonic acceptance)",
       "RETRY: If verification fails or constraints are unsatisfied, loop back to EVOLVE with the updated gradient signals; exit after max iterations or acceptance"
     ]
@@ -58,7 +58,7 @@
     "workflow": [
       "RECEIVE: Parse the user query and identify sub-questions that require external evidence",
       "RETRIEVE: For each sub-question, generate targeted search queries and retrieve documents from the knowledge base",
-      "ASSESS: Evaluate retrieved evidence for relevance, grounding, and adequacy — use an Evidence Sufficiency Controller or Triple-Check verification",
+      "ASSESS: Evaluate retrieved evidence for relevance, grounding, and adequacy \u2014 use an Evidence Sufficiency Controller or Triple-Check verification",
       "COMMIT or RETRY: If evidence is sufficient, synthesize an answer; if gaps remain, generate new retrieval queries targeting the gaps and loop back",
       "SYNTHESIZE: Merge all sub-answers into a coherent response with citations; flag any remaining uncertainty"
     ]
@@ -79,7 +79,7 @@
     "workflow": [
       "PLAN: Break the task into independent subtasks that can run in parallel without file-level conflicts",
       "DISPATCH: Launch each subtask as a separate Claude Code session with `claude --worktree <name>`, creating isolated git checkouts under `.claude/worktrees/`",
-      "EXECUTE: Each worktree session independently reads, edits, tests, and commits changes on its own branch — no merge conflicts during execution",
+      "EXECUTE: Each worktree session independently reads, edits, tests, and commits changes on its own branch \u2014 no merge conflicts during execution",
       "REVIEW: Use `claude agents` to monitor all background sessions; review each worktree's changes before merging",
       "MERGE: Merge completed worktree branches back into the main branch; auto-cleanup removes empty worktrees, dirty ones prompt keep-or-discard"
     ]
@@ -100,7 +100,7 @@
     "difficulty": "advanced",
     "workflow": [
       "INSTRUMENT: Emit OpenTelemetry spans for every agent decision, tool call, and token spend; define judgment SLOs (decision quality, not just latency/uptime)",
-      "BUDGET: Set per-agent and per-operation-class token budgets; track token_cost_per_task as a leading indicator — a 40% spike precedes visible quality degradation by 24-48 hours",
+      "BUDGET: Set per-agent and per-operation-class token budgets; track token_cost_per_task as a leading indicator \u2014 a 40% spike precedes visible quality degradation by 24-48 hours",
       "DEGRADE: Implement a 4-level fallback chain: (1) retry with exponential backoff, (2) model fallback (Opus -> Sonnet -> Haiku), (3) queue and defer non-urgent tasks, (4) graceful decline with user notification",
       "RESPOND: When an alert fires (cost spike, quality drop, loop detection), execute the runbook: kill the runaway agent, fall back to cheaper model, notify the oncall, and preserve forensic traces",
       "LEARN: Run weekly behavioral chaos tests (inject malformed tool responses, contradictory instructions) to surface failure modes before they hit production"
@@ -180,7 +180,7 @@
     "topic": "autonomous-agents",
     "type": "example",
     "title": "MCP Tool Definition for Autonomous Agents (TypeScript)",
-    "description": "A Model Context Protocol (MCP) server that exposes tools for autonomous agents to discover and use at runtime. Demonstrates the tool definition pattern that enables dynamic tool discovery, progressive disclosure, and code-mode execution — reducing token consumption by up to 98.7% compared to loading all tool definitions upfront.",
+    "description": "A Model Context Protocol (MCP) server that exposes tools for autonomous agents to discover and use at runtime. Demonstrates the tool definition pattern that enables dynamic tool discovery, progressive disclosure, and code-mode execution \u2014 reducing token consumption by up to 98.7% compared to loading all tool definitions upfront.",
     "url": "https://www.anthropic.com/engineering/code-execution-with-mcp",
     "tags": [
       "MCP",
@@ -344,7 +344,7 @@
     "topic": "autonomous-agents",
     "type": "pattern",
     "title": "Synapse: Spreading Activation for Episodic-Semantic Memory in Agents",
-    "description": "Synapse implements a unified episodic-semantic memory graph with spreading activation, lateral inhibition, and temporal decay. It combines semantic similarity, activation-based traversal, and PageRank structural priors for retrieval. Achieves 40.5 average F1 on LoCoMo, with 96.6 on adversarial queries — dramatically outperforming A-Mem and Zep.",
+    "description": "Synapse implements a unified episodic-semantic memory graph with spreading activation, lateral inhibition, and temporal decay. It combines semantic similarity, activation-based traversal, and PageRank structural priors for retrieval. Achieves 40.5 average F1 on LoCoMo, with 96.6 on adversarial queries \u2014 dramatically outperforming A-Mem and Zep.",
     "url": "https://arxiv.org/pdf/2601.02744",
     "tags": [
       "memory-systems",
@@ -629,7 +629,7 @@
   {
     "topic": "autonomous-agents",
     "type": "pattern",
-    "title": "ACE: Agentic Context Evolution — Metacognitive To Retrieve or To Think",
+    "title": "ACE: Agentic Context Evolution \u2014 Metacognitive To Retrieve or To Think",
     "description": "ACE uses a multi-agent orchestrator with majority voting to dynamically decide between RETRIEVE (external search) and THINK (internal reasoning/sub-query generation) at each step. Achieves 62.8% on HotpotQA (vs. 38.9% for vanilla RAG) using 42% fewer tokens than brute-force IterDRAG, avoiding contextual saturation from over-retrieval.",
     "url": "https://arxiv.org/pdf/2601.08747",
     "tags": [
@@ -734,7 +734,7 @@
     "topic": "autonomous-agents",
     "type": "tutorial",
     "title": "LangGraph Tutorial by OpnCrafter: Cycles, Persistence, and Human-in-the-Loop",
-    "description": "A practical tutorial emphasizing that linear chains are insufficient for production agents — cycles via LangGraph are essential. Covers human-in-the-loop with interrupt_before, parallel node execution, persistence and time-travel with checkpointers, and recursion_limit as an essential safety guard (set to N_expected_hops * 2).",
+    "description": "A practical tutorial emphasizing that linear chains are insufficient for production agents \u2014 cycles via LangGraph are essential. Covers human-in-the-loop with interrupt_before, parallel node execution, persistence and time-travel with checkpointers, and recursion_limit as an essential safety guard (set to N_expected_hops * 2).",
     "url": "https://opncrafter.space/guide/langgraph-tutorial",
     "tags": [
       "LangGraph",
@@ -787,7 +787,7 @@
     "topic": "autonomous-agents",
     "type": "tool",
     "title": "Anthropic MCP: 10,000+ Community Servers and Registry API for Dynamic Tool Discovery",
-    "description": "The Model Context Protocol has grown to 10,000+ community-built servers enabling LLMs to connect to external tools, data sources, and APIs. The upcoming Registry API will enable agents to dynamically search for and discover new MCP servers on demand — a key enabler for autonomous tool acquisition. New features include Elicitation (server-initiated user input) and Tasks (durable execution wrappers).",
+    "description": "The Model Context Protocol has grown to 10,000+ community-built servers enabling LLMs to connect to external tools, data sources, and APIs. The upcoming Registry API will enable agents to dynamically search for and discover new MCP servers on demand \u2014 a key enabler for autonomous tool acquisition. New features include Elicitation (server-initiated user input) and Tasks (durable execution wrappers).",
     "url": "https://www.anthropic.com/news/model-context-protocol",
     "tags": [
       "MCP",
@@ -845,16 +845,330 @@
   },
   {
     "topic": "autonomous-agents",
-    "type": "tool",
-    "title": "Activepieces",
-    "description": "AI Agents and MCPs with AI Workflow Automation. 22k+ stars. Provides 400+ MCP server integrations and a visual workflow builder for orchestrating AI agents.",
-    "url": "https://github.com/activepieces/activepieces",
+    "type": "workflow",
+    "title": "MIA: Memory Intelligence Agent with Manager-Planner-Executor Architecture",
+    "description": "A Manager-Planner-Executor architecture integrating non-parametric memory (compressed trajectories) with parametric memory (search plans updated via test-time learning). Uses alternating RL training between Planner and Executor, plus reflection with unsupervised judgment for self-correction. Boosts GPT-5.4 by up to 9% on LiveVQA; a Qwen2.5-VL-7B executor with MIA outperforms the 32B model by 18%.",
+    "url": "https://arxiv.org/pdf/2604.04503",
     "tags": [
-      "autonomous-agents",
-      "automation",
-      "mcp",
-      "workflow"
+      "memory",
+      "self-correction",
+      "planning",
+      "test-time-learning",
+      "RL"
     ],
-    "difficulty": "beginner"
+    "difficulty": "advanced",
+    "workflow": [
+      "MANAGE: Memory Manager retrieves compressed historical trajectories relevant to the current task",
+      "PLAN: Planner generates a search plan using parametric memory, informed by retrieved trajectories",
+      "EXECUTE: Executor carries out the plan, producing intermediate results and observations",
+      "REFLECT: Unsupervised judgment module critiques the execution, identifying errors and inconsistencies",
+      "UPDATE: Bidirectional conversion loop updates both parametric (Planner weights) and non-parametric (Memory Manager) stores based on reflection results",
+      "ITERATE: Alternate RL training between Planner and Executor for synergistic co-evolution until convergence or max iterations"
+    ]
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "workflow",
+    "title": "MemMA: Coordinating the Memory Cycle via Multi-Agent Reasoning and Self-Evolution",
+    "description": "Addresses strategic blindness (forward path) and sparse feedback (backward path) in agent memory. A Meta-Thinker produces structured guidance steering a Memory Manager (construction) and Query Reasoner (iterative retrieval). Failed retrievals trigger in-situ self-evolving memory construction that synthesizes probe QA pairs and converts failures into repair actions before committing memory. Achieves 81.58% ACC on LoCoMo.",
+    "url": "https://arxiv.org/pdf/2603.18718",
+    "tags": [
+      "memory",
+      "multi-agent",
+      "self-evolution",
+      "retrieval",
+      "meta-reasoning"
+    ],
+    "difficulty": "advanced",
+    "workflow": [
+      "THINK: Meta-Thinker produces structured guidance based on the query context and task requirements",
+      "CONSTRUCT: Memory Manager builds new memories following the Meta-Thinker's guidance, forming structured representations",
+      "RETRIEVE: Query Reasoner performs iterative retrieval, refining queries based on intermediate results until sufficient evidence is gathered",
+      "VERIFY: If retrieval fails, synthesize probe QA pairs to test current memory coverage and identify gaps",
+      "EVOLVE: Convert verification failures into repair actions \u2014 update, merge, or create memories in-situ before committing",
+      "RESPOND: Generate the final answer using verified, evolved memories; store the interaction pattern for future meta-thinking cycles"
+    ]
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "workflow",
+    "title": "MemRL: Self-Evolving Agents via Runtime Reinforcement Learning on Episodic Memory",
+    "description": "Non-parametric RL approach enabling agent self-evolution without weight updates. Uses Intent-Experience-Utility triplet memory structure with two-phase retrieval (similarity-based recall then Q-value-based selection to filter semantic noise) and utility-driven updates via Monte Carlo-style Q-value updates from environmental feedback. Provides theoretical stability guarantees preventing catastrophic forgetting. Outperforms MemP by +3.8% across BigCodeBench, ALFWorld, Lifelong Agent Bench, and HLE.",
+    "url": "https://arxiv.org/pdf/2601.03192",
+    "tags": [
+      "memory",
+      "reinforcement-learning",
+      "self-evolution",
+      "episodic-memory",
+      "ICML-2026"
+    ],
+    "difficulty": "advanced",
+    "workflow": [
+      "ENCOD: Encode the current task as an intent vector capturing what the agent wants to achieve",
+      "RECALL: Retrieve candidate experiences via similarity-based matching against stored intent vectors",
+      "SELECT: Apply Q-value-based filtering on recalled candidates to prioritize high-utility experiences over merely similar ones",
+      "ACT: Execute the task using guidance from selected experiences, observing environmental feedback",
+      "UPDATE: Compute Monte Carlo-style Q-value updates from the feedback signal and update the experience triplet's utility score",
+      "STORE: Store the new Intent-Experience-Utility triplet; stability guarantees ensure no catastrophic forgetting of earlier high-utility memories"
+    ]
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "workflow",
+    "title": "Polaris: G\u00f6del Agent for Small Language Models via Experience-Abstracted Policy Repair",
+    "description": "Recursive self-improvement for 7B-parameter models through experience-abstracted policy repair. Analyzes failures, synthesizes strategy patches as validated code-level policy modifications, and integrates them conservatively with bounded retries (up to 3 attempts). Controls context growth to make G\u00f6del-style self-improvement feasible for SLMs. Achieves up to +9% improvement on MGSM, DROP, GPQA, and LitBench.",
+    "url": "https://arxiv.org/pdf/2603.23129",
+    "tags": [
+      "self-improvement",
+      "small-models",
+      "policy-repair",
+      "recursive",
+      "G\u00f6del-agent"
+    ],
+    "difficulty": "advanced",
+    "workflow": [
+      "FAIL: Execute the current policy on a task and record the failure trace (inputs, outputs, error signals)",
+      "ANALYZE: Identify the root cause of failure from the trace \u2014 categorize as planning error, execution error, or reasoning gap",
+      "SYNTHESIZE: Generate a strategy-level patch that abstracts the failure pattern into a reusable policy modification",
+      "VALIDATE: Apply the patch to a held-out validation set with bounded retries (max 3 attempts); reject if it degrades performance",
+      "INTEGRATE: Merge validated patches into the base policy with conservative update rules that prevent context explosion",
+      "ITERATE: Re-execute the updated policy on new tasks, cycling through failure analysis and patch synthesis until convergence or iteration budget is exhausted"
+    ]
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "workflow",
+    "title": "DeerFlow: Open-Source Long-Horizon SuperAgent Harness",
+    "description": "ByteDance's open-source SuperAgent harness for long-horizon tasks that require research, coding, and creative generation. Orchestrates multiple specialized sub-agents (researcher, coder, writer) in a hierarchical pipeline with state persistence and progress tracking. Designed for complex multi-step workflows that exceed single-agent context windows.",
+    "url": "https://github.com/bytedance/deer-flow",
+    "tags": [
+      "superagent",
+      "long-horizon",
+      "multi-agent",
+      "research",
+      "production"
+    ],
+    "difficulty": "intermediate",
+    "workflow": [
+      "DECOMPOSE: Break the long-horizon task into a sequence of sub-tasks (research, code, generate, review)",
+      "DISPATCH: Route each sub-task to the appropriate specialized sub-agent (researcher, coder, writer, reviewer)",
+      "EXECUTE: Each sub-agent processes its task using its own context and tools, producing intermediate artifacts",
+      "SYNTHESIZE: Aggregate sub-agent outputs into a coherent final result, resolving conflicts and redundancies",
+      "REVIEW: Evaluate the synthesized output against quality criteria; if insufficient, loop back to DISPATCH with refinement instructions",
+      "DELIVER: Present the final output to the user with full provenance tracing of each sub-agent's contribution"
+    ]
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "workflow",
+    "title": "Agent Guide: Comprehensive AI Agent Development Guide with LangGraph and RAG",
+    "description": "A structured 7-module guide covering AI agent development from fundamentals to production. Includes LangGraph hands-on, advanced RAG patterns, and transition guides from prototype to production deployment. Written in Chinese with code examples.",
+    "url": "https://github.com/adongwanai/AgentGuide",
+    "tags": [
+      "guide",
+      "langgraph",
+      "rag",
+      "production",
+      "tutorial"
+    ],
+    "difficulty": "beginner",
+    "workflow": [
+      "LEARN fundamentals: Agent patterns (ReAct, Plan-Execute), tool calling, and state management concepts",
+      "BUILD basic agent: Implement a ReAct agent with LangGraph StateGraph, nodes, and conditional edges",
+      "ADD tools: Integrate web search, database, and calculator tools with production safeguards (rate limiting, input validation)",
+      "IMPLEMENT memory: Add short-term (checkpointing) and long-term (vector store) memory for persistent conversations",
+      "APPLY advanced patterns: Human-in-the-loop interrupt/resume, multi-agent supervisor, and self-correction loops",
+      "HARDEN for production: Streaming responses, observability with LangSmith, cost tracking, and error recovery",
+      "DEPLOY: Containerize with FastAPI, set up Postgres checkpointing, configure Kubernetes HPA for horizontal scaling"
+    ]
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "workflow",
+    "title": "A2A Protocol v1.0: Agent-to-Agent Communication and Task Lifecycle",
+    "description": "The A2A Protocol v1.0 defining the open standard for agent-to-agent interoperability. Implements a 5-state task lifecycle (submitted, working, input-required, completed/failed/canceled/rejected) with Agent Cards for discovery, SSE streaming, and three protocol bindings (JSON-RPC, gRPC, REST). Governed by the Agentic AI Foundation under the Linux Foundation.",
+    "url": "https://github.com/a2aproject/A2A",
+    "tags": [
+      "a2a",
+      "protocol",
+      "interoperability",
+      "task-lifecycle",
+      "multi-agent"
+    ],
+    "difficulty": "advanced",
+    "workflow": [
+      "DISCOVER: Retrieve Agent Card from /.well-known/agent-card.json to identify capabilities, auth requirements, and supported task types",
+      "SUBMIT: Send a task to the remote agent with a unique task ID and optional Idempotency-Key for duplicate prevention",
+      "WORK: Remote agent processes the task, transitioning through working state with SSE streaming for progress updates",
+      "INPUT-REQUIRED: If the remote agent needs human input, pause and emit input-required state; orchestrator collects input and resumes",
+      "COMPLETE: Remote agent finishes and returns artifacts; task transitions to completed, failed, canceled, or rejected terminal state",
+      "RESOLVE: Orchestrator consumes the task result and artifacts, handling each terminal state appropriately (success, retry on failure, or escalate on rejection)"
+    ]
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "workflow",
+    "title": "CrewAI Flows: Event-Driven Multi-Agent Orchestration with @start/@listen/@router",
+    "description": "CrewAI Flows wrap Crews in an event-driven orchestration layer using @start (entry point), @listen (responds to events), and @router (conditional branching) decorators. Supports Pydantic state models, @persist for SQLite/PostgreSQL crash recovery, structured outputs, task guardrails, and the gradual autonomy pattern (start 100% human review, reduce threshold over time). Produces 14x less code than equivalent LangGraph implementations per DocuSign.",
+    "url": "https://crewai.com/crewai-flows",
+    "tags": [
+      "crewai",
+      "flows",
+      "event-driven",
+      "orchestration",
+      "production"
+    ],
+    "difficulty": "intermediate",
+    "workflow": [
+      "DEFINE state: Create a Pydantic model for structured, serializable flow state with type safety",
+      "START: Mark the entry method with @start() decorator \u2014 this is the first step triggered when the flow runs",
+      "LISTEN: Chain subsequent methods with @listen() decorators that react to outputs from previous steps",
+      "ROUTE: Use @router() for conditional branching \u2014 quality gates, approval workflows, or error handling paths",
+      "PERSIST: Add @persist decorator for SQLite (dev) or PostgreSQL (production) crash recovery with unique UUIDs per flow instance",
+      "GUARDRAIL: Apply task guardrails to validate outputs before passing to the next step; set max_iter on agents to prevent tool-call loops",
+      "DEPLOY: Use crewai deploy create after crewai login for managed infrastructure, or export to FastAPI with async kickoff"
+    ]
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "workflow",
+    "title": "NirDiamant/agents-towards-production: End-to-End Production Agent Tutorials",
+    "description": "A comprehensive collection of code-first tutorials for building production-grade GenAI agents. Covers the full journey from prototype to production including error handling, observability, cost management, evaluation, and deployment patterns. Over 20K stars on GitHub.",
+    "url": "https://github.com/NirDiamant/agents-towards-production",
+    "tags": [
+      "production",
+      "tutorial",
+      "error-handling",
+      "observability",
+      "deployment"
+    ],
+    "difficulty": "intermediate",
+    "workflow": [
+      "PROTOTYPE: Build a basic ReAct agent with tool calling and conversation memory",
+      "HARDEN: Add error handling, retry logic, input validation, and structured outputs with Pydantic",
+      "OBSERVE: Integrate LangSmith or OpenTelemetry for per-node tracing, cost tracking, and latency metrics",
+      "EVALUATE: Create evaluation datasets and run automated quality checks against expected outputs",
+      "PERSIST: Add database checkpointing (Postgres) for crash recovery and conversation continuity",
+      "SCALE: Containerize with Docker, set up horizontal scaling with shared state, and configure rate limiting",
+      "DEPLOY: Deploy to cloud with CI/CD, monitoring dashboards, and automated rollback procedures"
+    ]
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "workflow",
+    "title": "AG2 Build: Sample Code and Application Showcases for AutoGen v0.13+",
+    "description": "Official sample code repository for AG2 (formerly AutoGen) showcasing multi-agent patterns including group chat, swarm orchestration, tool integration, and human-in-the-loop workflows. Updated for the latest v0.13 API with LLMConfig and ConversableAgent.",
+    "url": "https://github.com/ag2ai/build-with-ag2",
+    "tags": [
+      "autogen",
+      "ag2",
+      "examples",
+      "multi-agent",
+      "tutorial"
+    ],
+    "difficulty": "beginner",
+    "workflow": [
+      "INSTALL: Install AG2 with pip install ag2[openai] and configure LLMConfig with your API keys",
+      "CREATE: Define ConversableAgent instances with system messages, tool lists, and LLM configurations",
+      "ORCHESTRATE: Set up GroupChat or Swarm patterns for multi-agent collaboration with turn-based or speaker-selection rules",
+      "TOOL: Register @tool-decorated functions for web search, code execution, file I/O, and API access",
+      "HUMAN: Add human-in-the-loop with UserProxyAgent for approval gates and feedback collection",
+      "EXECUTE: Run the agent conversation with max_turns limits and timeout controls",
+      "INSPECT: Review conversation traces, token usage, and tool call logs for debugging and optimization"
+    ]
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "workflow",
+    "title": "Agentok: Visual Multi-Agent Builder for AG2 (AutoGen)",
+    "description": "A drag-and-drop visual tool for building multi-agent applications with AG2 (AutoGen). Provides a visual editor for defining agent roles, group chat configurations, and tool integrations without writing code, then generates executable AG2 configurations.",
+    "url": "https://github.com/dustland/agentok",
+    "tags": [
+      "autogen",
+      "visual-editor",
+      "multi-agent",
+      "low-code",
+      "tool"
+    ],
+    "difficulty": "beginner",
+    "workflow": [
+      "DESIGN: Drag and drop agent nodes onto the canvas, defining roles, system messages, and capabilities",
+      "CONNECT: Wire agents into group chat or swarm patterns using visual connectors",
+      "CONFIGURE: Set LLM configurations, tool integrations, and conversation parameters through property panels",
+      "TOOL: Assign @tool-decorated functions to agents from the built-in tool library or define custom tools",
+      "SIMULATE: Run test conversations in the visual debugger to verify agent interactions and tool usage",
+      "EXPORT: Generate executable AG2 Python configuration code from the visual design",
+      "DEPLOY: Use the exported configuration in production with AG2 runtime"
+    ]
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "workflow",
+    "title": "Cordum: Open Agent Control Plane for Governing Autonomous AI Agents",
+    "description": "An open agent control plane that governs autonomous AI agents with pre-execution policies. Provides policy-as-code guardrails, approval gates, audit logging, and runtime enforcement for agent actions before they execute. Designed for enterprise compliance and safety.",
+    "url": "https://github.com/cordum-io/cordum",
+    "tags": [
+      "governance",
+      "policy",
+      "control-plane",
+      "safety",
+      "enterprise"
+    ],
+    "difficulty": "advanced",
+    "workflow": [
+      "DEFINE: Write pre-execution policies as code specifying allowed actions, rate limits, and approval requirements",
+      "REGISTER: Register agents with the control plane, declaring their capabilities and policy scopes",
+      "INTERCEPT: Before each agent action, the control plane intercepts the request and evaluates it against applicable policies",
+      "APPROVE: If the action requires human approval, pause and route to the appropriate approver; otherwise auto-approve if within policy bounds",
+      "ENFORCE: Execute approved actions with runtime monitoring for policy violations or unexpected behavior",
+      "AUDIT: Log all decisions (approved, rejected, modified) with full context for compliance review and incident investigation"
+    ]
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "workflow",
+    "title": "MCP Memory Service: Persistent Memory for AI Agent Pipelines",
+    "description": "Open-source persistent memory service for AI agent pipelines (LangGraph, CrewAI, AutoGen). Uses Knowledge Graph-based storage with semantic search, entity extraction, and relationship tracking. Provides MCP-compatible API for integration with any agent framework.",
+    "url": "https://github.com/doobidoo/mcp-memory-service",
+    "tags": [
+      "memory",
+      "mcp",
+      "knowledge-graph",
+      "persistent",
+      "cross-framework"
+    ],
+    "difficulty": "intermediate",
+    "workflow": [
+      "CONNECT: Agent pipeline connects to the MCP memory service via the Model Context Protocol interface",
+      "EXTRACT: Service extracts entities, relationships, and key facts from agent interactions and task results",
+      "STORE: Persist extracted knowledge in a Knowledge Graph with vector embeddings for semantic search",
+      "RECALL: When an agent needs context, query the memory service with natural language or structured filters",
+      "SEARCH: Perform semantic search across stored memories to find relevant past experiences and learned patterns",
+      "EVOLVE: Update and merge memories as new information arrives, maintaining consistency and resolving conflicts",
+      "INTEGRATE: Works with LangGraph checkpointing, CrewAI memory, and AutoGen group chat as a unified memory layer"
+    ]
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "workflow",
+    "title": "SurfSense: Open-Source Privacy-Focused Alternative to NotebookLM for Teams",
+    "description": "An open-source, privacy-focused research agent that combines web browsing, document analysis, and knowledge synthesis. Built with LangGraph for agentic workflows, it can research topics, synthesize information from multiple sources, and generate structured outputs while keeping data private.",
+    "url": "https://github.com/MODSetter/SurfSense",
+    "tags": [
+      "research-agent",
+      "langgraph",
+      "privacy",
+      "knowledge-synthesis",
+      "open-source"
+    ],
+    "difficulty": "intermediate",
+    "workflow": [
+      "INGEST: Upload documents, connect web sources, or let the agent browse for relevant information",
+      "RESEARCH: Agent autonomously searches, browses, and extracts information from multiple web and local sources",
+      "SYNTHESIZE: Combine findings across sources using LangGraph-orchestrated reasoning and fact-checking sub-agents",
+      "ANALYZE: Apply structured analysis (summary, comparison, timeline, entity extraction) to synthesized information",
+      "RESPOND: Generate privacy-preserving outputs (reports, answers, visualizations) with full source attribution",
+      "ITERATE: User can ask follow-up questions; agent uses conversation memory and prior research to refine answers"
+    ]
   }
 ]
