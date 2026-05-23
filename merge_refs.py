@@ -12,7 +12,9 @@ from pathlib import Path
 DATA_DIR = Path(__file__).parent / "data"
 OUTPUT = Path(__file__).parent / "references.json"
 
-REQUIRED_FIELDS = {"topic", "type", "title", "description", "url", "tags", "difficulty"}
+REQUIRED_FIELDS = {"topic", "type", "title", "description", "tags", "difficulty"}
+# url is required for types that reference external resources
+URL_REQUIRED_TYPES = {"course", "tool", "book", "tutorial"}
 VALID_TYPES = {"course", "workflow", "example", "tool", "pattern", "book", "tutorial"}
 VALID_DIFFICULTIES = {"beginner", "intermediate", "advanced"}
 VALID_TOPICS = {
@@ -64,11 +66,18 @@ def main():
             if ref["topic"] not in VALID_TOPICS:
                 errors.append(f"{path.name}[{i}]: invalid topic '{ref['topic']}'")
 
-            # Deduplicate by URL
+            # url required for course/tool/book/tutorial, optional for workflow/example/pattern
+            if ref["type"] in URL_REQUIRED_TYPES and not ref.get("url"):
+                errors.append(
+                    f"{path.name}[{i}]: missing required url for type '{ref['type']}'"
+                )
+
+            # Deduplicate by URL (skip entries without URLs)
             url = ref.get("url", "")
-            if url in seen_urls:
+            if url and url in seen_urls:
                 continue
-            seen_urls.add(url)
+            if url:
+                seen_urls.add(url)
             all_refs.append(ref)
 
     if errors:

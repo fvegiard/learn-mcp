@@ -1,0 +1,801 @@
+[
+  {
+    "topic": "vector-db",
+    "type": "course",
+    "title": "Qdrant Essentials Course (Free)",
+    "description": "7-day free course with final project: build a production-ready documentation search engine. Covers points, payloads, distance metrics, HNSW tuning, hybrid search, quantization, multivectors, and the Universal Query API.",
+    "url": "https://qdrant.tech/course/essentials/",
+    "tags": [
+      "qdrant",
+      "free",
+      "course",
+      "essentials",
+      "production"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "vector-db",
+    "type": "course",
+    "title": "Vector Databases: from Embeddings to Applications (DeepLearning.AI)",
+    "description": "Free intermediate course by Sebastian Witalec (Weaviate) covering embeddings, similarity search, ANN, vector DBs overview, sparse/dense/hybrid search, and multilingual search application.",
+    "url": "https://www.deeplearning.ai/courses/vector-databases-embeddings-applications",
+    "tags": [
+      "embeddings",
+      "ann",
+      "hybrid-search",
+      "weaviate",
+      "free"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "vector-db",
+    "type": "course",
+    "title": "Vector Databases Deep Dive (Coursera/Packt)",
+    "description": "5-hour intermediate course covering Pinecone, Qdrant, Milvus, and Weaviate with hands-on assignments. Covers core concepts, indexing, querying, and live demos.",
+    "url": "https://www.coursera.org/learn/packt-vector-databases-deep-dive-y4haf",
+    "tags": [
+      "pinecone",
+      "qdrant",
+      "milvus",
+      "weaviate",
+      "comparison"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "vector-db",
+    "type": "course",
+    "title": "Vector Database for GenAI (KodeKloud)",
+    "description": "4.5-hour course with 50 topics covering vector DB foundations, embedding layers, similarity metrics, building storage on AWS S3, HNSW, quantization, and hands-on labs for semantic search and recommendation engines.",
+    "url": "https://kodekloud.com/courses/vector-database-for-genai",
+    "tags": [
+      "genai",
+      "embeddings",
+      "hnsw",
+      "quantization",
+      "aws"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "vector-db",
+    "type": "course",
+    "title": "Vector Databases and Search (Dataquest)",
+    "description": "12-hour free course covering semantic search, ANN algorithms, ChromaDB, chunking strategies, metadata filtering, hybrid search, semantic caching, and a capstone knowledge base search project.",
+    "url": "https://www.dataquest.io/course/vector-databases/",
+    "tags": [
+      "chromadb",
+      "semantic-search",
+      "chunking",
+      "caching",
+      "free"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "vector-db",
+    "type": "course",
+    "title": "Building RAG Systems with Open Models (Coursera)",
+    "description": "Covers RAG architecture, embedding models, vector DBs (FAISS, ChromaDB, Milvus, Pinecone), indexing strategies, chunking, re-ranking, and production deployment with LangChain.",
+    "url": "https://www.coursera.org/learn/building-rag-systems-with-open-models",
+    "tags": [
+      "rag",
+      "embeddings",
+      "faiss",
+      "chromadb",
+      "production"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "vector-db",
+    "type": "course",
+    "title": "Enterprise RAG: Best Practices and Advanced Techniques (SupportVectors)",
+    "description": "12-week live course covering LlamaIndex/LangChain, unstructured ingestion, re-ranking, RAGAS evaluation, GraphRAG, hybrid search, Qdrant vector retrieval, ColBERTv2, and multimodal augmentation.",
+    "url": "https://supportvectors.io/course/info.php?id=59",
+    "tags": [
+      "enterprise",
+      "rag",
+      "qdrant",
+      "graphrag",
+      "reranking"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "vector-db",
+    "type": "course",
+    "title": "UCLA Extension: Building RAG (COM SCI 910.2)",
+    "description": "6-week live online course covering end-to-end RAG architecture, embedding model selection, scalable vector search, RAGAS/TruLens evaluation, cloud deployment, and containerization.",
+    "url": "https://www.uclaextension.edu/computer-science/machine-learning-ai/course/building-retrieval-augmented-generation-rag-com-sci",
+    "tags": [
+      "rag",
+      "ucla",
+      "evaluation",
+      "cloud",
+      "containerization"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "vector-db",
+    "type": "workflow",
+    "title": "Set Up Qdrant Hybrid Search with Sparse + Dense Vectors",
+    "description": "Step-by-step workflow for configuring hybrid search combining BM25 sparse vectors with dense embeddings.",
+    "tags": [
+      "qdrant",
+      "hybrid-search",
+      "sparse",
+      "dense",
+      "bm25"
+    ],
+    "difficulty": "intermediate",
+    "workflow": [
+      "Install qdrant-client: pip install qdrant-client[fastembed]",
+      "Create collection with sparse vector config",
+      "Generate dense embeddings with FastEmbed: model = SparseTextEmbedding(model_name=Qdrant/bm25)",
+      "Generate sparse vectors with BM25",
+      "Upsert points with both dense and sparse vectors",
+      "Search with fusion: query_points with dense and sparse vectors",
+      "Tune fusion weights (rrf_k parameter) for optimal recall/precision",
+      "Monitor search quality metrics and adjust as needed"
+    ]
+  },
+  {
+    "topic": "vector-db",
+    "type": "workflow",
+    "title": "Production Vector DB Deployment Checklist",
+    "description": "Step-by-step checklist for deploying a vector database in production with monitoring, backup, and scaling.",
+    "tags": [
+      "production",
+      "deployment",
+      "monitoring",
+      "scaling"
+    ],
+    "difficulty": "advanced",
+    "workflow": [
+      "Choose vector DB: Qdrant (GPU-accelerated), Milvus (distributed), Pinecone (managed), Weaviate (hybrid)",
+      "Define schema: vector size, distance metric (Cosine/Euclidean/Dot), payload fields",
+      "Set up indexing: HNSW parameters (M, ef_construct) based on recall/latency trade-off",
+      "Configure quantization: scalar (4x compression) or product (8x) for memory reduction",
+      "Set up healthcheck endpoint and monitoring (Qdrant /healthz, Prometheus metrics)",
+      "Configure persistence: WAL, snapshots, regular backups to object storage",
+      "Set up horizontal scaling: sharding for Milvus, distributed mode for Qdrant",
+      "Implement rate limiting and connection pooling",
+      "Load test with production data volumes and query patterns",
+      "Set up alerting: latency P99, error rate, storage capacity"
+    ]
+  },
+  {
+    "topic": "vector-db",
+    "type": "workflow",
+    "title": "Embedding Model Selection Process",
+    "description": "Systematic process for selecting the best embedding model for your use case.",
+    "tags": [
+      "embeddings",
+      "model-selection",
+      "evaluation",
+      "benchmarks"
+    ],
+    "difficulty": "intermediate",
+    "workflow": [
+      "Define requirements: dimensionality, language support, domain (general/code/multilingual)",
+      "Check MTEB leaderboard for top models meeting requirements",
+      "Download candidate models and test on your domain-specific evaluation set",
+      "Benchmark latency: measure embedding time per document for each model",
+      "Benchmark quality: retrieval recall@k on your held-out test set",
+      "Check model size: ensure it fits in GPU/CPU memory for your serving setup",
+      "Consider multilingual needs: E5, BGE-M3, or multilingual-e5 for non-English",
+      "Evaluate fine-tuning potential: can you fine-tune on domain data?",
+      "Make selection: balance quality, latency, size, and cost",
+      "Set up A/B test in production to validate offline benchmarks"
+    ]
+  },
+  {
+    "topic": "vector-db",
+    "type": "workflow",
+    "title": "Data Ingestion Pipeline for Vector DB",
+    "description": "Step-by-step pipeline for ingesting documents into a vector database with chunking and metadata.",
+    "tags": [
+      "ingestion",
+      "chunking",
+      "pipeline",
+      "metadata"
+    ],
+    "difficulty": "intermediate",
+    "workflow": [
+      "Extract text from source documents (PDF, HTML, DOCX, etc.)",
+      "Clean and normalize text: remove boilerplate, normalize whitespace, deduplicate",
+      "Chunk documents: recursive character splitting with 500-1000 token chunks, 10% overlap",
+      "Generate embeddings: batch embed with FastEmbed or sentence-transformers",
+      "Enrich with metadata: source, page number, section, timestamp, document type",
+      "Upsert to vector DB: batch insert with payload and dense/sparse vectors",
+      "Set up incremental ingestion: watch for new/modified documents",
+      "Implement deletion: soft delete with metadata flags, hard delete with point IDs",
+      "Monitor: track ingestion rate, embedding quality, storage growth",
+      "Optimize: adjust chunk size based on retrieval quality metrics"
+    ]
+  },
+  {
+    "topic": "vector-db",
+    "type": "workflow",
+    "title": "Qdrant Quantization for Memory Reduction",
+    "description": "Configure scalar or product quantization in Qdrant to reduce memory usage by 4-8x while maintaining search quality.",
+    "tags": [
+      "qdrant",
+      "quantization",
+      "memory",
+      "optimization"
+    ],
+    "difficulty": "advanced",
+    "workflow": [
+      "Estimate memory needs: num_points x dim x 4 bytes for float32 vectors",
+      "Choose quantization type: scalar (4x reduction) or product (8x)",
+      "Enable quantization on collection with update_collection",
+      "Re-index collection after enabling quantization",
+      "Benchmark search quality: compare recall@k with and without quantization",
+      "Monitor memory usage: compare before and after in /metrics endpoint",
+      "Adjust quantile parameter: lower quantile = more compression, slightly less accuracy",
+      "Set up rescoring: search with quantized vectors, then rescore top-k with full vectors",
+      "Validate: run production queries against both and measure quality delta"
+    ]
+  },
+  {
+    "topic": "vector-db",
+    "type": "example",
+    "title": "Qdrant Hybrid Search with FastEmbed",
+    "description": "Python code for setting up Qdrant hybrid search combining dense embeddings with BM25 sparse vectors.",
+    "tags": [
+      "qdrant",
+      "hybrid-search",
+      "fastembed",
+      "bm25"
+    ],
+    "difficulty": "intermediate",
+    "code": "from qdrant_client import QdrantClient\nfrom qdrant_client.models import Distance, VectorParams, SparseVectorParams, SparseIndexParams\nfrom fastembed import TextEmbedding, SparseTextEmbedding\n\nclient = QdrantClient(\"http://127.0.0.1:6333\")\n\n# Create collection with hybrid search support\nclient.create_collection(\n    collection_name=\"documents\",\n    vectors_config=VectorParams(size=384, distance=Distance.COSINE),\n    sparse_vectors_config={\n        \"text\": SparseVectorParams(\n            index=SparseIndexParams(on_disk=False)\n        )\n    }\n)\n\n# Initialize embedding models\ndense_model = TextEmbedding(\"BAAI/bge-small-en-v1.5\")\nsparse_model = SparseTextEmbedding(\"Qdrant/bm25\")\n\n# Ingest documents\ndocs = [\"RAG combines retrieval with generation\", \"Vector databases enable semantic search\"]\nfor i, doc in enumerate(docs):\n    dense_vec = list(dense_model.embed([doc]))[0]\n    sparse_vec = list(sparse_model.embed([doc]))[0]\n    client.upsert(\n        collection_name=\"documents\",\n        points=[{\n            \"id\": i,\n            \"vector\": {\"dense\": dense_vec.tolist(), \"text\": sparse_vec.as_object()},\n            \"payload\": {\"text\": doc}\n        }]\n    )"
+  },
+  {
+    "topic": "vector-db",
+    "type": "example",
+    "title": "ChromaDB Quick Start for RAG",
+    "description": "Python code for setting up ChromaDB as a local vector store for RAG applications.",
+    "tags": [
+      "chromadb",
+      "local",
+      "rag",
+      "quickstart"
+    ],
+    "difficulty": "beginner",
+    "code": "import chromadb\nfrom chromadb.utils import embedding_functions\n\nclient = chromadb.PersistentClient(path=\"./chroma_db\")\nembed_fn = embedding_functions.SentenceTransformerEmbeddingFunction(\n    model_name=\"all-MiniLM-L6-v2\"\n)\ncollection = client.get_or_create_collection(\n    name=\"documents\",\n    embedding_function=embed_fn,\n    metadata={\"hnsw:space\": \"cosine\"}\n)\n\ncollection.add(\n    documents=[\"RAG combines retrieval with generation\", \"Vector search enables semantic matching\"],\n    ids=[\"doc1\", \"doc2\"],\n    metadatas=[{\"source\": \"blog\", \"topic\": \"rag\"}, {\"source\": \"docs\", \"topic\": \"vectors\"}]\n)\n\nresults = collection.query(\n    query_texts=[\"How does RAG work?\"],\n    n_results=2,\n    where={\"topic\": \"rag\"}\n)"
+  },
+  {
+    "topic": "vector-db",
+    "type": "example",
+    "title": "Pinecone Serverless Setup",
+    "description": "Python code for setting up Pinecone Serverless index with upsert and query.",
+    "tags": [
+      "pinecone",
+      "serverless",
+      "cloud",
+      "setup"
+    ],
+    "difficulty": "beginner",
+    "code": "from pinecone import Pinecone, ServerlessSpec\n\npc = Pinecone(api_key=\"your-api-key\")\n\nindex_name = \"documents\"\nif index_name not in pc.list_indexes().names():\n    pc.create_index(\n        name=index_name,\n        dimension=384,\n        metric=\"cosine\",\n        spec=ServerlessSpec(cloud=\"aws\", region=\"us-east-1\")\n    )\n\nindex = pc.Index(index_name)\n\nvectors = [\n    {\"id\": \"doc1\", \"values\": [0.1] * 384, \"metadata\": {\"text\": \"RAG combines retrieval with generation\"}},\n    {\"id\": \"doc2\", \"values\": [0.2] * 384, \"metadata\": {\"text\": \"Vector databases enable semantic search\"}}\n]\nindex.upsert(vectors=vectors)\n\nresults = index.query(\n    vector=[0.15] * 384,\n    top_k=5,\n    include_metadata=True\n)"
+  },
+  {
+    "topic": "vector-db",
+    "type": "example",
+    "title": "Weaviate Hybrid Search Setup",
+    "description": "Python code for setting up Weaviate with hybrid (sparse + dense) search.",
+    "tags": [
+      "weaviate",
+      "hybrid-search",
+      "setup",
+      "python"
+    ],
+    "difficulty": "intermediate",
+    "code": "import weaviate\nfrom weaviate.classes.config import Configure\n\nclient = weaviate.connect_to_local()\n\ncollection = client.collections.create(\n    name=\"Documents\",\n    vectorizer_config=Configure.Vectorizer.text2vec_transformers(),\n    vector_index_config=Configure.VectorIndex.hnsw(\n        distance_metric=Configure.VectorIndex.hnsw.distancemetric.COSINE\n    )\n)\n\ncollection.data.insert({\"text\": \"RAG combines retrieval with generation\"})\ncollection.data.insert({\"text\": \"Vector databases enable semantic search\"})\n\nresults = collection.query.hybrid(\n    query=\"How does RAG work?\",\n    alpha=0.5,\n    limit=5\n)\nfor obj in results.objects:\n    print(obj.properties[\"text\"])"
+  },
+  {
+    "topic": "vector-db",
+    "type": "example",
+    "title": "Milvus Vector Search Pipeline",
+    "description": "Python code for setting up Milvus with PyMilvus for production vector search.",
+    "tags": [
+      "milvus",
+      "pymilvus",
+      "production",
+      "search"
+    ],
+    "difficulty": "intermediate",
+    "code": "from pymilvus import MilvusClient, DataType\n\nclient = MilvusClient(\"http://127.0.0.1:19530\")\n\nschema = client.create_schema(auto_id=True, enable_dynamic_field=True)\nschema.add_field(\"id\", DataType.INT64, is_primary=True)\nschema.add_field(\"vector\", DataType.FLOAT_VECTOR, dim=384)\nschema.add_field(\"text\", DataType.VARCHAR, max_length=65535)\nschema.add_field(\"source\", DataType.VARCHAR, max_length=256)\n\nindex_params = client.prepare_index_params()\nindex_params.add_index(\n    field_name=\"vector\",\n    index_type=\"HNSW\",\n    metric_type=\"COSINE\",\n    params={\"M\": 16, \"efConstruction\": 256}\n)\n\nclient.create_collection(\n    collection_name=\"documents\",\n    schema=schema,\n    index_params=index_params\n)"
+  },
+  {
+    "topic": "vector-db",
+    "type": "tool",
+    "title": "Qdrant",
+    "description": "High-performance vector similarity search engine written in Rust. Supports filtering, payload metadata, hybrid search (sparse+dense), quantization, and GPU acceleration. Free with enterprise features.",
+    "url": "https://qdrant.tech/",
+    "tags": [
+      "qdrant",
+      "rust",
+      "gpu",
+      "hybrid",
+      "production"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "vector-db",
+    "type": "tool",
+    "title": "Pinecone",
+    "description": "Fully managed vector database with serverless and pod-based options. Automatic scaling, metadata filtering, and sparse-dense hybrid search. Best for teams that want zero infrastructure management.",
+    "url": "https://www.pinecone.io/",
+    "tags": [
+      "pinecone",
+      "managed",
+      "serverless",
+      "cloud"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "vector-db",
+    "type": "tool",
+    "title": "Weaviate",
+    "description": "AI-native vector database with built-in vectorization (modules), GraphQL and REST APIs, hybrid search, multi-tenancy, and automated schema inference. Excellent for rapid prototyping.",
+    "url": "https://weaviate.io/",
+    "tags": [
+      "weaviate",
+      "ai-native",
+      "modules",
+      "graphql",
+      "hybrid"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "vector-db",
+    "type": "tool",
+    "title": "Milvus",
+    "description": "Distributed vector database built for scalable similarity search. Supports billion-scale vectors, cloud-native architecture, multi-tenancy, and GPU acceleration. Best for large-scale production deployments.",
+    "url": "https://milvus.io/",
+    "tags": [
+      "milvus",
+      "distributed",
+      "scalable",
+      "gpu",
+      "cloud-native"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "vector-db",
+    "type": "tool",
+    "title": "ChromaDB",
+    "description": "Lightweight, open-source embedding database designed for AI applications. Simple Python API, automatic embedding, and local-first architecture. Best for prototyping and small-scale RAG applications.",
+    "url": "https://www.trychroma.com/",
+    "tags": [
+      "chromadb",
+      "lightweight",
+      "local",
+      "prototyping",
+      "python"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "vector-db",
+    "type": "pattern",
+    "title": "Hybrid Search Pattern (Sparse + Dense)",
+    "description": "Combine BM25/sparse vectors for keyword matching with dense vectors for semantic similarity. Fusion methods (RRF, DBSF) merge results for better recall than either alone.",
+    "tags": [
+      "hybrid-search",
+      "sparse",
+      "dense",
+      "fusion",
+      "bm25"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "vector-db",
+    "type": "pattern",
+    "title": "Quantization for Memory Reduction",
+    "description": "Reduce vector DB memory by 4-8x using scalar quantization (INT8) or product quantization (PQ). Trade ~1-3% recall for massive memory savings. Rescoring with full vectors recovers quality.",
+    "tags": [
+      "quantization",
+      "memory",
+      "scalar",
+      "product",
+      "rescoring"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "vector-db",
+    "type": "pattern",
+    "title": "Chunking Strategy Selection Pattern",
+    "description": "Choose chunking based on content type: recursive character (general), semantic (narrative), sentence (FAQ), document (legal), or sliding window (overlapping). Chunk size 256-1024 tokens with 10% overlap is a good default.",
+    "tags": [
+      "chunking",
+      "strategy",
+      "selection",
+      "default"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "vector-db",
+    "type": "pattern",
+    "title": "Re-ranking Pattern for Improved Retrieval",
+    "description": "Retrieve top-K (50-100) candidates with vector search, then re-rank with a cross-encoder model for much better precision. Trade latency for quality. Cohere Rerank, BGE-Reranker, and ColBERT are popular choices.",
+    "tags": [
+      "reranking",
+      "cross-encoder",
+      "cohere",
+      "bge",
+      "colbert"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "vector-db",
+    "type": "pattern",
+    "title": "Multi-Vector Document Pattern",
+    "description": "Store multiple vector representations per document: dense (semantic), sparse (BM25), and optionally ColBERT (token-level). Enables hybrid search, late interaction, and better recall at the cost of storage.",
+    "tags": [
+      "multi-vector",
+      "colbert",
+      "dense",
+      "sparse",
+      "hybrid"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "vector-db",
+    "type": "tutorial",
+    "title": "Qdrant Python Client Quickstart",
+    "description": "Official Qdrant Python client tutorial covering connection, collection creation, point insertion, filtering, and search with dense and sparse vectors.",
+    "url": "https://qdrant.tech/documentation/",
+    "tags": [
+      "qdrant",
+      "python",
+      "quickstart",
+      "tutorial"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "vector-db",
+    "type": "tutorial",
+    "title": "Weaviate Getting Started Guide",
+    "description": "Step-by-step guide to setting up Weaviate, creating collections, importing data, and performing hybrid search queries.",
+    "url": "https://weaviate.io/developers/weaviate/quickstart",
+    "tags": [
+      "weaviate",
+      "quickstart",
+      "tutorial",
+      "python"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "vector-db",
+    "type": "tutorial",
+    "title": "Milvus Quickstart with PyMilvus",
+    "description": "Official quickstart for Milvus covering connection, collection creation, index building, data insertion, and vector search.",
+    "url": "https://milvus.io/docs/quickstart.md",
+    "tags": [
+      "milvus",
+      "quickstart",
+      "pymilvus",
+      "tutorial"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "vector-db",
+    "type": "tutorial",
+    "title": "Pinecone Python SDK Guide",
+    "description": "Official Pinecone Python SDK guide covering index creation, upsert, query with metadata filtering, and namespace management.",
+    "url": "https://docs.pinecone.io/guides/get-started/quickstart",
+    "tags": [
+      "pinecone",
+      "python",
+      "sdk",
+      "quickstart"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "vector-db",
+    "type": "tutorial",
+    "title": "MTEB Leaderboard for Embedding Model Selection",
+    "description": "Massive Text Embedding Benchmark leaderboard ranking embedding models across 7 tasks. Essential for model selection.",
+    "url": "https://huggingface.co/spaces/mteb/leaderboard",
+    "tags": [
+      "mteb",
+      "embeddings",
+      "benchmark",
+      "model-selection"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "vector-db",
+    "type": "book",
+    "title": "Vector Databases for AI Applications (O'Reilly)",
+    "description": "Practical guide covering vector search fundamentals, embedding models, HNSW/IVF indexes, production deployment, and real-world RAG applications with multiple vector DB backends.",
+    "url": "https://www.oreilly.com/library/view/vector-databases-for/9781098154638/",
+    "tags": [
+      "book",
+      "vector-databases",
+      "production",
+      "rag"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "vector-db",
+    "type": "book",
+    "title": "AI-Powered Search (Trey Grainger)",
+    "description": "Comprehensive guide to building intelligent search systems with AI: semantic search, RAG, learning-to-rank, knowledge graphs, and vector databases. Covers Solr, Elasticsearch, and dedicated vector DBs.",
+    "url": "https://www.manning.com/books/ai-powered-search",
+    "tags": [
+      "book",
+      "search",
+      "rag",
+      "knowledge-graphs",
+      "vector-dbs"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "vector-db",
+    "type": "course",
+    "title": "Qdrant Vector Search Masterclass",
+    "description": "Deep dive into Qdrant covering sparse vectors, multivectors, named vectors, payload filtering, quantization, and production deployment patterns.",
+    "url": "https://qdrant.tech/documentation/",
+    "tags": [
+      "qdrant",
+      "sparse",
+      "multivectors",
+      "filtering",
+      "production"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "vector-db",
+    "type": "course",
+    "title": "Pinecone Learning Center",
+    "description": "Official Pinecone learning center with tutorials on indexing strategies, metadata filtering, namespaces, and serverless deployment patterns.",
+    "url": "https://docs.pinecone.io/learn",
+    "tags": [
+      "pinecone",
+      "serverless",
+      "filtering",
+      "indexing"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "vector-db",
+    "type": "course",
+    "title": "Weaviate Academy",
+    "description": "Free courses covering vector search fundamentals, hybrid search, RAG with Weaviate, multi-tenancy, and production deployment.",
+    "url": "https://weaviate.io/academy",
+    "tags": [
+      "weaviate",
+      "academy",
+      "hybrid-search",
+      "rag",
+      "free"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "vector-db",
+    "type": "workflow",
+    "title": "Build a RAG Pipeline with Qdrant and FastEmbed",
+    "description": "End-to-end workflow for building a production RAG pipeline with Qdrant, FastEmbed for embeddings, and hybrid search.",
+    "tags": [
+      "rag",
+      "qdrant",
+      "fastembed",
+      "pipeline"
+    ],
+    "difficulty": "intermediate",
+    "workflow": [
+      "Install dependencies: pip install qdrant-client fastembed",
+      "Create Qdrant collection with dense and sparse vector configs",
+      "Load documents from source (PDF, web, database)",
+      "Chunk documents: recursive character splitting, 500 tokens, 10% overlap",
+      "Generate embeddings: fastembed TextEmbedding + SparseTextEmbedding",
+      "Upsert to Qdrant with both dense and sparse vectors",
+      "Implement hybrid search: dense + sparse fusion",
+      "Add re-ranking with cross-encoder for top-k results",
+      "Build API with FastAPI for the RAG endpoint",
+      "Add conversation memory for multi-turn RAG"
+    ]
+  },
+  {
+    "topic": "vector-db",
+    "type": "workflow",
+    "title": "Migrate from ChromaDB to Qdrant",
+    "description": "Step-by-step migration from ChromaDB (local dev) to Qdrant (production).",
+    "tags": [
+      "migration",
+      "chromadb",
+      "qdrant",
+      "production"
+    ],
+    "difficulty": "intermediate",
+    "workflow": [
+      "Export ChromaDB data: collection.get(include=['embeddings','metadatas','documents'])",
+      "Install qdrant-client: pip install qdrant-client[fastembed]",
+      "Create Qdrant collection matching ChromaDB vector size and distance",
+      "Transform ChromaDB data to Qdrant PointStruct format",
+      "Upsert all points to Qdrant in batches of 100",
+      "Update application code: replace ChromaDB client with Qdrant client",
+      "Update search queries: replace collection.query with client.search",
+      "Add hybrid search support (upgrade from ChromaDB keyword search)",
+      "Run parallel reads from both DBs during migration",
+      "Switch traffic to Qdrant and remove ChromaDB dependency"
+    ]
+  },
+  {
+    "topic": "vector-db",
+    "type": "workflow",
+    "title": "Set Up Qdrant with Docker Compose for Production",
+    "description": "Production Qdrant setup with healthchecks, persistence, and monitoring.",
+    "tags": [
+      "qdrant",
+      "docker",
+      "production",
+      "monitoring"
+    ],
+    "difficulty": "intermediate",
+    "workflow": [
+      "Create docker-compose.yml with Qdrant service",
+      "Configure volumes for persistence: ./qdrant:/qdrant/storage",
+      "Set resource limits and GPU reservations",
+      "Add healthcheck: python3 urllib http://127.0.0.1:6333/healthz",
+      "Configure production.yaml: set snapshot interval, WAL threshold",
+      "Set up Prometheus metrics endpoint on /metrics",
+      "Add Grafana dashboard for Qdrant metrics",
+      "Configure backup: periodic snapshots to S3 or local disk",
+      "Set up TLS termination with reverse proxy (nginx/caddy)",
+      "Test failover: stop container, verify data persists on restart"
+    ]
+  },
+  {
+    "topic": "vector-db",
+    "type": "example",
+    "title": "FAISS Index for Local Vector Search",
+    "description": "Python code for building and querying a FAISS index for fast local similarity search.",
+    "tags": [
+      "faiss",
+      "local",
+      "search",
+      "index"
+    ],
+    "difficulty": "intermediate",
+    "code": "import faiss\nimport numpy as np\nfrom sentence_transformers import SentenceTransformer\n\nmodel = SentenceTransformer('all-MiniLM-L6-v2')\n\ndocuments = [\n    'RAG combines retrieval with generation',\n    'Vector databases enable semantic search',\n    'LoRA reduces fine-tuning memory by 90%',\n    'MCP connects AI to external tools and data'\n]\n\n# Build FAISS index\nembeddings = model.encode(documents)\ndimension = embeddings.shape[1]\nindex = faiss.IndexFlatIP(dimension)\nfaiss.normalize_L2(embeddings)\nindex.add(embeddings.astype('float32'))\n\n# Search\nquery = model.encode(['How does RAG work?'])\nfaiss.normalize_L2(query)\nscores, indices = index.search(query.astype('float32'), k=2)\nfor i, idx in enumerate(indices[0]):\n    print(f'{scores[0][i]:.3f}: {documents[idx]}')"
+  },
+  {
+    "topic": "vector-db",
+    "type": "tool",
+    "title": "FAISS (Facebook AI Similarity Search)",
+    "description": "High-performance library for efficient similarity search and clustering of dense vectors. Supports GPU acceleration, multiple index types (Flat, IVF, HNSW), and billion-scale search.",
+    "url": "https://github.com/facebookresearch/faiss",
+    "tags": [
+      "faiss",
+      "local",
+      "gpu",
+      "similarity-search",
+      "clustering"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "vector-db",
+    "type": "tool",
+    "title": "FastEmbed",
+    "description": "Lightweight, fast Python library for generating embeddings using quantized ONNX models. 3-5x faster than sentence-transformers with minimal quality loss. Native Qdrant integration.",
+    "url": "https://github.com/qdrant/fastembed",
+    "tags": [
+      "fastembed",
+      "embeddings",
+      "onnx",
+      "fast",
+      "qdrant"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "vector-db",
+    "type": "tool",
+    "title": "Milvus Attu (GUI)",
+    "description": "Web-based GUI for managing Milvus vector database. Browse collections, inspect vectors, run queries, monitor performance, and manage indexes visually.",
+    "url": "https://github.com/zilliztech/attu",
+    "tags": [
+      "milvus",
+      "gui",
+      "management",
+      "visualization"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "vector-db",
+    "type": "pattern",
+    "title": "HNSW Parameter Tuning Pattern",
+    "description": "Configure HNSW index parameters for optimal recall/latency tradeoff. M=16-64 controls graph connectivity (higher = better recall, more memory). ef_construct=100-256 controls build quality. ef_search controls query-time accuracy.",
+    "tags": [
+      "hnsw",
+      "parameters",
+      "tuning",
+      "recall-latency"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "vector-db",
+    "type": "pattern",
+    "title": "Namespace and Multi-Tenancy Pattern",
+    "description": "Isolate tenant data using namespaces (Pinecone), collections (Qdrant/Milvus), or payload filters with tenant IDs. Enables SaaS applications where each tenant has isolated vector data.",
+    "tags": [
+      "multi-tenancy",
+      "namespaces",
+      "isolation",
+      "saas"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "vector-db",
+    "type": "pattern",
+    "title": "Vector Database Sharding Pattern",
+    "description": "Distribute vectors across multiple nodes for horizontal scaling. Qdrant uses shard key-based routing, Milvus uses auto-sharding by primary key. Choose shard key to co-locate related data for efficient filtering.",
+    "tags": [
+      "sharding",
+      "horizontal-scaling",
+      "distribution",
+      "routing"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "vector-db",
+    "type": "tutorial",
+    "title": "FastEmbed Quickstart Guide",
+    "description": "Official quickstart for FastEmbed: generate embeddings for text and images, integrate with Qdrant, and configure quantized models for 3-5x speedup.",
+    "url": "https://github.com/qdrant/fastembed#quickstart",
+    "tags": [
+      "fastembed",
+      "quickstart",
+      "embeddings",
+      "qdrant"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "vector-db",
+    "type": "tutorial",
+    "title": "Milvus Partitioning and Sharding Guide",
+    "description": "Official guide to Milvus partitioning strategies, shard configuration, and collection design for multi-tenant and large-scale deployments.",
+    "url": "https://milvus.io/docs/partition_key.md",
+    "tags": [
+      "milvus",
+      "partitioning",
+      "sharding",
+      "multi-tenant"
+    ],
+    "difficulty": "advanced"
+  }
+]

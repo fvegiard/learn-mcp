@@ -92,21 +92,6 @@
   },
   {
     "topic": "agents",
-    "type": "tutorial",
-    "title": "Building a Multi-Step AI Agent with LangGraph StateGraph and OpenAI",
-    "description": "Tutorial building a research assistant agent with multi-step StateGraph: plan_research, execute_search, summarize_results, answer_question. Demonstrates conditional routing via next_step state field, Tavily search tool integration, and advanced concepts including human-in-the-loop, error handling, memory, and self-reflect agent patterns.",
-    "url": "https://langchain-tutorials.github.io/langgraph-stategraph-multi-step-ai-agent/",
-    "tags": [
-      "langgraph",
-      "state-machine",
-      "multi-step",
-      "conditional-routing",
-      "research-agent"
-    ],
-    "difficulty": "intermediate"
-  },
-  {
-    "topic": "agents",
     "type": "workflow",
     "title": "LangGraph: Build a ReAct Agent with Human-in-the-Loop Approval",
     "description": "End-to-end workflow for building a production LangGraph ReAct agent with interrupt-based human approval gates. Covers defining tools, building a StateGraph with agent and tool nodes, compiling with a checkpointer, interrupting before sensitive actions, inspecting and updating state, and resuming after human approval.",
@@ -640,7 +625,7 @@
       "code-example"
     ],
     "difficulty": "intermediate",
-    "code": "from langgraph.graph import StateGraph, MessagesState, START, END\nfrom langgraph.prebuilt import ToolNode, tools_condition\nfrom langchain_core.tools import tool\nfrom langchain_google_genai import ChatGoogleGenerativeAI\n\n@tool\ndef get_weather(city: str) -> str:\n    \"\"\"Get current weather using Open-Meteo API.\"\"\"\n    import requests\n    geocode_url = f\"https://geocoding-api.open-meteo.com/v1/search?name={city}\"\n    geocode = requests.get(geocode_url).json()\n    if not geocode.get(\"results\"):\n        return f\"City '{city}' not found.\"\n    lat = geocode[\"results\"][0][\"latitude\"]\n    lon = geocode[\"results\"][0][\"longitude\"]\n    weather_url = (\n        f\"https://api.open-meteo.com/v1/forecast\"\n        f\"?latitude={lat}&longitude={lon}&current_weather=true\"\n    )\n    weather = requests.get(weather_url).json()\n    temp = weather[\"current_weather\"][\"temperature\"]\n    code = weather[\"current_weather\"][\"weathercode\"]\n    return f\"Weather in {city}: {temp}C, weather code {code}\"\n\ntools = [get_weather]\nllm = ChatGoogleGenerativeAI(model=\"gemini-2.0-flash\").bind_tools(tools)\n\ndef agent_node(state: MessagesState):\n    return {\"messages\": [llm.invoke(state[\"messages\"])]}\n\ngraph = StateGraph(MessagesState)\ngraph.add_node(\"agent\", agent_node)\ngraph.add_node(\"tools\", ToolNode(tools))\ngraph.add_edge(START, \"agent\")\ngraph.add_conditional_edges(\"agent\", tools_condition)\ngraph.add_edge(\"tools\", \"agent\")\napp = graph.compile()\n\nresult = app.invoke({\"messages\": [(\"user\", \"What's the weather in Tokyo?\")]})\nprint(result[\"messages\"][-1].content)"
+    "code": "from langgraph.graph import StateGraph, MessagesState, START, END\nfrom langgraph.prebuilt import ToolNode, tools_condition\nfrom langchain_core.tools import tool\nfrom langchain_google_genai import ChatGoogleGenerativeAI\n\n@tool\ndef get_weather(city: str) -> str:\n    \"\"\"Get current weather using Open-Meteo API.\"\"\"\n    import requests\n    geocode_url = f\"https://geocoding-api.open-meteo.com/v1/search?name={city}\"\n    geocode = requests.get(geocode_url).json()\n    if not geocode.get(\"results\"):\n        return f\"City '{city}' not found.\"\n    lat = geocode[\"results\"][0][\"latitude\"]\n    lon = geocode[\"results\"][0][\"longitude\"]\n    weather_url = (\n        f\"https://api.open-meteo.com/v1/forecast\"\n        f\"?latitude={lat}&longitude={lon}&current_weather=true\"\n    )\n    weather = requests.get(weather_url).json()\n    temp = weather[\"current_weather\"][\"temperature\"]\n    code = weather[\"current_weather\"][\"weathercode\"]\n    return f\"Weather in {city}: {temp}C, weather code {code}\"\n\ntools = [get_weather]\nllm = ChatGoogleGenerativeAI(model=\"gemini-2.0-flash\").bind_tools(tools)\n\ndef agent_node(state: MessagesState):\n    return {\"messages\": [llm.invoke(state[\"messages\")]}\n\ngraph = StateGraph(MessagesState)\ngraph.add_node(\"agent\", agent_node)\ngraph.add_node(\"tools\", ToolNode(tools))\ngraph.add_edge(START, \"agent\")\ngraph.add_conditional_edges(\"agent\", tools_condition)\ngraph.add_edge(\"tools\", \"agent\")\napp = graph.compile()\n\nresult = app.invoke({\"messages\": [(\"user\", \"What's the weather in Tokyo?\")]})\nprint(result[\"messages\"][-1].content)"
   },
   {
     "topic": "agents",
@@ -654,52 +639,6 @@
       "swe-bench",
       "code-generation",
       "contamination"
-    ],
-    "difficulty": "advanced"
-  },
-  {
-    "topic": "agents",
-    "type": "tutorial",
-    "title": "WebArena: Realistic Web Environment for Agent Evaluation",
-    "description": "Self-hostable benchmark with 812 tasks across e-commerce, GitLab, Reddit-like forums, CMS, and maps. Agents must navigate, fill forms, click buttons, and complete multi-step tasks. Human baseline is approximately 78%; best agents reached 61.7% as of early 2026. Identified validity issues: substring matching inflates scores, LLM-as-Judge accepts empty replies for N/A tasks, overestimating performance by 1.4-5.2%.",
-    "url": "https://webarena.dev/og/",
-    "tags": [
-      "evaluation",
-      "benchmarks",
-      "web-agents",
-      "webarena",
-      "browser-automation"
-    ],
-    "difficulty": "advanced"
-  },
-  {
-    "topic": "agents",
-    "type": "tutorial",
-    "title": "AI Agent Benchmarks Explained: SWE-bench, WebArena and AgentBench",
-    "description": "Comprehensive analysis of agent benchmark validity issues across SWE-bench (contamination concerns, insufficient test coverage, UTBoost finding 24% of top-50 positions are incorrect), WebArena (substring matching and LLM-Judge inflating scores), and TAU-bench (do-nothing agent achieving 38% on airline tasks). Introduces the Agentic Benchmark Checklist (ABC) methodology for rigorous evaluation.",
-    "url": "https://www.paperclipped.de/en/blog/ai-agent-benchmarks-swe-bench-webarena/",
-    "tags": [
-      "evaluation",
-      "benchmarks",
-      "swe-bench",
-      "webarena",
-      "validity",
-      "comparison"
-    ],
-    "difficulty": "advanced"
-  },
-  {
-    "topic": "agents",
-    "type": "tutorial",
-    "title": "Establishing Best Practices for Building Rigorous Agentic Benchmarks",
-    "description": "Major research paper proposing the Agentic Benchmark Checklist (ABC) for systematic assessment of 10 benchmarks. Found all 10 had reporting limitations, 7 had outcome validity flaws, and 7 had task validity flaws. Applying ABC to CVE-Bench reduced performance overestimation by 33%. Critical for anyone designing or interpreting agent evaluations.",
-    "url": "https://arxiv.org/html/2507.02825v5",
-    "tags": [
-      "evaluation",
-      "benchmarks",
-      "validity",
-      "best-practices",
-      "research-paper"
     ],
     "difficulty": "advanced"
   },
@@ -832,5 +771,65 @@
     ],
     "difficulty": "advanced",
     "code": "from agents import Agent, Runner, handoff, InputGuardrail, GuardrailFunctionOutput\nfrom agents.extensions.handoff_prompt import RECOMMENDED_PROMPT_PREFIX\nfrom pydantic import BaseModel\n\nclass PEQueryCheck(BaseModel):\n    is_valid: bool\n    reasoning: str\n\nguardrail_agent = Agent(\n    name=\"PE Query Guardrail\",\n    instructions=\"Check if the user is asking a valid question for a PE firm.\",\n    output_type=PEQueryCheck,\n)\n\nasync def pe_guardrail(ctx, agent, input_data):\n    result = await Runner.run(guardrail_agent, input_data, context=ctx.context)\n    final_output = result.final_output_as(PEQueryCheck)\n    return GuardrailFunctionOutput(\n        output_info=final_output,\n        tripwire_triggered=not final_output.is_valid,\n    )\n\ndeal_screening_agent = Agent(\n    name=\"DealScreeningAgent\",\n    handoff_description=\"Handles deal sourcing, screening, and initial evaluation.\",\n    instructions=f\"{RECOMMENDED_PROMPT_PREFIX}\\nYou are a deal screening specialist.\",\n)\n\nportfolio_agent = Agent(\n    name=\"PortfolioAgent\",\n    handoff_description=\"Handles questions about existing portfolio companies.\",\n    instructions=f\"{RECOMMENDED_PROMPT_PREFIX}\\nYou are a portfolio management specialist.\",\n)\n\npe_concierge = Agent(\n    name=\"PEConcierge\",\n    instructions=f\"{RECOMMENDED_PROMPT_PREFIX}\\nRoute each question to the right specialist.\",\n    handoffs=[deal_screening_agent, portfolio_agent],\n    input_guardrails=[InputGuardrail(guardrail_function=pe_guardrail)],\n)"
+  },
+  {
+    "topic": "agents",
+    "type": "pattern",
+    "title": "Agentic RAG: Agent-Controlled Retrieval Augmented Generation",
+    "description": "Agentic RAG gives an autonomous agent control over retrieval: deciding when to search, what queries to run, which sources to consult, and when it has gathered enough evidence. The five-component architecture (Router, Retriever, Grader, Generator, Hallucination Checker) forms a loop, not a pipeline. Achieves 78% on complex multi-hop queries vs 34% for traditional RAG. Start with basic RAG and progress to agentic RAG only when simpler patterns fall short.",
+    "url": "https://www.genaipatterns.dev/patterns/rag/agentic-rag",
+    "tags": [
+      "agentic-rag",
+      "retrieval",
+      "grading",
+      "hallucination-checking",
+      "patterns"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "agents",
+    "type": "tool",
+    "title": "Google Agent Development Kit (ADK)",
+    "description": "Google's open-source, code-first framework for building, evaluating, and deploying AI agents. Supports Python, TypeScript, Java, and Go with multi-agent systems, built-in tracing, MCP tool integration, and one-command deployment to Cloud Run. Agents are defined as Python modules with function tools, built-in tools (Google Search, Code Execution), third-party API tools (LangChain), and MCP tools for external data sources.",
+    "url": "https://github.com/google/adk-docs",
+    "tags": [
+      "google-adk",
+      "multi-agent",
+      "mcp",
+      "deployment",
+      "tools"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "agents",
+    "type": "tutorial",
+    "title": "Model Context Protocol (MCP): Connecting Agents to External Tools and Data",
+    "description": "Official MCP documentation covering the open standard for connecting AI agents to external systems. MCP provides three primitives (Tools for executable functions, Resources for contextual data, Prompts for reusable templates) over STDIO or Streamable HTTP transport. Agents connect to MCP servers via a client that discovers available tools at runtime, enabling one integration to work across Claude, ChatGPT, VS Code, Cursor, and any MCP-compatible client.",
+    "url": "https://modelcontextprotocol.io/introduction",
+    "tags": [
+      "mcp",
+      "tool-use",
+      "integration",
+      "protocol",
+      "agents"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "agents",
+    "type": "tutorial",
+    "title": "Anthropic Computer Use: Building Desktop Automation Agents with Claude",
+    "description": "Official Claude API documentation for the computer use tool enabling agents to see screens and control desktops via screenshot capture, mouse/keyboard actions, and zoom capability. Covers tool types (computer, text_editor, bash), the agent loop pattern for multi-step tasks, coordinate scaling for high-resolution displays, prompt injection defenses with automatic classifiers, and cache control strategies for long agent loops. Computer Use 2.0 GA achieves 72.5% on OSWorld with >90% success on well-scoped production tasks.",
+    "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool",
+    "tags": [
+      "computer-use",
+      "anthropic",
+      "desktop-automation",
+      "agent-loop",
+      "tool-use"
+    ],
+    "difficulty": "advanced"
   }
 ]

@@ -78,22 +78,6 @@
   },
   {
     "topic": "fine-tuning",
-    "type": "tutorial",
-    "title": "Practical LLM Fine-Tuning with LoRA, QLoRA, and PEFT",
-    "description": "A clear structured tutorial with VRAM comparison table (7B: Full FT ~112GB, LoRA ~16GB, QLoRA ~6GB), LoraConfig walkthrough, target_modules guide (Q+V only vs. full attention vs. including MLP), DoRA explanation with use_dora=True, multi-adapter composition with add_weighted_adapter(), SFTTrainer training loop, and adapter saving, loading, and merging instructions.",
-    "url": "https://www.youngju.dev/blog/llm/2026-03-02-llm-finetuning-lora-qlora-peft.en",
-    "tags": [
-      "lora",
-      "qlora",
-      "dora",
-      "peft",
-      "adapter-merging",
-      "vram"
-    ],
-    "difficulty": "intermediate"
-  },
-  {
-    "topic": "fine-tuning",
     "type": "example",
     "title": "LoRA Adapter Merging and Export to GGUF",
     "description": "Working Python code for merging a trained LoRA adapter back into the base model, saving the merged model in fp16 safetensors format, converting to GGUF using llama.cpp, and quantizing to Q4_K_M for efficient local deployment. This is the standard deployment pipeline for LoRA-fine-tuned models destined for Ollama or llama.cpp inference.",
@@ -102,7 +86,6 @@
       "lora",
       "merging",
       "gguf",
-      "llama-cpp",
       "quantization",
       "deployment",
       "code"
@@ -119,11 +102,9 @@
     "tags": [
       "unsloth",
       "training",
-      "speed",
       "vram",
       "gguf",
-      "grpo",
-      "cuda"
+      "grpo"
     ],
     "difficulty": "beginner"
   },
@@ -135,12 +116,10 @@
     "url": "https://docs.axolotl.ai/index.html",
     "tags": [
       "axolotl",
-      "yaml",
       "deepspeed",
       "multi-gpu",
       "moe",
-      "fp8",
-      "multimodal"
+      "fp8"
     ],
     "difficulty": "intermediate"
   },
@@ -186,9 +165,7 @@
       "dataset",
       "deduplication",
       "pii",
-      "safety",
       "dpo",
-      "preference-data",
       "formatting"
     ],
     "difficulty": "advanced"
@@ -241,22 +218,6 @@
   {
     "topic": "fine-tuning",
     "type": "tutorial",
-    "title": "RAM-Efficient PyTorch FSDP Training for LLMs (HuggingFace Blog)",
-    "description": "HuggingFace blog post covering RAM-efficient FSDP training techniques: loading model weights only on rank 0 with meta device for other ranks, using sync_module_states=True for broadcasting, sharded checkpoint saving strategies, and Flash Attention V2 integration. Demonstrates fine-tuning Llama 2 70B in 13.5 hours on 2 nodes x 8 A100-80GB GPUs.",
-    "url": "https://github.com/huggingface/blog/blob/main/ram-efficient-pytorch-fsdp.md",
-    "tags": [
-      "fsdp",
-      "ram-efficient",
-      "multi-gpu",
-      "deepspeed",
-      "llama",
-      "checkpointing"
-    ],
-    "difficulty": "advanced"
-  },
-  {
-    "topic": "fine-tuning",
-    "type": "tutorial",
     "title": "HuggingFace TRL SFTTrainer Documentation",
     "description": "Official documentation for HuggingFace TRL's SFTTrainer covering all four dataset formats (standard LM, conversational, prompt-completion, conversational prompt-completion), packing, assistant-only loss, PEFT/LoRA integration, instruction tuning, vision-language model training, tool calling support, and loss types (NLL, DFT, chunked NLL). Includes quick-start code and integration guides for Unsloth and Liger Kernel.",
     "url": "https://huggingface.co/docs/trl/sft_trainer",
@@ -269,23 +230,6 @@
       "training"
     ],
     "difficulty": "beginner"
-  },
-  {
-    "topic": "fine-tuning",
-    "type": "example",
-    "title": "SFT Training Loop with TRL SFTTrainer",
-    "description": "Complete working Python code for supervised fine-tuning using TRL's SFTTrainer with LoRA adapters, gradient checkpointing, bf16 mixed precision, and WandB logging. Demonstrates the standard production SFT pipeline from model loading through training to adapter saving.",
-    "url": "https://huggingface.co/docs/trl/v1.0.0/sft_trainer",
-    "tags": [
-      "trl",
-      "sft",
-      "lora",
-      "training",
-      "code",
-      "huggingface"
-    ],
-    "difficulty": "beginner",
-    "code": "from transformers import AutoModelForCausalLM, AutoTokenizer\nfrom peft import LoraConfig\nfrom trl import SFTTrainer, SFTConfig\nfrom datasets import load_dataset\n\nmodel_id = 'meta-llama/Meta-Llama-3.1-8B-Instruct'\ndataset = load_dataset('trl-lib/Capybara', split='train')\n\ntokenizer = AutoTokenizer.from_pretrained(model_id)\n\ntlora_config = LoraConfig(\n    r=16,\n    lora_alpha=32,\n    target_modules=['q_proj', 'k_proj', 'v_proj', 'o_proj',\n                    'gate_proj', 'up_proj', 'down_proj'],\n    lora_dropout=0.05,\n    bias='none',\n    task_type='CAUSAL_LM',\n)\n\ntraining_args = SFTConfig(\n    output_dir='./sft-output',\n    num_train_epochs=3,\n    per_device_train_batch_size=4,\n    gradient_accumulation_steps=4,\n    learning_rate=2e-5,\n    bf16=True,\n    logging_steps=10,\n    gradient_checkpointing=True,\n    save_strategy='epoch',\n    max_seq_length=2048,\n    packing=True,\n    report_to='wandb',\n)\n\ntrainer = SFTTrainer(\n    model=model_id,\n    args=training_args,\n    train_dataset=dataset,\n    peft_config=lora_config,\n    processing_class=tokenizer,\n)\n\ntrainer.train()\ntrainer.save_model('./sft-adapter')\nprint(f'Training complete. Adapter saved to ./sft-adapter')"
   },
   {
     "topic": "fine-tuning",
@@ -331,23 +275,6 @@
   },
   {
     "topic": "fine-tuning",
-    "type": "example",
-    "title": "DPO Fine-Tuning with TRL DPOTrainer",
-    "description": "Working Python code for DPO alignment training using TRL's DPOTrainer with QLoRA. Shows preference data formatting, DPO training configuration with beta=0.1, and monitoring reward margins. Achieves measurable improvements on benchmarks like GSM8K with only ~2k preference pairs.",
-    "url": "https://originshq.com/blog/boost-the-performance-of-supervised-fine-tuned-models-with-dpo/",
-    "tags": [
-      "dpo",
-      "qlora",
-      "trl",
-      "alignment",
-      "preference-data",
-      "code"
-    ],
-    "difficulty": "intermediate",
-    "code": "from datasets import load_dataset\nfrom peft import LoraConfig\nfrom transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig\nfrom trl import DPOTrainer, DPOConfig\n\nmodel_id = 'teknium/OpenHermes-2.5-Mistral-7B'\n\nbnb_config = BitsAndBytesConfig(\n    load_in_4bit=True,\n    bnb_4bit_quant_type='nf4',\n    bnb_4bit_compute_dtype=torch.bfloat16,\n)\n\nmodel = AutoModelForCausalLM.from_pretrained(\n    model_id, quantization_config=bnb_config, device_map='auto'\n)\nref_model = AutoModelForCausalLM.from_pretrained(\n    model_id, quantization_config=bnb_config, device_map='auto'\n)\ntokenizer = AutoTokenizer.from_pretrained(model_id)\n\n# Load preference dataset (prompt, chosen, rejected)\ndataset = load_dataset('Intel/orca_dpo_pairs', split='train[:2000]')\n\n# LoRA config for DPO\npeft_config = LoraConfig(\n    r=16, lora_alpha=16,\n    target_modules=['q_proj', 'v_proj', 'k_proj', 'o_proj'],\n    bias='none', task_type='CAUSAL_LM',\n)\n\n# DPO training config\ndpo_config = DPOConfig(\n    output_dir='./dpo-output',\n    per_device_train_batch_size=4,\n    gradient_accumulation_steps=2,\n    learning_rate=5e-5,\n    beta=0.1,  # alignment strength\n    max_length=512,\n    max_prompt_length=256,\n    bf16=True,\n    gradient_checkpointing=True,\n    logging_steps=10,\n    save_strategy='epoch',\n    num_train_epochs=1,\n)\n\ntrainer = DPOTrainer(\n    model=model,\n    ref_model=ref_model,\n    args=dpo_config,\n    train_dataset=dataset,\n    processing_class=tokenizer,\n    peft_config=peft_config,\n)\n\ntrainer.train()\ntrainer.save_model('./dpo-adapter')"
-  },
-  {
-    "topic": "fine-tuning",
     "type": "tutorial",
     "title": "Guide to RL Post-Training Algorithms: PPO, DPO, GRPO, and Beyond",
     "description": "Comprehensive theoretical guide from HuggingFace covering the full RL post-training landscape: REINFORCE, PPO (with GAE, Actor-Critic, PPO-CLIP, PPO-KLPEN), GRPO (Group Relative Policy Optimization from DeepSeek-R1), DPO (full mathematical derivation from RLHF), Iterative/Online DPO, IPO, KTO (unpaired data via Prospect Theory), and SimPO (reference-model-free). Includes KL divergence deep dive and practical hyperparameter guidance.",
@@ -357,10 +284,7 @@
       "rlhf",
       "ppo",
       "grpo",
-      "kto",
-      "simpo",
-      "alignment",
-      "theory"
+      "alignment"
     ],
     "difficulty": "advanced"
   },
@@ -408,22 +332,6 @@
   },
   {
     "topic": "fine-tuning",
-    "type": "example",
-    "title": "Benchmarking Fine-Tuned Models with LM-Eval",
-    "description": "Working shell commands and Python code for evaluating fine-tuned LLMs using the LM Evaluation Harness. Demonstrates evaluating base vs. fine-tuned models, LoRA adapter evaluation, vLLM backend for faster inference, and result comparison. Includes a Python helper for comparing benchmark scores across runs.",
-    "url": "https://github.com/eleutherAI/lm-evaluation-harness",
-    "tags": [
-      "evaluation",
-      "benchmark",
-      "lm-eval",
-      "code",
-      "comparison"
-    ],
-    "difficulty": "intermediate",
-    "code": "# Evaluate base model as baseline\n# shell: lm_eval --model hf \\\n#   --model_args pretrained=meta-llama/Meta-Llama-3.1-8B-Instruct \\\n#   --tasks mmlu,hellaswag,arc_challenge,gsm8k,truthfulqa \\\n#   --batch_size auto \\\n#   --output_path ./eval-results/base\n\n# Evaluate fine-tuned model with LoRA adapter\n# shell: lm_eval --model hf \\\n#   --model_args pretrained=meta-llama/Meta-Llama-3.1-8B-Instruct,peft=./sft-adapter \\\n#   --tasks mmlu,hellaswag,arc_challenge,gsm8k,truthfulqa \\\n#   --batch_size auto \\\n#   --output_path ./eval-results/finetuned\n\n# Evaluate with vLLM backend (much faster)\n# shell: lm_eval --model vllm \\\n#   --model_args pretrained=./merged-model,tensor_parallel_size=1 \\\n#   --tasks mmlu,hellaswag,arc_challenge,gsm8k \\\n#   --batch_size auto\n\nimport json\n\ndef compare_results(base_path, finetuned_path):\n    \"\"\"Compare base vs. fine-tuned model benchmark results.\"\"\"\n    with open(base_path) as f:\n        base = json.load(f)['results']\n    with open(finetuned_path) as f:\n        ft = json.load(f)['results']\n\n    print(f'{\"Task\":<20} {\"Base\":>10} {\"Fine-tuned\":>12} {\"Delta\":>10}')\n    print('-' * 55)\n    for task in base:\n        base_acc = base[task].get('acc,none', base[task].get('exact_match,none', 0))\n        ft_acc = ft[task].get('acc,none', ft[task].get('exact_match,none', 0))\n        delta = ft_acc - base_acc\n        warning = ' *** CATASTROPHIC FORGETTING' if delta < -0.02 else ''\n        print(f'{task:<20} {base_acc:>10.4f} {ft_acc:>12.4f} {delta:>+10.4f}{warning}')\n\ncompare_results(\n    './eval-results/base/results.json',\n    './eval-results/finetuned/results.json'\n)"
-  },
-  {
-    "topic": "fine-tuning",
     "type": "workflow",
     "title": "LoRA Adapter Merging and GGUF Export for Local Deployment",
     "description": "Complete workflow for merging LoRA adapters into the base model, converting to GGUF format, quantizing for efficient local inference, and deploying with Ollama. Covers the critical step of merging before quantization (never quantize before merging), importance matrix quantization for better quality, and Ollama Modelfile creation.",
@@ -432,10 +340,8 @@
       "merging",
       "gguf",
       "quantization",
-      "llama-cpp",
       "ollama",
-      "deployment",
-      "workflow"
+      "deployment"
     ],
     "difficulty": "intermediate",
     "workflow": [
@@ -453,21 +359,6 @@
   },
   {
     "topic": "fine-tuning",
-    "type": "tutorial",
-    "title": "GGUF Quantization Guide with llama.cpp",
-    "description": "Official llama.cpp quantization guide covering convert_hf_to_gguf.py for HF-to-GGUF conversion, llama-quantize for compression, recommended quantization levels (Q4_K_M as default sweet spot, Q5_K_M for quality-focused deployment, Q8_0 for development/testing), importance matrix (imatrix) generation for better quality at lower bit-widths, and selective per-layer quantization. Includes memory/disk requirements for 7B through 405B models.",
-    "url": "https://itnotes.dev/how-to-convert-llm-models-to-gguf-format-with-llama-cpp-quantization/",
-    "tags": [
-      "gguf",
-      "llama-cpp",
-      "quantization",
-      "conversion",
-      "imatrix"
-    ],
-    "difficulty": "intermediate"
-  },
-  {
-    "topic": "fine-tuning",
     "type": "tool",
     "title": "vLLM: High-Throughput LLM Serving with Multi-LoRA Support",
     "description": "vLLM is the leading open-source LLM serving engine, now with Multi-LoRA inference support for MoE and dense models. vLLM 0.15.0+ achieves 454% OTPS improvement and 87% lower TTFT for LoRA-enabled MoE serving. The Production Stack provides Kubernetes-native deployment with LoRA Controller, request routing, observability, and runtime adapter loading/unloading. Supports OpenAI-compatible API, Anthropic API, and sleep mode for GPU hibernation.",
@@ -481,22 +372,6 @@
       "kubernetes"
     ],
     "difficulty": "intermediate"
-  },
-  {
-    "topic": "fine-tuning",
-    "type": "tutorial",
-    "title": "vLLM Multi-LoRA Serving for Fine-Tuned Models",
-    "description": "vLLM blog post and tutorial covering serving dozens of fine-tuned LoRA adapters on a single GPU sharing one base model. Demonstrates cost consolidation (5 customers each using 10% GPU consolidated to 1 GPU), fused_moe_lora kernel optimizations, Split-K work decomposition, CTA swizzling for L2 cache reuse, and runtime LoRA adapter updating. Includes deployment examples for both merged and dynamic LoRA serving.",
-    "url": "https://vllm.ai/blog/2026-02-26-multi-lora",
-    "tags": [
-      "vllm",
-      "multi-lora",
-      "serving",
-      "production",
-      "moE",
-      "inference"
-    ],
-    "difficulty": "advanced"
   },
   {
     "topic": "fine-tuning",
@@ -525,9 +400,7 @@
       "kubernetes",
       "production",
       "deployment",
-      "lora",
-      "helm",
-      "workflow"
+      "lora"
     ],
     "difficulty": "advanced",
     "workflow": [
@@ -545,34 +418,15 @@
   },
   {
     "topic": "fine-tuning",
-    "type": "tutorial",
-    "title": "torchtune End-to-End Fine-Tuning Workflow",
-    "description": "torchtune's official end-to-end tutorial covering the complete lifecycle: fine-tune a model with LoRA/QLoRA, evaluate with EleutherAI Eval Harness, quantize with torchao, generate text, and deploy with vLLM. Uses Llama 3.2 3B Instruct as the example model. Demonstrates torchtune's recipe-based approach where each step is a standalone, composable Python script.",
-    "url": "https://meta-pytorch.org/torchtune/stable/tutorials/e2e_flow.html",
-    "tags": [
-      "torchtune",
-      "e2e",
-      "lora",
-      "evaluation",
-      "quantization",
-      "vllm",
-      "deployment"
-    ],
-    "difficulty": "intermediate"
-  },
-  {
-    "topic": "fine-tuning",
     "type": "book",
     "title": "The Ultimate LLM Fine-Tuning Guide (PromptInjection)",
     "description": "Comprehensive guide covering the entire pipeline from dataset to GGUF deployment. Includes ms-swift framework, LoRA vs. full fine-tuning decision guide, Flash Attention, quantization options, parameter explanations (learning rate, epochs, warmup ratio, batch size, gradient accumulation), scaling guide by model size, and conversion to GGUF for local inference with LM Studio and Ollama.",
     "url": "https://www.promptinjection.net/p/the-ultimate-llm-ai-fine-tuning-guide-tutorial",
     "tags": [
       "guide",
-      "ms-swift",
       "lora",
       "flash-attention",
       "gguf",
-      "ollama",
       "deployment"
     ],
     "difficulty": "beginner"
@@ -655,37 +509,6 @@
   },
   {
     "topic": "fine-tuning",
-    "type": "tutorial",
-    "title": "Fine-Tuning LLMs for Medical Coding with Synthetic Data",
-    "description": "Research paper fine-tuning Llama 3-70B on synthetic clinical data for ICD-10-CM and CPT medical coding. The synthetic data pipeline avoids PHI exposure while achieving F1 scores of 0.70+ (up from 0.18 baseline), demonstrating that policy-aware synthetic data can efficiently teach domain coding without real patient data. No catastrophic forgetting on general medical benchmarks.",
-    "url": "https://arxiv.org/pdf/2603.23515",
-    "tags": [
-      "medical",
-      "synthetic-data",
-      "phi",
-      "icd-10",
-      "domain-specific",
-      "privacy"
-    ],
-    "difficulty": "advanced"
-  },
-  {
-    "topic": "fine-tuning",
-    "type": "tutorial",
-    "title": "Fine-Tuning LLMs for Code Generation",
-    "description": "The PromptInjection fine-tuning guide covers code-specific fine-tuning considerations: using code datasets (CodeAlpaca, StarCoder data), maintaining indentation and syntax consistency, targeting all linear projections for code tasks (not just attention), using higher LoRA rank (r=32-64) for complex domain shifts, and evaluation with HumanEval and MBPP benchmarks. Code fine-tuning benefits from packing multiple examples per sequence.",
-    "url": "https://www.promptinjection.net/p/the-ultimate-llm-ai-fine-tuning-guide-tutorial",
-    "tags": [
-      "code",
-      "code-generation",
-      "humaneval",
-      "domain-specific",
-      "dataset"
-    ],
-    "difficulty": "intermediate"
-  },
-  {
-    "topic": "fine-tuning",
     "type": "pattern",
     "title": "Multi-Stage Training Pipeline for Domain Adaptation",
     "description": "Nearly all top-performing domain-specific LLMs use a multi-stage pipeline rather than single SFT: (1) Continued pretraining on domain corpus to learn domain vocabulary and knowledge, (2) Supervised fine-tuning on domain instruction data, (3) Preference alignment (DPO/RLHF) to shape output behavior. Each stage builds on the previous, and skipping stages (e.g., going directly to SFT without pretraining) leads to significantly worse results on domain benchmarks.",
@@ -697,22 +520,6 @@
       "dpo",
       "domain-adaptation",
       "pattern"
-    ],
-    "difficulty": "intermediate"
-  },
-  {
-    "topic": "fine-tuning",
-    "type": "tutorial",
-    "title": "Fine-Tuning Open Models in Production: Docker-First Approach",
-    "description": "Real-world case study comparing Unsloth, Axolotl, and HuggingFace+PEFT for production fine-tuning. Finds that environment reproducibility (CUDA versions, Triton compilation, transitive dependency conflicts) is the real bottleneck, not framework choice. Recommends Docker-first workflows: Axolotl's pre-built Docker image (PyTorch, CUDA, flash-attn, bitsandbytes) provides the most predictable environment. Pin image tags and treat the environment as part of the codebase.",
-    "url": "https://curlscape.com/blog/fine-tuning-open-models-in-the-real-world-unsloth-axolotl-and-the-case-for-docker",
-    "tags": [
-      "docker",
-      "production",
-      "reproducibility",
-      "unsloth",
-      "axolotl",
-      "environment"
     ],
     "difficulty": "intermediate"
   },
@@ -749,22 +556,6 @@
   },
   {
     "topic": "fine-tuning",
-    "type": "tutorial",
-    "title": "Knowledge Graph-Assisted Legal LLM Post-Training",
-    "description": "Thomson Reuters and Imperial College research constructing an IRAC (Issue, Rule, Analysis, Conclusion) Knowledge Graph from 12K legal cases, then using it to generate SFT and DPO training data. KG-based post-training improved performance on 10-13 out of 14 legal benchmark tasks, with the 70B DPO model surpassing the 141B SaulLM on 4/6 legal reasoning tasks. Demonstrates that structured domain knowledge injected during training is more effective than raw text alone.",
-    "url": "https://arxiv.org/pdf/2601.13806",
-    "tags": [
-      "legal",
-      "knowledge-graph",
-      "dpo",
-      "irac",
-      "reasoning",
-      "domain-specific"
-    ],
-    "difficulty": "advanced"
-  },
-  {
-    "topic": "fine-tuning",
     "type": "tool",
     "title": "HuggingFace PEFT: Parameter-Efficient Fine-Tuning Library",
     "description": "The foundational library for parameter-efficient fine-tuning methods including LoRA, QLoRA, AdaLoRA, IA3, prefix tuning, prompt tuning, and DoRA. Provides get_peft_model() for wrapping any HuggingFace model, merge_and_unload() for adapter merging, add_weighted_adapter() for multi-adapter composition, and push_to_hub() for sharing adapters. The standard integration point for Unsloth, Axolotl, and torchtune.",
@@ -774,9 +565,7 @@
       "lora",
       "qlora",
       "huggingface",
-      "adapter",
-      "ia3",
-      "dora"
+      "adapter"
     ],
     "difficulty": "beginner"
   },
@@ -796,23 +585,6 @@
     ],
     "difficulty": "beginner",
     "code": "# Step 1: Merge LoRA adapter into base model (Python)\nfrom peft import PeftModel\nfrom transformers import AutoModelForCausalLM, AutoTokenizer\nimport torch\n\nbase_id = 'meta-llama/Meta-Llama-3.1-8B-Instruct'\nadapter_path = './sft-adapter'\nmerged_path = './merged-model'\n\ntokenizer = AutoTokenizer.from_pretrained(base_id)\nbase_model = AutoModelForCausalLM.from_pretrained(\n    base_id, torch_dtype=torch.float16, device_map='cpu'\n)\nmodel = PeftModel.from_pretrained(base_model, adapter_path)\nmodel = model.merge_and_unload()\nmodel.save_pretrained(merged_path, safe_serialization=True)\ntokenizer.save_pretrained(merged_path)\n\n# Step 2: Convert to GGUF (shell)\n# python llama.cpp/convert_hf_to_gguf.py ./merged-model --outtype f16\n# ./llama.cpp/llama-quantize ./merged-model/ggml-model-f16.gguf model-Q4_K_M.gguf Q4_K_M\n\n# Step 3: Create Modelfile\ncat > Modelfile << 'EOF'\nFROM ./model-Q4_K_M.gguf\n\nPARAMETER temperature 0.3\nPARAMETER num_ctx 4096\nPARAMETER repeat_penalty 1.1\n\nSYSTEM \"\"\"\nYou are a specialized assistant for medical coding.\nAlways respond with accurate ICD-10 codes and explanations.\n\"\"\"\nEOF\n\n# Step 4: Build and run with Ollama\n# ollama create medical-coder -f Modelfile\n# ollama run medical-coder\n\n# Step 5: Test inference\n# ollama run medical-coder 'What is the ICD-10 code for Type 2 diabetes?'\n\n# Step 6: Share via registry (optional)\n# ollama cp medical-coder username/medical-coder\n# ollama push username/medical-coder"
-  },
-  {
-    "topic": "fine-tuning",
-    "type": "example",
-    "title": "vLLM Deployment with Dynamic LoRA Adapters",
-    "description": "Working Python code and shell commands for deploying a fine-tuned model with vLLM, including serving a merged model, enabling dynamic LoRA adapter loading at runtime, and using the OpenAI-compatible API for inference. Demonstrates both merged and multi-adapter serving patterns.",
-    "url": "https://docs.vllm.ai/en/latest/serving/online_serving/",
-    "tags": [
-      "vllm",
-      "deployment",
-      "multi-lora",
-      "serving",
-      "api",
-      "code"
-    ],
-    "difficulty": "intermediate",
-    "code": "# Option 1: Serve merged model (simplest)\n# shell: vllm serve meta-llama/Meta-Llama-3.1-8B-Instruct --api-key token\n\n# Option 2: Serve with dynamic LoRA adapter loading\n# shell: vllm serve meta-llama/Meta-Llama-3.1-8B-Instruct \\\n#   --enable-lora \\\n#   --max-loras 4 \\\n#   --max-cpu-loras 8 \\\n#   --api-key token\n\n# Option 3: Production Stack with Kubernetes\n# helm install vllm vllm/vllm-stack -f values.yaml\n\nimport openai\n\n# Connect to vLLM OpenAI-compatible API\nclient = openai.OpenAI(\n    base_url='http://localhost:8000/v1',\n    api_key='token',\n)\n\n# Query base model\nresponse = client.chat.completions.create(\n    model='meta-llama/Meta-Llama-3.1-8B-Instruct',\n    messages=[{'role': 'user', 'content': 'Explain LoRA fine-tuning'}],\n    max_tokens=256,\n)\nprint('Base model:', response.choices[0].message.content)\n\n# Query with LoRA adapter (dynamic loading)\nresponse = client.chat.completions.create(\n    model='my-username/my-medical-lora',  # LoRA adapter on HuggingFace\n    messages=[{'role': 'user', 'content': 'ICD-10 for Type 2 diabetes'}],\n    max_tokens=256,\n)\nprint('LoRA model:', response.choices[0].message.content)"
   },
   {
     "topic": "fine-tuning",
@@ -840,21 +612,6 @@
       "Convert to GGUF and quantize (Q4_K_M for deployment, Q8_0 for testing)",
       "Deploy: vLLM for production API serving, Ollama for local/edge, or both via Kubernetes Production Stack"
     ]
-  },
-  {
-    "topic": "fine-tuning",
-    "type": "tutorial",
-    "title": "LegalOne: Three-Phase Domain LLM Training with Curriculum RL",
-    "description": "Tsinghua University research presenting LegalOne, a comprehensive three-phase pipeline: (1) Mid-training with Plasticity-Adjusted Sampling (perplexity-based data scheduler for knowledge retention), (2) SFT with Legal Agentic CoT Distillation (converting judicial processes into structured reasoning), (3) Curriculum RL (progressive from memorization to reasoning). LegalOne-8B matches models 10-100x larger, and 1.7B outperforms the general Qwen3-8B.",
-    "url": "https://arxiv.org/pdf/2602.00642",
-    "tags": [
-      "legal",
-      "curriculum-rl",
-      "domain-specific",
-      "knowledge-distillation",
-      "three-phase"
-    ],
-    "difficulty": "advanced"
   },
   {
     "topic": "fine-tuning",
@@ -898,5 +655,266 @@
       "Export results: merge adapter, convert to GGUF, push to HuggingFace Hub",
       "Pin Docker image tag (e.g., winglian/axolotl:main-2025-01-15) for reproducibility"
     ]
+  },
+  {
+    "topic": "fine-tuning",
+    "type": "workflow",
+    "title": "ORPO Alignment Fine-Tuning Workflow",
+    "description": "Step-by-step workflow for aligning an SFT model using ORPO (Odds Ratio Preference Optimization), which eliminates the need for a separate alignment stage and reference model. ORPO combines SFT and preference alignment into a single training run by adding an odds ratio penalty to the standard NLL loss, reducing training time and VRAM by ~40% compared to DPO.",
+    "url": "https://huggingface.co/docs/trl/orpo_trainer",
+    "tags": [
+      "orpo",
+      "alignment",
+      "preference-optimization",
+      "trl",
+      "workflow",
+      "single-stage"
+    ],
+    "difficulty": "intermediate",
+    "workflow": [
+      "Prepare preference dataset with 'prompt', 'chosen', and 'rejected' columns (same format as DPO)",
+      "Configure ORPOTrainer with beta=0.1 (odds ratio weight), learning_rate=5e-6, and QLoRA for memory efficiency",
+      "ORPO combines SFT loss (NLL on chosen) + alignment loss (log-odds ratio) in one pass: no separate reference model needed",
+      "Train with ORPOTrainer, monitoring loss/sft, loss/orpo, and log_odds_chosen/rejected metrics",
+      "Compare with DPO baseline: ORPO trains 40% faster (single stage vs. two stages) and uses ~40% less VRAM (no reference model)",
+      "Evaluate on both preference accuracy and general benchmarks (MMLU, GSM8K) to check for alignment tax",
+      "Merge ORPO adapter into base model for deployment"
+    ]
+  },
+  {
+    "topic": "fine-tuning",
+    "type": "tool",
+    "title": "DeepSpeed: Distributed Training with ZeRO Offloading",
+    "description": "Microsoft DeepSpeed provides ZeRO (Zero Redness Optimizer) stages 1-3 for distributed LLM training. ZeRO-3 offloads optimizer states, gradients, and parameters across GPUs, enabling training of models up to 1 trillion parameters. Features include activation checkpointing, pipeline parallelism, MoE support, and 1-bit Adam/1-bit LAMB optimizers for 5x communication reduction. DeepSpeed is integrated into Axolotl and HuggingFace Accelerate.",
+    "url": "https://github.com/deepspeedai/DeepSpeed",
+    "tags": [
+      "deepspeed",
+      "zero",
+      "distributed",
+      "multi-gpu",
+      "offloading",
+      "training"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "fine-tuning",
+    "type": "example",
+    "title": "DeepSpeed ZeRO-3 QLoRA Fine-Tuning Configuration",
+    "description": "Working configuration for multi-GPU QLoRA fine-tuning with DeepSpeed ZeRO-3. Demonstrates ZeRO-3 config JSON for offloading optimizer states and gradients to CPU, HuggingFace Accelerate integration, and launch commands for multi-node training. Enables fine-tuning 70B models on 2x A100-80GB GPUs with CPU offloading.",
+    "url": "https://github.com/deepspeedai/DeepSpeed/tree/master/examples",
+    "tags": [
+      "deepspeed",
+      "zero-3",
+      "qlora",
+      "multi-gpu",
+      "configuration",
+      "code"
+    ],
+    "difficulty": "advanced",
+    "code": "# deepspeed_config.json for ZeRO-3 with CPU offloading\n\"\"\"\n{\n  \"bf16\": {\n    \"enabled\": true\n  },\n  \"zero_optimization\": {\n    \"stage\": 3,\n    \"offload_param\": {\n      \"device\": \"cpu\",\n      \"pin_memory\": true\n    },\n    \"offload_optimizer\": {\n      \"device\": \"cpu\",\n      \"pin_memory\": true\n    },\n    \"overlap_comm\": true,\n    \"contiguous_gradients\": true,\n    \"sub_group_size\": 1e9,\n    \"reduce_bucket_size\": \"auto\",\n    \"stage3_prefetch_bucket_size\": \"auto\",\n    \"stage3_param_persistence_threshold\": \"auto\",\n    \"stage3_max_live_parameters\": 1e9,\n    \"stage3_max_reuse_distance\": 1e9,\n    \"stage3_gather_16bit_weights_on_model_save\": true\n  },\n  \"gradient_accumulation_steps\": \"auto\",\n  \"gradient_clipping\": \"auto\",\n  \"train_batch_size\": \"auto\",\n  \"train_micro_batch_size_per_gpu\": \"auto\"\n}\n\"\"\"\n\n# Launch multi-GPU training\n# accelerate launch --use_deepspeed --config_file deepspeed_config.json \\\n#   --num_processes 4 train.py\n\n# Or with torchrun:\n# torchrun --nproc_per_node=4 train.py --deepspeed deepspeed_config.json\n\n# Fine-tune 70B model on 2x A100-80GB with CPU offloading:\n# torchrun --nproc_per_node=2 train.py \\\n#   --model_name meta-llama/Meta-Llama-3.1-70B-Instruct \\\n#   --deepspeed deepspeed_config.json \\\n#   --batch_size 1 --gradient_accumulation_steps 16"
+  },
+  {
+    "topic": "fine-tuning",
+    "type": "tool",
+    "title": "mergekit: Model Merging for Fine-Tuned LLMs",
+    "description": "mergekit is the standard tool for merging multiple fine-tuned LLMs into a single model. Supports TIES (Truncated Importance Election), DARE (Drop And Rescale), SLERP (Spherical Linear Interpolation), linear averaging, and passthrough merging. Enables composing specialized adapters (e.g., code + math + multilingual) into one model without additional training. Supports LoRA merging, FrankenLora layer stitching, and GPU-accelerated merging via CuPy.",
+    "url": "https://github.com/arcee-ai/mergekit",
+    "tags": [
+      "merging",
+      "ties",
+      "dare",
+      "slerp",
+      "model-composition",
+      "lora"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "fine-tuning",
+    "type": "example",
+    "title": "Model Merging with mergekit: TIES and SLERP",
+    "description": "Working YAML configurations and commands for merging multiple fine-tuned models using mergekit. Demonstrates TIES merging for combining domain-specific experts, SLERP for smooth interpolation between two models, and weighted linear merging. Shows how to compose a code-expert + math-expert model into a single model that retains both capabilities.",
+    "url": "https://github.com/arcee-ai/mergekit",
+    "tags": [
+      "merging",
+      "ties",
+      "slerp",
+      "model-composition",
+      "code"
+    ],
+    "difficulty": "intermediate",
+    "code": "# TIES merge configuration (merges 3 models, uses one as base)\ncat > ties_merge.yaml << 'EOF'\nmodels:\n  - model: meta-llama/Meta-Llama-3.1-8B-Instruct\n    # base model (no parameters needed)\n  - model: my-org/llama3-code-finetuned\n    parameters:\n      density: 0.5  # keep top 50% of changes\n      weight: 0.5\n  - model: my-org/llama3-math-finetuned\n    parameters:\n      density: 0.5\n      weight: 0.5\nmerge_method: ties\nbase_model: meta-llama/Meta-Llama-3.1-8B-Instruct\ndtype: bfloat16\nEOF\n\n# SLERP merge (smooth interpolation between 2 models)\ncat > slerp_merge.yaml << 'EOF'\nmodels:\n  - model: meta-llama/Meta-Llama-3.1-8B-Instruct\n  - model: my-org/llama3-code-finetuned\nmerge_method: slerp\nbase_model: meta-llama/Meta-Llama-3.1-8B-Instruct\ndtype: bfloat16\nparameters:\n  t: 0.5  # interpolation factor (0.0 = base, 1.0 = finetuned)\nEOF\n\n# Run merge (install: pip install mergekit)\n# mergekit-yaml ties_merge.yaml ./merged-ties-model\n# mergekit-yaml slerp_merge.yaml ./merged-slerp-model\n\n# Merge LoRA adapters directly (no base model loading)\n# mergekit-yaml lora_merge.yaml ./merged-lora"
+  },
+  {
+    "topic": "fine-tuning",
+    "type": "workflow",
+    "title": "GRPO Fine-Tuning Workflow (DeepSeek-R1 Style)",
+    "description": "Step-by-step workflow for fine-tuning with Group Relative Policy Optimization (GRPO), the algorithm behind DeepSeek-R1's reasoning capabilities. GRPO eliminates the need for a critic model by using group-relative rewards, reducing VRAM by ~25% vs. PPO. Each prompt generates a group of completions, ranked against each other, and the model learns to prefer higher-ranked outputs.",
+    "url": "https://huggingface.co/docs/trl/grpo_trainer",
+    "tags": [
+      "grpo",
+      "rlhf",
+      "deepseek",
+      "reasoning",
+      "trl",
+      "workflow"
+    ],
+    "difficulty": "advanced",
+    "workflow": [
+      "Start with a strong SFT model (e.g., Qwen2.5-7B-Instruct or DeepSeek-R1-Distill)",
+      "Define a rule-based or model-based reward function for your task (e.g., format compliance, answer correctness, reasoning quality)",
+      "Configure GRPOTrainer with num_generations=8-16 (group size per prompt), beta=0.04 (KL penalty), learning_rate=1e-6",
+      "For each prompt, generate num_generations completions, score each with the reward function, and compute group-relative advantages",
+      "Train with GRPOTrainer, monitoring reward mean, reward std, and KL divergence to reference model",
+      "GRPO uses ~25% less VRAM than PPO because no critic model is needed, but requires more compute per step (multiple generations per prompt)",
+      "Evaluate on reasoning benchmarks (GPQA, MATH-500, LiveCodeBench) and general benchmarks (MMLU) to check for alignment tax",
+      "Merge the GRPO adapter for deployment; the model should now show improved chain-of-thought reasoning"
+    ]
+  },
+  {
+    "topic": "fine-tuning",
+    "type": "tutorial",
+    "title": "MT-Bench and LLM-as-Judge for Fine-Tuned Model Evaluation",
+    "description": "Comprehensive guide to evaluating fine-tuned LLMs using MT-Bench (multi-turn benchmark) and LLM-as-Judge methodology. MT-Bench evaluates conversation quality across 8 categories with 80 multi-turn questions. LLM-as-Judge uses GPT-4 or Claude to rate model outputs on a 1-10 scale, achieving 0.85 correlation with human annotators. Covers prompt design for judging, inter-rater agreement metrics, and common evaluation pitfalls like verbosity bias and position bias.",
+    "url": "https://github.com/lm-sys/FastChat/blob/main/fastchat/llm_judge/README.md",
+    "tags": [
+      "evaluation",
+      "mt-bench",
+      "llm-as-judge",
+      "benchmark",
+      "conversation",
+      "rating"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "fine-tuning",
+    "type": "pattern",
+    "title": "LoRA+ and QA-LoRA: Improved Fine-Tuning Methods",
+    "description": "LoRA+ improves on standard LoRA by using different learning rates for the A and B matrices (eta_B = 16 * eta_A), achieving 2-5% better downstream performance at the same training cost. QA-LoRA (Quantization-Aware LoRA) introduces group-wise operators that align quantization and LoRA dimensions, eliminating the accuracy degradation that standard QLoRA can cause on large-scale models. Both are available in PEFT via use_dora=True and in Axolotl configs.",
+    "url": "https://arxiv.org/abs/2402.12354",
+    "tags": [
+      "lora+",
+      "qa-lora",
+      "quantization-aware",
+      "adapter",
+      "improved-methods",
+      "pattern"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "fine-tuning",
+    "type": "workflow",
+    "title": "Multi-Task Fine-Tuning with Task-Specific Adapters",
+    "description": "Step-by-step workflow for fine-tuning a single base model on multiple tasks using task-specific LoRA adapters, then composing them at inference time. Each task gets its own adapter trained independently, and PEFT's add_weighted_adapter() merges them with configurable weights. This avoids catastrophic forgetting across tasks and enables dynamic adapter routing in vLLM production serving.",
+    "url": "https://huggingface.co/docs/peft/main/quicktour",
+    "tags": [
+      "multi-task",
+      "adapter-composition",
+      "lora",
+      "peft",
+      "vllm",
+      "workflow"
+    ],
+    "difficulty": "intermediate",
+    "workflow": [
+      "Define tasks and curate separate training datasets for each (e.g., summarization, code generation, medical QA)",
+      "Fine-tune one LoRA adapter per task on the shared base model using the same LoRA config (r, alpha, target_modules)",
+      "Evaluate each task-specific adapter on its own benchmark to establish per-task baselines",
+      "Compose adapters using PEFT: model.add_weighted_adapter(['summarization', 'code', 'medical'], weights=[0.4, 0.3, 0.3], adapter_name='combined')",
+      "Evaluate the combined adapter on all task benchmarks to check for positive transfer or interference",
+      "Deploy with vLLM dynamic adapter loading: load base model once, serve N adapters from a single GPU",
+      "Implement adapter routing: classify incoming requests by task, route to the appropriate adapter",
+      "Monitor per-task latency and accuracy; if a task degrades, reduce its weight in the composition or keep it as a separate adapter"
+    ]
+  },
+  {
+    "topic": "fine-tuning",
+    "type": "tutorial",
+    "title": "Flash Attention 2 for Memory-Efficient Fine-Tuning",
+    "description": "Flash Attention 2 is a hardware-aware attention algorithm that reduces memory from O(N^2) to O(N) and achieves 2-4x wall-clock speedup over standard PyTorch attention. Essential for fine-tuning models with long context windows (4K-128K tokens). Integration requires attn_implementation='flash_attention_2' in from_pretrained(), torch >=2.0, and flash-attn package. Reduces peak VRAM by 30-50% for 8K+ sequence lengths, enabling larger batch sizes and longer sequences on the same GPU.",
+    "url": "https://github.com/Dao-AILab/flash-attention",
+    "tags": [
+      "flash-attention",
+      "memory-efficient",
+      "long-context",
+      "training",
+      "speedup"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "fine-tuning",
+    "type": "workflow",
+    "title": "Reward Model Training for RLHF Pipeline",
+    "description": "Step-by-step workflow for training a reward model as part of an RLHF pipeline. The reward model learns human preferences from comparison data and provides the signal for PPO-based alignment. Covers reward model architecture (base model + scalar head), preference dataset formatting, training with comparison loss, and evaluation by measuring agreement with held-out human preferences (target: >70% accuracy).",
+    "url": "https://huggingface.co/docs/trl/reward_trainer",
+    "tags": [
+      "reward-model",
+      "rlhf",
+      "ppo",
+      "alignment",
+      "preference-data",
+      "workflow"
+    ],
+    "difficulty": "advanced",
+    "workflow": [
+      "Collect preference data: pairs of (chosen, rejected) responses for the same prompt, rated by human annotators",
+      "Format as dataset with columns: prompt, chosen, rejected (same format as DPO data)",
+      "Initialize reward model: base model (e.g., Llama-3.1-8B) + classification head outputting a scalar score",
+      "Train with RewardTrainer using comparison loss: loss = -log(sigmoid(r(chosen) - r(rejected)))",
+      "Use learning_rate=1e-5, batch_size=64, and train for 1 epoch to avoid overfitting",
+      "Evaluate on held-out preference pairs: target >70% agreement with human preferences",
+      "Check for reward hacking: the model should not give high scores to obviously bad outputs",
+      "Use the trained reward model in PPO pipeline or for filtering on-policy preference data for DPO"
+    ]
+  },
+  {
+    "topic": "fine-tuning",
+    "type": "pattern",
+    "title": "Knowledge Distillation as Fine-Tuning Pretraining",
+    "description": "Use knowledge distillation from a larger teacher model to generate high-quality training data for a smaller student model. The teacher generates completions for your prompts, which become the student's SFT targets. This produces domain-aligned data with teacher-level reasoning quality, at a fraction of the teacher's inference cost after distillation. Particularly effective for creating reasoning-focused SFT data when GPT-4/Claude-level outputs are needed but inference cost is a concern at scale.",
+    "tags": [
+      "distillation",
+      "teacher-student",
+      "data-generation",
+      "reasoning",
+      "pattern"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "fine-tuning",
+    "type": "tool",
+    "title": "HuggingFace AutoTrain: No-Code LLM Fine-Tuning",
+    "description": "HuggingFace AutoTrain provides a web UI and CLI for fine-tuning LLMs without writing code. Supports SFT, DPO, and reward model training. Upload a CSV/JSONL dataset, select a model, configure hyperparameters (or use defaults), and launch training on free T4 GPUs or paid A100s. Outputs a merged model ready for deployment. Best for rapid prototyping and teams without ML engineering resources.",
+    "url": "https://github.com/huggingface/autotrain-advanced",
+    "tags": [
+      "autotrain",
+      "no-code",
+      "huggingface",
+      "sft",
+      "prototyping",
+      "beginner-friendly"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "fine-tuning",
+    "type": "pattern",
+    "title": "Iterative DPO for Continuous Model Improvement",
+    "description": "Iterative DPO (also called online DPO or self-play DPO) repeatedly generates on-policy preference data from the current model, trains a new DPO adapter, merges it, and repeats. Each iteration improves the model's alignment and capability. Meta's Llama 2 paper and subsequent work show 3-5 iterations typically converge, with diminishing returns after that. Key: always generate preference data from the current (improved) model, not the original SFT model, to avoid distribution mismatch.",
+    "url": "https://huggingface.co/blog/karina-zadorozhny/guide-to-llm-post-training-algorithms",
+    "tags": [
+      "iterative-dpo",
+      "online-dpo",
+      "self-play",
+      "alignment",
+      "continuous-improvement",
+      "pattern"
+    ],
+    "difficulty": "advanced"
   }
 ]

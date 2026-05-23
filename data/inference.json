@@ -1,0 +1,801 @@
+[
+  {
+    "topic": "inference",
+    "type": "course",
+    "title": "vLLM Official Documentation and Tutorials",
+    "description": "Comprehensive documentation for vLLM, the production default for LLM serving in 2026. Covers PagedAttention, continuous batching, tensor/pipeline parallelism, multi-LoRA, and deployment patterns.",
+    "url": "https://docs.vllm.ai/",
+    "tags": [
+      "vllm",
+      "production",
+      "pagedattention",
+      "deployment"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "inference",
+    "type": "course",
+    "title": "vLLM vs Ollama vs TGI Comparison (ToolHalla 2026)",
+    "description": "Detailed comparison of vLLM (production, 793 tok/s), Ollama (dev/prototyping, 52M downloads), and TGI (maintenance mode). Includes benchmarks, deployment guides, and recommendation matrix.",
+    "url": "https://toolhalla.ai/blog/vllm-vs-ollama-vs-tgi-2026",
+    "tags": [
+      "vllm",
+      "ollama",
+      "tgi",
+      "comparison",
+      "benchmarks"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "inference",
+    "type": "course",
+    "title": "SGLang: Efficient Serving for LLMs",
+    "description": "Official SGLang documentation covering RadixAttention for shared-prefix workloads, achieving 29% higher throughput than vLLM. Used by xAI (Grok 3), Microsoft Azure, LinkedIn, Cursor.",
+    "url": "https://github.com/sgl-project/sglang",
+    "tags": [
+      "sglang",
+      "radixattention",
+      "throughput",
+      "production"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "inference",
+    "type": "course",
+    "title": "Ollama Official Documentation",
+    "description": "Complete guide for Ollama, the easiest way to run LLMs locally. Covers installation, model management, API usage, Modelfile creation, and multi-modal support. 52M monthly downloads in 2026.",
+    "url": "https://ollama.com/",
+    "tags": [
+      "ollama",
+      "local",
+      "dev",
+      "prototyping",
+      "modelfile"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "inference",
+    "type": "course",
+    "title": "Complete Guide to vLLM and Ollama (YoungJu Dev)",
+    "description": "Comprehensive guide covering vLLM and Ollama setup, configuration parameters, environment variables, deployment patterns, and performance tuning for production and development.",
+    "url": "https://www.youngju.dev/blog/llm/vllm_ollama_serving_complete_guide.en",
+    "tags": [
+      "vllm",
+      "ollama",
+      "setup",
+      "configuration",
+      "tuning"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "inference",
+    "type": "course",
+    "title": "Run LLM Inference on Talos Linux (OneUptime)",
+    "description": "Guide to running LLM inference workloads on Talos Linux with vLLM, covering GPU passthrough, Kubernetes deployment, and production hardening.",
+    "url": "https://oneuptime.com/blog/post/2026-03-03-run-llm-inference-workloads-on-talos-linux/view",
+    "tags": [
+      "talos",
+      "kubernetes",
+      "vllm",
+      "gpu",
+      "production"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "inference",
+    "type": "course",
+    "title": "Self-Hosting LLMs: vLLM vs TGI vs Ollama (BirJob)",
+    "description": "Practical guide comparing vLLM (production default), TGI (maintenance mode), and Ollama (dev) for self-hosting LLMs. Includes cost analysis, throughput benchmarks, and deployment recipes.",
+    "url": "https://www.birjob.com/blog/vllm-tgi-ollama-self-hosting-llms",
+    "tags": [
+      "vllm",
+      "tgi",
+      "ollama",
+      "self-hosting",
+      "cost"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "inference",
+    "type": "course",
+    "title": "Quantization Deep Dive: GGUF, AWQ, GPTQ, FP8",
+    "description": "Comprehensive guide to LLM quantization methods: GGUF (llama.cpp), AWQ, GPTQ, and FP8. Includes quality benchmarks, memory requirements, and deployment recommendations for each quantization level.",
+    "url": "https://huggingface.co/docs/transformers/main/en/quantization",
+    "tags": [
+      "quantization",
+      "gguf",
+      "awq",
+      "gptq",
+      "fp8"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "inference",
+    "type": "workflow",
+    "title": "Deploy vLLM in Production with Docker",
+    "description": "Step-by-step workflow for deploying vLLM as a production LLM inference server.",
+    "tags": [
+      "vllm",
+      "docker",
+      "production",
+      "deployment"
+    ],
+    "difficulty": "intermediate",
+    "workflow": [
+      "Pull vLLM Docker image: docker pull vllm/vllm-openai:latest",
+      "Create docker-compose.yml with GPU reservations and healthcheck",
+      "Configure model arguments: --model, --tensor-parallel-size, --max-model-len",
+      "Set up OpenAI-compatible API endpoint on port 8000",
+      "Add healthcheck: curl -sf http://127.0.0.1:8000/health",
+      "Configure autoscaling with Kubernetes HPA or docker compose scale",
+      "Set up monitoring with Prometheus metrics endpoint",
+      "Test with curl to /v1/chat/completions endpoint"
+    ]
+  },
+  {
+    "topic": "inference",
+    "type": "workflow",
+    "title": "Set Up Ollama for Local Development",
+    "description": "Quick setup workflow for Ollama as a local LLM development environment.",
+    "tags": [
+      "ollama",
+      "local",
+      "dev",
+      "setup"
+    ],
+    "difficulty": "beginner",
+    "workflow": [
+      "Install Ollama: curl -fsSL https://ollama.com/install.sh | sh",
+      "Pull a model: ollama pull llama3.2:3b",
+      "Run inference: ollama run llama3.2:3b",
+      "Test API: curl http://localhost:11434/api/generate",
+      "Create custom Modelfile for your use case",
+      "Build custom model: ollama create mymodel -f Modelfile",
+      "Set up GPU detection (automatic on CUDA/Metal/ROCm)",
+      "Configure environment variables: OLLAMA_HOST, OLLAMA_ORIGINS"
+    ]
+  },
+  {
+    "topic": "inference",
+    "type": "workflow",
+    "title": "Multi-LoRA Serving with vLLM",
+    "description": "Deploy multiple LoRA adapters on a single vLLM server for cost-efficient multi-tenant serving.",
+    "tags": [
+      "vllm",
+      "lora",
+      "multi-tenant",
+      "serving"
+    ],
+    "difficulty": "advanced",
+    "workflow": [
+      "Prepare base model and LoRA adapters in HuggingFace format",
+      "Launch vLLM with --enable-lora flag and --max-lora-rank",
+      "Specify LoRA adapter paths in vLLM config",
+      "Send requests with lora_name parameter in API call",
+      "Monitor LoRA swapping latency and memory usage",
+      "Tune --max-num-seqs for optimal batching",
+      "Set --lora-modules per adapter for preloading",
+      "Benchmark throughput with multiple concurrent adapters"
+    ]
+  },
+  {
+    "topic": "inference",
+    "type": "workflow",
+    "title": "Model Quantization and GGUF Export Pipeline",
+    "description": "Convert HuggingFace models to quantized GGUF format for Ollama/vLLM deployment.",
+    "tags": [
+      "quantization",
+      "gguf",
+      "export",
+      "ollama"
+    ],
+    "difficulty": "intermediate",
+    "workflow": [
+      "Download model from HuggingFace Hub",
+      "Install llama.cpp: make -j$(nproc)",
+      "Convert to GGUF F16: python convert_hf_to_gguf.py model_dir --outfile model-f16.gguf",
+      "Quantize to Q4_K_M: ./llama-quantize model-f16.gguf model-q4km.gguf Q4_K_M",
+      "Create Ollama Modelfile: FROM ./model-q4km.gguf",
+      "Import to Ollama: ollama create mymodel -f Modelfile",
+      "Test: ollama run mymodel Hello world",
+      "Benchmark quality vs size tradeoff across Q2_K to Q8_0"
+    ]
+  },
+  {
+    "topic": "inference",
+    "type": "workflow",
+    "title": "SGLang RadixAttention Setup for Multi-Turn",
+    "description": "Configure SGLang for optimal multi-turn conversation serving with shared-prefix caching.",
+    "tags": [
+      "sglang",
+      "radixattention",
+      "multi-turn",
+      "caching"
+    ],
+    "difficulty": "advanced",
+    "workflow": [
+      "Install SGLang: pip install sglang[all]",
+      "Launch with: python -m sglang.launch_server --model path/model --port 8000",
+      "Enable RadixAttention (default in SGLang)",
+      "Configure --mem-fraction-static for KV cache allocation",
+      "Set --chunked-prefill-size for optimal prefill batching",
+      "Test multi-turn: send sequential requests with shared system prompt",
+      "Monitor prefix cache hit rate in /health endpoint",
+      "Compare throughput vs vLLM on shared-prefix workloads",
+      "Scale with tensor parallelism: --tp 2 or --tp 4"
+    ]
+  },
+  {
+    "topic": "inference",
+    "type": "example",
+    "title": "vLLM Docker Compose Production Setup",
+    "description": "Production Docker Compose for vLLM with GPU support, health checking, and autoscaling configuration.",
+    "tags": [
+      "vllm",
+      "docker",
+      "production",
+      "gpu"
+    ],
+    "difficulty": "intermediate",
+    "code": "services:\n  vllm:\n    image: vllm/vllm-openai:latest\n    container_name: vllm-server\n    restart: unless-stopped\n    ports:\n      - \"127.0.0.1:8000:8000\"\n    environment:\n      - MODEL_NAME=meta-llama/Meta-Llama-3.1-8B-Instruct\n      - TENSOR_PARALLEL_SIZE=1\n      - MAX_MODEL_LEN=8192\n      - GPU_MEMORY_UTILIZATION=0.9\n    command: >\n      --model meta-llama/Meta-Llama-3.1-8B-Instruct\n      --tensor-parallel-size 1\n      --max-model-len 8192\n      --gpu-memory-utilization 0.9\n      --enable-chunked-prefill\n    healthcheck:\n      test: [\"CMD\", \"curl\", \"-sf\", \"http://127.0.0.1:8000/health\"]\n      interval: 30s\n      timeout: 10s\n      retries: 5\n      start_period: 120s\n    deploy:\n      resources:\n        reservations:\n          devices:\n            - driver: nvidia\n              count: all\n              capabilities: [gpu]"
+  },
+  {
+    "topic": "inference",
+    "type": "example",
+    "title": "Ollama Modelfile for Custom Model",
+    "description": "Ollama Modelfile for creating a custom model with system prompt, parameters, and template.",
+    "tags": [
+      "ollama",
+      "modelfile",
+      "custom",
+      "parameters"
+    ],
+    "difficulty": "beginner",
+    "code": "# Modelfile for a coding assistant\nFROM llama3.2:3b\n\n# System prompt\nSYSTEM \"\"\"You are an expert coding assistant. Follow these rules:\n1. Always provide working code examples\n2. Explain your reasoning step by step\n3. Use best practices and modern patterns\n4. Include error handling\n5. Prefer type hints in Python\n\"\"\"\n\n# Parameters\nPARAMETER temperature 0.7\nPARAMETER top_p 0.9\nPARAMETER num_ctx 8192\nPARAMETER stop \"<|eot_id|>\"\nPARAMETER stop \"<|end_of_text|>\"\n\n# Template\nTEMPLATE \"\"\"{{- if .System }}<|start_header_id|>system<|end_header_id|>{{ .System }}<|eot_id|>{{- end }}\n<|start_header_id|>user<|end_header_id|>{{ .Prompt }}<|eot_id|>\n<|start_header_id|>assistant<|end_header_id|>\"\"\""
+  },
+  {
+    "topic": "inference",
+    "type": "example",
+    "title": "SGLang Server Launch Configuration",
+    "description": "Python script launching SGLang server with RadixAttention and multi-modal support.",
+    "tags": [
+      "sglang",
+      "server",
+      "configuration",
+      "radixattention"
+    ],
+    "difficulty": "advanced",
+    "code": "import sglang as sgl\n\n# Launch SGLang server with RadixAttention\nserver = sgl.Runtime(\n    model_path=\"meta-llama/Meta-Llama-3.1-70B-Instruct\",\n    tp_size=4,                # 4-way tensor parallelism\n    mem_fraction_static=0.85, # 85% GPU memory for KV cache\n    chunked_prefill_size=8192, # Optimal prefill chunk size\n    enable_overlap_schedule=True, # Overlap prefill and decode\n)\n\n# Multi-turn conversation with prefix caching\n@sgl.function\ndef multi_turn_chat(s, question: str, context: str):\n    s += sgl.system(\"You are a helpful assistant.\")\n    s += sgl.user(context + \" \" + question)\n    s += sgl.assistant(sgl.gen(\"answer\", max_tokens=512))\n\n# Run\nstates = multi_turn_chat.run_batch(\n    [\n        {\"question\": \"What is RAG?\", \"context\": \"Retrieval-Augmented Generation\"},\n        {\"question\": \"Explain LoRA\", \"context\": \"Low-Rank Adaptation\"},\n    ],\n    temperature=0.7\n)"
+  },
+  {
+    "topic": "inference",
+    "type": "example",
+    "title": "OpenAI-Compatible API Client for vLLM/Ollama",
+    "description": "Python client that works with both vLLM and Ollama OpenAI-compatible endpoints.",
+    "tags": [
+      "openai",
+      "client",
+      "vllm",
+      "ollama",
+      "api"
+    ],
+    "difficulty": "beginner",
+    "code": "from openai import OpenAI\n\n# Works with vLLM, Ollama, or any OpenAI-compatible server\nclient = OpenAI(\n    base_url=\"http://127.0.0.1:8000/v1\",  # vLLM\n    # base_url=\"http://127.0.0.1:11434/v1\",  # Ollama\n    api_key=\"not-needed\"\n)\n\nresponse = client.chat.completions.create(\n    model=\"meta-llama/Meta-Llama-3.1-8B-Instruct\",\n    messages=[\n        {\"role\": \"system\", \"content\": \"You are a helpful assistant.\"},\n        {\"role\": \"user\", \"content\": \"Explain RAG in 2 sentences.\"}\n    ],\n    temperature=0.7,\n    max_tokens=256\n)\n\nprint(response.choices[0].message.content)"
+  },
+  {
+    "topic": "inference",
+    "type": "tool",
+    "title": "vLLM",
+    "description": "Production LLM inference server with PagedAttention (793 tok/s throughput), continuous batching, tensor/pipeline parallelism, multi-LoRA, speculative decoding, and structured output. Default production choice in 2026.",
+    "url": "https://github.com/vllm-project/vllm",
+    "tags": [
+      "vllm",
+      "production",
+      "pagedattention",
+      "throughput",
+      "serving"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "inference",
+    "type": "tool",
+    "title": "Ollama",
+    "description": "Developer-focused LLM runner wrapping llama.cpp. Single binary install, automatic GPU detection (CUDA/Metal/ROCm), Modelfile for customization. 52M monthly downloads. Best for prototyping and single-user scenarios.",
+    "url": "https://ollama.com/",
+    "tags": [
+      "ollama",
+      "dev",
+      "local",
+      "prototyping",
+      "llama-cpp"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "inference",
+    "type": "tool",
+    "title": "SGLang",
+    "description": "Rising challenger to vLLM with RadixAttention for shared-prefix caching. Achieves 29% higher throughput on multi-turn conversations. Used by xAI (Grok 3), Azure, LinkedIn.",
+    "url": "https://github.com/sgl-project/sglang",
+    "tags": [
+      "sglang",
+      "radixattention",
+      "throughput",
+      "multi-turn"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "inference",
+    "type": "tool",
+    "title": "llama.cpp",
+    "description": "C/C++ inference engine underlying Ollama and many other tools. Supports GGUF quantization, CPU/GPU inference, and runs on everything from Raspberry Pi to H100 clusters.",
+    "url": "https://github.com/ggerganov/llama.cpp",
+    "tags": [
+      "llama-cpp",
+      "gguf",
+      "quantization",
+      "cpu",
+      "gpu"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "inference",
+    "type": "tool",
+    "title": "HuggingFace Text Generation Inference (TGI)",
+    "description": "HuggingFace production server now in maintenance mode (Dec 2025). Still works for existing deployments but new projects should use vLLM or SGLang.",
+    "url": "https://github.com/huggingface/text-generation-inference",
+    "tags": [
+      "tgi",
+      "huggingface",
+      "maintenance",
+      "migration"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "inference",
+    "type": "pattern",
+    "title": "Production vs Development Serving Pattern",
+    "description": "Most teams should run both Ollama (dev machines for prototyping) and vLLM (production for serving APIs). Both expose OpenAI-compatible APIs, so switching only requires changing the endpoint URL.",
+    "tags": [
+      "pattern",
+      "production",
+      "dev",
+      "endpoint-switching"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "inference",
+    "type": "pattern",
+    "title": "Speculative Decoding Pattern",
+    "description": "Use a small draft model to propose tokens that the large target model verifies in parallel. Achieves 2-3x speedup with minimal quality loss. Supported by both vLLM and SGLang.",
+    "tags": [
+      "speculative-decoding",
+      "speedup",
+      "draft-model",
+      "quality"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "inference",
+    "type": "pattern",
+    "title": "Quantization Selection Guide",
+    "description": "Q4_K_M (4-bit): mainstream, 95% quality, 4.5 GB for 7B. Q5_K_M (5-bit): recommended for production, 97% quality. Q8_0 (8-bit): quality-critical production, 99% quality. AWQ/GPTQ/FP8: vLLM native options.",
+    "tags": [
+      "quantization",
+      "gguf",
+      "awq",
+      "gptq",
+      "fp8"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "inference",
+    "type": "pattern",
+    "title": "KV Cache Optimization Pattern",
+    "description": "PagedAttention (vLLM) reduces KV cache memory waste from 60-80% to under 4%. RadixAttention (SGLang) caches shared prefixes in a radix tree for 5x faster multi-turn. Configure GPU memory utilization to 85-92% for optimal throughput.",
+    "tags": [
+      "kv-cache",
+      "pagedattention",
+      "radixattention",
+      "memory"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "inference",
+    "type": "pattern",
+    "title": "GPU Hardware Recommendation Pattern",
+    "description": "Dev (Ollama): RTX 4090 24GB or Apple Silicon Mac. Budget production: RTX 5090 24-32GB. Production (vLLM): A100 80GB or H100 80GB. Cloud: H100 at $1.49-2.99/hr, A100 80GB at ~$1.59/hr.",
+    "tags": [
+      "hardware",
+      "gpu",
+      "cost",
+      "recommendation"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "inference",
+    "type": "tutorial",
+    "title": "vLLM Getting Started Guide",
+    "description": "Official quickstart for vLLM: installation, OpenAI-compatible server, offline batched inference, distributed serving, and quantized model serving.",
+    "url": "https://docs.vllm.ai/en/latest/getting_started/quickstart.html",
+    "tags": [
+      "vllm",
+      "quickstart",
+      "installation",
+      "serving"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "inference",
+    "type": "tutorial",
+    "title": "Ollama Modelfile Documentation",
+    "description": "Complete reference for creating custom Ollama models with Modelfile syntax: FROM, PARAMETER, TEMPLATE, SYSTEM, ADAPTER, and LICENSE directives.",
+    "url": "https://ollama.com/Modelfile",
+    "tags": [
+      "ollama",
+      "modelfile",
+      "custom",
+      "reference"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "inference",
+    "type": "tutorial",
+    "title": "llama.cpp Quantization Guide",
+    "description": "Step-by-step guide to quantizing HuggingFace models to GGUF format using llama.cpp. Covers Q2_K through Q8_0, imatrix quantization, and quality benchmarks.",
+    "url": "https://github.com/ggerganov/llama.cpp/blob/master/examples/quantize/README.md",
+    "tags": [
+      "llama-cpp",
+      "quantization",
+      "gguf",
+      "imatrix"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "inference",
+    "type": "tutorial",
+    "title": "vLLM Production Deployment on Kubernetes",
+    "description": "Guide to deploying vLLM on Kubernetes with Helm charts, autoscaling, GPU scheduling, and monitoring.",
+    "url": "https://docs.vllm.ai/en/latest/serving/deploying_on_k8s.html",
+    "tags": [
+      "vllm",
+      "kubernetes",
+      "helm",
+      "autoscaling",
+      "production"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "inference",
+    "type": "book",
+    "title": "LLM Inference at Scale (Online Resource)",
+    "description": "Comprehensive guide covering inference optimization techniques: KV cache management, continuous batching, speculative decoding, tensor parallelism, and cost optimization for production deployments.",
+    "url": "https://www.anyscale.com/blog/llm-inference-at-scale",
+    "tags": [
+      "book",
+      "inference",
+      "optimization",
+      "scale",
+      "cost"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "inference",
+    "type": "book",
+    "title": "Building LLM Apps (O'Reilly)",
+    "description": "Practical guide to building applications with LLMs including inference serving, RAG pipelines, prompt engineering, evaluation, and production deployment patterns.",
+    "url": "https://www.oreilly.com/library/view/building-llm-apps/9781098167969/",
+    "tags": [
+      "book",
+      "applications",
+      "deployment",
+      "rag"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "inference",
+    "type": "course",
+    "title": "Fast Inference for LLMs (DeepLearning.AI)",
+    "description": "Course on deploying LLMs for low-latency inference, covering vLLM, speculative decoding, model quantization, and production serving best practices.",
+    "url": "https://www.deeplearning.ai/short-courses/efficient-inference-for-llms/",
+    "tags": [
+      "inference",
+      "latency",
+      "quantization",
+      "vllm",
+      "production"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "inference",
+    "type": "course",
+    "title": "Deploying LLMs at Scale (Anyscale)",
+    "description": "Ray-based course covering model serving with vLLM, Ray Serve, autoscaling, A/B testing, and multi-model deployment patterns for production LLM workloads.",
+    "url": "https://www.anyscale.com/courses/deploying-llms",
+    "tags": [
+      "ray",
+      "vllm",
+      "autoscaling",
+      "multi-model",
+      "production"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "inference",
+    "type": "course",
+    "title": "HuggingFace Inference Endpoints Guide",
+    "description": "Official guide to deploying models on HuggingFace Inference Endpoints: setup, autoscaling, custom containers, and cost optimization for production deployments.",
+    "url": "https://huggingface.co/docs/inference-endpoints/index",
+    "tags": [
+      "huggingface",
+      "endpoints",
+      "deployment",
+      "cost"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "inference",
+    "type": "course",
+    "title": "Kubernetes for AI/ML Workloads (KodeKloud)",
+    "description": "Covers GPU scheduling with K8s, NVIDIA device plugin, MPS, Multi-Instance GPU, TorchElastic integration, and autoscaling strategies for inference workloads.",
+    "url": "https://kodekloud.com/courses/kubernetes-for-ai-ml-workloads",
+    "tags": [
+      "kubernetes",
+      "gpu",
+      "scheduling",
+      "autoscaling",
+      "inference"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "inference",
+    "type": "workflow",
+    "title": "Deploy LLM with GPU Sharing on Kubernetes",
+    "description": "Step-by-step workflow for deploying LLM inference on Kubernetes with GPU time-sharing or MPS for cost efficiency.",
+    "tags": [
+      "kubernetes",
+      "gpu-sharing",
+      "mps",
+      "cost-efficiency"
+    ],
+    "difficulty": "advanced",
+    "workflow": [
+      "Install NVIDIA GPU operator and device plugin on K8s cluster",
+      "Configure GPU sharing: time-sharing or MPS mode",
+      "Create PVC for model cache storage",
+      "Deploy vLLM with Helm chart and GPU resource requests",
+      "Configure HPA based on inference latency P99",
+      "Set up ServiceMonitor for Prometheus metrics",
+      "Add VirtualService for canary deployments",
+      "Test with load generator: vegeta or k6",
+      "Validate SLO: P99 latency under 500ms at target QPS",
+      "Set up alerting for GPU memory pressure and inference errors"
+    ]
+  },
+  {
+    "topic": "inference",
+    "type": "workflow",
+    "title": "Model Quantization Pipeline for Production",
+    "description": "Quantize an HuggingFace model for efficient deployment with minimal quality loss.",
+    "tags": [
+      "quantization",
+      "pipeline",
+      "production",
+      "quality"
+    ],
+    "difficulty": "intermediate",
+    "workflow": [
+      "Select target model and quantization method based on use case",
+      "Evaluate baseline: run benchmarks on FP16 model for reference",
+      "Quantize with AutoGPTQ: python quantize.py --model path --bits 4 --group-size 128",
+      "Or quantize with AWQ: python quantize.py --model path --w-bit 4 --q-group-size 128",
+      "Or quantize with GGUF: convert and quantize with llama.cpp",
+      "Evaluate quantized model on domain-specific benchmark suite",
+      "Compare quality metrics: perplexity delta, accuracy on key tasks",
+      "Profile inference latency and throughput on target hardware",
+      "Select quantization level that meets quality and latency SLOs",
+      "Deploy with vLLM (GPTQ/AWQ) or Ollama (GGUF) as appropriate"
+    ]
+  },
+  {
+    "topic": "inference",
+    "type": "workflow",
+    "title": "Speculative Decoding Setup with vLLM",
+    "description": "Configure speculative decoding in vLLM to achieve 2-3x inference speedup.",
+    "tags": [
+      "speculative-decoding",
+      "vllm",
+      "speedup",
+      "draft-model"
+    ],
+    "difficulty": "advanced",
+    "workflow": [
+      "Choose a draft model 5-10x smaller than target (e.g., Llama-3.2-1B for Llama-3.1-70B)",
+      "Verify draft and target models use compatible tokenizers",
+      "Launch vLLM with speculative decoding: --speculative-model meta-llama/Llama-3.2-1B --num-speculative-tokens 5",
+      "Set --speculative-max-model-len to match target model context length",
+      "Monitor acceptance rate in vLLM logs: target > 80% for good speedup",
+      "Benchmark with production traffic patterns",
+      "Adjust num-speculative-tokens: more tokens = more potential speedup but higher rejection cost",
+      "Compare end-to-end latency with and without speculative decoding",
+      "Monitor GPU memory: draft model adds ~1-2 GB overhead",
+      "Optimize: if acceptance rate < 70%, try a different draft model"
+    ]
+  },
+  {
+    "topic": "inference",
+    "type": "example",
+    "title": "vLLM Multi-LoRA Serving Configuration",
+    "description": "vLLM configuration for serving multiple LoRA adapters on a single base model.",
+    "tags": [
+      "vllm",
+      "lora",
+      "multi-tenant",
+      "serving"
+    ],
+    "difficulty": "advanced",
+    "code": "from vllm import LLM, SamplingParams\nfrom vllm.lora.request import LoRARequest\n\n# Launch with LoRA support\nllm = LLM(\n    model=\"meta-llama/Meta-Llama-3.1-8B-Instruct\",\n    enable_lora=True,\n    max_loras=4,           # Max concurrent LoRA adapters\n    max_lora_rank=16,      # Max LoRA rank\n    max_model_len=8192,\n    gpu_memory_utilization=0.9,\n)\n\n# Define LoRA adapters\nlora_requests = [\n    LoRARequest(\"coder\", lora_int_id=1, lora_path=\"./loras/coder-lora\"),\n    LoRARequest(\"writer\", lora_int_id=2, lora_path=\"./loras/writer-lora\"),\n    LoRARequest(\"analyst\", lora_int_id=3, lora_path=\"./loras/analyst-lora\"),\n]\n\n# Generate with specific LoRA\noutputs = llm.generate(\n    prompts=[\"Write a Python function to sort a list\"],\n    sampling_params=SamplingParams(temperature=0.7, max_tokens=256),\n    lora_request=lora_requests[0],  # Use coder LoRA\n)"
+  },
+  {
+    "topic": "inference",
+    "type": "example",
+    "title": "Ollama Python Client for Local Development",
+    "description": "Python client for Ollama API with streaming support for local development.",
+    "tags": [
+      "ollama",
+      "python",
+      "client",
+      "streaming",
+      "local"
+    ],
+    "difficulty": "beginner",
+    "code": "import ollama\n\n# Simple generation\nresponse = ollama.generate(\n    model='llama3.2:3b',\n    prompt='Explain RAG in 2 sentences.'\n)\nprint(response['response'])\n\n# Chat with streaming\nstream = ollama.chat(\n    model='llama3.2:3b',\n    messages=[\n        {'role': 'system', 'content': 'You are a helpful coding assistant.'},\n        {'role': 'user', 'content': 'Write a Python function to sort a list'},\n    ],\n    stream=True\n)\nfor chunk in stream:\n    print(chunk['message']['content'], end='', flush=True)\n\n# List available models\nmodels = ollama.list()\nfor model in models['models']:\n    print(f\"{model['name']}: {model['size'] / 1e9:.1f} GB\")"
+  },
+  {
+    "topic": "inference",
+    "type": "tool",
+    "title": "AutoGPTQ",
+    "description": "Quantization library for GPTQ algorithm: 2/3/4/8-bit quantization of HuggingFace models. Integrates with vLLM and Transformers for efficient inference with minimal quality loss.",
+    "url": "https://github.com/AutoGPTQ/AutoGPTQ",
+    "tags": [
+      "gptq",
+      "quantization",
+      "huggingface",
+      "4-bit"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "inference",
+    "type": "tool",
+    "title": "AutoAWQ",
+    "description": "Activation-aware weight quantization for LLMs. Produces 4-bit quantized models with better quality than GPTQ at the same bit width. Native support in vLLM and SGLang.",
+    "url": "https://github.com/casper-hansen/AutoAWQ",
+    "tags": [
+      "awq",
+      "quantization",
+      "4-bit",
+      "vllm",
+      "quality"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "inference",
+    "type": "tool",
+    "title": "NVIDIA TensorRT-LLM",
+    "description": "NVIDIA inference library for production LLM serving. Optimized kernels, in-flight batching, tensor parallelism, and FP8/INT8 quantization. Best for NVIDIA GPU deployments needing maximum throughput.",
+    "url": "https://github.com/NVIDIA/TensorRT-LLM",
+    "tags": [
+      "tensorrt",
+      "nvidia",
+      "inference",
+      "production",
+      "fp8"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "inference",
+    "type": "tool",
+    "title": "Ray Serve",
+    "description": "Scalable model serving framework from Anyscale. Supports autoscaling, canary deployments, multi-model pipelines, and integrates with vLLM for LLM serving.",
+    "url": "https://docs.ray.io/en/latest/serve/",
+    "tags": [
+      "ray",
+      "serving",
+      "autoscaling",
+      "multi-model",
+      "deployment"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "inference",
+    "type": "pattern",
+    "title": "Continuous Batching Pattern",
+    "description": "Batch multiple inference requests together dynamically as they arrive, instead of waiting for a full batch. vLLM uses iteration-level scheduling that continuously batches new requests, achieving 2-5x throughput over static batching.",
+    "tags": [
+      "continuous-batching",
+      "vllm",
+      "throughput','dynamic"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "inference",
+    "type": "pattern",
+    "title": "Model Merging Pattern",
+    "description": "Combine multiple fine-tuned models using mergekit (SLERP, TIES, DARE, Passthrough) to create a single model with combined capabilities. Reduces serving cost by running one model instead of many.",
+    "tags": [
+      "mergekit','model-merging','slerp",
+      "dare','cost-reduction"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "inference",
+    "type": "pattern",
+    "title": "Prefix Caching Pattern",
+    "description": "Cache KV pairs for shared system prompts across requests. vLLM enables this with --enable-prefix-caching. SGLang does this automatically with RadixAttention. Reduces time-to-first-token by 40-80% for shared-prefix workloads.",
+    "tags": [
+      "prefix-caching",
+      "kv-cache','time-to-first-token",
+      "shared-prompt"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "inference",
+    "type": "tutorial",
+    "title": "HuggingFace Transformers Inference Guide",
+    "description": "Official guide to running inference with HuggingFace Transformers: pipelines, generate(), batched inference, streaming, and hardware-specific optimizations.",
+    "url": "https://huggingface.co/docs/transformers/main/en/inference",
+    "tags": [
+      "huggingface",
+      "transformers",
+      "pipeline",
+      "batching','streaming"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "inference",
+    "type": "tutorial",
+    "title": "vLLM Quantization Deployment Guide",
+    "description": "Step-by-step guide for deploying quantized models with vLLM: GPTQ, AWQ, FP8, and INT8 quantization methods with benchmark comparisons.",
+    "url": "https://docs.vllm.ai/en/latest/features/quantization/",
+    "tags": [
+      "vllm','quantization','gptq",
+      "awq','fp8','deployment"
+    ],
+    "difficulty": "intermediate"
+  }
+]

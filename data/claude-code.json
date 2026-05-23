@@ -1,0 +1,747 @@
+[
+  {
+    "topic": "claude-code",
+    "type": "course",
+    "title": "Official Claude Code Documentation",
+    "description": "Complete reference for Claude Code CLI: features, hooks, slash commands, MCP servers, settings, IDE integrations, keyboard shortcuts. The canonical source for all Claude Code capabilities.",
+    "url": "https://code.claude.com/docs/en",
+    "tags": [
+      "claude-code",
+      "docs",
+      "reference",
+      "official"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "claude-code",
+    "type": "course",
+    "title": "Claude Code Best Practices (Official)",
+    "description": "Anthropic official guide covering context management (clear between tasks, compact at 70-75%), CLAUDE.md (under 200 lines), verification mechanisms, subagent patterns, and cost optimization tips.",
+    "url": "https://code.claude.com/docs/en/best-practices",
+    "tags": [
+      "best-practices",
+      "context",
+      "claude-md",
+      "subagents"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "claude-code",
+    "type": "course",
+    "title": "Claude Code Common Workflows (Official)",
+    "description": "Official workflows including multi-file editing, git operations, testing, code review, documentation generation, and debugging patterns.",
+    "url": "https://code.claude.com/docs/en/common-workflows",
+    "tags": [
+      "workflows",
+      "editing",
+      "git",
+      "testing",
+      "debugging"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "claude-code",
+    "type": "course",
+    "title": "Claude Code in Large Codebases (Blog)",
+    "description": "Anthropic blog post on how Claude Code works in large codebases: context management strategies, subagent delegation, file-focused reads, and progressive understanding patterns.",
+    "url": "https://claude.com/blog/how-claude-code-works-in-large-codebases-best-practices-and-where-to-start",
+    "tags": [
+      "large-codebase",
+      "context",
+      "subagents",
+      "patterns"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "claude-code",
+    "type": "course",
+    "title": "The Claude Code Handbook (freeCodeCamp)",
+    "description": "Comprehensive guide covering installation, configuration, CLAUDE.md patterns, hook system, MCP integration, multi-agent setups, and production deployment strategies.",
+    "url": "https://www.freecodecamp.org/news/claude-code-handbook/",
+    "tags": [
+      "handbook",
+      "guide",
+      "configuration",
+      "production"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "claude-code",
+    "type": "course",
+    "title": "Complete Claude Code Guide 2026 (Generative Inc)",
+    "description": "Deep guide covering context engineering, planning mode, CLAUDE.md optimization, subagent delegation patterns, and high-leverage development workflows for 2026.",
+    "url": "https://www.generative.inc/the-complete-claude-code-guide-2026-planning-context-engineering-and-high-leverage-development",
+    "tags": [
+      "context-engineering",
+      "planning",
+      "claude-md",
+      "2026"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "claude-code",
+    "type": "course",
+    "title": "Claude Code Hooks Reference",
+    "description": "Official documentation for the hook system: PreToolUse (Bash audit), PostToolUse (auto-lint), SessionStart (heartbeat), Stop (cleanup). Includes configuration, matcher patterns, and examples.",
+    "url": "https://code.claude.com/docs/en/hooks",
+    "tags": [
+      "hooks",
+      "automation",
+      "pretooluse",
+      "posttooluse"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "claude-code",
+    "type": "course",
+    "title": "Claude Code Skills System",
+    "description": "Official documentation for skills: reusable prompt templates, domain expertise on demand, skill marketplace, and creating custom skills for project-specific workflows.",
+    "url": "https://code.claude.com/docs/en/skills",
+    "tags": [
+      "skills",
+      "templates",
+      "marketplace",
+      "custom"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "claude-code",
+    "type": "workflow",
+    "title": "4-Phase Claude Code Workflow (Plan then Implement then Verify)",
+    "description": "Boris Cherny recommended workflow: Explore (Plan Mode, no changes) then Plan (Plan Mode, review with Ctrl+G) then Implement (Normal/Auto) then Commit (with descriptive message).",
+    "tags": [
+      "workflow",
+      "plan-mode",
+      "verify",
+      "commit"
+    ],
+    "difficulty": "beginner",
+    "workflow": [
+      "1. EXPLORE: Enter Plan Mode (Ctrl+G), read files, understand architecture, ask clarifying questions. No changes.",
+      "2. PLAN: Still in Plan Mode, create detailed implementation plan. Review with Ctrl+G. Get user approval.",
+      "3. IMPLEMENT: Exit Plan Mode. Execute the approved plan step by step. Run tests after each step.",
+      "4. VERIFY: Run full test suite. Take screenshots for UI changes. Verify with expected outputs.",
+      "5. COMMIT: git add specific files, git commit with descriptive message. Create PR if needed.",
+      "6. CLEAN UP: /clear between unrelated tasks. /compact at ~75% context usage."
+    ]
+  },
+  {
+    "topic": "claude-code",
+    "type": "workflow",
+    "title": "CLAUDE.md Cascade Configuration",
+    "description": "How to structure CLAUDE.md files across locations for maximum effectiveness.",
+    "tags": [
+      "claude-md",
+      "configuration",
+      "cascade",
+      "project"
+    ],
+    "difficulty": "beginner",
+    "workflow": [
+      "1. Create ~/.claude/CLAUDE.md with global preferences (under 50 lines): preferred style, common commands, language preferences.",
+      "2. Create ./CLAUDE.md at project root with project conventions (under 300 lines): Bash commands Claude cannot guess, code style that differs from defaults, test commands, architectural decisions.",
+      "3. Create ./CLAUDE.local.md for personal overrides (add to .gitignore): personal preferences, local environment quirks.",
+      "4. Add subdirectory CLAUDE.md files for module-specific context: test commands per subdirectory, module-specific conventions.",
+      "5. Review and prune CLAUDE.md every 3-6 months as model capabilities evolve. Delete rules Claude already follows by default."
+    ]
+  },
+  {
+    "topic": "claude-code",
+    "type": "workflow",
+    "title": "Subagent Delegation Pattern",
+    "description": "Pattern for using subagents to preserve main context window while performing research, review, or exploration tasks.",
+    "tags": [
+      "subagents",
+      "context",
+      "delegation",
+      "efficiency"
+    ],
+    "difficulty": "intermediate",
+    "workflow": [
+      "1. Identify tasks that would bloat context: codebase exploration, code review, multi-file search.",
+      "2. Use Agent tool with appropriate subagent_type: code-explorer for searches, code-reviewer for reviews, architect for design.",
+      "3. Provide specific, scoped prompts to subagents. Be explicit about what to find and report back.",
+      "4. Subagent returns only a summary, keeping main context clean.",
+      "5. For parallel independent tasks, launch multiple agents in a single message.",
+      "6. Never delegate understanding. Always synthesize the subagent summary yourself before acting on it."
+    ]
+  },
+  {
+    "topic": "claude-code",
+    "type": "workflow",
+    "title": "Hook System for Deterministic Automation",
+    "description": "Configure hooks for automatic actions at key moments in Claude Code sessions.",
+    "tags": [
+      "hooks",
+      "automation",
+      "deterministic",
+      "configuration"
+    ],
+    "difficulty": "intermediate",
+    "workflow": [
+      "1. Create ~/.claude/settings.json hooks section.",
+      "2. Add PreToolUse hook for Bash: runs audit log of all shell commands.",
+      "3. Add PostToolUse hook for Edit|Write: runs auto-lint (ruff, prettier, gofmt).",
+      "4. Add SessionStart hook: heartbeat, environment check, MCP server readiness.",
+      "5. Add Stop hook: cleanup temp files, close processes, verify no stale artifacts.",
+      "6. Configure matcher patterns to target specific tools (Bash, Edit, Write).",
+      "7. Test hooks with /hooks command. Verify deterministic behavior.",
+      "8. Monitor hook output for false positives. Adjust matchers as needed."
+    ]
+  },
+  {
+    "topic": "claude-code",
+    "type": "workflow",
+    "title": "Worktree Parallel Development Pattern",
+    "description": "Use git worktrees to run parallel Claude Code sessions on different branches without context interference.",
+    "tags": [
+      "worktrees",
+      "parallel",
+      "isolation",
+      "branches"
+    ],
+    "difficulty": "advanced",
+    "workflow": [
+      "1. Create worktree: claude --worktree feature-auth",
+      "2. This creates .claude/worktrees/feature-auth/ on a new branch.",
+      "3. Work on the feature in the worktree session with full isolation.",
+      "4. Main session continues on original branch, no interference.",
+      "5. When done: exit worktree (choose keep or remove).",
+      "6. Merge the feature branch: git merge feature-auth on main.",
+      "7. Writer/Reviewer pattern: one session writes, another reviews.",
+      "8. Fan-out: loop through files calling claude -p for batch operations."
+    ]
+  },
+  {
+    "topic": "claude-code",
+    "type": "example",
+    "title": "CLAUDE.md Template for AI/ML Projects",
+    "description": "Example CLAUDE.md file for a machine learning project with Docker, GPU, and model conventions.",
+    "tags": [
+      "claude-md",
+      "template",
+      "ml-project",
+      "docker"
+    ],
+    "difficulty": "beginner",
+    "code": "# AI/ML Project Conventions\n\n## Environment\n- Python 3.14, Node 26\n- Docker Compose for services\n- GPU: RTX 5090 24GB\n\n## Commands\n- Run tests: `pytest tests/ -v`\n- Format: `ruff check --fix . && ruff format .`\n- Type check: `mypy src/`\n- Docker rebuild: `docker compose up -d --build`\n\n## Code Style\n- Use type hints on all function signatures\n- Prefer dataclasses over dicts for structured data\n- Use pathlib.Path instead of os.path\n- Error handling: prefer specific exceptions over bare except\n\n## Architecture\n- MCP servers in /mcp/ directory\n- Docker Compose in project root\n- Models stored in /models/ (gitignored)\n- Config in .env (gitignored)"
+  },
+  {
+    "topic": "claude-code",
+    "type": "example",
+    "title": "Hook Configuration for Auto-Lint",
+    "description": "Settings.json hooks configuration that automatically lints code after edits.",
+    "tags": [
+      "hooks",
+      "settings",
+      "auto-lint",
+      "configuration"
+    ],
+    "difficulty": "intermediate",
+    "code": "{\n  \"hooks\": {\n    \"PreToolUse\": [\n      {\n        \"matcher\": \"Bash\",\n        \"hooks\": [\n          {\n            \"type\": \"command\",\n            \"command\": \"/home/user/.claude/hooks/audit-bash.sh\"\n          }\n        ]\n      }\n    ],\n    \"PostToolUse\": [\n      {\n        \"matcher\": \"Edit|Write\",\n        \"hooks\": [\n          {\n            \"type\": \"command\",\n            \"command\": \"/home/user/.claude/hooks/auto-lint.sh\"\n          }\n        ]\n      }\n    ],\n    \"Stop\": [\n      {\n        \"hooks\": [\n          {\n            \"type\": \"command\",\n            \"command\": \"/home/user/.claude/hooks/session-end.sh\"\n          }\n        ]\n      }\n    ]\n  }\n}"
+  },
+  {
+    "topic": "claude-code",
+    "type": "example",
+    "title": "MCP Server Configuration for Claude Code",
+    "description": "Example .claude.json MCP server configuration for a multi-tool AI stack.",
+    "tags": [
+      "mcp",
+      "configuration",
+      "claude-json",
+      "servers"
+    ],
+    "difficulty": "intermediate",
+    "code": "{\n  \"mcpServers\": {\n    \"filesystem\": {\n      \"type\": \"stdio\",\n      \"command\": \"npx\",\n      \"args\": [\"-y\", \"@modelcontextprotocol/server-filesystem\", \"/home/user/src\"],\n      \"env\": {}\n    },\n    \"git\": {\n      \"type\": \"stdio\",\n      \"command\": \"uvx\",\n      \"args\": [\"mcp-server-git\"],\n      \"env\": {}\n    },\n    \"github\": {\n      \"type\": \"stdio\",\n      \"command\": \"npx\",\n      \"args\": [\"-y\", \"@modelcontextprotocol/server-github\"],\n      \"env\": {\"GITHUB_TOKEN\": \"${GITHUB_TOKEN}\"}\n    },\n    \"memory\": {\n      \"type\": \"stdio\",\n      \"command\": \"npx\",\n      \"args\": [\"-y\", \"@modelcontextprotocol/server-memory\"]\n    }\n  }\n}"
+  },
+  {
+    "topic": "claude-code",
+    "type": "example",
+    "title": "Cost Optimization Configuration",
+    "description": "Claude Code settings and practices to minimize token usage and cost.",
+    "tags": [
+      "cost",
+      "optimization",
+      "tokens",
+      "efficiency"
+    ],
+    "difficulty": "beginner",
+    "code": "# Cost optimization practices for Claude Code\n\n## Settings (in ~/.claude/settings.json)\n{\n  \"permissions\": {\n    \"defaultMode\": \"bypassPermissions\"\n  }\n}\n\n## Session practices:\n# 1. Default to Sonnet for day-to-day work\n# 2. Use Opus only for complex architecture decisions\n# 3. Clear between tasks: /clear\n# 4. Compact at ~75%: /compact\n# 5. Write specific prompts (saves ~70% tokens vs vague)\n# 6. Plan before implementing (cheaper than iterating bad code)\n# 7. Disconnect unused MCP servers (each burns context tokens)\n# 8. Keep CLAUDE.md under 2,000 tokens\n# 9. Targeted file reads (specify line ranges)\n# 10. Press Escape early on bad responses"
+  },
+  {
+    "topic": "claude-code",
+    "type": "tool",
+    "title": "Claude Code CLI",
+    "description": "Official CLI tool for Claude Code. Supports -p for prompt mode, --output-format stream-json for structured output, --verbose for detailed logging, and --worktree for isolated sessions.",
+    "url": "https://code.claude.com/docs/en",
+    "tags": [
+      "cli",
+      "official",
+      "prompt-mode",
+      "worktree"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "claude-code",
+    "type": "tool",
+    "title": "Claude Code Extensions (VS Code, JetBrains)",
+    "description": "IDE integrations providing inline editing, diff views, and Claude Code commands directly within VS Code and JetBrains IDEs.",
+    "url": "https://code.claude.com/docs/en/ide-integrations",
+    "tags": [
+      "vscode",
+      "jetbrains",
+      "ide",
+      "integration"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "claude-code",
+    "type": "tool",
+    "title": "MCP (Model Context Protocol)",
+    "description": "Protocol for connecting Claude Code to external tools and data sources. Supports stdio and SSE transports. Enables filesystem, git, memory, Playwright, and custom MCP servers.",
+    "url": "https://modelcontextprotocol.io/",
+    "tags": [
+      "mcp",
+      "protocol",
+      "tools",
+      "external"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "claude-code",
+    "type": "tool",
+    "title": "Claude Code Plugins System",
+    "description": "Marketplace for extending Claude Code with skills, hooks, agents, and MCP configurations. Install via /plugin install. 10k+ resources available across 6 marketplaces.",
+    "url": "https://code.claude.com/docs/en/plugins",
+    "tags": [
+      "plugins",
+      "marketplace",
+      "skills",
+      "extensions"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "claude-code",
+    "type": "tool",
+    "title": "Playwright MCP for Browser Automation",
+    "description": "Browser automation MCP server using Playwright. Enables Claude Code to navigate, click, type, screenshot, and interact with web pages for testing and web scraping.",
+    "url": "https://github.com/anthropics/anthropic-quickstarts/tree/main/mcp-playwright",
+    "tags": [
+      "playwright",
+      "browser",
+      "automation",
+      "testing"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "claude-code",
+    "type": "pattern",
+    "title": "Context Window Management Pattern",
+    "description": "Strategies for managing Claude Code context window: /clear between unrelated tasks, /compact at ~75% usage, /btw for side questions, keep CLAUDE.md lean, use subagents for exploration.",
+    "tags": [
+      "context",
+      "management",
+      "efficiency",
+      "window"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "claude-code",
+    "type": "pattern",
+    "title": "Verification-Driven Development Pattern",
+    "description": "The single highest-leverage practice: include tests, screenshots, or expected outputs so Claude can verify its own work. Instead of implement email validation, say write validateEmail. Test cases: user@example.com -> true, invalid -> false. Run the tests.",
+    "tags": [
+      "verification",
+      "testing",
+      "screenshots",
+      "quality"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "claude-code",
+    "type": "pattern",
+    "title": "Anti-Patterns to Avoid",
+    "description": "Common Claude Code anti-patterns: kitchen-sink sessions (mixing tasks), over-correcting (same issue, multiple attempts), over-specified CLAUDE.md (too many rules), trust-without-verify gap, infinite exploration (unscoped investigation), ghost context (assuming memory across sessions).",
+    "tags": [
+      "anti-patterns",
+      "mistakes",
+      "avoid",
+      "quality"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "claude-code",
+    "type": "pattern",
+    "title": "Model Selection Strategy",
+    "description": "Sonnet 4.6 for day-to-day development. Opus 4.6 for complex architecture, multi-agent, and extended autonomous sessions. Haiku 4.5 for sub-agents, linting, and docs. Key insight: the most capable model is often cheaper because it completes tasks faster with less correction.",
+    "tags": [
+      "model-selection",
+      "sonnet",
+      "opus",
+      "haiku",
+      "cost"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "claude-code",
+    "type": "pattern",
+    "title": "Multi-Agent Orchestration with Claude Code",
+    "description": "Pattern for running multiple Claude Code sessions in parallel using worktrees or /loop. Writer/Reviewer: one session writes, another reviews. Fan-out: /loop for batch operations. Council: multiple sessions debate solutions.",
+    "tags": [
+      "multi-agent",
+      "worktrees",
+      "parallel",
+      "orchestration"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "claude-code",
+    "type": "tutorial",
+    "title": "Claude Code Hooks Guide (Official)",
+    "description": "Complete guide to setting up hooks: PreToolUse, PostToolUse, SessionStart, Stop. Includes examples for audit logging, auto-linting, and session cleanup.",
+    "url": "https://code.claude.com/docs/en/hooks-guide",
+    "tags": [
+      "hooks",
+      "automation",
+      "guide",
+      "official"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "claude-code",
+    "type": "tutorial",
+    "title": "Getting Started with Claude Code (Official)",
+    "description": "Quickstart guide: installation (Homebrew, npm), first session, prompting basics, /help command, keyboard shortcuts, and configuration.",
+    "url": "https://code.claude.com/docs/en/getting-started",
+    "tags": [
+      "quickstart",
+      "installation",
+      "basics",
+      "official"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "claude-code",
+    "type": "tutorial",
+    "title": "MCP Server Development with FastMCP",
+    "description": "Tutorial for building custom MCP servers with FastMCP Python SDK. Covers tools, resources, prompts, SSE transport, and Docker deployment.",
+    "url": "https://modelcontextprotocol.io/quickstart/python",
+    "tags": [
+      "mcp",
+      "fastmcp",
+      "python",
+      "sdk",
+      "development"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "claude-code",
+    "type": "book",
+    "title": "Claude Code Zero to Hero (Prabhat Dev)",
+    "description": "Complete 2026 field guide covering setup, CLAUDE.md patterns, prompt engineering for code, multi-agent patterns, MCP server development, and production deployment strategies.",
+    "url": "https://prabhat.dev/claude-code-zero-to-hero-the-complete-2026-field-guide/",
+    "tags": [
+      "book",
+      "2026",
+      "guide",
+      "comprehensive"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "claude-code",
+    "type": "course",
+    "title": "Anthropic API Documentation",
+    "description": "Official reference for the Anthropic API covering messages, tool use, vision, streaming, rate limits, and error handling.",
+    "url": "https://docs.anthropic.com/en/docs/about-claude/api",
+    "tags": [
+      "anthropic",
+      "api",
+      "reference",
+      "tool-use"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "claude-code",
+    "type": "course",
+    "title": "Building with Claude (Anthropic Cookbook)",
+    "description": "Anthropic cookbook with practical examples: tool use, RAG, agents, streaming, vision, PDFs, and prompt engineering patterns.",
+    "url": "https://github.com/anthropics/anthropic-cookbook",
+    "tags": [
+      "cookbook",
+      "examples",
+      "tool-use",
+      "rag",
+      "agents"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "claude-code",
+    "type": "course",
+    "title": "Claude Code GitHub Discussions",
+    "description": "Community discussions covering common issues, feature requests, tips, and workarounds for Claude Code.",
+    "url": "https://github.com/anthropics/claude-code/discussions",
+    "tags": [
+      "community",
+      "discussions",
+      "tips",
+      "workarounds"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "claude-code",
+    "type": "course",
+    "title": "Claude Code Release Notes",
+    "description": "Official release notes tracking new features, bug fixes, and breaking changes for each Claude Code version.",
+    "url": "https://github.com/anthropics/claude-code/releases",
+    "tags": [
+      "releases",
+      "changelog",
+      "features",
+      "bug-fixes"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "claude-code",
+    "type": "workflow",
+    "title": "Error Recovery and Debugging Pattern",
+    "description": "How to recover from common Claude Code errors and debug failing sessions.",
+    "tags": [
+      "error-recovery",
+      "debugging",
+      "patterns",
+      "troubleshooting"
+    ],
+    "difficulty": "beginner",
+    "workflow": [
+      "1. Read the error message carefully. Claude Code usually includes the file path and line number.",
+      "2. If Edit fails: check that old_string matches exactly (including whitespace). Use Read first to verify.",
+      "3. If Bash fails: check the command syntax. Try running it manually first.",
+      "4. If context window is full: run /compact to summarize, then /clear if needed.",
+      "5. If MCP server fails: check server logs, restart with docker compose restart <service>.",
+      "6. If tool call is denied: check permissions in settings.json or CLAUDE.md.",
+      "7. For persistent issues: start a new session with /clear and re-approach the problem.",
+      "8. Escalate: use gh issue create to file a bug report with reproduction steps."
+    ]
+  },
+  {
+    "topic": "claude-code",
+    "type": "workflow",
+    "title": "Git Integration Pattern",
+    "description": "How to use Claude Code with git for version control, commits, and PRs.",
+    "tags": [
+      "git','commits','pr",
+      "version-control"
+    ],
+    "difficulty": "beginner",
+    "workflow": [
+      "1. Before starting: check git status and current branch.",
+      "2. Work in feature branches: git checkout -b feature/description",
+      "3. Commit frequently: describe what changed and why in the message.",
+      "4. Use conventional commits: feat:, fix:, refactor:, docs:, test:",
+      "5. Before PR: run tests, lint, type check.",
+      "6. Create PR with gh pr create with descriptive title and body.",
+      "7. Review: use Claude Code to review PRs with gh pr view and gh api.",
+      "8. After merge: delete feature branch, pull main, start fresh."
+    ]
+  },
+  {
+    "topic": "claude-code",
+    "type": "workflow",
+    "title": "MCP Server Development Pattern",
+    "description": "Build a custom MCP server with FastMCP and integrate it with Claude Code.",
+    "tags": [
+      "mcp",
+      "fastmcp",
+      "development",
+      "server"
+    ],
+    "difficulty": "intermediate",
+    "workflow": [
+      "1. Create project: mkdir my-mcp && cd my-mcp",
+      "2. Install FastMCP: pip install mcp[cli]",
+      "3. Create server.py with FastMCP server and tools",
+      "4. Define tools with @mcp.tool() decorator",
+      "5. Add resources with @mcp.resource() for read-only data",
+      "6. Test locally: python server.py",
+      "7. Add to .claude.json mcpServers configuration",
+      "8. For Docker: create Dockerfile exposing SSE on a port",
+      "9. Add healthcheck for the container",
+      "10. Test integration: ask Claude Code to use your new tool"
+    ]
+  },
+  {
+    "topic": "claude-code",
+    "type": "example",
+    "title": "Custom MCP Server with FastMCP",
+    "description": "Minimal MCP server with a tool and a resource using FastMCP Python SDK.",
+    "tags": [
+      "mcp",
+      "fastmcp",
+      "python','server",
+      "example"
+    ],
+    "difficulty": "intermediate",
+    "code": "from mcp.server.fastmcp import FastMCP\n\nmcp = FastMCP(\"my-server\", host=\"0.0.0.0\", port=8001)\n\n@mcp.tool()\ndef search_docs(query: str, limit: int = 10) -> str:\n    \"\"\"Search documentation by keyword.\"\"\"\n    # Your search logic here\n    return f\"Found {limit} results for: {query}\"\n\n@mcp.tool()\ndef get_status() -> str:\n    \"\"\"Get server status.\"\"\"\n    import json\n    return json.dumps({\"status\": \"healthy\", \"version\": \"1.0.0\"})\n\n@mcp.resource(\"config://defaults\")\ndef get_defaults() -> str:\n    \"\"\"Get default configuration.\"\"\"\n    import json\n    return json.dumps({\"model\": \"claude-sonnet-4-20250514\", \"max_tokens\": 4096})\n\nif __name__ == \"__main__\":\n    mcp.run(transport=\"sse\")"
+  },
+  {
+    "topic": "claude-code",
+    "type": "example",
+    "title": "CLAUDE.md with Custom Commands",
+    "description": "CLAUDE.md file with custom commands and project-specific conventions.",
+    "tags": [
+      "claude-md','commands','conventions",
+      "project"
+    ],
+    "difficulty": "beginner",
+    "code": "# Project Conventions\n\n## Build & Test\n- Build: `docker compose build`\n- Test: `pytest tests/ -v --cov=src`\n- Lint: `ruff check --fix . && ruff format .`\n- Type check: `mypy src/`\n\n## Architecture\n- Monorepo with /src/, /tests/, /mcp/ directories\n- FastAPI for REST endpoints\n- MCP servers on port 8xxx\n- Docker Compose for all services\n\n## Custom Commands\n- `/review` - Run full code review on current changes\n- `/deploy` - Build and push Docker images\n- `/test-changed` - Run tests for changed files only\n- `/check-health` - Verify all MCP servers are responding\n\n## Git Workflow\n- Feature branches from main\n- Conventional commits: feat:, fix:, refactor:\n- Squash merge PRs\n\n## Do NOT\n- Never commit .env files\n- Never push to main directly\n- Never skip tests before merging"
+  },
+  {
+    "topic": "claude-code",
+    "type": "example",
+    "title": "Memory System for Cross-Session Context",
+    "description": "Using Claude Code memory files to persist context across sessions.",
+    "tags": [
+      "memory",
+      "persistence",
+      "cross-session",
+      "context"
+    ],
+    "difficulty": "intermediate",
+    "code": "# Memory files are stored in ~/.claude/projects/<project>/memory/\n# They persist across sessions and are automatically loaded\n\n# To save a memory, create a file:\n# ~/.claude/projects/<project>/memory/feedback_testing.md\n---\nname: feedback-testing\nmetadata:\n  type: feedback\ndescription: Testing preferences for this project\n---\nAlways use pytest with -v flag for verbose output.\nPrefer integration tests over unit tests for API endpoints.\nNever mock the database - use test containers instead.\n\n# MEMORY.md serves as an index:\n- [Testing preferences](feedback_testing.md) - Always pytest -v, integration over unit\n- [Architecture decisions](project_arch.md) - FastAPI, MCP on 8xxx ports"
+  },
+  {
+    "topic": "claude-code",
+    "type": "tool",
+    "title": "Claude Code Memory System",
+    "description": "Persistent file-based memory that survives across sessions. Store user preferences, project context, and feedback in ~/.claude/projects/<project>/memory/.",
+    "url": "https://code.claude.com/docs/en/memory",
+    "tags": [
+      "memory",
+      "persistence",
+      "context','cross-session"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "claude-code",
+    "type": "tool",
+    "title": "GitHub CLI (gh)",
+    "description": "Command-line tool for GitHub operations: create PRs, review code, manage issues, run actions. Claude Code uses it for all GitHub operations.",
+    "url": "https://cli.github.com/",
+    "tags": [
+      "github",
+      "cli",
+      "pr",
+      "issues",
+      "actions"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "claude-code",
+    "type": "pattern",
+    "title": "Plan Mode Pattern",
+    "description": "Enter Plan Mode (Ctrl+G or Shift+Tab) before making changes. Claude explores and plans without modifying files, then you approve the plan before implementation. Reduces rework by 40-60%.",
+    "tags": [
+      "plan-mode','planning",
+      "approval','reduction"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "claude-code",
+    "type": "pattern",
+    "title": "Verification Loop Pattern",
+    "description": "After implementing changes, always verify: run tests, check lint, verify expected output. If verification fails, fix before moving on. Never assume the code works without evidence.",
+    "tags": [
+      "verification",
+      "testing','evidence','quality-loop"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "claude-code",
+    "type": "pattern",
+    "title": "Progressive Context Loading",
+    "description": "Start with minimal context (just filenames), then read specific sections as needed. This preserves context window for actual work instead of loading entire files you may not need.",
+    "tags": [
+      "context",
+      "efficiency','progressive','targeted-reads"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "claude-code",
+    "type": "tutorial",
+    "title": "Claude Code Settings Reference",
+    "description": "Complete reference for .claude/settings.json: permissions, hooks, MCP servers, model preferences, and environment variables.",
+    "url": "https://code.claude.com/docs/en/settings",
+    "tags": [
+      "settings','configuration",
+      "permissions','reference"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "claude-code",
+    "type": "tutorial",
+    "title": "Claude Code Security Best Practices",
+    "description": "Security guide covering permission modes, hook security, MCP server sandboxing, API key management, and safe coding practices with Claude Code.",
+    "url": "https://code.claude.com/docs/en/security",
+    "tags": [
+      "security','permissions','hooks','mcp-sandboxing"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "claude-code",
+    "type": "tutorial",
+    "title": "FastMCP Python SDK Documentation",
+    "description": "Official FastMCP Python SDK documentation covering tools, resources, prompts, SSE transport, and Docker deployment of MCP servers.",
+    "url": "https://gofastmcp.com/",
+    "tags": [
+      "fastmcp','sdk','python",
+      "documentation"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "claude-code",
+    "type": "tutorial",
+    "title": "MCP Specification (Model Context Protocol)",
+    "description": "The official MCP specification defining the protocol for connecting AI models to external tools and data sources.",
+    "url": "https://spec.modelcontextprotocol.io/",
+    "tags": [
+      "mcp','specification",
+      "protocol",
+      "spec"
+    ],
+    "difficulty": "advanced"
+  }
+]

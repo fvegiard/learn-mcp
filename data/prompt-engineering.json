@@ -1,0 +1,792 @@
+[
+  {
+    "topic": "prompt-engineering",
+    "type": "course",
+    "title": "Prompting for Effective LLM Reasoning and Planning (Udacity + Microsoft)",
+    "description": "12-hour intermediate course covering Chain-of-Thought, ReAct prompting, role-based prompting, prompt chaining for agentic reasoning, LLM feedback loops, and multi-agent workflows using Azure AI Foundry Agent Service.",
+    "url": "https://www.udacity.com/course/prompting-for-effective-llm-reasoning-and-planning-with-microsoft-foundry--cd14704",
+    "tags": [
+      "cot",
+      "react",
+      "planning",
+      "azure",
+      "agentic"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "course",
+    "title": "Advanced Prompt Engineering: CoT, COSTAR and XML (FindSkill)",
+    "description": "Covers structured prompting with XML tags and JSON schemas, COSTAR framework, Chain-of-Thought, Tree-of-Thought, Self-Consistency, few-shot mastery, system prompt design, output control, and prompt security.",
+    "url": "https://findskill.ai/courses/advanced-prompts/",
+    "tags": [
+      "cot",
+      "tot",
+      "costar",
+      "xml",
+      "structured",
+      "security"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "course",
+    "title": "Mastering Prompt Engineering with CoT, ReAct, and ToT (Cognixia)",
+    "description": "3-day hands-on intensive covering CoT for arithmetic/logic/finance/healthcare/code, ReAct framework with external tools and RAG integration, Tree-of-Thought for coding/planning/strategy, and evaluation frameworks.",
+    "url": "https://www.cognixia.com/course/mastering-prompt-engineering-with-cot-react-and-tot/",
+    "tags": [
+      "cot",
+      "react",
+      "tot",
+      "evaluation",
+      "hands-on"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "course",
+    "title": "Prompt Engineering 2026: Demystifying Advanced AI Techniques (Sikho)",
+    "description": "120-hour self-paced course covering CoT, ToT, self-consistency, self-correction, RAG, meta-prompting, role-based constraints, agentic AI systems, and future trends including automated prompt generation and multimodal prompting.",
+    "url": "https://sikho.ai/course/prompt-engineering-2026-demystifying",
+    "tags": [
+      "cot",
+      "tot",
+      "self-consistency",
+      "meta-prompting",
+      "agentic"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "course",
+    "title": "Advanced Prompt Engineering (Educative)",
+    "description": "Covers least-to-most prompting, generated knowledge, PAL (Program-Aided Language), APE (Automatic Prompt Engineer), and combining techniques like Least-to-most + CoT, PAL + prompt chaining.",
+    "url": "https://www.educative.io/courses/prompt-engineering-guide/advanced-prompt-engineering",
+    "tags": [
+      "pal",
+      "ape",
+      "least-to-most",
+      "chaining",
+      "advanced"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "course",
+    "title": "Anthropic Prompt Engineering Interactive Tutorial",
+    "description": "Official Anthropic tutorial covering Claude-specific prompting best practices: being clear and direct, using examples, giving Claude a role, using XML tags, and leveraging Claude strengths.",
+    "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview",
+    "tags": [
+      "anthropic",
+      "claude",
+      "best-practices",
+      "xml-tags"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "course",
+    "title": "OpenAI Prompt Engineering Guide",
+    "description": "Official OpenAI guide covering 6 strategies: write clear instructions, provide reference text, split complex tasks, give time to think, use external tools, and test systematically.",
+    "url": "https://platform.openai.com/docs/guides/prompt-engineering",
+    "tags": [
+      "openai",
+      "gpt",
+      "strategies",
+      "systematic"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "course",
+    "title": "Google Prompt Engineering for Developers (DeepLearning.AI)",
+    "description": "Andrew Ng and Isa Fulford teach practical prompt engineering for software developers: summarization, inference, transformation, expansion, chatbot building with the OpenAI API.",
+    "url": "https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers/",
+    "tags": [
+      "openai",
+      "api",
+      "summarization",
+      "inference",
+      "chatbot"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "workflow",
+    "title": "Chain-of-Thought Prompting Workflow",
+    "description": "Step-by-step approach to crafting effective CoT prompts that elicit reasoning.",
+    "tags": [
+      "cot",
+      "reasoning",
+      "step-by-step"
+    ],
+    "difficulty": "beginner",
+    "workflow": [
+      "State the problem clearly and specify the format",
+      "Add Think step by step or Let us think step by step to encourage reasoning",
+      "Provide 2-3 few-shot examples showing the reasoning chain",
+      "Structure the desired output format explicitly",
+      "Test on diverse inputs and verify reasoning quality",
+      "Iterate: refine the prompt if reasoning goes off track",
+      "Add verification: Double-check your answer for accuracy"
+    ]
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "workflow",
+    "title": "System Prompt Design Pattern",
+    "description": "Structured approach to designing effective system prompts for production LLM applications.",
+    "tags": [
+      "system-prompt",
+      "production",
+      "structure"
+    ],
+    "difficulty": "intermediate",
+    "workflow": [
+      "Define the role: who is the AI?",
+      "Set behavioral constraints: what it must/must not do",
+      "Specify output format: JSON, markdown, or specific schema",
+      "Add knowledge boundaries: what it knows, what it does not",
+      "Include error handling instructions: what to do when unsure",
+      "Set tone and style guidelines",
+      "Add few-shot examples for edge cases",
+      "Include self-evaluation: Rate your confidence in this answer"
+    ]
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "workflow",
+    "title": "ReAct (Reason+Act) Prompting Pattern",
+    "description": "Iterative reasoning-action loop prompting pattern for tool-using agents.",
+    "tags": [
+      "react",
+      "agent",
+      "tool-use",
+      "reasoning"
+    ],
+    "difficulty": "intermediate",
+    "workflow": [
+      "Define available tools and their descriptions in the system prompt",
+      "Instruct the model to follow Thought-Action-Observation loop",
+      "Thought: model reasons about what to do next",
+      "Action: model selects a tool and provides input",
+      "Observation: system returns tool output",
+      "Model processes observation and decides next step",
+      "Repeat until model provides final answer",
+      "Add guardrails: max iterations, error handling, fallback responses"
+    ]
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "workflow",
+    "title": "Few-Shot Prompt Engineering Process",
+    "description": "Systematic process for creating and testing few-shot prompts with optimal example selection.",
+    "tags": [
+      "few-shot",
+      "examples",
+      "selection",
+      "testing"
+    ],
+    "difficulty": "beginner",
+    "workflow": [
+      "Collect 20+ input-output examples of the target task",
+      "Select 3-5 diverse examples covering edge cases and common cases",
+      "Order examples from simple to complex",
+      "Format examples consistently with clear input/output delimiters",
+      "Add a format explanation: Here are examples of X to Y mappings",
+      "Test on held-out examples and measure accuracy",
+      "Iterate: replace low-performing examples with better ones",
+      "Consider using dynamic few-shot: retrieve relevant examples per query"
+    ]
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "workflow",
+    "title": "Structured Output with JSON Schema",
+    "description": "Ensuring LLM outputs conform to a specific schema using prompt engineering and validation.",
+    "tags": [
+      "structured-output",
+      "json-schema",
+      "validation",
+      "production"
+    ],
+    "difficulty": "intermediate",
+    "workflow": [
+      "Define your output schema as a JSON Schema",
+      "Include the schema in the system prompt with an example",
+      "Use the model structured output feature if available (OpenAI, Anthropic)",
+      "Add a retry loop that re-prompts on schema validation failure",
+      "Implement Pydantic or Zod validation on the receiving end",
+      "Log validation failure rates for prompt improvement",
+      "Add fallback: if 3 retries fail, return a default/error response",
+      "Monitor schema conformance rate in production"
+    ]
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "example",
+    "title": "Chain-of-Thought with Self-Verification",
+    "description": "Prompt template that asks the model to reason step-by-step and then verify its own answer.",
+    "tags": [
+      "cot",
+      "self-verification",
+      "reasoning"
+    ],
+    "difficulty": "intermediate",
+    "code": "SYSTEM_PROMPT = \"\"\"\nYou are a mathematical reasoning assistant.\nFor every problem:\n1. Read the problem carefully\n2. Think step by step through your solution\n3. Show all intermediate calculations\n4. After arriving at your answer, verify it by working backwards\n5. If verification fails, re-examine your steps\n6. Provide your final answer in the format: ANSWER: [number]\n\nProblem: {problem}\n\"\"\""
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "example",
+    "title": "ReAct Agent Prompt Template",
+    "description": "System prompt for a ReAct-style agent that reasons and uses tools iteratively.",
+    "tags": [
+      "react",
+      "agent",
+      "tools",
+      "prompt-template"
+    ],
+    "difficulty": "advanced",
+    "code": "REACT_PROMPT = \"\"\"\nYou are a helpful assistant with access to the following tools:\n\n{tool_descriptions}\n\nUse the following format:\n\nThought: I need to figure out...\nAction: [tool_name](input)\nObservation: [tool result]\n... (repeat Thought/Action/Observation as needed)\nThought: I now know the final answer\nFinal Answer: [your response]\n\nWhen you don't need a tool, respond directly with:\nFinal Answer: [your response]\n\"\"\""
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "example",
+    "title": "Structured JSON Output Prompt",
+    "description": "System prompt that forces the model to output valid JSON matching a specific schema.",
+    "tags": [
+      "json",
+      "structured-output",
+      "schema",
+      "production"
+    ],
+    "difficulty": "intermediate",
+    "code": "STRUCTURED_PROMPT = \"\"\"\nYou are a data extraction assistant. Extract information from the text\nand output ONLY valid JSON matching this schema:\n\n{\n  \"name\": \"string - full name\",\n  \"email\": \"string - email address or null\",\n  \"sentiment\": \"string - one of: positive, negative, neutral\",\n  \"key_topics\": [\"string - list of main topics\"],\n  \"confidence\": \"number - 0.0 to 1.0\"\n}\n\nExample output:\n{\n  \"name\": \"Jane Smith\",\n  \"email\": \"jane@example.com\",\n  \"sentiment\": \"positive\",\n  \"key_topics\": [\"product launch\", \"revenue growth\"],\n  \"confidence\": 0.92\n}\n\nIMPORTANT: Output ONLY the JSON object, no additional text.\n\"\"\""
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "example",
+    "title": "Meta-Prompt for Automatic Prompt Optimization",
+    "description": "A prompt that generates improved prompts based on task description and evaluation criteria.",
+    "tags": [
+      "meta-prompt",
+      "optimization",
+      "automatic"
+    ],
+    "difficulty": "advanced",
+    "code": "META_PROMPT = \"\"\"\nYou are a prompt engineer. Given a task description and evaluation\ncriteria, generate the optimal prompt.\n\nTask: {task_description}\nEvaluation Criteria: {criteria}\n\nGenerate a prompt that:\n1. Clearly defines the task and expected output format\n2. Includes relevant few-shot examples\n3. Specifies constraints and edge case handling\n4. Maximizes the evaluation criteria score\n5. Is concise and unambiguous\n\nOutput the improved prompt in a code block.\n\"\"\""
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "example",
+    "title": "Multi-Turn Conversation with Context Management",
+    "description": "System prompt pattern for managing long conversations with context window limits.",
+    "tags": [
+      "conversation",
+      "context",
+      "management",
+      "production"
+    ],
+    "difficulty": "intermediate",
+    "code": "CONVERSATION_PROMPT = \"\"\"\nYou are a helpful assistant in an ongoing conversation.\n\nBEHAVIOR RULES:\n- Stay on topic and be concise\n- If the user asks something unrelated, politely redirect\n- Never reveal you are an AI unless directly asked\n\nCONTEXT MANAGEMENT:\n- You will receive a summary of previous conversation turns\n- Reference specific details from the conversation when relevant\n- If you are unsure about something mentioned earlier, ask for clarification\n\nOUTPUT FORMAT:\n- Use markdown for structured responses\n- Include relevant headers for long responses\n- Bold key terms for emphasis\n\nPrevious conversation summary:\n{conversation_summary}\n\"\"\""
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "tool",
+    "title": "Promptfoo",
+    "description": "Open-source CLI tool for testing and evaluating LLM prompts across multiple models. Supports assertion-based testing, regression detection, and comparison of prompt variations.",
+    "url": "https://github.com/promptfoo/promptfoo",
+    "tags": [
+      "testing",
+      "evaluation",
+      "cli",
+      "comparison"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "tool",
+    "title": "DSPy",
+    "description": "Programming framework for LLMs that algorithmically optimizes prompts. Define signatures (input/output schemas), build modules (CoT, ReAct, multi-hop), and let DSPy find optimal prompts automatically.",
+    "url": "https://dspy.ai/",
+    "tags": [
+      "dspy",
+      "optimization",
+      "automatic",
+      "framework"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "tool",
+    "title": "LangSmith Prompt Playground",
+    "description": "Interactive playground for testing, iterating, and versioning prompts. Supports side-by-side comparison, A/B testing, and dataset-driven evaluation.",
+    "url": "https://smith.langchain.com/",
+    "tags": [
+      "langsmith",
+      "playground",
+      "testing",
+      "versioning"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "tool",
+    "title": "Anthropic Workbench",
+    "description": "Official Anthropic prompt engineering workbench for designing, testing, and iterating on prompts with Claude. Includes prompt templates, examples, and evaluation tools.",
+    "url": "https://console.anthropic.com/workbench",
+    "tags": [
+      "anthropic",
+      "claude",
+      "workbench",
+      "testing"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "tool",
+    "title": "OpenAI Playground",
+    "description": "Official OpenAI playground for experimenting with prompts, adjusting parameters (temperature, top_p, frequency penalty), and comparing model responses side by side.",
+    "url": "https://platform.openai.com/playground",
+    "tags": [
+      "openai",
+      "playground",
+      "parameters",
+      "comparison"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "pattern",
+    "title": "Least-to-Most Prompting",
+    "description": "Decompose complex problems into simpler sub-problems, solving each sequentially. Reduces reasoning errors on multi-step tasks by 30-50% compared to direct prompting.",
+    "tags": [
+      "decomposition",
+      "least-to-most",
+      "reasoning",
+      "multi-step"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "pattern",
+    "title": "Self-Consistency Decoding",
+    "description": "Sample multiple reasoning paths for the same prompt, then select the most consistent answer by majority vote. Improves accuracy on arithmetic and reasoning tasks by 5-15%.",
+    "tags": [
+      "self-consistency",
+      "sampling",
+      "voting",
+      "accuracy"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "pattern",
+    "title": "Directional Stimulus Prompting",
+    "description": "Use a separate hint model to generate directional stimulus (guidance tokens) that steer the main model toward desired output qualities. Reduces hallucination and improves factuality.",
+    "tags": [
+      "directional-stimulus",
+      "hint",
+      "guidance",
+      "factuality"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "pattern",
+    "title": "Prompt Chaining Pattern",
+    "description": "Decompose a complex task into a sequence of focused prompts, where each prompt processes the output of the previous one. Reduces hallucination and improves quality on complex tasks.",
+    "tags": [
+      "chaining",
+      "decomposition",
+      "pipeline",
+      "quality"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "pattern",
+    "title": "Emotional Prompting",
+    "description": "Adding emotional context (This is very important to my career or Take a deep breath) to prompts can improve model performance on reasoning and generation tasks by 5-10%.",
+    "tags": [
+      "emotional",
+      "psychology",
+      "reasoning",
+      "performance"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "tutorial",
+    "title": "Anthropic Prompt Engineering Guide",
+    "description": "Official guide with 6 key strategies: be clear and direct, use examples, give Claude a role, use XML tags, show Claude its work, and give long context tasks with care.",
+    "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview",
+    "tags": [
+      "anthropic",
+      "claude",
+      "guide",
+      "best-practices"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "tutorial",
+    "title": "Learn Prompting (Open-Source Course)",
+    "description": "Free, comprehensive open-source course covering prompt engineering from basics to advanced: CoT, ToT, ReAct, few-shot, self-consistency, prompt hacking, and more. Community-driven with 50+ lessons.",
+    "url": "https://learnprompting.org/",
+    "tags": [
+      "free",
+      "comprehensive",
+      "community",
+      "beginner"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "tutorial",
+    "title": "Prompt Engineering Guide (DAIR.AI)",
+    "description": "Community-maintained guide with techniques, models, and papers. Covers CoT, ToT, self-consistency, ReAct, PAL, and more. Includes interactive examples and model comparisons.",
+    "url": "https://www.promptingguide.ai/",
+    "tags": [
+      "community",
+      "techniques",
+      "papers",
+      "interactive"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "tutorial",
+    "title": "Microsoft Prompt Engineering Guide",
+    "description": "Official Microsoft guide covering system message design, few-shot examples, chain-of-thought, and best practices for Azure OpenAI Service deployments.",
+    "url": "https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/prompt-engineering",
+    "tags": [
+      "microsoft",
+      "azure",
+      "system-message",
+      "best-practices"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "book",
+    "title": "The Art of Prompt Engineering (OpenAI Guide)",
+    "description": "Comprehensive guide from OpenAI covering prompt design principles, iterative refinement, common pitfalls, and advanced techniques for GPT models.",
+    "url": "https://platform.openai.com/docs/guides/prompt-engineering",
+    "tags": [
+      "openai",
+      "guide",
+      "design",
+      "principles"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "book",
+    "title": "Prompt Engineering for Generative AI (O'Reilly)",
+    "description": "Deep dive into prompt engineering for text, image, and code generation. Covers structured prompts, system prompts, prompt chaining, and evaluation methods.",
+    "url": "https://www.oreilly.com/library/view/prompt-engineering-for/9781098154621/",
+    "tags": [
+      "book",
+      "generative-ai",
+      "text",
+      "image",
+      "code"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "course",
+    "title": "Prompt Engineering for LLMs (Cohere)",
+    "description": "Official Cohere course covering prompt design, few-shot learning, chain-of-thought, and production prompt patterns for Command R+ models.",
+    "url": "https://docs.cohere.com/docs/prompt-engineering",
+    "tags": [
+      "cohere",
+      "command",
+      "production",
+      "few-shot"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "course",
+    "title": "IBM Prompt Engineering for Generative AI",
+    "description": "Covers prompt patterns for IBM watsonx, retrieval-augmented generation, structured output, and enterprise prompt governance.",
+    "url": "https://www.coursera.org/professional-certificates/ibm-generative-ai-engineering",
+    "tags": [
+      "ibm",
+      "watsonx",
+      "enterprise",
+      "governance"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "workflow",
+    "title": "Automatic Prompt Optimization with DSPy",
+    "description": "Use DSPy to algorithmically optimize prompts through bootstrapping and Bayesian search.",
+    "tags": [
+      "dspy",
+      "optimization",
+      "automatic",
+      "bootstrapping"
+    ],
+    "difficulty": "advanced",
+    "workflow": [
+      "Define your task as a DSPy Signature: input and output fields",
+      "Create a metric function that scores prompt quality",
+      "Build a training set with 50-200 input/output examples",
+      "Choose an optimizer: BootstrapFewShot, MIPROv2, or BootstrapFewShotWithRandomSearch",
+      "Compile the module: optimized_module = optimizer.compile(module, trainset=train_data)",
+      "Evaluate on held-out test set and compare with baseline",
+      "Iterate: adjust optimizer hyperparameters if quality is insufficient",
+      "Deploy the optimized prompts to production",
+      "Monitor drift and re-optimize periodically"
+    ]
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "workflow",
+    "title": "Production Prompt Testing Pipeline",
+    "description": "Systematic pipeline for testing prompts before deploying to production.",
+    "tags": [
+      "testing",
+      "production",
+      "pipeline",
+      "evaluation"
+    ],
+    "difficulty": "intermediate",
+    "workflow": [
+      "Create a test dataset with 100+ input/output pairs covering edge cases",
+      "Define evaluation metrics: accuracy, relevance, safety, format compliance",
+      "Run baseline prompt against test dataset and record scores",
+      "Iterate prompt variations: change instructions, add examples, adjust format",
+      "Run A/B tests comparing prompt variations on the same dataset",
+      "Use majority voting or self-consistency for high-stakes decisions",
+      "Set up regression testing: run test suite on every prompt change",
+      "Deploy canary: route 5% of traffic to new prompt, monitor metrics",
+      "Roll out if canary metrics are within acceptable range",
+      "Set up continuous monitoring for drift and degradation"
+    ]
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "example",
+    "title": "XML-Structured Prompt for Data Extraction",
+    "description": "System prompt using XML tags to structure extraction tasks with clear delimiters.",
+    "tags": [
+      "xml",
+      "structured",
+      "extraction",
+      "delimiters"
+    ],
+    "difficulty": "intermediate",
+    "code": "EXTRACTION_PROMPT = \"\"\"\nYou are a data extraction assistant. Extract information from the provided text.\n\n<instructions>\n- Extract each field listed in <output_schema>\n- If a field is not found, output null\n- Do not infer or fabricate information\n- Preserve original text for extracted values\n</instructions>\n\n<output_schema>\n{\n  \"company_name\": \"string\",\n  \"revenue\": \"string - with currency symbol\",\n  \"fiscal_year\": \"string - YYYY format\",\n  \"key_products\": [\"string\"],\n  \"sentiment\": \"positive | negative | neutral\"\n}\n</output_schema>\n\n<text>\n{input_text}\n</text>\n\nOutput ONLY valid JSON matching the schema above.\n\"\"\""
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "example",
+    "title": "Role-Based Prompt for Code Review",
+    "description": "System prompt that assigns a specific expert role for code review tasks.",
+    "tags": [
+      "role-based",
+      "code-review",
+      "expert",
+      "system-prompt"
+    ],
+    "difficulty": "intermediate",
+    "code": "CODE_REVIEW_PROMPT = \"\"\"\nYou are a senior software engineer with 15 years of experience in:\n- Distributed systems and microservices architecture\n- Performance optimization and profiling\n- Security best practices (OWASP Top 10)\n- Code maintainability and clean code principles\n\n<review_criteria>\n1. CORRECTNESS: Does the code do what it claims? Any bugs?\n2. SECURITY: Any injection, auth, or data exposure risks?\n3. PERFORMANCE: N+1 queries? Unnecessary allocations? Caching opportunities?\n4. MAINTAINABILITY: Clear naming? Proper abstractions? Missing tests?\n5. SCALABILITY: Will this work at 10x, 100x current load?\n</review_criteria>\n\n<output_format>\nFor each issue found:\n- SEVERITY: critical | warning | suggestion\n- CATEGORY: correctness | security | performance | maintainability | scalability\n- LOCATION: file:line\n- DESCRIPTION: what is wrong and why\n- SUGGESTION: specific fix with code example\n</output_format>\n\"\"\""
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "example",
+    "title": "Iterative Refinement Prompt Pattern",
+    "description": "System prompt for generating and iteratively refining output through self-critique.",
+    "tags": [
+      "refinement",
+      "iterative",
+      "self-critique",
+      "quality"
+    ],
+    "difficulty": "advanced",
+    "code": "REFINEMENT_PROMPT = \"\"\"\nYou are an expert writer. Your task has three phases:\n\nPhase 1 - DRAFT:\nGenerate an initial response based on the user's request.\nBe creative and comprehensive.\n\nPhase 2 - CRITIQUE:\nReview your draft critically. Identify:\n- Factual errors or unsupported claims\n- Logical inconsistencies\n- Missing important points\n- Unclear or ambiguous language\n- Tone or style issues\n\nPhase 3 - REVISE:\nRewrite the response addressing all critique points.\nImprove clarity, accuracy, and completeness.\n\nFormat your output as:\n<DRAFT>...\n</DRAFT>\n<CRITIQUE>...\n</CRITIQUE>\n<REVISED>...\n</REVISED>\n\"\"\""
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "tool",
+    "title": "PromptLayer",
+    "description": "Platform for tracking, debugging, and optimizing LLM prompts in production. Provides prompt versioning, A/B testing, cost tracking, and performance analytics.",
+    "url": "https://promptlayer.com/",
+    "tags": [
+      "promptlayer",
+      "versioning",
+      "ab-testing",
+      "analytics"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "tool",
+    "title": "Guardrails AI",
+    "description": "Open-source framework for adding programmable guardrails to LLM applications. Validates input/output against schemas, prevents hallucination, and enforces safety policies.",
+    "url": "https://www.guardrailsai.com/",
+    "tags": [
+      "guardrails",
+      "validation",
+      "safety",
+      "output-control"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "tool",
+    "title": "Outlines",
+    "description": "Open-source library for generating structured text from LLMs. Guarantees output conforms to JSON schemas, regular expressions, or Pydantic models using constrained decoding.",
+    "url": "https://github.com/dottxt-ai/outlines",
+    "tags": [
+      "structured-output",
+      "json-schema",
+      "constrained-decoding",
+      "pydantic"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "pattern",
+    "title": "Program-Aided Language (PAL) Pattern",
+    "description": "Use LLMs to generate code that solves reasoning problems, then execute the code for accurate results. Eliminates arithmetic errors and improves reasoning accuracy by 20-40%.",
+    "tags": [
+      "pal",
+      "code-generation",
+      "reasoning",
+      "accuracy"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "pattern",
+    "title": "Tree-of-Thought Prompting",
+    "description": "Explore multiple reasoning paths in parallel, evaluate each, and backtrack from poor paths. Outperforms CoT on complex planning and creative tasks by 25-50%.",
+    "tags": [
+      "tree-of-thought",
+      "planning",
+      "branching",
+      "evaluation"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "pattern",
+    "title": "Self-Ask Prompting Pattern",
+    "description": "Model decomposes complex questions into sub-questions, answers each, then combines answers. Particularly effective for multi-hop reasoning and knowledge-intensive tasks.",
+    "tags": [
+      "self-ask",
+      "decomposition",
+      "multi-hop",
+      "reasoning"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "pattern",
+    "title": "Instruction Following Hierarchy Pattern",
+    "description": "Use a priority hierarchy in system prompts: safety > task > format > style. This prevents instruction conflicts and ensures consistent behavior across diverse inputs.",
+    "tags": [
+      "hierarchy",
+      "safety",
+      "instructions",
+      "consistency"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "tutorial",
+    "title": "Anthropic Prompt Engineering Cookbook",
+    "description": "Collection of practical prompt engineering examples and techniques from Anthropic, including tool use, vision, and complex reasoning patterns.",
+    "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct",
+    "tags": [
+      "anthropic",
+      "cookbook",
+      "examples",
+      "practical"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "tutorial",
+    "title": "LangChain Prompt Templates Guide",
+    "description": "Official guide for creating reusable prompt templates with LangChain, including ChatPromptTemplate, few-shot templates, and output parsing.",
+    "url": "https://python.langchain.com/docs/concepts/prompt_templates/",
+    "tags": [
+      "langchain",
+      "templates",
+      "reusable",
+      "output-parsing"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "book",
+    "title": "Prompt Engineering for Generative AI (O'Reilly)",
+    "description": "Deep dive into prompt engineering for text, image, and code generation. Covers structured prompts, system prompts, prompt chaining, and evaluation methods.",
+    "url": "https://www.oreilly.com/library/view/prompt-engineering-for/9781098154621/",
+    "tags": [
+      "book",
+      "generative-ai",
+      "text",
+      "image",
+      "code"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "book",
+    "title": "ChatGPT Prompt Engineering for Developers (DeepLearning.AI)",
+    "description": "Andrew Ng and Isa Fulford teach practical prompt engineering for software developers: summarization, inference, transformation, expansion, and chatbot building.",
+    "url": "https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers/",
+    "tags": [
+      "book",
+      "developers",
+      "summarization",
+      "inference",
+      "chatbot"
+    ],
+    "difficulty": "beginner"
+  }
+]

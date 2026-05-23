@@ -1,0 +1,809 @@
+[
+  {
+    "topic": "gpu-compute",
+    "type": "course",
+    "title": "Foundations of Deep Learning with PyTorch (Global Knowledge)",
+    "description": "3-day virtual course covering PyTorch fundamentals: tensors, neural networks, CNNs, RNNs/LSTMs, HuggingFace Transformers, transfer learning, and deployment with FastAPI and Docker.",
+    "url": "https://www.globalknowledge.com/en-gb/courses/data_and_ai/data/gk840205",
+    "tags": [
+      "pytorch",
+      "deep-learning",
+      "cnn",
+      "rnn",
+      "deployment"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "course",
+    "title": "GPU, CUDA, and PyTorch Performance Optimizations (Create With)",
+    "description": "Recurring monthly workshop by Chris Fregly and Antje Barth covering GPU architecture, CUDA programming, PyTorch optimization, profiling, mixed-precision training, memory management, and custom CUDA kernels.",
+    "url": "https://www.createwith.com/event/madrid-gpu-cuda-and-pytorch-performance-optimizations-may-2026-1",
+    "tags": [
+      "cuda",
+      "gpu",
+      "pytorch",
+      "performance",
+      "mixed-precision"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "course",
+    "title": "PyTorch for Deep Learning Professional Certificate (DeepLearning.AI)",
+    "description": "87-hour comprehensive course covering tensors, neural networks, TorchVision, HuggingFace Transformers, Siamese networks, ResNets, deployment with ONNX and MLflow, and pruning/quantization.",
+    "url": "https://www.deeplearning.ai/specializations/pytorch-for-deep-learning-professional-certificate",
+    "tags": [
+      "pytorch",
+      "professional",
+      "certificate",
+      "deployment",
+      "quantization"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "course",
+    "title": "Training PyTorch 2026: Optimizing AI Models in Production (Learni)",
+    "description": "1-day intensive covering PyTorch 2026 new features, torch.compile/Dynamo optimizations, distributed training with FSDP, MLOps with MLflow and Kubeflow, and enterprise deployment.",
+    "url": "https://learni-group.com/en/training/training-pytorch-2026-expert-jjebq6-vv649y",
+    "tags": [
+      "pytorch-2026",
+      "torch-compile",
+      "fsdp",
+      "mlops",
+      "production"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "course",
+    "title": "GPU Programming using CUDA (HLRS Stuttgart)",
+    "description": "7-day course covering CUDA programming model, memory management, GPU architecture, shared/constant memory, streams, multi-GPU programming, profiling, and CUDA libraries.",
+    "url": "https://www.hlrs.de/training/2026/cuda1",
+    "tags": [
+      "cuda",
+      "programming",
+      "memory",
+      "multi-gpu",
+      "profiling"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "course",
+    "title": "CUDA C++ Programming Guide (NVIDIA Official)",
+    "description": "The definitive reference for CUDA programming: programming model, memory hierarchy, atomics, warp-level primitives, streams and events, dynamic parallelism, and cooperative groups.",
+    "url": "https://docs.nvidia.com/cuda/cuda-c-programming-guide/",
+    "tags": [
+      "cuda",
+      "official",
+      "reference",
+      "programming-model",
+      "memory"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "course",
+    "title": "NVIDIA Deep Learning Institute Courses",
+    "description": "Official NVIDIA DLI courses covering fundamentals through advanced: Getting Started with GPUs, Accelerating CUDA C++ Applications, Optimizing Deep Learning with TensorRT, and Multi-GPU programming.",
+    "url": "https://www.nvidia.com/en-us/training/",
+    "tags": [
+      "nvidia",
+      "dli",
+      "tensorrt",
+      "multi-gpu",
+      "training"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "course",
+    "title": "PyTorch Performance Tuning Guide (Official)",
+    "description": "Official PyTorch performance guide covering torch.compile, data loading optimization, memory management, gradient checkpointing, mixed precision, distributed training, and profiling with torch.profiler.",
+    "url": "https://pytorch.org/tutorials/recipes/recipes/tuning_guide.html",
+    "tags": [
+      "pytorch",
+      "performance",
+      "torch-compile",
+      "profiling",
+      "optimization"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "workflow",
+    "title": "Mixed Precision Training Setup with PyTorch AMP",
+    "description": "Step-by-step workflow for enabling automatic mixed precision training to cut memory usage by 50% and speed up training by 2-3x.",
+    "tags": [
+      "mixed-precision",
+      "amp",
+      "pytorch",
+      "memory",
+      "speedup"
+    ],
+    "difficulty": "intermediate",
+    "workflow": [
+      "Import torch.cuda.amp: from torch.cuda.amp import autocast, GradScaler",
+      "Create GradScaler: scaler = GradScaler()",
+      "Wrap forward pass with autocast: with autocast(): output = model(input)",
+      "Scale loss before backward: scaler.scale(loss).backward()",
+      "Update weights with scaler: scaler.step(optimizer); scaler.update()",
+      "Monitor for NaN/Inf: check scaler.get_scale() for sudden drops",
+      "Adjust learning rate: AMP typically needs 2-4x higher LR",
+      "Profile with torch.profiler to verify GPU utilization is high",
+      "Benchmark: compare throughput (samples/sec) and memory usage vs FP32"
+    ]
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "workflow",
+    "title": "Distributed Training with PyTorch FSDP2",
+    "description": "Set up Fully Sharded Data Parallel training for models that do not fit on a single GPU.",
+    "tags": [
+      "fsdp",
+      "distributed",
+      "multi-gpu",
+      "pytorch",
+      "sharding"
+    ],
+    "difficulty": "advanced",
+    "workflow": [
+      "Install: pip install torch>=2.6 (FSDP2 requires PyTorch 2.6+)",
+      "Wrap model with FSDP: from torch.distributed.fsdp import FSDP; model = FSDP(model, auto_wrap_policy=...)",
+      "Configure sharding strategy: FULL_SHARD for maximum memory savings",
+      "Set up distributed sampler: DistributedSampler(dataset, num_gpus, rank)",
+      "Launch with torchrun: torchrun --nproc_per_node=4 train.py",
+      "Monitor GPU memory: each GPU holds 1/N of model parameters + gradients",
+      "Configure checkpointing: model.apply activation_checkpointing for large models",
+      "Profile cross-GPU communication with torch.profiler",
+      "Tune batch size: increase per-GPU batch to keep GPU utilization high",
+      "Validate: compare single-GPU accuracy with distributed accuracy"
+    ]
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "workflow",
+    "title": "CUDA Kernel Profiling with Nsight",
+    "description": "Profile CUDA kernels to identify bottlenecks and optimize GPU utilization.",
+    "tags": [
+      "cuda",
+      "profiling",
+      "nsight",
+      "bottleneck",
+      "optimization"
+    ],
+    "difficulty": "advanced",
+    "workflow": [
+      "Install NVIDIA Nsight Compute and Systems: apt install nsight-compute nsight-systems",
+      "Profile with Nsight Systems: nsys profile -o profile python train.py",
+      "Analyze timeline: nsys-ui profile.qdrep (visual timeline of kernels and memory transfers)",
+      "Profile specific kernel: ncu --set full -k my_kernel python train.py",
+      "Check key metrics: SM utilization, memory throughput, occupancy, warp execution efficiency",
+      "Identify bottlenecks: memory-bound (low SM utilization) vs compute-bound (high SM, low memory)",
+      "Optimize: increase block size, use shared memory, coalesce global memory access, minimize bank conflicts",
+      "Re-profile and compare: ncu --compare baseline.ncu-repo optimized.ncu-repo",
+      "Iterate until target utilization reached",
+      "Set up continuous profiling in CI: ncu --set basic python -m pytest tests/"
+    ]
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "workflow",
+    "title": "RTX 5090 Optimization Checklist",
+    "description": "Optimization checklist for the RTX 5090 Laptop GPU (24GB VRAM, Blackwell architecture).",
+    "tags": [
+      "rtx-5090",
+      "blackwell",
+      "optimization",
+      "memory",
+      "gpu"
+    ],
+    "difficulty": "advanced",
+    "workflow": [
+      "Enable TF32 for matrix ops: torch.backends.cuda.matmul.allow_tf32 = True",
+      "Use bf16 mixed precision (native on RTX 5090): torch.autocast(device_type=cuda, dtype=torch.bfloat16)",
+      "Set CUDA benchmark: torch.backends.cudnn.benchmark = True",
+      "Configure memory: set PYTORCH_CUDA_ALLOC_CONF=max_split_size_mb:128",
+      "Use flash attention: install flash-attn for transformer models",
+      "Enable compile: model = torch.compile(model, mode=reduce-overhead)",
+      "Monitor VRAM: torch.cuda.memory_allocated() / 1024**3 for GB usage",
+      "Profile with torch.profiler: identify kernel bottlenecks",
+      "Use gradient checkpointing for large models: torch.utils.checkpoint.checkpoint",
+      "Batch size tuning: start with 2x FP32 batch size in AMP"
+    ]
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "workflow",
+    "title": "Custom CUDA Kernel Development",
+    "description": "Write and deploy a custom CUDA kernel using PyTorch CUDA extensions.",
+    "tags": [
+      "cuda",
+      "kernel",
+      "custom",
+      "extension",
+      "pytorch"
+    ],
+    "difficulty": "advanced",
+    "workflow": [
+      "Create CUDA kernel file: kernel.cu with __global__ function",
+      "Write C++ wrapper: kernel.cpp using ATEN operators",
+      "Create setup.py with CUDAExtension builder",
+      "Build: pip install -e . (compiles CUDA kernel)",
+      "Import in Python: from my_kernels import fused_relu_add",
+      "Test correctness: compare against torch implementation with torch.testing.assert_close",
+      "Benchmark: compare torch.relu(x) + y vs fused_relu_add(x, y) with torch.utils.benchmark",
+      "Profile with Nsight Compute: verify kernel occupancy and memory throughput",
+      "Optimize: adjust block size, shared memory, warp-level primitives",
+      "Integrate into training loop: replace torch ops with fused kernels"
+    ]
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "example",
+    "title": "PyTorch Mixed Precision Training with AMP",
+    "description": "Complete mixed precision training script using PyTorch Automatic Mixed Precision.",
+    "tags": [
+      "pytorch",
+      "amp",
+      "mixed-precision",
+      "training",
+      "fp16"
+    ],
+    "difficulty": "intermediate",
+    "code": "import torch\nfrom torch.cuda.amp import autocast, GradScaler\n\nmodel = MyModel().cuda()\noptimizer = torch.optim.AdamW(model.parameters(), lr=1e-3)\nscaler = GradScaler()  # Handles FP16 gradient scaling\n\nfor epoch in range(num_epochs):\n    for batch_idx, (data, target) in enumerate(train_loader):\n        data, target = data.cuda(), target.cuda()\n        optimizer.zero_grad()\n        \n        with autocast():  # Enable mixed precision\n            output = model(data)\n            loss = criterion(output, target)\n        \n        scaler.scale(loss).backward()  # Scale gradients\n        scaler.step(optimizer)  # Update weights\n        scaler.update()  # Update scale factor\n\n        if batch_idx % 100 == 0:\n            print(f\"Epoch {epoch}, Batch {batch_idx}, Loss: {loss.item():.4f}\")"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "example",
+    "title": "PyTorch torch.compile Optimization",
+    "description": "Using torch.compile for automatic kernel fusion and optimization.",
+    "tags": [
+      "pytorch",
+      "torch-compile",
+      "dynamo",
+      "optimization",
+      "fusion"
+    ],
+    "difficulty": "intermediate",
+    "code": "import torch\n\nmodel = MyModel().cuda()\n\n# Compile with different modes\ncompiled_model = torch.compile(model)  # Default: reduce-overhead\ncompiled_model = torch.compile(model, mode=\"reduce-overhead\")  # Fastest for training\ncompiled_model = torch.compile(model, mode=\"default\")  # Balanced\ncompiled_model = torch.compile(model, mode=\"max-autotune\")  # Slowest compile, fastest runtime\n\n# Use exactly like the original model\noutput = compiled_model(input_tensor)\nloss = criterion(output, target)\nloss.backward()  # Works with autograd\n\n# Key benefits:\n# - Automatic kernel fusion (combines multiple ops into one GPU kernel)\n# - Reduced Python overhead (compiles to optimized GPU code)\n# - Works with existing code (minimal changes needed)\n# - First call is slower (compilation), subsequent calls are fast"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "example",
+    "title": "GPU Memory Monitoring and OOM Prevention",
+    "description": "Python utilities for monitoring GPU memory and preventing out-of-memory errors during training.",
+    "tags": [
+      "gpu",
+      "memory",
+      "monitoring",
+      "oom",
+      "prevention"
+    ],
+    "difficulty": "beginner",
+    "code": "import torch\nimport gc\n\ndef print_gpu_memory():\n    \"\"\"Print current GPU memory usage.\"\"\"\n    allocated = torch.cuda.memory_allocated() / 1024**3\n    reserved = torch.cuda.memory_reserved() / 1024**3\n    max_allocated = torch.cuda.max_memory_allocated() / 1024**3\n    print(f\"Allocated: {allocated:.2f} GB, Reserved: {reserved:.2f} GB, Peak: {max_allocated:.2f} GB\")\n\ndef free_gpu_memory():\n    \"\"\"Force release unused GPU memory.\"\"\"\n    gc.collect()\n    torch.cuda.empty_cache()\n    torch.cuda.reset_peak_memory_stats()\n\n# Prevent OOM with gradient checkpointing\nfrom torch.utils.checkpoint import checkpoint\n\nclass CheckpointedModel(torch.nn.Module):\n    def forward(self, x):\n        # Use gradient checkpointing to trade compute for memory\n        return checkpoint(self.expensive_layer, x)\n\n# Set memory allocation config for fragmentation reduction\nimport os\nos.environ[\"PYTORCH_CUDA_ALLOC_CONF\"] = \"max_split_size_mb:128\""
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "example",
+    "title": "CUDA Kernel Launch Configuration",
+    "description": "C++ CUDA kernel with optimized block and grid configuration for maximum GPU utilization.",
+    "tags": [
+      "cuda",
+      "kernel",
+      "gpu",
+      "launch",
+      "configuration"
+    ],
+    "difficulty": "advanced",
+    "code": "// Optimized CUDA kernel launch configuration\n__global__ void vector_add(float* out, const float* a, const float* b, int n) {\n    int idx = blockIdx.x * blockDim.x + threadIdx.x;\n    if (idx < n) out[idx] = a[idx] + b[idx];\n}\n\nvoid launch_vector_add(float* out, const float* a, const float* b, int n) {\n    const int block_size = 256;  // Multiple of warp size (32)\n    const int grid_size = (n + block_size - 1) / block_size;\n    \n    vector_add<<<grid_size, block_size, 0, cudaStreamDefault>>>(out, a, b, n);\n    \n    cudaError_t err = cudaGetLastError();\n    if (err != cudaSuccess) {\n        printf(\"CUDA kernel launch error: %s\\n\", cudaGetErrorString(err));\n    }\n}"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "example",
+    "title": "Multi-GPU Data Parallel Training",
+    "description": "PyTorch DistributedDataParallel setup for training across multiple GPUs.",
+    "tags": [
+      "ddp",
+      "multi-gpu",
+      "distributed",
+      "pytorch",
+      "training"
+    ],
+    "difficulty": "advanced",
+    "code": "import torch\nimport torch.distributed as dist\nfrom torch.nn.parallel import DistributedDataParallel as DDP\n\ndef setup_distributed():\n    dist.init_process_group(backend=\"nccl\")\n    local_rank = int(os.environ[\"LOCAL_RANK\"])\n    torch.cuda.set_device(local_rank)\n    return local_rank\n\ndef main():\n    local_rank = setup_distributed()\n    model = MyModel().cuda(local_rank)\n    model = DDP(model, device_ids=[local_rank])\n    optimizer = torch.optim.AdamW(model.parameters(), lr=1e-3 * dist.get_world_size())\n    \n    sampler = torch.utils.data.distributed.DistributedSampler(dataset)\n    loader = DataLoader(dataset, sampler=sampler, batch_size=32, num_workers=4)\n    \n    for epoch in range(num_epochs):\n        sampler.set_epoch(epoch)\n        for batch in loader:\n            optimizer.zero_grad()\n            loss = model(batch.cuda(local_rank))\n            loss.backward()\n            optimizer.step()\n\n# Launch: torchrun --nproc_per_node=4 train.py"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "tool",
+    "title": "NVIDIA Nsight Systems",
+    "description": "GPU profiling tool for visualizing application timeline, kernel execution, memory transfers, and API calls. Essential for identifying bottlenecks and optimizing GPU utilization.",
+    "url": "https://developer.nvidia.com/nsight-systems",
+    "tags": [
+      "nsight",
+      "profiling",
+      "timeline",
+      "visualization",
+      "bottleneck"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "tool",
+    "title": "NVIDIA Nsight Compute",
+    "description": "Detailed kernel-level profiling tool that reports occupancy, memory throughput, compute throughput, and stall reasons for individual CUDA kernels.",
+    "url": "https://developer.nvidia.com/nsight-compute",
+    "tags": [
+      "nsight-compute",
+      "kernel-profiling",
+      "occupancy",
+      "stall-analysis"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "tool",
+    "title": "torch.compile (PyTorch)",
+    "description": "PyTorch 2.x JIT compilation system that automatically fuses operations, optimizes memory layout, and generates efficient GPU kernels. Works with minimal code changes: model = torch.compile(model).",
+    "url": "https://pytorch.org/tutorials/intermediate/torch_compile_tutorial.html",
+    "tags": [
+      "torch-compile",
+      "dynamo",
+      "aot-autograd",
+      "jit",
+      "fusion"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "tool",
+    "title": "NVIDIA TensorRT",
+    "description": "High-performance deep learning inference optimizer and runtime. Compiles models to optimized TensorRT engines with layer/tensor fusion, kernel auto-tuning, and precision calibration for maximum throughput.",
+    "url": "https://developer.nvidia.com/tensorrt",
+    "tags": [
+      "tensorrt",
+      "inference",
+      "optimization",
+      "fusion",
+      "quantization"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "tool",
+    "title": "CUDA Toolkit",
+    "description": "Complete development environment for GPU computing: nvcc compiler, cuBLAS, cuDNN, cuFFT, cuRAND, cuSPARSE, NPP, and Thrust. Required for custom CUDA kernel development.",
+    "url": "https://developer.nvidia.com/cuda-toolkit",
+    "tags": [
+      "cuda",
+      "toolkit",
+      "compiler",
+      "libraries",
+      "development"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "pattern",
+    "title": "Flash Attention Pattern",
+    "description": "Memory-efficient attention that computes attention in tiles to avoid materializing the full NxN attention matrix. Reduces memory from O(N^2) to O(N) and is 2-4x faster. Available in PyTorch 2.x as torch.nn.functional.scaled_dot_product_attention.",
+    "tags": [
+      "flash-attention",
+      "memory",
+      "efficiency",
+      "transformer",
+      "pytorch"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "pattern",
+    "title": "Gradient Checkpointing Pattern",
+    "description": "Trade compute for memory by recomputing intermediate activations during backward pass instead of storing them. Reduces memory usage by 60-70% with 20-30% slower training. Use torch.utils.checkpoint.checkpoint() for large models.",
+    "tags": [
+      "gradient-checkpointing",
+      "memory",
+      "recomputation",
+      "training",
+      "tradeoff"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "pattern",
+    "title": "Tensor Core Optimization Pattern",
+    "description": "Maximize Tensor Core utilization on NVIDIA GPUs by using FP16/BF16 data types, aligning matrix dimensions to multiples of 8 (or 16 for FP8), and enabling TF32 for FP32 workloads.",
+    "tags": [
+      "tensor-cores",
+      "fp16",
+      "bf16",
+      "tf32",
+      "alignment"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "pattern",
+    "title": "Gradient Accumulation Pattern",
+    "description": "Simulate larger batch sizes by accumulating gradients over multiple forward/backward passes before optimizer.step(). Essential when GPU memory limits batch size.",
+    "tags": [
+      "gradient-accumulation",
+      "batch-size",
+      "memory",
+      "training"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "pattern",
+    "title": "Asynchronous Data Loading Pattern",
+    "description": "Overlap data loading and preprocessing with GPU computation using DataLoader with num_workers > 0 and pin_memory=True. Reduces GPU idle time and improves throughput by 30-50%.",
+    "tags": [
+      "data-loading",
+      "async",
+      "pin-memory",
+      "throughput"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "tutorial",
+    "title": "PyTorch Performance Tuning Guide",
+    "description": "Official guide covering torch.compile, data loading optimization, memory management, mixed precision, distributed training, and profiling with torch.profiler.",
+    "url": "https://pytorch.org/tutorials/recipes/recipes/tuning_guide.html",
+    "tags": [
+      "pytorch",
+      "performance",
+      "optimization",
+      "guide",
+      "official"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "tutorial",
+    "title": "CUDA Programming Tutorial (NVIDIA)",
+    "description": "Official CUDA programming tutorial series covering basics through advanced: thread hierarchy, memory hierarchy, synchronization, atomics, and streams.",
+    "url": "https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html",
+    "tags": [
+      "cuda",
+      "tutorial",
+      "programming",
+      "basics",
+      "advanced"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "tutorial",
+    "title": "PyTorch FSDP Tutorial",
+    "description": "Official tutorial for Fully Sharded Data Parallel training covering model sharding, mixed precision, gradient checkpointing, and multi-node configuration.",
+    "url": "https://pytorch.org/tutorials/intermediate/FSDP_tutorial.html",
+    "tags": [
+      "fsdp",
+      "distributed",
+      "sharding",
+      "multi-node",
+      "tutorial"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "tutorial",
+    "title": "Flash Attention Implementation Guide",
+    "description": "How to use flash-attn in PyTorch: installation, usage with torch.nn.functional.scaled_dot_product_attention, and integration with HuggingFace Transformers.",
+    "url": "https://github.com/Dao-AILab/flash-attention",
+    "tags": [
+      "flash-attention",
+      "implementation",
+      "pytorch",
+      "transformers"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "book",
+    "title": "Programming Massively Parallel Processors (Kirk and Hwu)",
+    "description": "The definitive textbook on GPU computing covering CUDA architecture, memory hierarchy, thread scheduling, reduction patterns, scan algorithms, and application case studies.",
+    "url": "https://www.elsevier.com/books/programming-massively-parallel-processors/kirk/978-0-12-811986-0",
+    "tags": [
+      "book",
+      "cuda",
+      "architecture",
+      "algorithms",
+      "gpu-computing"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "book",
+    "title": "Deep Learning (Goodfellow, Bengio, Courville)",
+    "description": "The canonical deep learning textbook covering mathematical foundations, optimization, CNNs, RNNs, autoencoders, generative models, and theoretical aspects. Free online.",
+    "url": "https://www.deeplearningbook.org/",
+    "tags": [
+      "book",
+      "foundations",
+      "optimization",
+      "cnn",
+      "rnn",
+      "theory"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "course",
+    "title": "CUDA Parallel Programming (Coursera/NVIDIA)",
+    "description": "Official NVIDIA course covering CUDA thread hierarchy, memory types, synchronization patterns, and parallel algorithm implementation. Hands-on assignments with real GPU code.",
+    "url": "https://www.coursera.org/learn/cuda-parallel-programming",
+    "tags": [
+      "cuda",
+      "parallel",
+      "nvidia",
+      "programming",
+      "assignments"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "course",
+    "title": "Practical Deep Learning for Coders (fast.ai)",
+    "description": "Jeremy Howard practical course using PyTorch and fastai library. Covers CNNs, NLP, collaborative filtering, tabular models, and deployment with a top-down approach.",
+    "url": "https://course.fast.ai/",
+    "tags": [
+      "fastai",
+      "pytorch",
+      "practical",
+      "top-down",
+      "deployment"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "course",
+    "title": "Distributed Deep Learning with DeepSpeed",
+    "description": "Microsoft DeepSpeed course covering ZeRO optimization, model parallelism, pipeline parallelism, mixed precision, and training models with trillions of parameters across GPU clusters.",
+    "url": "https://www.deepspeed.ai/tutorials/",
+    "tags": [
+      "deepspeed",
+      "zero",
+      "distributed",
+      "pipeline-parallelism",
+      "large-models"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "workflow",
+    "title": "DeepSpeed ZeRO-3 Training Setup",
+    "description": "Configure DeepSpeed ZeRO-3 for training models that exceed single-GPU memory.",
+    "tags": [
+      "deepspeed",
+      "zero-3",
+      "memory",
+      "distributed",
+      "training"
+    ],
+    "difficulty": "advanced",
+    "workflow": [
+      "Install DeepSpeed: pip install deepspeed",
+      "Create deepspeed_config.json with ZeRO-3 configuration",
+      "Set zero_optimization.stage to 3 (full model sharding)",
+      "Configure offload: offload_optimizer and offload_param to CPU/NVMe",
+      "Set gradient_accumulation_steps for effective batch size",
+      "Launch with deepspeed launcher: deepspeed --num_gpus=4 train.py",
+      "Monitor GPU/CPU memory usage with nvidia-smi and htop",
+      "Adjust micro_batch_size to maximize GPU utilization",
+      "Enable activation checkpointing for further memory savings",
+      "Profile with DeepSpeed timeline: --deepspeed_timeline ds_timeline.json"
+    ]
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "workflow",
+    "title": "Benchmark GPU Performance with PyTorch Profiler",
+    "description": "Systematic approach to profiling GPU workloads and identifying bottlenecks.",
+    "tags": [
+      "profiler",
+      "benchmark",
+      "pytorch",
+      "bottleneck",
+      "performance"
+    ],
+    "difficulty": "intermediate",
+    "workflow": [
+      "Install profiler: pip install torch-tb-profiler",
+      "Add profiler context manager around training loop",
+      "Profile CPU and GPU activities: schedule=torch.profiler.schedule(wait=1, warmup=1, active=3)",
+      "Record shapes and memory: with_stack=True, profile_memory=True",
+      "Export to TensorBoard: profiler.export_chrome_trace('trace.json')",
+      "Analyze in Chrome Trace Viewer or TensorBoard",
+      "Check key metrics: GPU utilization, kernel time, memory transfers",
+      "Identify bottlenecks: low GPU utilization = CPU-bound, high memcpy = data-bound",
+      "Optimize based on findings: increase batch size, use pinned memory, add num_workers",
+      "Re-profile and compare with baseline"
+    ]
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "example",
+    "title": "DeepSpeed ZeRO-3 Configuration for Large Models",
+    "description": "DeepSpeed configuration file for ZeRO-3 training with CPU offloading.",
+    "tags": [
+      "deepspeed",
+      "zero-3",
+      "config",
+      "offloading"
+    ],
+    "difficulty": "advanced",
+    "code": "{\n  \"train_batch_size\": 128,\n  \"train_micro_batch_size_per_gpu\": 2,\n  \"gradient_accumulation_steps\": 16,\n  \"optimizer\": {\n    \"type\": \"AdamW\",\n    \"params\": {\"lr\": 1e-5, \"betas\": [0.9, 0.999], \"weight_decay\": 0.01}\n  },\n  \"zero_optimization\": {\n    \"stage\": 3,\n    \"offload_optimizer\": {\"device\": \"cpu\", \"pin_memory\": true},\n    \"offload_param\": {\"device\": \"cpu\", \"pin_memory\": true},\n    \"overlap_comm\": true,\n    \"contiguous_gradients\": true,\n    \"reduce_bucket_size\": 5e8\n  },\n  \"fp16\": {\"enabled\": true, \"loss_scale\": 0, \"initial_scale_power\": 16},\n  \"activation_checkpointing\": {\n    \"partition_activations\": true,\n    \"cpu_checkpointing\": true,\n    \"number_checkpoints\": 4\n  }\n}"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "example",
+    "title": "DDP with Gradient Accumulation and Mixed Precision",
+    "description": "Production-ready DDP training script with gradient accumulation and mixed precision.",
+    "tags": [
+      "ddp",
+      "gradient-accumulation",
+      "mixed-precision",
+      "production"
+    ],
+    "difficulty": "intermediate",
+    "code": "import torch\nimport torch.distributed as dist\nfrom torch.nn.parallel import DistributedDataParallel as DDP\nfrom torch.cuda.amp import autocast, GradScaler\n\ndef train():\n    dist.init_process_group(backend='nccl')\n    local_rank = int(os.environ['LOCAL_RANK'])\n    torch.cuda.set_device(local_rank)\n    model = DDP(MyModel().cuda(local_rank), device_ids=[local_rank])\n    optimizer = torch.optim.AdamW(model.parameters(), lr=1e-4)\n    scaler = GradScaler()\n    accum_steps = 4  # effective batch = batch * accum * world_size\n    for step, (data, target) in enumerate(train_loader):\n        data, target = data.cuda(local_rank), target.cuda(local_rank)\n        with autocast():\n            loss = model(data, target) / accum_steps\n        scaler.scale(loss).backward()\n        if (step + 1) % accum_steps == 0:\n            scaler.step(optimizer)\n            scaler.update()\n            optimizer.zero_grad()\n# torchrun --nproc_per_node=4 train.py"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "tool",
+    "title": "DeepSpeed",
+    "description": "Microsoft distributed training library with ZeRO (Zero Redundancy Optimizer) for training models with billions/trillions of parameters. Supports ZeRO-1/2/3, offloading, and pipeline parallelism.",
+    "url": "https://www.deepspeed.ai/",
+    "tags": [
+      "deepspeed",
+      "zero",
+      "distributed",
+      "offloading",
+      "large-models"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "tool",
+    "title": "PyTorch Profiler",
+    "description": "Built-in PyTorch profiler for CPU/GPU workload analysis. Generates Chrome traces, TensorBoard visualizations, and memory timelines. Essential for identifying bottlenecks.",
+    "url": "https://pytorch.org/tutorials/recipes/recipes/profiler_recipe.html",
+    "tags": [
+      "profiler",
+      "pytorch",
+      "tracing",
+      "memory",
+      "bottleneck"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "tool",
+    "title": "Weights and Biases (W&B)",
+    "description": "Experiment tracking platform for ML: hyperparameter sweeps, metric logging, artifact versioning, and model registry. Integrates with PyTorch, HuggingFace, and DeepSpeed.",
+    "url": "https://wandb.ai/",
+    "tags": [
+      "wandb",
+      "experiment-tracking",
+      "sweeps",
+      "artifacts"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "tool",
+    "title": "MLflow",
+    "description": "Open-source platform for ML lifecycle management: experiment tracking, model registry, model serving, and deployment. Supports PyTorch, TensorFlow, and HuggingFace models.",
+    "url": "https://mlflow.org/",
+    "tags": [
+      "mlflow",
+      "experiment-tracking",
+      "model-registry",
+      "deployment"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "pattern",
+    "title": "Activation Checkpointing Pattern",
+    "description": "Reduce memory by 60-70% by recomputing activations during backward pass instead of storing them. Use torch.utils.checkpoint.checkpoint() wrapper around expensive layers. Trade 20-30% more compute for 2-3x larger models on the same GPU.",
+    "tags": [
+      "activation-checkpointing",
+      "memory",
+      "recomputation",
+      "tradeoff"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "pattern",
+    "title": "Effective Batch Size Tuning Pattern",
+    "description": "Simulate large batch sizes using gradient accumulation: effective_batch = micro_batch * accum_steps * num_gpus. Start with micro_batch that fills 80% GPU memory, then increase accum_steps until effective batch is 256-2048.",
+    "tags": [
+      "batch-size",
+      "gradient-accumulation",
+      "tuning",
+      "effective-batch"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "pattern",
+    "title": "Learning Rate Warmup and Decay Pattern",
+    "description": "Start with 1/10th of peak learning rate, linearly warm up over first 500-2000 steps, then decay with cosine schedule. Essential for stable training of large models. AdamW with warmup+cosine is the default for most LLM training.",
+    "tags": [
+      "learning-rate",
+      "warmup",
+      "cosine",
+      "adamw",
+      "stability"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "tutorial",
+    "title": "DeepSpeed Getting Started Tutorial",
+    "description": "Official DeepSpeed tutorial covering installation, ZeRO configuration, mixed precision training, and launching distributed training jobs.",
+    "url": "https://www.deepspeed.ai/tutorials/getting-started/",
+    "tags": [
+      "deepspeed",
+      "getting-started",
+      "zero",
+      "distributed"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "tutorial",
+    "title": "PyTorch Distributed Data Parallel Tutorial",
+    "description": "Official PyTorch DDP tutorial covering single-machine and multi-machine training, gradient synchronization, and debugging distributed training issues.",
+    "url": "https://pytorch.org/tutorials/intermediate/ddp_tutorial.html",
+    "tags": [
+      "ddp",
+      "pytorch",
+      "distributed",
+      "multi-gpu"
+    ],
+    "difficulty": "intermediate"
+  }
+]
