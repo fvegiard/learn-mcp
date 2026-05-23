@@ -867,5 +867,110 @@
       "production"
     ],
     "difficulty": "intermediate"
+  },
+  {
+    "topic": "mlops",
+    "type": "tutorial",
+    "title": "NVIDIA NIM Operator Observability: Prometheus and OpenTelemetry",
+    "description": "Official guide for monitoring NIM deployments with Prometheus metrics (/v1/metrics, :8002/metrics for Triton), OpenTelemetry traces and spans, ServiceMonitor for Kubernetes, and Grafana dashboards. Covers OTEL environment variables, collector config, and distributed tracing with W3C Trace Context.",
+    "url": "https://docs.nvidia.com/nim/large-language-models/2.0.0/reference/logging-and-observability.html",
+    "tags": [
+      "nvidia-nim",
+      "observability",
+      "prometheus",
+      "opentelemetry",
+      "grafana"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "mlops",
+    "type": "tutorial",
+    "title": "NVIDIA NIM Operator Installation and Configuration (Kubernetes)",
+    "description": "Official guide for installing the NIM Operator via Helm on Kubernetes. Covers GPU Operator prerequisites, namespace setup, NGC secrets, NIMCache (model pre-download), NIMService (pod lifecycle), and Prometheus ServiceMonitor integration.",
+    "url": "https://docs.nvidia.com/nim-operator/latest/install.html",
+    "tags": [
+      "nvidia-nim",
+      "kubernetes",
+      "operator",
+      "helm",
+      "installation"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "mlops",
+    "type": "tutorial",
+    "title": "NVIDIA NeMo Guardrails: Content Safety Integration with NIM",
+    "description": "Official guide for integrating NeMo Guardrails content safety NIM with LLM NIM deployments. Covers 23-category safety taxonomy, input/output rail configuration, multilingual support (9 languages), and parallel rail deployment for content safety + topic control.",
+    "url": "https://docs.nvidia.com/nemo/microservices/latest/guardrails/tutorials/integrate-nemoguard-nims.html",
+    "tags": [
+      "nvidia-nim",
+      "guardrails",
+      "content-safety",
+      "neMo",
+      "production"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "mlops",
+    "type": "tutorial",
+    "title": "NVIDIA NIM Air-Gapped Enterprise Deployment (Kubernetes Operator)",
+    "description": "Official guide for air-gapped NIM Operator deployment on Kubernetes. Covers proxy configuration, mirrored container registries, custom CA certificates, and disconnected model store deployment for government and secure enterprise environments.",
+    "url": "https://docs.nvidia.com/nim-operator/latest/air-gap.html",
+    "tags": [
+      "nvidia-nim",
+      "air-gapped",
+      "kubernetes",
+      "enterprise",
+      "security"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "mlops",
+    "type": "tool",
+    "title": "NVIDIA Dynamo: Disaggregated Serving for AI Factories",
+    "description": "Open-source distributed inference framework (Dynamo 1.0, March 2026) that splits LLM serving into separate prefill and decode GPU pools. Features KV-aware routing, NIXL GPU-to-GPU transfers, GPU Planner for dynamic resource allocation, and Grove topology-optimized K8s orchestration. Up to 7x throughput improvement for MoE models.",
+    "url": "https://www.nvidia.com/en-us/ai/dynamo/",
+    "tags": [
+      "nvidia-dynamo",
+      "disaggregated-serving",
+      "prefill-decode",
+      "inference",
+      "production"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "mlops",
+    "type": "tool",
+    "title": "nim-audit: Security Auditing for NIM Containers",
+    "description": "CLI tool (ashzak/nim-audit on GitHub) for auditing NVIDIA NIM containers for security vulnerabilities, configuration issues, and compliance. Scans container images for CVEs, misconfigurations, and best-practice violations.",
+    "url": "https://github.com/ashzak/nim-audit",
+    "tags": [
+      "nvidia-nim",
+      "security",
+      "audit",
+      "containers",
+      "compliance"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "mlops",
+    "type": "tool",
+    "title": "Hyena-PAM-Proxy: Unified API Gateway for NVIDIA NIM Models",
+    "description": "Async FastAPI proxy (GitHub) that provides a single API endpoint routing to various NVIDIA NIM models with automatic request adjustment and response normalization. Useful for multi-model NIM deployments needing unified access patterns.",
+    "url": "https://github.com/CosmonautCode/Hyena-PAM-Proxy",
+    "tags": [
+      "nvidia-nim",
+      "api-gateway",
+      "proxy",
+      "fastapi",
+      "multi-model"
+    ],
+    "difficulty": "intermediate"
   }
 ]
