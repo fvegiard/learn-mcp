@@ -861,5 +861,117 @@
       "deep-lake"
     ],
     "difficulty": "beginner"
+  },
+  {
+    "topic": "rag",
+    "type": "tool",
+    "title": "Cognita (TrueFoundry)",
+    "description": "RAG framework for building modular, open-source production applications. 4.4k+ stars. Provides structured ingestion, retrieval, and generation pipelines with support for multiple vector DBs and LLM providers.",
+    "url": "https://github.com/truefoundry/cognita",
+    "tags": [
+      "rag",
+      "production",
+      "framework",
+      "truefoundry"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "rag",
+    "type": "tool",
+    "title": "RAG Web UI",
+    "description": "Intelligent dialogue system based on RAG technology. 3k+ stars. Full-stack web UI for document upload, chunking, embedding, and conversational retrieval.",
+    "url": "https://github.com/rag-web-ui/rag-web-ui",
+    "tags": [
+      "rag",
+      "ui",
+      "dialogue",
+      "web"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "rag",
+    "type": "example",
+    "title": "RAGHub",
+    "description": "Community-driven collection of RAG frameworks, projects, and resources. 1.7k+ stars. The go-to directory for discovering RAG tools, libraries, and evaluation benchmarks.",
+    "url": "https://github.com/Andrew-Jang/RAGHub",
+    "tags": [
+      "rag",
+      "directory",
+      "resources",
+      "community"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "rag",
+    "type": "example",
+    "title": "Simple Local RAG (mrdbourke)",
+    "description": "Build a RAG pipeline from scratch that runs entirely locally. 980+ stars. Hands-on tutorial from Daniel Bourke covering document loading, embedding, vector search, and generation.",
+    "url": "https://github.com/mrdbourke/simple-local-rag",
+    "tags": [
+      "rag",
+      "local",
+      "tutorial",
+      "beginner"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "rag",
+    "type": "tool",
+    "title": "MODULAR-RAG-MCP-SERVER",
+    "description": "Modular RAG system with MCP Server architecture. 900+ stars. Uses skill-based step-by-step generation combining RAG retrieval with MCP tool integration.",
+    "url": "https://github.com/jerry-ai-dev/MODULAR-RAG-MCP-SERVER",
+    "tags": [
+      "rag",
+      "mcp",
+      "modular",
+      "pipeline"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "rag",
+    "type": "example",
+    "title": "Cloudflare RAG",
+    "description": "Full-stack Chat with your PDFs RAG app built entirely on Cloudflare Workers. 600+ stars. Demonstrates serverless RAG with D1, Vectorize, and Workers AI.",
+    "url": "https://github.com/RafalWilinski/cloudflare-rag",
+    "tags": [
+      "rag",
+      "cloudflare",
+      "serverless",
+      "pdf"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "rag",
+    "type": "tool",
+    "title": "raggo",
+    "description": "Lightweight, production-ready RAG library in Go. 216+ stars. Provides a clean Go API for document ingestion, embedding, and retrieval without Python dependencies.",
+    "url": "https://github.com/teilomillet/raggo",
+    "tags": [
+      "rag",
+      "go",
+      "lightweight",
+      "production"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "rag",
+    "type": "example",
+    "title": "Azure RAG Design and Evaluation",
+    "description": "Comprehensive recommendations for building RAG solutions following best practices, with tools for testing, evaluation, and reusable code snippets. From Azure-Samples.",
+    "url": "https://github.com/Azure-Samples/Design-and-evaluation-of-RAG-solutions",
+    "tags": [
+      "rag",
+      "azure",
+      "evaluation",
+      "best-practices"
+    ],
+    "difficulty": "advanced"
   }
 ]

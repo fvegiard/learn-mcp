@@ -842,5 +842,19 @@
       "production"
     ],
     "difficulty": "intermediate"
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "tool",
+    "title": "Activepieces",
+    "description": "AI Agents and MCPs with AI Workflow Automation. 22k+ stars. Provides 400+ MCP server integrations and a visual workflow builder for orchestrating AI agents.",
+    "url": "https://github.com/activepieces/activepieces",
+    "tags": [
+      "autonomous-agents",
+      "automation",
+      "mcp",
+      "workflow"
+    ],
+    "difficulty": "beginner"
   }
 ]

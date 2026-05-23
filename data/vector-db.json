@@ -847,5 +847,117 @@
       "cost"
     ],
     "difficulty": "intermediate"
+  },
+  {
+    "topic": "vector-db",
+    "type": "tool",
+    "title": "HelixDB",
+    "description": "Open-source graph-vector database built from scratch in Rust. 4.5k+ stars. Combines graph traversal with vector similarity search in a unified query engine.",
+    "url": "https://github.com/HelixDB/helix-db",
+    "tags": [
+      "vector-db",
+      "graph",
+      "rust",
+      "hybrid"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "vector-db",
+    "type": "tool",
+    "title": "CozoDB",
+    "description": "Transactional, relational-graph-vector database using Datalog for queries. 4k+ stars. Unique approach unifying relational, graph, and vector search in a single query language.",
+    "url": "https://github.com/cozodb/cozo",
+    "tags": [
+      "vector-db",
+      "datalog",
+      "graph",
+      "hybrid"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "vector-db",
+    "type": "tool",
+    "title": "VectorDBBench (Zilliz)",
+    "description": "Benchmark for vector databases. 1.1k+ stars. Provides standardized performance benchmarks comparing Milvus, Qdrant, Weaviate, Chroma, and other vector DBs across different workloads.",
+    "url": "https://github.com/zilliztech/VectorDBBench",
+    "tags": [
+      "vector-db",
+      "benchmark",
+      "comparison",
+      "performance"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "vector-db",
+    "type": "tool",
+    "title": "Lantern (PostgreSQL Vector Extension)",
+    "description": "PostgreSQL vector database extension for building AI applications. 880+ stars. Adds high-performance vector indexing and search directly inside PostgreSQL.",
+    "url": "https://github.com/lanterndata/lantern",
+    "tags": [
+      "vector-db",
+      "postgresql",
+      "extension",
+      "hybrid"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "vector-db",
+    "type": "tool",
+    "title": "chromem-go",
+    "description": "Embeddable vector database for Go with Chroma-like interface and zero third-party dependencies. 950+ stars. In-memory with optional persistence, ideal for Go microservices.",
+    "url": "https://github.com/philippgille/chromem-go",
+    "tags": [
+      "vector-db",
+      "go",
+      "embeddable",
+      "lightweight"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "vector-db",
+    "type": "example",
+    "title": "Write You a Vector DB",
+    "description": "A vector database tutorial built over CMU-DB's BusTub system. 750+ stars. Excellent educational resource for understanding vector database internals: indexing, similarity search, and query optimization.",
+    "url": "https://github.com/skyzh/write-you-a-vector-db",
+    "tags": [
+      "vector-db",
+      "tutorial",
+      "internals",
+      "education"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "vector-db",
+    "type": "tool",
+    "title": "zvec (Alibaba)",
+    "description": "A lightweight, lightning-fast, in-process vector database. 9.6k+ stars. Designed for high-performance embedding search with minimal overhead.",
+    "url": "https://github.com/alibaba/zvec",
+    "tags": [
+      "vector-db",
+      "lightweight",
+      "in-process",
+      "performance"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "vector-db",
+    "type": "tool",
+    "title": "HyperDB",
+    "description": "A hyper-fast local vector database for use with LLM Agents. 1.4k+ stars. Designed for low-latency agent memory and retrieval.",
+    "url": "https://github.com/jdagdelen/hyperDB",
+    "tags": [
+      "vector-db",
+      "local",
+      "agents",
+      "fast"
+    ],
+    "difficulty": "beginner"
   }
 ]

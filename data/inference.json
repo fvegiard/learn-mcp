@@ -875,5 +875,131 @@
       "benchmark"
     ],
     "difficulty": "advanced"
+  },
+  {
+    "topic": "inference",
+    "type": "tool",
+    "title": "LoRAX (Multi-LoRA Inference)",
+    "description": "Multi-LoRA inference server that scales to thousands of fine-tuned LLMs. 3.7k+ stars. Dynamically loads and serves LoRA adapters alongside a base model for cost-effective multi-tenant serving.",
+    "url": "https://github.com/predibase/lorax",
+    "tags": [
+      "inference",
+      "lora",
+      "multi-tenant",
+      "serving"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "inference",
+    "type": "tool",
+    "title": "web-llm (MLC AI)",
+    "description": "High-performance in-browser LLM inference engine. 18k+ stars. Runs LLMs directly in the browser using WebGPU with hardware acceleration, enabling client-side AI without server infrastructure.",
+    "url": "https://github.com/mlc-ai/web-llm",
+    "tags": [
+      "inference",
+      "browser",
+      "webgpu",
+      "edge"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "inference",
+    "type": "tool",
+    "title": "Aphrodite Engine",
+    "description": "Large-scale LLM inference engine. 1.7k+ stars. Supports tensor parallelism, continuous batching, and multiple quantization formats for high-throughput serving.",
+    "url": "https://github.com/dphnAI/aphrodite-engine",
+    "tags": [
+      "inference",
+      "gpu",
+      "serving",
+      "parallelism"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "inference",
+    "type": "tool",
+    "title": "RTP-LLM (Alibaba)",
+    "description": "Alibaba's high-performance LLM inference engine for diverse applications. 1.1k+ stars. Production-tested at scale with prefix caching, speculative decoding, and multiple quantization formats.",
+    "url": "https://github.com/alibaba/rtp-llm",
+    "tags": [
+      "inference",
+      "alibaba",
+      "production",
+      "quantization"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "inference",
+    "type": "tool",
+    "title": "Jlama (Java LLM Inference)",
+    "description": "Modern LLM inference engine for Java. 1.2k+ stars. Enables running LLMs natively in the JVM ecosystem without Python dependencies.",
+    "url": "https://github.com/tjake/Jlama",
+    "tags": [
+      "inference",
+      "java",
+      "jvm",
+      "native"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "inference",
+    "type": "tool",
+    "title": "TokenSpeed",
+    "description": "Speed-of-light LLM inference engine. 1k+ stars. Focuses on maximizing throughput and minimizing latency for production LLM serving workloads.",
+    "url": "https://github.com/lightseekorg/tokenspeed",
+    "tags": [
+      "inference",
+      "performance",
+      "throughput",
+      "latency"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "inference",
+    "type": "tool",
+    "title": "LlamaEdge",
+    "description": "Easiest and fastest way to run customized and fine-tuned LLMs locally or on the edge. 1.6k+ stars. Uses Wasm (WebAssembly) for portable, lightweight LLM inference.",
+    "url": "https://github.com/LlamaEdge/LlamaEdge",
+    "tags": [
+      "inference",
+      "edge",
+      "wasm",
+      "portable"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "inference",
+    "type": "tool",
+    "title": "DashInfer (ModelScope)",
+    "description": "Native LLM inference engine delivering industry-leading performance across CUDA, x86, and ARMv9 architectures. 270+ stars. From Alibaba's ModelScope team for cross-platform deployment.",
+    "url": "https://github.com/modelscope/dash-infer",
+    "tags": [
+      "inference",
+      "cross-platform",
+      "cpu",
+      "arm"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "inference",
+    "type": "tool",
+    "title": "Checkpoint Engine (Moonshot AI)",
+    "description": "Simple middleware to update model weights in LLM inference engines. 955+ stars. Enables hot-swapping model weights without restarting inference servers.",
+    "url": "https://github.com/MoonshotAI/checkpoint-engine",
+    "tags": [
+      "inference",
+      "checkpoint",
+      "hot-swap",
+      "weights"
+    ],
+    "difficulty": "advanced"
   }
 ]

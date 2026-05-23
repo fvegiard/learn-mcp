@@ -804,5 +804,61 @@
       "workflows"
     ],
     "difficulty": "beginner"
+  },
+  {
+    "topic": "claude-code",
+    "type": "tool",
+    "title": "Claude Code as MCP Server (steipete)",
+    "description": "Claude Code as a one-shot MCP server - an agent within your agent. 1.2k+ stars. Enables Claude Code to be invoked as an MCP tool from other AI clients.",
+    "url": "https://github.com/steipete/claude-code-mcp",
+    "tags": [
+      "claude-code",
+      "mcp",
+      "agent",
+      "orchestration"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "claude-code",
+    "type": "tool",
+    "title": "Obsidian Claude Code MCP",
+    "description": "Connect Claude Code and other AI tools to Obsidian notes via MCP. 288+ stars. Enables bidirectional access between AI coding agents and Obsidian knowledge bases.",
+    "url": "https://github.com/iansinnott/obsidian-claude-code-mcp",
+    "tags": [
+      "claude-code",
+      "obsidian",
+      "notes",
+      "mcp"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "claude-code",
+    "type": "example",
+    "title": "Claude Code MCP Install Guide",
+    "description": "Easy guide to installing Claude Code MCPs globally on your machine. 237+ stars. Covers configuration, settings, and common MCP server setups for Claude Code.",
+    "url": "https://github.com/undeadpickle/claude-code-mcpinstall",
+    "tags": [
+      "claude-code",
+      "mcp",
+      "setup",
+      "guide"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "claude-code",
+    "type": "tool",
+    "title": "Stitch Skills (Google Labs)",
+    "description": "Library of Agent Skills designed for the Stitch MCP server. 5.6k+ stars. Each skill follows the Agent Skills open standard, compatible with Claude Code, Gemini CLI, Cursor, and other coding agents.",
+    "url": "https://github.com/google-labs-code/stitch-skills",
+    "tags": [
+      "claude-code",
+      "skills",
+      "mcp",
+      "google"
+    ],
+    "difficulty": "intermediate"
   }
 ]

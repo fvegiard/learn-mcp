@@ -838,5 +838,19 @@
       "ab-testing"
     ],
     "difficulty": "intermediate"
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "tool",
+    "title": "Promptify",
+    "description": "Prompt engineering and versioning library for getting structured output from GPT and other prompt-based models. 4.6k+ stars. Handles prompt templates, versioning, and output parsing.",
+    "url": "https://github.com/promptslab/Promptify",
+    "tags": [
+      "prompt-engineering",
+      "versioning",
+      "structured-output",
+      "templates"
+    ],
+    "difficulty": "beginner"
   }
 ]

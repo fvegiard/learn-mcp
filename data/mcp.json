@@ -880,5 +880,257 @@
       "comprehensive"
     ],
     "difficulty": "intermediate"
+  },
+  {
+    "topic": "mcp",
+    "type": "tool",
+    "title": "awesome-mcp-servers (punkpeye)",
+    "description": "The largest curated collection of MCP servers with 87k+ stars. Covers every integration category from databases to CI/CD, serving as the definitive MCP ecosystem directory.",
+    "url": "https://github.com/punkpeye/awesome-mcp-servers",
+    "tags": [
+      "mcp",
+      "directory",
+      "ecosystem",
+      "servers"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "mcp",
+    "type": "tool",
+    "title": "FastMCP",
+    "description": "The fast, Pythonic way to build MCP servers and clients. 25k+ stars. Provides a high-level Python API for creating MCP servers with minimal boilerplate, auto-generating tools from function signatures.",
+    "url": "https://github.com/PrefectHQ/fastmcp",
+    "tags": [
+      "mcp",
+      "python",
+      "server",
+      "sdk"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "mcp",
+    "type": "tool",
+    "title": "MCP Toolbox for Databases (Google)",
+    "description": "Google's open-source MCP server for databases. 15k+ stars. Provides standardized MCP access to PostgreSQL, MySQL, SQLite, and other databases for AI agents.",
+    "url": "https://github.com/googleapis/mcp-toolbox",
+    "tags": [
+      "mcp",
+      "database",
+      "google",
+      "sql"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "mcp",
+    "type": "tool",
+    "title": "Figma Context MCP",
+    "description": "MCP server providing Figma layout information to AI coding agents like Cursor. 14k+ stars. Enables AI to read and understand Figma designs for code generation.",
+    "url": "https://github.com/GLips/Figma-Context-MCP",
+    "tags": [
+      "mcp",
+      "figma",
+      "design",
+      "coding"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "mcp",
+    "type": "tool",
+    "title": "MCP Chrome",
+    "description": "Chrome MCP Server - a Chrome extension-based MCP server exposing browser functionality to AI assistants like Claude. 11k+ stars. Enables complex browser automation, content analysis, and semantic search.",
+    "url": "https://github.com/hangwin/mcp-chrome",
+    "tags": [
+      "mcp",
+      "browser",
+      "chrome",
+      "automation"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "mcp",
+    "type": "tool",
+    "title": "PAL MCP Server",
+    "description": "Unified MCP server routing Claude Code, Gemini CLI, and Codex CLI through multiple LLM providers. 11k+ stars. Enables multi-model orchestration from a single MCP interface.",
+    "url": "https://github.com/BeehiveInnovations/pal-mcp-server",
+    "tags": [
+      "mcp",
+      "multi-model",
+      "orchestration",
+      "routing"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "mcp",
+    "type": "tool",
+    "title": "mcp-use",
+    "description": "Full-stack MCP framework to develop MCP Apps for ChatGPT, Claude, and MCP Servers for AI agents. 10k+ stars. Provides both client and server SDKs for building MCP-powered applications.",
+    "url": "https://github.com/mcp-use/mcp-use",
+    "tags": [
+      "mcp",
+      "framework",
+      "sdk",
+      "agents"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "mcp",
+    "type": "tool",
+    "title": "MCP Registry",
+    "description": "Community-driven registry service for Model Context Protocol servers. 6.8k+ stars. Provides discovery, versioning, and distribution of MCP servers.",
+    "url": "https://github.com/modelcontextprotocol/registry",
+    "tags": [
+      "mcp",
+      "registry",
+      "discovery",
+      "distribution"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "mcp",
+    "type": "tool",
+    "title": "GhidraMCP",
+    "description": "MCP Server for Ghidra reverse engineering. 9k+ stars. Enables AI-assisted malware analysis and binary reverse engineering through the Model Context Protocol.",
+    "url": "https://github.com/LaurieWired/GhidraMCP",
+    "tags": [
+      "mcp",
+      "security",
+      "reverse-engineering",
+      "ghidra"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "mcp",
+    "type": "tool",
+    "title": "GitMCP",
+    "description": "Free, open-source remote MCP server for any GitHub project. 8k+ stars. Provides AI agents direct access to repository context to reduce code hallucinations.",
+    "url": "https://github.com/idosal/git-mcp",
+    "tags": [
+      "mcp",
+      "github",
+      "context",
+      "remote"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "mcp",
+    "type": "tool",
+    "title": "Kreuzberg - Polyglot Document Intelligence",
+    "description": "Polyglot document intelligence framework with a Rust core. Extracts text, metadata, images, and structured info from 97+ formats. Available as CLI, REST API, or MCP server. 8k+ stars.",
+    "url": "https://github.com/kreuzberg-dev/kreuzberg",
+    "tags": [
+      "mcp",
+      "document-processing",
+      "ocr",
+      "rust"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "mcp",
+    "type": "tool",
+    "title": "Firecrawl MCP Server",
+    "description": "Official Firecrawl MCP Server adding web scraping and search to Cursor, Claude, and any LLM client. 6k+ stars. Turns web data into structured, LLM-ready content.",
+    "url": "https://github.com/firecrawl/firecrawl-mcp-server",
+    "tags": [
+      "mcp",
+      "web-scraping",
+      "search",
+      "firecrawl"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "mcp",
+    "type": "tool",
+    "title": "Desktop Commander MCP",
+    "description": "MCP server providing terminal control, file system search, and diff file editing capabilities to Claude. 6k+ stars. Essential system-level MCP tool for coding agents.",
+    "url": "https://github.com/wonderwhy-er/DesktopCommanderMCP",
+    "tags": [
+      "mcp",
+      "terminal",
+      "file-system",
+      "coding"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "mcp",
+    "type": "tool",
+    "title": "XcodeBuildMCP",
+    "description": "MCP server and CLI providing tools for agent use when working on iOS and macOS projects. 5.7k+ stars. Enables AI agents to build, test, and inspect Xcode projects.",
+    "url": "https://github.com/getsentry/XcodeBuildMCP",
+    "tags": [
+      "mcp",
+      "xcode",
+      "ios",
+      "macos"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "mcp",
+    "type": "tool",
+    "title": "MCP Atlassian",
+    "description": "MCP server for Atlassian tools (Confluence, Jira). 5.2k+ stars. Enables AI agents to search, create, and manage Confluence pages and Jira issues through MCP.",
+    "url": "https://github.com/sooperset/mcp-atlassian",
+    "tags": [
+      "mcp",
+      "jira",
+      "confluence",
+      "atlassian"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "mcp",
+    "type": "tool",
+    "title": "HexStrike AI MCP Agents",
+    "description": "MCP server enabling AI agents to autonomously run 150+ cybersecurity tools for pentesting and vulnerability discovery. 8.9k+ stars. Bridges LLMs with real-world offensive security capabilities.",
+    "url": "https://github.com/0x4m4/hexstrike-ai",
+    "tags": [
+      "mcp",
+      "security",
+      "pentesting",
+      "automation"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "mcp",
+    "type": "tool",
+    "title": "Browser MCP",
+    "description": "MCP server allowing AI applications to control your browser. 6.5k+ stars. Enables AI agents to navigate, click, type, and extract information from web pages.",
+    "url": "https://github.com/BrowserMCP/mcp",
+    "tags": [
+      "mcp",
+      "browser",
+      "automation",
+      "web"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "mcp",
+    "type": "example",
+    "title": "awesome-mcp-servers (appcypher)",
+    "description": "Curated list of Model Context Protocol servers. 5.5k+ stars. A well-organized directory complementing punkpeye's list with categorization and quality filters.",
+    "url": "https://github.com/appcypher/awesome-mcp-servers",
+    "tags": [
+      "mcp",
+      "directory",
+      "curated",
+      "servers"
+    ],
+    "difficulty": "beginner"
   }
 ]

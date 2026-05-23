@@ -949,5 +949,117 @@
       "2026"
     ],
     "difficulty": "advanced"
+  },
+  {
+    "topic": "fine-tuning",
+    "type": "tool",
+    "title": "WeClone",
+    "description": "One-stop solution for creating your AI twin from chat history. 17k+ stars. Fine-tunes LLMs with your chat logs to capture unique style, then binds to a chatbot.",
+    "url": "https://github.com/xming521/WeClone",
+    "tags": [
+      "fine-tuning",
+      "chat-data",
+      "personalization",
+      "llm"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "fine-tuning",
+    "type": "tool",
+    "title": "H2O LLM Studio",
+    "description": "Framework and no-code GUI for fine-tuning LLMs. 4.9k+ stars. Visual interface for configuring SFT, DPO, and RLHF training with experiment tracking.",
+    "url": "https://github.com/h2oai/h2o-llmstudio",
+    "tags": [
+      "fine-tuning",
+      "gui",
+      "no-code",
+      "h2o"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "fine-tuning",
+    "type": "tool",
+    "title": "LlamaGym",
+    "description": "Fine-tune LLM agents with online reinforcement learning. 1.2k+ stars. Provides a Gym-style interface for training LLM-based agents through RL feedback loops.",
+    "url": "https://github.com/KhoomeiK/LlamaGym",
+    "tags": [
+      "fine-tuning",
+      "reinforcement-learning",
+      "agents",
+      "rl"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "fine-tuning",
+    "type": "tool",
+    "title": "mlx-tune",
+    "description": "Fine-tune LLMs on Mac with Apple Silicon using MLX. 1.2k+ stars. Supports SFT, DPO, GRPO, Vision, TTS, STT, Embedding, and OCR fine-tuning with Unsloth-compatible API.",
+    "url": "https://github.com/ARahim3/mlx-tune",
+    "tags": [
+      "fine-tuning",
+      "mlx",
+      "apple-silicon",
+      "mac"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "fine-tuning",
+    "type": "example",
+    "title": "Fine-Tuning LLMs Book (dvgodoy)",
+    "description": "Official repository of 'A Hands-On Guide to Fine-Tuning LLMs with PyTorch and Hugging Face' book. 825+ stars. Covers SFT, DPO, and RLHF with practical code examples.",
+    "url": "https://github.com/dvgodoy/FineTuningLLMs",
+    "tags": [
+      "fine-tuning",
+      "book",
+      "pytorch",
+      "huggingface"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "fine-tuning",
+    "type": "tool",
+    "title": "Memento - Fine-tuning LLM Agents",
+    "description": "Official code for Memento: fine-tuning LLM agents' policy networks without modifying the base LLM. 2.4k+ stars. Enables agent specialization at a fraction of the cost of full LLM fine-tuning.",
+    "url": "https://github.com/Memento-Teams/Memento",
+    "tags": [
+      "fine-tuning",
+      "agents",
+      "efficient",
+      "policy"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "fine-tuning",
+    "type": "tool",
+    "title": "MLX-GRPO",
+    "description": "Pure MLX-based training pipeline for fine-tuning LLMs using GRPO on Apple Silicon. 240+ stars. Enables reinforcement learning fine-tuning on Mac hardware.",
+    "url": "https://github.com/Doriandarko/MLX-GRPO",
+    "tags": [
+      "fine-tuning",
+      "grpo",
+      "mlx",
+      "apple-silicon"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "fine-tuning",
+    "type": "example",
+    "title": "LLM-Zero-to-Hundred",
+    "description": "Collection of LLM chatbot projects (RAG, agents) and well-known techniques for training and fine-tuning LLMs. 553+ stars. Progressive learning path from basics to advanced.",
+    "url": "https://github.com/Farzad-R/LLM-Zero-to-Hundred",
+    "tags": [
+      "fine-tuning",
+      "rag",
+      "agents",
+      "learning-path"
+    ],
+    "difficulty": "beginner"
   }
 ]
