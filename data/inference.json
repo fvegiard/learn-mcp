@@ -878,61 +878,86 @@
   },
   {
     "topic": "inference",
-    "type": "course",
-    "title": "LLM Inference Engineering: Theory, Practicals and Research (Maven/Vizuara)",
-    "description": "45-hour live course by MIT PhDs with 9 guest lectures from Anthropic, NVIDIA, Apple, Microsoft, AWS. Covers complete LLM inference stack, KV cache mechanics (chunked prefill, prefix caching, H2O, StreamingLLM), GPU architecture and roofline models, quantization (FP16 to GGUF), vLLM/SGLang/TensorRT-LLM, speculative decoding (EAGLE, Medusa), and 4 hardware labs including Raspberry Pi, Jetson Orin, and Apple Silicon.",
-    "url": "https://maven.com/vizuara/inference-workshop",
+    "type": "workflow",
+    "title": "Deploying LLMs on Kubernetes: vLLM, Ray Serve, and GPU Scheduling Guide (2026)",
+    "description": "Comprehensive 2026 guide covering the full production Kubernetes stack for LLM serving: choosing between vLLM (single-node), Ray Serve + vLLM (multi-model), and llm-d (massive scale). Covers NVIDIA GPU Operator setup, MIG vs time-slicing, autoscaling on inference-specific metrics (queue depth, not CPU), KEDA scale-to-zero, Karpenter GPU node provisioning, and common production pitfalls.",
+    "url": "https://blog.premai.io/deploying-llms-on-kubernetes-vllm-ray-serve-gpu-scheduling-guide-2026/",
     "tags": [
-      "inference",
+      "kubernetes",
       "vllm",
-      "sglang",
-      "kv-cache",
-      "quantization"
+      "ray-serve",
+      "gpu-scheduling",
+      "autoscaling"
+    ],
+    "difficulty": "advanced",
+    "workflow": [
+      "SETUP GPU OPERATOR: Install NVIDIA GPU Operator (v25.10.1) for MIG, time-slicing, and topology-aware scheduling; use MIG for production multi-tenant workloads on A100/H100",
+      "DEPLOY VLLM: Use official vllm/vllm-openai Docker image with bundled CUDA; add emptyDir medium=Memory for /dev/shm (tensor parallelism); set initialDelaySeconds: 120 on readiness probe for model loading",
+      "CONFIGURE AUTOSCALING: Wire vllm:num_requests_waiting to custom metric via Prometheus Adapter; use KEDA for scale-to-zero on low-traffic models; use Karpenter for GPU node auto-provisioning with spot + on-demand fallback",
+      "SET UP ROUTING: Deploy vLLM Production Stack Helm chart with request router (round-robin, session-ID, prefix-aware, or KV-aware); use Gateway API Inference Extension (GA Feb 2026) for model-aware traffic splitting",
+      "IMPLEMENT GRACEFUL SHUTDOWN: Set terminationGracePeriodSeconds: 300; add preStop hook with sleep 10 for load balancer drain; use PVC with ReadWriteMany for model weight caching to avoid re-downloading",
+      "MONITOR AND OBSERVE: Deploy Prometheus + Grafana dashboards tracking TTFT, KV cache utilization, queue depth, requests running; set alert thresholds at 2x baseline for p95 latency"
+    ]
+  },
+  {
+    "topic": "inference",
+    "type": "pattern",
+    "title": "llm-d: Disaggregated Prefill/Decode Serving for Large Models on Kubernetes",
+    "description": "llm-d (v0.6.0, CNCF Sandbox project) implements disaggregated prefill/decode serving on Kubernetes, separating compute-heavy prefill from latency-sensitive decode onto independent worker pools. Achieves 3x throughput improvement and 2x TTFT reduction vs. round-robin (Tesla + Red Hat benchmark on Llama 3.1 70B). Supports EPD, P/D, E/PD, and E/P/D topologies with KV-cache-aware routing.",
+    "url": "https://llm-d.ai/blog/production-grade-llm-inference-at-scale-kserve-llm-d-vllm",
+    "tags": [
+      "llm-d",
+      "disaggregated-prefill",
+      "kubernetes",
+      "kserve",
+      "production"
     ],
     "difficulty": "advanced"
   },
   {
     "topic": "inference",
-    "type": "course",
-    "title": "vLLM Course (Uplatz)",
-    "description": "10-hour self-paced course covering vLLM architecture, PagedAttention, continuous batching, model loading from HuggingFace, quantization (FP8, INT8, 4-bit), tensor/pipeline parallelism, OpenAI-compatible API server, FastAPI integration, Kubernetes deployment, and RAG pipeline integration. Includes capstone project building a full LLM inference server.",
-    "url": "https://training.uplatz.com/online-it-course.php?id=vllm-1080",
+    "type": "pattern",
+    "title": "The 2026 AI/ML on Kubernetes Stack: vLLM, Kueue, KAITO, KServe, llm-d, and Ray",
+    "description": "Consolidated guide to the 2026 Kubernetes AI/ML stack: vLLM (default inference engine), llm-d (distributed inference for 70B+ models, disaggregated P/D serving), KServe (CNCF-graduated model serving), Kueue (CNCF GPU scheduling with fair-share and preemption), KubeRay (Ray cluster operator for training), KAITO (Microsoft AKS AI/ML operator), and NVIDIA GPU Operator. Includes stack selection matrix by scenario.",
+    "url": "https://kubernetesguru.com/ai-ml-on-kubernetes-2026-stack-guide/",
     "tags": [
-      "vllm",
-      "pagedattention",
-      "quantization",
       "kubernetes",
-      "api-server"
+      "vllm",
+      "llm-d",
+      "kserve",
+      "kueue",
+      "stack-guide"
     ],
     "difficulty": "intermediate"
   },
   {
     "topic": "inference",
-    "type": "tutorial",
-    "title": "vLLM in Production: Open-Source LLM Inference Engine Guide 2026 (Effloow)",
-    "description": "Comprehensive production guide covering vLLM v0.17.1 with Model Runner V2 (56% higher throughput on NVIDIA GB200), PagedAttention, continuous batching, speculative decoding, disaggregated prefill/decode, benchmarks vs SGLang/TGI/TensorRT-LLM, Kubernetes deployment, and observability (TTFT, ITL, KV cache utilization).",
-    "url": "https://effloow.com/articles/vllm-production-inference-guide-2026",
+    "type": "pattern",
+    "title": "AIBrix: Kubernetes-Native LLM Serving Gateway with LoRA Management and SLO-Aware Routing",
+    "description": "AIBrix (vllm-project, 4.7k+ stars) provides cloud-native infrastructure for GenAI inference on Kubernetes: Envoy-based LLM gateway with 13+ routing strategies (random, least-request, prefix-cache, least-kv-cache, PD disaggregation, session-affinity, SLO-aware), high-density LoRA adapter lifecycle management with dynamic load/unload, StormService controller for distributed inference orchestration, and LLM-tailored autoscaling.",
+    "url": "https://aibrix.readthedocs.io/latest/index.html",
     "tags": [
-      "vllm",
-      "production",
-      "benchmarks",
-      "deployment",
-      "observability"
+      "aibrix",
+      "kubernetes",
+      "lora",
+      "gateway",
+      "routing",
+      "autoscaling"
     ],
     "difficulty": "advanced"
   },
   {
     "topic": "inference",
-    "type": "tutorial",
-    "title": "vLLM Complete Setup Guide for Local LLMs 2026 (Local AI Master)",
-    "description": "32-minute guide covering full vLLM installation (pip, Docker, source, AMD ROCm), comparison table vs Ollama/llama.cpp/TensorRT-LLM/SGLang, quantization recipes (AWQ-INT4, FP8, GPTQ, W8A8), PagedAttention and KV-cache tuning, continuous batching, tensor parallelism, Docker/Kubernetes deployment with Helm+KServe, and GPU-specific tuning for RTX 3090/4090/5090/H100.",
-    "url": "https://localaimaster.com/blog/vllm-complete-setup-guide",
+    "type": "pattern",
+    "title": "Red Hat AI Inference: vLLM + KServe + llm-d on Any Managed Kubernetes",
+    "description": "Red Hat AI Inference (announced May 2026) runs on any managed Kubernetes starting with CoreWeave CKS and Azure AKS. Stack includes vLLM + KServe + llm-d + Istio (Sail Operator) + cert-manager + LWS + Gateway API. CoreWeave offers 5x faster model loading via Tensorizer (zero-copy architecture). Targets enterprise deployments needing multi-cloud portability and vendor support.",
+    "url": "https://www.redhat.com/en/blog/red-hat-ai-inference-brings-llm-d-any-managed-kubernetes-starting-coreweave-and-microsoft-azure",
     "tags": [
-      "vllm",
-      "setup",
-      "quantization",
-      "gpu-tuning",
-      "kubernetes"
+      "red-hat",
+      "kserve",
+      "llm-d",
+      "enterprise",
+      "multi-cloud"
     ],
     "difficulty": "intermediate"
   }
