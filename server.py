@@ -310,12 +310,12 @@ def semantic_search(query: str, topic: str | None = None, limit: int = 10) -> st
             must=[FieldCondition(key="topic", match=MatchValue(value=topic))]
         )
 
-    results = client.search(
+    results = client.query_points(
         collection_name=COLLECTION,
-        query_vector=vector,
+        query=vector,
         query_filter=filter_obj,
         limit=min(limit, 50),
-    )
+    ).points
 
     hits = [{"score": hit.score, **hit.payload} for hit in results]
     return json.dumps({"query": query, "total": len(hits), "results": hits}, indent=2)
