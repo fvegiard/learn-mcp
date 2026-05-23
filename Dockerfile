@@ -18,6 +18,6 @@ VOLUME /root/.cache/huggingface
 EXPOSE 8001
 
 HEALTHCHECK --interval=30s --timeout=10s --retries=3 --start-period=15s \
-    CMD curl -sf --max-time 5 http://127.0.0.1:8001/sse > /dev/null 2>&1 || exit 1
+    CMD python3 -c "import socket; s=socket.socket(); s.settimeout(5); s.connect(('127.0.0.1',8001)); s.close()" || exit 1
 
 CMD ["python", "server.py"]
