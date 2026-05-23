@@ -861,5 +861,122 @@
       "deep-lake"
     ],
     "difficulty": "beginner"
+  },
+  {
+    "topic": "rag",
+    "type": "workflow",
+    "title": "Production RAG Pipeline Architecture: 8-Stage End-to-End Workflow",
+    "description": "Comprehensive production RAG architecture splitting into offline data pipeline (ingest-chunk-embed-index) and online query pipeline (retrieve-rerank-augment-generate), with semantic caching, evaluation harnesses, and cost benchmarks. Covers the full lifecycle from document ingestion through generation with production-grade observability.",
+    "url": "https://www.genaipatterns.dev/guides/production-search-pipeline",
+    "tags": [
+      "production",
+      "architecture",
+      "chunking",
+      "reranking",
+      "semantic-cache",
+      "evaluation"
+    ],
+    "difficulty": "advanced",
+    "workflow": [
+      "INGEST & PARSE: Strip boilerplate with Unstructured.io/LlamaParse; capture metadata (source URL, section path, content hash); make ingestion incremental on hash change",
+      "CHUNK: Structure-aware recursive splitting (H2 > H3 > paragraph > sentence); 400-800 tokens with 10-20% overlap; prepend document title and section path to each chunk",
+      "EMBED: Batch embedding during ingestion (never one-at-a-time); default to text-embedding-3-small ($0.02/1M tokens); self-host BGE-M3 for privacy workloads",
+      "INDEX: Store in pgvector (default for <5M vectors) or Qdrant (multi-tenancy); HNSW with M=16-32, ef_construction=64-200; track is_current flag for soft deletes",
+      "RETRIEVE: Hybrid dense + BM25 with Reciprocal Rank Fusion (RRF); retrieve k=20-50 candidates; add metadata filters for multi-tenant security; HyDE for recall gains",
+      "RERANK: Cross-encoder rescore top 20-50 candidates (Cohere rerank-3.5 or BGE-reranker); 8-14pp recall improvement for 50-200ms latency cost",
+      "GENERATE: Prompt budgeting (system > context in XML tags > history > query last); strict grounding instruction; stream tokens for TTFT < 1s; structured output with JSON schemas",
+      "CACHE & EVALUATE: Semantic cache at 0.92 similarity threshold (~31% hit rate); evaluation harness with 50-400 curated pairs tracking recall@K, faithfulness, citation accuracy; wire into CI"
+    ]
+  },
+  {
+    "topic": "rag",
+    "type": "workflow",
+    "title": "RAG Pipeline Orchestration with Kestra",
+    "description": "Practical guide to orchestrating RAG pipelines (ingestion and query) using Kestra workflow engine, covering document processing, embedding, vector store indexing, and query-time retrieval with reranking and generation.",
+    "url": "https://kestra.io/resources/ai/rag-pipeline",
+    "tags": [
+      "orchestration",
+      "kestra",
+      "pipeline",
+      "production",
+      "workflow-engine"
+    ],
+    "difficulty": "intermediate",
+    "workflow": [
+      "DEFINE INGESTION FLOW: Create Kestra flow with document source trigger (S3, GCS, SFTP, HTTP); parse documents with Unstructured.io connector",
+      "CHUNK & EMBED: Apply recursive character splitting with overlap; batch embed with configurable model; validate embedding dimensions match vector store schema",
+      "INDEX TO VECTOR STORE: Upsert embeddings with metadata to Qdrant/Pinecone/Weaviate; handle deduplication via content hash; set up scheduled reconciliation for deletions",
+      "DEFINE QUERY FLOW: Accept user query via API trigger; embed query; execute hybrid search (dense + keyword) with configurable top-k; fuse results via RRF",
+      "RERANK & GENERATE: Rerank candidates with cross-encoder; assemble prompt with retrieved context; call LLM with streaming; return answer with citations",
+      "MONITOR & EVALUATE: Log all flow executions with latency per stage; set up evaluation dataset comparison; alert on quality regression"
+    ]
+  },
+  {
+    "topic": "rag",
+    "type": "pattern",
+    "title": "Langfuse Observation-Level Evaluation for RAG Pipelines",
+    "description": "Langfuse v4 (2026) introduces observation-level evaluations that run on individual operations (retrieval, generation, tool calls) rather than entire traces. Enables compositional evaluation (toxicity on outputs, relevance on retrievals), asynchronous processing at ingest time, and order-of-magnitude faster queries via a single immutable Observations table.",
+    "url": "https://langfuse.com/changelog/2026-02-13-observation-level-evals",
+    "tags": [
+      "langfuse",
+      "evaluation",
+      "observation-level",
+      "v4",
+      "agentic"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "rag",
+    "type": "workflow",
+    "title": "Production Semantic Caching for LLM Applications: TTLs, Confidence, and Cache Safety",
+    "description": "Production-hardening pattern for semantic caches using FastAPI + Redis + Embeddings. Covers TTL validation at application level, confidence scoring (0.7 similarity + 0.3 freshness), deduplication via query normalization and SHA-256 hashing, and cache poisoning prevention (never cache errors, reject malformed entries). Prioritizes correctness over speed.",
+    "url": "https://pyimagesearch.com/2026/05/04/semantic-caching-for-llms-ttls-confidence-and-cache-safety/",
+    "tags": [
+      "semantic-cache",
+      "production",
+      "redis",
+      "fastapi",
+      "cost-optimization"
+    ],
+    "difficulty": "advanced",
+    "workflow": [
+      "QUERY NORMALIZATION: Lowercase, collapse whitespace, compute SHA-256 hash; check exact-match cache first (fastest path, ~42ms response time)",
+      "SEMANTIC SIMILARITY: Embed normalized query; search Redis vector store with cosine similarity; retrieve top-k cached entries above minimum threshold",
+      "CONFIDENCE SCORING: Compute confidence = 0.7 * similarity + 0.3 * freshness; reject entries below domain-specific confidence floor; fall back to LLM when in doubt",
+      "TTL VALIDATION: Apply application-level TTL enforcement (not Redis-level); domain-specific TTLs (factual: 7d, time-sensitive: 1h, creative: never cache)",
+      "POISONING PREVENTION: Never cache error responses (e.g., [LLM Error]); reject malformed entries at read time; validate response structure before storage",
+      "CACHE UPDATE: Store LLM response with metadata (timestamp, query hash, confidence score); trigger background deduplication to merge paraphrased variants"
+    ]
+  },
+  {
+    "topic": "rag",
+    "type": "pattern",
+    "title": "SAFE-CACHE: Adversarial-Resilient Semantic Caching for RAG Systems",
+    "description": "Research demonstrating that standard semantic caches (GPTCache, Azure Semantic Cache) are vulnerable to embedding-collision attacks (52.77% success rate). SAFE-CACHE replaces single-query matching with cluster-centroid-based caching using Louvain community detection, bi-encoder refinement with adversarial triplet loss, and Q&A combined embeddings to reduce adversarial success to 14.27%.",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12894985/",
+    "tags": [
+      "semantic-cache",
+      "adversarial",
+      "security",
+      "clustering",
+      "production"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "rag",
+    "type": "pattern",
+    "title": "Continuous Semantic Caching for Low-Cost LLM Serving (Microsoft Research)",
+    "description": "First rigorous theoretical framework for semantic LLM caching in continuous query spaces. Introduces dynamic epsilon-net discretization with Kernel Ridge Regression to quantify uncertainty and generalize partial feedback across semantic neighborhoods. Proves sublinear regret bounds against an optimal continuous oracle for online adaptive algorithms.",
+    "url": "https://www.microsoft.com/en-us/research/publication/continuous-semantic-caching-for-low-cost-llm-serving/",
+    "tags": [
+      "semantic-cache",
+      "theory",
+      "microsoft-research",
+      "epsilon-net",
+      "regret-bounds"
+    ],
+    "difficulty": "advanced"
   }
 ]

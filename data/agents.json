@@ -894,5 +894,35 @@
       "frameworks"
     ],
     "difficulty": "intermediate"
+  },
+  {
+    "topic": "agents",
+    "type": "pattern",
+    "title": "Challenges Deploying Autonomous Workflows at Enterprise Scale: Architecture, Risks, and Solutions",
+    "description": "Analysis of why pilot autonomous workflows succeed quickly but production deployments struggle: governance visibility gaps, permission-scoped execution policies, observability infrastructure, supervisor-agent coordination patterns, and fallback-enabled execution routing. Key insight: 'Autonomy increases execution speed faster than compliance and observability layers can adapt.'",
+    "url": "https://engini.ai/blog/challenges-deploying-autonomous-workflows-at-enterprise-scale-architecture-risks-and-solutions",
+    "tags": [
+      "enterprise",
+      "governance",
+      "observability",
+      "production",
+      "autonomy"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "agents",
+    "type": "pattern",
+    "title": "How Autonomous AI Agents Are Reshaping Developer Workflows in 2026",
+    "description": "Practical state-of-agentic-AI-in-production guide covering core building blocks (ReAct reasoning loops, memory and context handling, tool calling, orchestration patterns), real production use cases (code review and automated PRs, issue triage, DevOps incident remediation, internal research automation, tier-1 customer support), and critical risks (hallucination at action time, error propagation, prompt injection, compliance auditability gaps).",
+    "url": "https://dev.to/smartpicksai/how-autonomous-ai-agents-are-reshaping-developer-workflows-in-2026-4ho6",
+    "tags": [
+      "production",
+      "developer-workflows",
+      "devops",
+      "risk",
+      "orchestration"
+    ],
+    "difficulty": "intermediate"
   }
 ]
