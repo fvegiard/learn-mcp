@@ -879,127 +879,151 @@
   {
     "topic": "inference",
     "type": "tool",
-    "title": "LoRAX (Multi-LoRA Inference)",
-    "description": "Multi-LoRA inference server that scales to thousands of fine-tuned LLMs. 3.7k+ stars. Dynamically loads and serves LoRA adapters alongside a base model for cost-effective multi-tenant serving.",
-    "url": "https://github.com/predibase/lorax",
+    "title": "NVIDIA Dynamo: Distributed LLM Inference Framework",
+    "description": "Open-source distributed inference runtime and successor to Triton Inference Server. Features disaggregated prefill/decode serving, KV-aware routing (2x faster TTFT), KV Block Manager with 4-tier cache hierarchy (GPU/CPU/NVMe/remote), SLA-based autoscaling planner, and ModelExpress for 7x faster cold-start. Supports SGLang, TensorRT-LLM, and vLLM backends.",
+    "url": "https://github.com/ai-dynamo/dynamo/",
     "tags": [
+      "dynamo",
+      "disaggregated-serving",
+      "kv-cache",
+      "nvidia",
+      "production"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "inference",
+    "type": "tutorial",
+    "title": "NVIDIA Dynamo Architecture: Disaggregated Prefill/Decode Serving",
+    "description": "Official documentation on Dynamo's three-plane architecture (Request, Control, Storage/Events), disaggregated serving design that separates compute-bound prefill from memory-bound decode, KV-aware routing for cache hit optimization, and the KV Block Manager for multi-tier cache management.",
+    "url": "https://docs.dynamo.nvidia.com/dynamo/design-docs/overall-architecture",
+    "tags": [
+      "dynamo",
+      "architecture",
+      "disaggregated",
+      "prefill-decode",
+      "nvidia"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "inference",
+    "type": "tutorial",
+    "title": "Full-Stack Optimizations for Agentic Inference with NVIDIA Dynamo",
+    "description": "NVIDIA technical blog covering Dynamo's agentic inference features: agent hints (priority, output sequence length, speculative prefill), cache control API with TTL-based KV prefix pinning, 4-tier KV cache hierarchy, selective cache retention with priority-based eviction, and agent lifecycle awareness.",
+    "url": "https://developer.nvidia.com/blog/full-stack-optimizations-for-agentic-inference-with-nvidia-dynamo/",
+    "tags": [
+      "dynamo",
+      "agentic",
+      "kv-cache",
       "inference",
-      "lora",
-      "multi-tenant",
-      "serving"
+      "nvidia"
     ],
     "difficulty": "advanced"
   },
   {
     "topic": "inference",
     "type": "tool",
-    "title": "web-llm (MLC AI)",
-    "description": "High-performance in-browser LLM inference engine. 18k+ stars. Runs LLMs directly in the browser using WebGPU with hardware acceleration, enabling client-side AI without server infrastructure.",
-    "url": "https://github.com/mlc-ai/web-llm",
+    "title": "NVIDIA NIM: Containerized Inference Microservices",
+    "description": "NVIDIA NIM (NVIDIA Inference Microservices) provides containerized, production-ready inference endpoints for LLMs, vision, and speech models. Automatically selects optimal backend (TensorRT-LLM for NVIDIA GPUs, vLLM for others). Deploys via Docker, Kubernetes with Helm, or cloud marketplaces (AWS/Azure/GCP). OpenAI-compatible API with /v1/chat/completions.",
+    "url": "https://docs.nvidia.com/nim/large-language-models/latest/deployment-guide.html",
     "tags": [
-      "inference",
-      "browser",
-      "webgpu",
-      "edge"
-    ],
-    "difficulty": "intermediate"
-  },
-  {
-    "topic": "inference",
-    "type": "tool",
-    "title": "Aphrodite Engine",
-    "description": "Large-scale LLM inference engine. 1.7k+ stars. Supports tensor parallelism, continuous batching, and multiple quantization formats for high-throughput serving.",
-    "url": "https://github.com/dphnAI/aphrodite-engine",
-    "tags": [
-      "inference",
-      "gpu",
-      "serving",
-      "parallelism"
-    ],
-    "difficulty": "advanced"
-  },
-  {
-    "topic": "inference",
-    "type": "tool",
-    "title": "RTP-LLM (Alibaba)",
-    "description": "Alibaba's high-performance LLM inference engine for diverse applications. 1.1k+ stars. Production-tested at scale with prefix caching, speculative decoding, and multiple quantization formats.",
-    "url": "https://github.com/alibaba/rtp-llm",
-    "tags": [
-      "inference",
-      "alibaba",
+      "nim",
+      "nvidia",
+      "containers",
       "production",
-      "quantization"
-    ],
-    "difficulty": "advanced"
-  },
-  {
-    "topic": "inference",
-    "type": "tool",
-    "title": "Jlama (Java LLM Inference)",
-    "description": "Modern LLM inference engine for Java. 1.2k+ stars. Enables running LLMs natively in the JVM ecosystem without Python dependencies.",
-    "url": "https://github.com/tjake/Jlama",
-    "tags": [
-      "inference",
-      "java",
-      "jvm",
-      "native"
+      "tensorrt-llm"
     ],
     "difficulty": "intermediate"
   },
   {
     "topic": "inference",
     "type": "tool",
-    "title": "TokenSpeed",
-    "description": "Speed-of-light LLM inference engine. 1k+ stars. Focuses on maximizing throughput and minimizing latency for production LLM serving workloads.",
-    "url": "https://github.com/lightseekorg/tokenspeed",
+    "title": "NVIDIA Triton Inference Server (Dynamo-Triton)",
+    "description": "Production inference serving platform now rebranded as Dynamo-Triton. Version 2.68.0 (NGC container 26.04) with OpenAI-compatible frontend, PyTorch PT2/AOT Inductor support, TensorRT backend, vLLM 0.16.0 backend, and ManyLinux builds for RHEL 8+. Supports TensorRT, PyTorch, ONNX, TensorFlow, and custom backends.",
+    "url": "https://github.com/triton-inference-server/server/releases/tag/v2.68.0",
     "tags": [
-      "inference",
-      "performance",
-      "throughput",
-      "latency"
-    ],
-    "difficulty": "advanced"
-  },
-  {
-    "topic": "inference",
-    "type": "tool",
-    "title": "LlamaEdge",
-    "description": "Easiest and fastest way to run customized and fine-tuned LLMs locally or on the edge. 1.6k+ stars. Uses Wasm (WebAssembly) for portable, lightweight LLM inference.",
-    "url": "https://github.com/LlamaEdge/LlamaEdge",
-    "tags": [
-      "inference",
-      "edge",
-      "wasm",
-      "portable"
+      "triton",
+      "inference-server",
+      "nvidia",
+      "multi-backend",
+      "production"
     ],
     "difficulty": "intermediate"
   },
   {
     "topic": "inference",
-    "type": "tool",
-    "title": "DashInfer (ModelScope)",
-    "description": "Native LLM inference engine delivering industry-leading performance across CUDA, x86, and ARMv9 architectures. 270+ stars. From Alibaba's ModelScope team for cross-platform deployment.",
-    "url": "https://github.com/modelscope/dash-infer",
+    "type": "tutorial",
+    "title": "Triton Inference Server: Autoscaling TensorRT-LLM on Kubernetes",
+    "description": "Official tutorial on deploying Generative AI workloads with Triton and TensorRT-LLM on Kubernetes. Covers Horizontal Pod Autoscaling with queue-to-compute ratio metrics, multi-GPU deployments (A100/H100), tensor/pipeline parallelism, Prometheus + Grafana monitoring, and NFS/EFS shared storage for model caching.",
+    "url": "https://docs.nvidia.com/deeplearning/triton-inference-server/archives/triton-inference-server-2670/user-guide/docs/tutorials/Deployment/Kubernetes/TensorRT-LLM_Autoscaling_and_Load_Balancing/README.html",
     "tags": [
-      "inference",
-      "cross-platform",
-      "cpu",
-      "arm"
+      "triton",
+      "kubernetes",
+      "autoscaling",
+      "tensorrt-llm",
+      "production"
     ],
     "difficulty": "advanced"
   },
   {
     "topic": "inference",
     "type": "tool",
-    "title": "Checkpoint Engine (Moonshot AI)",
-    "description": "Simple middleware to update model weights in LLM inference engines. 955+ stars. Enables hot-swapping model weights without restarting inference servers.",
-    "url": "https://github.com/MoonshotAI/checkpoint-engine",
+    "title": "NVIDIA TensorRT 10.x: Inference Optimization SDK",
+    "description": "High-performance deep learning inference optimizer and runtime. TensorRT 10.16+ features MoE support (IMoELayer), NVFP4/FP8 quantization, KV Cache Reuse API, built-in RoPE, multi-device inference, and Blackwell GPU support. TensorRT 11.0 (coming Q2 2026) migrates to strongly-typed networks and explicit quantization.",
+    "url": "https://docs.nvidia.com/deeplearning/tensorrt/latest/index.html",
     "tags": [
+      "tensorrt",
       "inference",
-      "checkpoint",
-      "hot-swap",
-      "weights"
+      "optimization",
+      "quantization",
+      "nvidia"
     ],
     "difficulty": "advanced"
+  },
+  {
+    "topic": "inference",
+    "type": "tutorial",
+    "title": "Eliminating Pipeline Friction in AI Model Serving with TensorRT",
+    "description": "NVIDIA technical blog covering 18 best practices for production TensorRT deployment: model export validation, handling unsupported operations, dynamic input sizes with optimization profiles, version management with NGC containers, profiling with trtexec and Nsight tools, and Dynamo-Triton integration with dynamic batching.",
+    "url": "https://developer.nvidia.com/blog/how-to-eliminate-pipeline-friction-in-ai-model-serving/",
+    "tags": [
+      "tensorrt",
+      "deployment",
+      "best-practices",
+      "onnx",
+      "production"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "inference",
+    "type": "tool",
+    "title": "NVIDIA NIM API: 189 Hosted Models on build.nvidia.com",
+    "description": "NVIDIA-hosted inference API at integrate.api.nvidia.com providing OpenAI-compatible endpoints (/v1/chat/completions, /v1/embeddings, /v1/ranking) for 189 catalog models, 101 of which are confirmed hosted and responding. Includes models from Meta, Google, Mistral, DeepSeek, and NVIDIA Nemotron. Free tier available with API key from build.nvidia.com.",
+    "url": "https://docs.nvidia.com/nim/large-language-models/latest/api-reference.html",
+    "tags": [
+      "nim",
+      "api",
+      "hosted-models",
+      "nvidia",
+      "openai-compatible"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "inference",
+    "type": "tool",
+    "title": "NVIDIA NeMo Guardrails: Programmable Safety for LLM Applications",
+    "description": "Open-source Python library and production microservice for adding safety guardrails to LLM applications. Five rail categories (input, retrieval, dialog, execution, output), content safety via NemoGuard models, jailbreak detection, topic control, PII masking, and agentic security. 1.4x detection improvement with ~0.5s added latency.",
+    "url": "https://docs.nvidia.com/nemo/guardrails/latest/about/overview.html",
+    "tags": [
+      "guardrails",
+      "safety",
+      "nemo",
+      "jailbreak",
+      "production"
+    ],
+    "difficulty": "intermediate"
   }
 ]
