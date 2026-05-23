@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 from mcp.server.fastmcp import FastMCP
 
 mcp = FastMCP("learn", host="0.0.0.0", port=8001)
@@ -43,20 +44,41 @@ def _load_references():
     base = os.path.dirname(os.path.abspath(__file__))
     merged = os.path.join(base, "references.json")
     if os.path.exists(merged):
-        with open(merged) as f:
-            REFERENCES = json.load(f)
-        return
+        try:
+            with open(merged) as f:
+                REFERENCES = json.load(f)
+            return
+        except (json.JSONDecodeError, OSError) as e:
+            print(f"Warning: Failed to load {merged}: {e}")
     # Fallback: load individual topic files from data/
     data_dir = os.path.join(base, "data")
     if not os.path.isdir(data_dir):
+        print(f"Warning: No data directory at {data_dir}")
         return
     for fname in sorted(os.listdir(data_dir)):
         if fname.endswith(".json"):
-            with open(os.path.join(data_dir, fname)) as f:
-                REFERENCES.extend(json.load(f))
+            try:
+                with open(os.path.join(data_dir, fname)) as f:
+                    REFERENCES.extend(json.load(f))
+            except (json.JSONDecodeError, OSError) as e:
+                print(f"Warning: Failed to load {fname}: {e}")
 
 
 _load_references()
+
+# ── Lazy-loaded SentenceTransformer model ────────────────────────────────
+
+_MODEL = None
+
+
+def _get_model():
+    """Lazy-load and cache the SentenceTransformer model."""
+    global _MODEL
+    if _MODEL is None:
+        from sentence_transformers import SentenceTransformer
+
+        _MODEL = SentenceTransformer("all-MiniLM-L6-v2")
+    return _MODEL
 
 
 # ── Tools ─────────────────────────────────────────────────────────────────
@@ -79,6 +101,12 @@ def search_references(query: str, topic: str | None = None, limit: int = 10) -> 
                gpu-compute, autonomous-agents)
         limit: Maximum results to return (default 10, max 50)
     """
+    if topic and topic not in TOPICS:
+        return json.dumps(
+            {"error": f"Unknown topic '{topic}'. Use list_topics to see valid topics."},
+            indent=2,
+        )
+
     limit = min(limit, 50)
     results = []
     query_terms = query.lower().split()
@@ -87,11 +115,16 @@ def search_references(query: str, topic: str | None = None, limit: int = 10) -> 
         # Topic filter
         if topic and ref.get("topic") != topic:
             continue
-        # Keyword search: match all query terms across all text fields
+        # Build searchable text with proper list joining
         searchable = " ".join(
-            str(v) for v in ref.values() if isinstance(v, (str, list))
+            v if isinstance(v, str) else " ".join(v) if isinstance(v, list) else ""
+            for v in ref.values()
         ).lower()
-        if all(term in searchable for term in query_terms):
+        # Word-boundary matching so "lang" doesn't match "langchain"
+        if all(
+            re.search(r"\b" + re.escape(term) + r"\b", searchable)
+            for term in query_terms
+        ):
             results.append(ref)
             if len(results) >= limit:
                 break
@@ -207,6 +240,7 @@ def reference_stats() -> str:
 def index_to_qdrant() -> str:
     """Index all references into Qdrant vector database for semantic search.
     Requires Qdrant running at QDRANT_URL (default: http://127.0.0.1:6333).
+    Idempotent: recreates the collection on each call.
     """
     try:
         from qdrant_client import QdrantClient
@@ -219,26 +253,16 @@ def index_to_qdrant() -> str:
 
     client = QdrantClient(url=QDRANT_URL)
 
-    # Create collection if needed
+    # Recreate collection for clean indexing (idempotent)
     collections = [c.name for c in client.get_collections().collections]
-    if COLLECTION not in collections:
-        client.create_collection(
-            collection_name=COLLECTION,
-            vectors_config=VectorParams(size=384, distance=Distance.COSINE),
-        )
+    if COLLECTION in collections:
+        client.delete_collection(collection_name=COLLECTION)
+    client.create_collection(
+        collection_name=COLLECTION,
+        vectors_config=VectorParams(size=384, distance=Distance.COSINE),
+    )
 
-    # Index references using sentence-transformers for embeddings
-    try:
-        from sentence_transformers import SentenceTransformer
-
-        model = SentenceTransformer("all-MiniLM-L6-v2")
-    except ImportError:
-        return json.dumps(
-            {
-                "error": "sentence-transformers not installed. Run: pip install sentence-transformers"
-            },
-            indent=2,
-        )
+    model = _get_model()
 
     points = []
     for i, ref in enumerate(REFERENCES):
@@ -259,9 +283,15 @@ def semantic_search(query: str, topic: str | None = None, limit: int = 10) -> st
         topic: Optional topic to filter results
         limit: Maximum results (default 10, max 50)
     """
+    if topic and topic not in TOPICS:
+        return json.dumps(
+            {"error": f"Unknown topic '{topic}'. Use list_topics to see valid topics."},
+            indent=2,
+        )
+
     try:
         from qdrant_client import QdrantClient
-        from sentence_transformers import SentenceTransformer
+        from qdrant_client.models import FieldCondition, Filter, MatchValue
     except ImportError:
         return json.dumps(
             {
@@ -271,13 +301,11 @@ def semantic_search(query: str, topic: str | None = None, limit: int = 10) -> st
         )
 
     client = QdrantClient(url=QDRANT_URL)
-    model = SentenceTransformer("all-MiniLM-L6-v2")
+    model = _get_model()
     vector = model.encode(query).tolist()
 
     filter_obj = None
     if topic:
-        from qdrant_client.models import FieldCondition, Filter, MatchValue
-
         filter_obj = Filter(
             must=[FieldCondition(key="topic", match=MatchValue(value=topic))]
         )

@@ -34,7 +34,7 @@ VALID_TOPICS = {
 
 def main():
     all_refs = []
-    seen_urls = set()
+    seen_keys = set()
     errors = []
 
     for path in sorted(DATA_DIR.glob("*.json")):
@@ -72,23 +72,52 @@ def main():
                     f"{path.name}[{i}]: missing required url for type '{ref['type']}'"
                 )
 
-            # Deduplicate by URL (skip entries without URLs)
+            # Validate URL format
             url = ref.get("url", "")
-            if url and url in seen_urls:
+            if url and not url.startswith(("http://", "https://")):
+                errors.append(f"{path.name}[{i}]: invalid URL format '{url[:50]}'")
+
+            # Validate code field for examples
+            if ref["type"] == "example" and not ref.get("code"):
+                errors.append(
+                    f"{path.name}[{i}]: missing required 'code' field for type 'example'"
+                )
+
+            # Validate workflow field for workflows
+            if ref["type"] == "workflow" and not ref.get("workflow"):
+                errors.append(
+                    f"{path.name}[{i}]: missing required 'workflow' field for type 'workflow'"
+                )
+
+            # Deduplicate by (url, title) — keeps entries that share a URL
+            # but have different titles (e.g., multiple patterns from same blog post)
+            title = ref.get("title", "")
+            key = (url, title) if url else title
+            if key in seen_keys:
                 continue
-            if url:
-                seen_urls.add(url)
+            seen_keys.add(key)
             all_refs.append(ref)
 
     if errors:
         print(f"\n{len(errors)} validation issues found:")
-        for e in errors[:20]:
+        for e in errors:
             print(f"  - {e}")
-        if len(errors) > 20:
-            print(f"  ... and {len(errors) - 20} more")
 
     # Sort by topic then title
     all_refs.sort(key=lambda r: (r.get("topic", ""), r.get("title", "")))
+
+    # Warn about duplicate titles (may need manual disambiguation)
+    title_counts = {}
+    for ref in all_refs:
+        t = ref.get("title", "")
+        title_counts[t] = title_counts.get(t, 0) + 1
+    dup_titles = {t: c for t, c in title_counts.items() if c > 1}
+    if dup_titles:
+        print(
+            f"\n{len(dup_titles)} duplicate titles found (may need manual disambiguation):"
+        )
+        for t, c in sorted(dup_titles.items()):
+            print(f"  [{c}x] {t}")
 
     OUTPUT.write_text(json.dumps(all_refs, indent=2, ensure_ascii=False))
     print(f"\nWrote {len(all_refs)} references to {OUTPUT}")

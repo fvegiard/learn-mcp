@@ -762,21 +762,6 @@
   {
     "topic": "prompt-engineering",
     "type": "book",
-    "title": "Prompt Engineering for Generative AI (O'Reilly)",
-    "description": "Deep dive into prompt engineering for text, image, and code generation. Covers structured prompts, system prompts, prompt chaining, and evaluation methods.",
-    "url": "https://www.oreilly.com/library/view/prompt-engineering-for/9781098154621/",
-    "tags": [
-      "book",
-      "generative-ai",
-      "text",
-      "image",
-      "code"
-    ],
-    "difficulty": "intermediate"
-  },
-  {
-    "topic": "prompt-engineering",
-    "type": "book",
     "title": "ChatGPT Prompt Engineering for Developers (DeepLearning.AI)",
     "description": "Andrew Ng and Isa Fulford teach practical prompt engineering for software developers: summarization, inference, transformation, expansion, and chatbot building.",
     "url": "https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers/",
