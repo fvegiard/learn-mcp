@@ -900,5 +900,125 @@
       "free"
     ],
     "difficulty": "intermediate"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "tool",
+    "title": "NVIDIA NGC Catalog: GPU-Optimized Containers, Models, and Helm Charts",
+    "description": "NVIDIA GPU Cloud catalog providing pre-built, GPU-optimized containers (PyTorch, TensorFlow, CUDA), pre-trained models, Helm charts, and Jupyter notebooks. All containers are digitally signed, include SBOM/VEX, and support release types from Early Access through Long-Term Supported. Government Ready containers available for regulated environments.",
+    "url": "https://docs.nvidia.com/ngc/latest/ngc-catalog-user-guide.html",
+    "tags": [
+      "ngc",
+      "containers",
+      "models",
+      "helm",
+      "nvidia"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "tool",
+    "title": "CUDA 13.2 Toolkit: cuTile Python DSL and Tile Programming Model",
+    "description": "CUDA Toolkit 13.2 introduces the CUDA Tile Programming Model with cuTile Python DSL for writing GPU kernels in Python. Includes cuBLAS 13.4, cuFFT 12.2, cuSPARSE SpMVOp improvements (up to 2.5x speedup), and Nsight Compute 2026. Drops Maxwell, Pascal, and Volta support.",
+    "url": "https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html",
+    "tags": [
+      "cuda",
+      "toolkit",
+      "cutile",
+      "python",
+      "blackwell"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "tool",
+    "title": "CUDA C++ Best Practices Guide",
+    "description": "Official NVIDIA guide covering memory optimization, execution configuration, instruction-level optimization, and multi-GPU programming for CUDA C++. Essential reference for writing high-performance GPU kernels, with Blackwell and Hopper-specific tuning guidance.",
+    "url": "https://docs.nvidia.com/cuda/cuda-c-best-practices-guide/",
+    "tags": [
+      "cuda",
+      "best-practices",
+      "optimization",
+      "memory",
+      "kernel"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "tool",
+    "title": "NVIDIA RAPIDS cuDF: GPU-Accelerated DataFrames",
+    "description": "GPU-accelerated DataFrame library providing zero-code-change acceleration for pandas (up to 30x), Polars (up to 13x), and Apache Spark. Built on Apache Arrow columnar format with Unified Virtual Memory for datasets larger than GPU VRAM. Part of the RAPIDS suite.",
+    "url": "https://docs.rapids.ai/api/cudf/nightly/user_guide/10min/",
+    "tags": [
+      "rapids",
+      "cudf",
+      "dataframe",
+      "pandas",
+      "gpu-acceleration"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "tool",
+    "title": "NVIDIA RAPIDS cuML: GPU-Accelerated Machine Learning",
+    "description": "GPU-accelerated machine learning library with scikit-learn-compatible APIs. Achieves 10-50x average speedups (up to 1000x+ for t-SNE). Includes 50+ algorithms for clustering, regression, classification, dimensionality reduction, and time series. Zero-code-change acceleration via cuml.accel module.",
+    "url": "https://docs.rapids.ai/api/cuml/latest/cuml_intro/",
+    "tags": [
+      "rapids",
+      "cuml",
+      "scikit-learn",
+      "gpu-acceleration",
+      "machine-learning"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "tool",
+    "title": "DeepSpeed AutoTP: Automatic Tensor Parallel Training",
+    "description": "DeepSpeed Automatic Tensor Parallelism (AutoTP) enables hybrid parallelism combining tensor parallelism, data parallelism, and ZeRO optimization without manual model code changes. Supports HuggingFace tp_plan for automatic sharding of Llama, Qwen, and Gemma2 models.",
+    "url": "https://www.deepspeed.ai/tutorials/autotp-training/",
+    "tags": [
+      "deepspeed",
+      "tensor-parallelism",
+      "automatic",
+      "huggingface",
+      "distributed"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "tool",
+    "title": "NVIDIA NeMo Framework: End-to-End LLM Training Platform",
+    "description": "NVIDIA NeMo Framework for pretraining, post-training, and RL of LLMs and multimodal models. NeMo 2.0 API provides nemo.collections.llm for training recipes, NeMo-Run for cluster orchestration, AutoModel for streamlined SFT/PEFT, and NeMo Curator for GPU-accelerated data preparation.",
+    "url": "https://www.nvidia.com/en-us/gpu-cloud/",
+    "tags": [
+      "nemo",
+      "pretraining",
+      "post-training",
+      "distributed",
+      "nvidia"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "tutorial",
+    "title": "NVIDIA NGC AI and HPC Containers Directory",
+    "description": "Curated directory of GPU-optimized containers on NGC including PyTorch, TensorFlow, Triton Inference Server, TensorRT, and NeMo Framework containers. Each container includes pre-configured CUDA, cuDNN, and NCCL with version compatibility guaranteed.",
+    "url": "https://developer.nvidia.com/ai-hpc-containers",
+    "tags": [
+      "ngc",
+      "containers",
+      "pytorch",
+      "tensorflow",
+      "hpc"
+    ],
+    "difficulty": "beginner"
   }
 ]

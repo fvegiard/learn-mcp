@@ -949,5 +949,110 @@
       "2026"
     ],
     "difficulty": "advanced"
+  },
+  {
+    "topic": "fine-tuning",
+    "type": "tool",
+    "title": "NVIDIA NeMo Framework 2.0: End-to-End LLM Training and Fine-Tuning",
+    "description": "NVIDIA NeMo Framework for pretraining, fine-tuning, and alignment of LLMs and multimodal models. NeMo 2.0 API (nemo.collections.llm) provides training recipes, NeMo-Run for cluster orchestration (local, Slurm, cloud), AutoModel for streamlined SFT/PEFT with HuggingFace integration, and NeMo Curator for GPU-accelerated data preparation.",
+    "url": "https://docs.nvidia.com/nemo-framework/user-guide/25.04/index.html",
+    "tags": [
+      "nemo",
+      "pretraining",
+      "sft",
+      "peft",
+      "nvidia"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "fine-tuning",
+    "type": "tool",
+    "title": "NVIDIA NeMo Curator: GPU-Accelerated Data Preparation",
+    "description": "GPU-accelerated data curation library for preparing LLM training data. Features deduplication (exact and fuzzy), PII redaction, text quality filtering, language identification, domain classification, and distributed processing with Dask/cuDF. Essential for the data preparation stage before fine-tuning.",
+    "url": "https://docs.nvidia.com/nemo-framework/user-guide/25.04/nemotoolkit/starthere/fundamentals.html",
+    "tags": [
+      "data-curation",
+      "deduplication",
+      "pii",
+      "gpu-acceleration",
+      "nvidia"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "fine-tuning",
+    "type": "tool",
+    "title": "NVIDIA NeMo Guardrails: Safety and Alignment for LLMs",
+    "description": "Open-source Python library for adding programmable safety guardrails to LLM applications. Five rail categories (input, retrieval, dialog, execution, output), content safety via NemoGuard models, jailbreak detection, topic control, PII masking, and agentic security for multi-agent workflows. Deploy as library or Kubernetes microservice.",
+    "url": "https://developer.nvidia.com/nemo-guardrails",
+    "tags": [
+      "guardrails",
+      "safety",
+      "alignment",
+      "jailbreak",
+      "nemo"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "fine-tuning",
+    "type": "tool",
+    "title": "DeepSpeed SuperOffload: Efficient Large-Scale LLM Training on Superchips",
+    "description": "DeepSpeed SuperOffload (ASPLOS 2026 Honorable Mention) enables efficient LLM training on heterogeneous hardware by offloading optimizer states, gradients, and parameters across GPU, CPU, and NVMe tiers. Part of DeepSpeed v0.18.9+ alongside ZenFlow (stall-free offloading), AutoTP, and Arctic Long Sequence Training for multi-million token contexts.",
+    "url": "https://deepspeed.readthedocs.io/en/stable/index.html",
+    "tags": [
+      "deepspeed",
+      "superoffload",
+      "offloading",
+      "distributed",
+      "training"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "fine-tuning",
+    "type": "tool",
+    "title": "NVIDIA Megatron-FSDP: Distributed Training with FSDP and Megatron Core",
+    "description": "NVIDIA Megatron Core v0.17+ integrates Megatron's tensor/pipeline parallelism with PyTorch FSDP via --use-megatron-fsdp flag. Supports DeepSeek-V3 scale models, NCCL User Buffers for SM-efficient communication, BF16 gradient reduction, and checkpoint conversion from 3D-parallel to Megatron-FSDP format.",
+    "url": "https://docs.nvidia.com/megatron-core/developer-guide/0.17.0/discussions/megatron-fsdp-user-guide/megatron-fsdp-user-guide.html",
+    "tags": [
+      "megatron",
+      "fsdp",
+      "distributed",
+      "nvidia",
+      "training"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "fine-tuning",
+    "type": "tutorial",
+    "title": "NVIDIA NeMo Framework: Qwen3 Pretraining and Fine-Tuning Recipes",
+    "description": "Official NeMo Framework guide for Qwen3 models (0.6B to 235B-A30B, dense and MoE). Covers pretraining, SFT, PEFT/LoRA, sequence packing, and deployment with TensorRT-LLM, vLLM, or NIM. Includes NeMo 2.0 API recipes and NeMo-Run cluster configuration.",
+    "url": "https://docs.nvidia.com/nemo-framework/user-guide/25.09/llms/qwen3.html",
+    "tags": [
+      "qwen3",
+      "nemo",
+      "pretraining",
+      "sft",
+      "nvidia"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "fine-tuning",
+    "type": "tool",
+    "title": "NVIDIA TensorRT Model Optimizer: Quantization and Compression",
+    "description": "NVIDIA Model Optimizer for quantizing LLMs and vision models to FP8, FP4/NVFP4, INT8, INT4, and AWQ formats. Includes pruning, sparsity, knowledge distillation, and speculative decoding optimization. Part of the TensorRT ecosystem alongside TensorRT-LLM and TensorRT Cloud.",
+    "url": "https://developer.nvidia.com/TensorRT",
+    "tags": [
+      "tensorrt",
+      "quantization",
+      "fp8",
+      "model-optimizer",
+      "nvidia"
+    ],
+    "difficulty": "advanced"
   }
 ]
