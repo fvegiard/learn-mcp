@@ -949,5 +949,65 @@
       "2026"
     ],
     "difficulty": "advanced"
+  },
+  {
+    "topic": "fine-tuning",
+    "type": "tool",
+    "title": "DeepSpeed ReadTheDocs: Complete API Reference",
+    "description": "Comprehensive DeepSpeed API reference covering model setup, training API, inference API, checkpointing (including ZeRO checkpoint recovery), ZeRO API (memory-centric tiling, GPU memory management), Mixture of Experts (MoE), pipeline parallelism, custom optimizers (FusedAdam, FusedLamb, 1-bit Adam/LAMB), autotuning, Flops Profiler, and monitoring integrations. The definitive reference for configuring ZeRO stages 1-3, offloading, and multi-node training.",
+    "url": "https://deepspeed.readthedocs.io/en/stable/index.html",
+    "tags": [
+      "deepspeed",
+      "api",
+      "documentation",
+      "zero",
+      "reference"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "fine-tuning",
+    "type": "tool",
+    "title": "DeepSpeed-MII: Low-Latency Inference with DeepSpeed",
+    "description": "DeepSpeed Model Implementations for Inference (MII) enables low-latency, high-throughput LLM inference. Supports tensor parallelism, DeepSpeed-ZeRO inference, ONNX runtime, and automatic model quantization. Provides 2-4x latency reduction and 3-5x throughput improvement over vanilla HuggingFace inference for supported models.",
+    "url": "https://github.com/deepspeedai/DeepSpeed-MII",
+    "tags": [
+      "deepspeed",
+      "inference",
+      "low-latency",
+      "quantization",
+      "deployment"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "fine-tuning",
+    "type": "tool",
+    "title": "HuggingFace Accelerate: Distributed PyTorch Training Made Easy",
+    "description": "HuggingFace Accelerate provides a simple API for distributed PyTorch training across GPUs, TPUs, and CPUs with minimal code changes. Supports automatic mixed precision (including FP8), FSDP, DeepSpeed integration, gradient accumulation, and multi-node training. The accelerate launch CLI and config system handle environment setup automatically, replacing manual torchrun and environment variable management.",
+    "url": "https://github.com/huggingface/accelerate",
+    "tags": [
+      "accelerate",
+      "huggingface",
+      "distributed",
+      "mixed-precision",
+      "fsdp"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "fine-tuning",
+    "type": "tutorial",
+    "title": "NVIDIA Blog: Eliminating Pipeline Friction in AI Model Serving",
+    "description": "2026 NVIDIA Technical Blog covering 18 best practices for production inference pipelines: early export validation in CI/CD, ONNX operator set versioning, TensorRT plugin extensions for unsupported ops, dynamic optimization profiles for varying input sizes, NVIDIA NGC containers for reproducibility, profiling with trtexec and Nsight Systems, and Dynamo-Triton integration with dynamic batching and model versioning. Addresses the top deployment blockers: export issues, unsupported operations, dynamic inputs, and version mismatches.",
+    "url": "https://developer.nvidia.com/blog/how-to-eliminate-pipeline-friction-in-ai-model-serving/",
+    "tags": [
+      "inference",
+      "production",
+      "tensorrt",
+      "triton",
+      "deployment"
+    ],
+    "difficulty": "advanced"
   }
 ]
