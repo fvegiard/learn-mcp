@@ -797,5 +797,55 @@
       "multi-tenant"
     ],
     "difficulty": "advanced"
+  },
+  {
+    "topic": "vector-db",
+    "type": "tutorial",
+    "title": "Vector Database in RAG: How It Works, Which One to Pick (2026 Guide)",
+    "description": "Decision framework guide with HNSW algorithm internals, similarity metrics comparison, detailed breakdown of Pinecone/Qdrant/Weaviate/Milvus/pgvector/Chroma, real cost numbers at 10M and 100M vector scale, and code examples for Qdrant and Weaviate.",
+    "url": "https://krunalkanojiya.com/blog/vector-database-in-rag",
+    "tags": [
+      "comparison",
+      "cost",
+      "hnsw",
+      "pinecone",
+      "qdrant",
+      "weaviate",
+      "decision-framework"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "vector-db",
+    "type": "tutorial",
+    "title": "Milvus Tutorial: Vector DB RAG in 13 Steps [2026]",
+    "description": "Complete 13-step tutorial with working code: Docker Compose Milvus setup, schema design, Sentence Transformers embeddings, chunking/ingestion, vector search, metadata filtering, HNSW vs IVF_FLAT vs DISKANN index selection, LangChain RAG integration, BM25 hybrid search (Milvus 2.6), benchmarking, Prometheus monitoring, and production auth/TLS.",
+    "url": "https://tech-insider.org/milvus-vector-database-tutorial-rag-13-steps-2026/",
+    "tags": [
+      "milvus",
+      "rag",
+      "hybrid-search",
+      "hnsw",
+      "production",
+      "docker",
+      "tutorial"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "vector-db",
+    "type": "tutorial",
+    "title": "Pinecone vs Qdrant: Which Vector Database Fits Production in 30 Minutes (2026)",
+    "description": "Benchmarked comparison with full code samples. Pinecone Serverless: 1,000 QPS, 8.7ms p50, $324/mo. Qdrant v1.11.2 (T4 GPU): 4,200 QPS, 12ms p50, ~$378/mo EC2. Covers hybrid search differences, GPU acceleration, and production checklist.",
+    "url": "https://markaicode.com/vs/pinecone-vs-qdrant/",
+    "tags": [
+      "pinecone",
+      "qdrant",
+      "comparison",
+      "benchmarks",
+      "production",
+      "cost"
+    ],
+    "difficulty": "intermediate"
   }
 ]

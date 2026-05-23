@@ -81,17 +81,17 @@ def search_references(query: str, topic: str | None = None, limit: int = 10) -> 
     """
     limit = min(limit, 50)
     results = []
-    query_lower = query.lower()
+    query_terms = query.lower().split()
 
     for ref in REFERENCES:
         # Topic filter
         if topic and ref.get("topic") != topic:
             continue
-        # Keyword search across all text fields
+        # Keyword search: match all query terms across all text fields
         searchable = " ".join(
             str(v) for v in ref.values() if isinstance(v, (str, list))
         ).lower()
-        if query_lower in searchable:
+        if all(term in searchable for term in query_terms):
             results.append(ref)
             if len(results) >= limit:
                 break

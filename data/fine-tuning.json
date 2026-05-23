@@ -916,5 +916,38 @@
       "pattern"
     ],
     "difficulty": "advanced"
+  },
+  {
+    "topic": "fine-tuning",
+    "type": "tutorial",
+    "title": "Fine-Tuning LLMs with LoRA (tutorialQ)",
+    "description": "Practical LoRA fine-tuning tutorial covering rank/alpha selection, target modules, dataset preparation, training configuration, and merging. Includes working code for both HuggingFace PEFT and Unsloth.",
+    "url": "https://tutorialq.com/ai/ml/fine-tuning-llms-lora",
+    "tags": [
+      "lora",
+      "peft",
+      "fine-tuning",
+      "tutorial",
+      "huggingface",
+      "unsloth"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "fine-tuning",
+    "type": "tutorial",
+    "title": "LLM Fine-Tuning Complete Guide 2026 (youngju.dev)",
+    "description": "Comprehensive 2026 guide covering LoRA, QLoRA, PEFT, full fine-tuning, dataset preparation (SFT, DPO, GRPO), evaluation, and deployment. Includes production-ready code examples and troubleshooting.",
+    "url": "https://www.youngju.dev/blog/llm/2026-03-17-llm-finetuning-complete-guide.en",
+    "tags": [
+      "lora",
+      "qlora",
+      "peft",
+      "dpo",
+      "grpo",
+      "complete-guide",
+      "2026"
+    ],
+    "difficulty": "advanced"
   }
 ]

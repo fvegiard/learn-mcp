@@ -805,5 +805,100 @@
       "multi-gpu"
     ],
     "difficulty": "intermediate"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "course",
+    "title": "Oxford CUDA Programming on NVIDIA GPUs",
+    "description": "One-week intensive at Oxford Mathematical Institute covering CUDA fundamentals, memory types, warp shuffles, reduction/scan, Tensor Cores, multi-GPU, streams, auto-tuning. 3hrs lectures + 4hrs practicals per day.",
+    "url": "https://people.maths.ox.ac.uk/gilesm/cuda/index.html",
+    "tags": [
+      "cuda",
+      "oxford",
+      "in-person",
+      "tensor-cores",
+      "multi-gpu",
+      "workshop"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "course",
+    "title": "Fundamentals of Accelerated Computing with Modern CUDA C++ (NHR@FAU/NVIDIA DLI)",
+    "description": "3-day online course by NVIDIA DLI Ambassador covering CUDA C++ fundamentals, kernel launches, memory management, profiling, GPU architecture, performance optimization, and modern C++ with GPUs.",
+    "url": "https://hpc.fau.de/calendar/fundamentals-of-accelerated-computing-with-modern-cuda-c-online/",
+    "tags": [
+      "cuda",
+      "nvidia-dli",
+      "c++",
+      "online",
+      "fundamentals"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "course",
+    "title": "Fundamentals of Accelerated Computing with CUDA Python (NHR@FAU/NVIDIA DLI)",
+    "description": "Online course covering CUDA Python with CuPy, cuDF, CCCL, kernel authoring, and memory spaces. Designed for Python-first GPU computing.",
+    "url": "https://hpc.fau.de/calendar/fundamentals-of-accelerated-computing-with-cuda-python-online/",
+    "tags": [
+      "cuda",
+      "python",
+      "cupy",
+      "cudf",
+      "nvidia-dli"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "tutorial",
+    "title": "NVIDIA Accelerated Python Tutorial (GitHub)",
+    "description": "Self-paced tutorial covering CUDA Python (CuPy, cuDF, CCCL, Kernels - 8hrs), CUDA core and CCCL (2hrs), and PyHPC (NumPy, CuPy, mpi4py - 4hrs). Run on NVIDIA Brev, Google Colab, or local Docker.",
+    "url": "https://github.com/NVIDIA/accelerated-computing-hub/tree/main/tutorials/accelerated-python",
+    "tags": [
+      "cuda",
+      "python",
+      "cupy",
+      "cudf",
+      "mpi4py",
+      "nvidia",
+      "tutorial"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "course",
+    "title": "Training and Deploying Large-Scale Models (University Course)",
+    "description": "8-session university course covering distributed LLM training, multi-GPU parallelization (pipeline, tensor, data), communication-efficient optimization, post-training with TorchTune, serving with vLLM, and agentic AI. Uses torchtitan, torchft, torchtune.",
+    "url": "https://training-large-models-course.github.io/",
+    "tags": [
+      "distributed",
+      "fsdp",
+      "pipeline-parallel",
+      "torchtitan",
+      "torchtune",
+      "vllm"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "tutorial",
+    "title": "Distributed Data Parallel in PyTorch Tutorial Series (Learncafe)",
+    "description": "Free 2-hour video tutorial series covering DDP fundamentals, multi-GPU training with DDP, Torchrun, multinode training, and training a GPT-like model with DDP. Includes certificate of completion.",
+    "url": "https://blog.learncafe.com/courses/distributed-data-parallel-in-pytorch-tutorial-series-20260327115333",
+    "tags": [
+      "ddp",
+      "pytorch",
+      "distributed",
+      "torchrun",
+      "multinode",
+      "free"
+    ],
+    "difficulty": "intermediate"
   }
 ]

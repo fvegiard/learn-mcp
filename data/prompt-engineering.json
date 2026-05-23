@@ -788,5 +788,70 @@
       "chatbot"
     ],
     "difficulty": "beginner"
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "tutorial",
+    "title": "Prompt Engineering Complete Guide: CoT, DSPy, Structured Output (youngju.dev)",
+    "description": "Extremely comprehensive guide covering zero-shot through CoT, ToT, Self-Consistency, ReAct, DSPy automatic optimization, Pydantic structured output, XML with Claude, Function Calling, model-specific optimization (GPT-4o, Claude 3.5, Gemini 2.0, Llama 3), Constitutional AI, Meta-Prompting, and prompt injection defense. Full Python code examples.",
+    "url": "https://www.youngju.dev/blog/ai/2026-03-17-prompt-engineering-complete-guide.en",
+    "tags": [
+      "cot",
+      "dspy",
+      "structured-output",
+      "meta-prompting",
+      "comprehensive",
+      "python"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "tutorial",
+    "title": "Advanced LLM Prompt Engineering: CoT, ReAct, and Tree of Thoughts (youngju.dev)",
+    "description": "Deep dive into CoT variants (zero-shot, few-shot, Auto-CoT, Layered CoT), ReAct with Wikipedia search tool, Self-Consistency sampling, ToT BFS implementation, structured output (JSON Mode + Pydantic, Function Calling), production prompt management (versioning, A/B testing, guardrails).",
+    "url": "https://www.youngju.dev/blog/llm/2026-03-10-llm-prompt-engineering-cot-react-advanced.en",
+    "tags": [
+      "cot",
+      "react",
+      "tot",
+      "self-consistency",
+      "structured-output",
+      "production"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "tutorial",
+    "title": "Every Prompt Engineering Technique Explained: The Research-Backed Guide (SurePrompts)",
+    "description": "12 techniques with research citations and benchmark numbers from original papers (ToT: 4% to 74% on Game of 24, Self-Consistency: +17.9% on GSM8K, ReAct: +34% on ALFWorld). Includes decision framework, technique stacking recommendations, and a prompt builder tool.",
+    "url": "https://sureprompts.com/blog/advanced-prompt-engineering-techniques",
+    "tags": [
+      "research",
+      "benchmarks",
+      "cot",
+      "tot",
+      "react",
+      "techniques",
+      "comprehensive"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "tutorial",
+    "title": "Prompt Engineering 2026: The Frameworks That Actually Work (Pasquale Pillitteri)",
+    "description": "Framework-focused guide covering RTF, TAG, TASS, BAB, CARE, CREATE, COAST plus scientific techniques (CoT, ToT, ReAct, Self-Refine). Covers the shift from Prompt Engineering to Context Engineering. Includes A/B test data (CREATE+CoT: 64% reply rate vs 19% basic).",
+    "url": "https://pasqualepillitteri.it/en/news/1090/prompt-engineering-2026-frameworks-complete-guide",
+    "tags": [
+      "frameworks",
+      "context-engineering",
+      "cot",
+      "create",
+      "costar",
+      "ab-testing"
+    ],
+    "difficulty": "intermediate"
   }
 ]

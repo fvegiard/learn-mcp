@@ -743,5 +743,66 @@
       "spec"
     ],
     "difficulty": "advanced"
+  },
+  {
+    "topic": "claude-code",
+    "type": "tutorial",
+    "title": "Claude Code Hooks, Subagents, and Piping: Advanced Automation for Teams",
+    "description": "Comprehensive guide covering the four core primitives (CLAUDE.md, Skills, Hooks, Subagents), hook exit codes (0=proceed, 1=log, 2=hard block), auto-format recipes, destructive-command blockers, test-on-edit loops, piping with -p flag, and the combined power pattern.",
+    "url": "https://devops-monk.com/2026/04/claude-code-hooks-subagents-piping/",
+    "tags": [
+      "hooks",
+      "subagents",
+      "piping",
+      "automation",
+      "teams",
+      "advanced"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "claude-code",
+    "type": "tutorial",
+    "title": "Claude Code Hooks Master Guide: 18 Events and Production Workflow Automation",
+    "description": "Deep reference covering all 18 hook events, hook types (PreToolUse, PostToolUse, SessionStart, Stop), matcher syntax, the March 2026 StopFailure exit code 2 addition, and 10+ production hook recipes with JSON configs.",
+    "url": "https://claudelab.net/en/articles/claude-code/claude-code-hooks-automation-master-guide",
+    "tags": [
+      "hooks",
+      "automation",
+      "production",
+      "events",
+      "reference"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "claude-code",
+    "type": "tutorial",
+    "title": "Claude Code Power User Guide: Skills, Hooks, Subagents",
+    "description": "Practical guide covering the big four primitives (CLAUDE.md, Skills, Hooks, Subagents), custom subagent creation with .md files, cost tips (Haiku for mechanical tasks, Opus for synthesis), git worktrees for parallel agents, and a getting started checklist.",
+    "url": "https://refactix.com/ai-development-engineering/claude-code-power-user-guide-skills-hooks-subagents",
+    "tags": [
+      "skills",
+      "hooks",
+      "subagents",
+      "worktrees",
+      "power-user"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "claude-code",
+    "type": "tutorial",
+    "title": "Claude Code CLI Guide: Install, Configure, and Use in 2026",
+    "description": "Complete CLI guide covering installation, configuration, IDE integrations, MCP server setup, common workflows, and troubleshooting for Claude Code in 2026.",
+    "url": "https://petronellatech.com/blog/claude-code-cli-guide/",
+    "tags": [
+      "cli",
+      "setup",
+      "configuration",
+      "ide",
+      "workflows"
+    ],
+    "difficulty": "beginner"
   }
 ]

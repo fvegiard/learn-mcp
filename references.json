@@ -63,6 +63,38 @@
   {
     "topic": "agents",
     "type": "tutorial",
+    "title": "AI Agent Frameworks Compared: CrewAI vs LangGraph vs AutoGen vs Claude Code",
+    "description": "Comprehensive 2026 comparison of architecture, learning curve, multi-agent support, production readiness, and best use cases across the four major agent frameworks. Includes a quick decision guide and cross-framework orchestration patterns.",
+    "url": "https://www.developersdigest.tech/guides/ai-agent-frameworks-compared",
+    "tags": [
+      "comparison",
+      "crewai",
+      "langgraph",
+      "autogen",
+      "claude-code",
+      "frameworks"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "agents",
+    "type": "course",
+    "title": "Agentic AI with LangGraph, CrewAI, AutoGen and BeeAI (IBM/Coursera)",
+    "description": "Intermediate Coursera course by IBM covering LangGraph design patterns (stateful workflows, human-in-the-loop), CrewAI crews and flows, BeeAI, and AG2/AutoGen group chat. 3 modules, ~13 hours, 9400+ enrolled.",
+    "url": "https://www.coursera.org/learn/agentic-ai-with-langgraph-crewai-autogen-and-beeai",
+    "tags": [
+      "langgraph",
+      "crewai",
+      "autogen",
+      "beeai",
+      "course",
+      "ibm"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "agents",
+    "type": "tutorial",
     "title": "Agentic Memory: A-Mem Paper (Zettelkasten-Inspired Agent Memory)",
     "description": "Research paper on A-Mem, a Zettelkasten-inspired memory architecture for LLM agents. Creates interconnected knowledge networks through dynamic note construction, link generation, and memory evolution. Achieves 85-93% token reduction vs baselines while doubling multi-hop reasoning performance on LoCoMo and DialSim datasets.",
     "url": "https://arxiv.org/abs/2502.12110",
@@ -362,6 +394,37 @@
       "mcp",
       "deployment",
       "tools"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "agents",
+    "type": "tutorial",
+    "title": "Google Codelab: Scale Agents with CrewAI, LangGraph, A2A, and ADK",
+    "description": "Hands-on 35-minute codelab building a multi-agent retail inventory restock system. Demonstrates cross-framework orchestration: LangGraph for planning, CrewAI for execution, A2A Protocol for inter-agent communication, Google ADK as top-level orchestrator.",
+    "url": "https://codelabs.developers.google.com/next26/scale-agents",
+    "tags": [
+      "google-adk",
+      "a2a",
+      "crewai",
+      "langgraph",
+      "codelab",
+      "multi-agent"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "agents",
+    "type": "course",
+    "title": "LangChain Academy: Introduction to LangGraph (Free)",
+    "description": "Free official LangGraph course covering state management, memory, human-in-the-loop fundamentals. Video-based with hands-on exercises from the LangChain team.",
+    "url": "https://academy.langchain.com/courses/intro-to-langgraph",
+    "tags": [
+      "langgraph",
+      "langchain",
+      "free",
+      "course",
+      "fundamentals"
     ],
     "difficulty": "beginner"
   },
@@ -1555,6 +1618,21 @@
   },
   {
     "topic": "claude-code",
+    "type": "tutorial",
+    "title": "Claude Code CLI Guide: Install, Configure, and Use in 2026",
+    "description": "Complete CLI guide covering installation, configuration, IDE integrations, MCP server setup, common workflows, and troubleshooting for Claude Code in 2026.",
+    "url": "https://petronellatech.com/blog/claude-code-cli-guide/",
+    "tags": [
+      "cli",
+      "setup",
+      "configuration",
+      "ide",
+      "workflows"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "claude-code",
     "type": "course",
     "title": "Claude Code Common Workflows (Official)",
     "description": "Official workflows including multi-file editing, git operations, testing, code review, documentation generation, and debugging patterns.",
@@ -1612,6 +1690,21 @@
   },
   {
     "topic": "claude-code",
+    "type": "tutorial",
+    "title": "Claude Code Hooks Master Guide: 18 Events and Production Workflow Automation",
+    "description": "Deep reference covering all 18 hook events, hook types (PreToolUse, PostToolUse, SessionStart, Stop), matcher syntax, the March 2026 StopFailure exit code 2 addition, and 10+ production hook recipes with JSON configs.",
+    "url": "https://claudelab.net/en/articles/claude-code/claude-code-hooks-automation-master-guide",
+    "tags": [
+      "hooks",
+      "automation",
+      "production",
+      "events",
+      "reference"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "claude-code",
     "type": "course",
     "title": "Claude Code Hooks Reference",
     "description": "Official documentation for the hook system: PreToolUse (Bash audit), PostToolUse (auto-lint), SessionStart (heartbeat), Stop (cleanup). Includes configuration, matcher patterns, and examples.",
@@ -1623,6 +1716,22 @@
       "posttooluse"
     ],
     "difficulty": "intermediate"
+  },
+  {
+    "topic": "claude-code",
+    "type": "tutorial",
+    "title": "Claude Code Hooks, Subagents, and Piping: Advanced Automation for Teams",
+    "description": "Comprehensive guide covering the four core primitives (CLAUDE.md, Skills, Hooks, Subagents), hook exit codes (0=proceed, 1=log, 2=hard block), auto-format recipes, destructive-command blockers, test-on-edit loops, piping with -p flag, and the combined power pattern.",
+    "url": "https://devops-monk.com/2026/04/claude-code-hooks-subagents-piping/",
+    "tags": [
+      "hooks",
+      "subagents",
+      "piping",
+      "automation",
+      "teams",
+      "advanced"
+    ],
+    "difficulty": "advanced"
   },
   {
     "topic": "claude-code",
@@ -1648,6 +1757,21 @@
       "marketplace",
       "skills",
       "extensions"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "claude-code",
+    "type": "tutorial",
+    "title": "Claude Code Power User Guide: Skills, Hooks, Subagents",
+    "description": "Practical guide covering the big four primitives (CLAUDE.md, Skills, Hooks, Subagents), custom subagent creation with .md files, cost tips (Haiku for mechanical tasks, Opus for synthesis), git worktrees for parallel agents, and a getting started checklist.",
+    "url": "https://refactix.com/ai-development-engineering/claude-code-power-user-guide-skills-hooks-subagents",
+    "tags": [
+      "skills",
+      "hooks",
+      "subagents",
+      "worktrees",
+      "power-user"
     ],
     "difficulty": "intermediate"
   },
@@ -2385,6 +2509,22 @@
   {
     "topic": "fine-tuning",
     "type": "tutorial",
+    "title": "Fine-Tuning LLMs with LoRA (tutorialQ)",
+    "description": "Practical LoRA fine-tuning tutorial covering rank/alpha selection, target modules, dataset preparation, training configuration, and merging. Includes working code for both HuggingFace PEFT and Unsloth.",
+    "url": "https://tutorialq.com/ai/ml/fine-tuning-llms-lora",
+    "tags": [
+      "lora",
+      "peft",
+      "fine-tuning",
+      "tutorial",
+      "huggingface",
+      "unsloth"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "fine-tuning",
+    "type": "tutorial",
     "title": "Fine-Tuning LLMs with LoRA and QLoRA: A Practical Deep-Dive",
     "description": "An extensive 2026 deep-dive covering the memory wall problem, LoRA math (delta-W = B x A low-rank decomposition), QLoRA innovations (NF4 quantization, double quantization, paged optimizers), complete runnable training and merge/inference scripts for Mistral-7B-Instruct, performance comparison tables across model sizes, evaluation strategy with MMLU canary, and seven common failure modes with fixes.",
     "url": "https://www.abstractalgorithms.dev/fine-tuning-llms-with-lora-and-qlora",
@@ -2514,6 +2654,23 @@
       "pattern"
     ],
     "difficulty": "intermediate"
+  },
+  {
+    "topic": "fine-tuning",
+    "type": "tutorial",
+    "title": "LLM Fine-Tuning Complete Guide 2026 (youngju.dev)",
+    "description": "Comprehensive 2026 guide covering LoRA, QLoRA, PEFT, full fine-tuning, dataset preparation (SFT, DPO, GRPO), evaluation, and deployment. Includes production-ready code examples and troubleshooting.",
+    "url": "https://www.youngju.dev/blog/llm/2026-03-17-llm-finetuning-complete-guide.en",
+    "tags": [
+      "lora",
+      "qlora",
+      "peft",
+      "dpo",
+      "grpo",
+      "complete-guide",
+      "2026"
+    ],
+    "difficulty": "advanced"
   },
   {
     "topic": "fine-tuning",
@@ -3153,6 +3310,22 @@
   },
   {
     "topic": "gpu-compute",
+    "type": "tutorial",
+    "title": "Distributed Data Parallel in PyTorch Tutorial Series (Learncafe)",
+    "description": "Free 2-hour video tutorial series covering DDP fundamentals, multi-GPU training with DDP, Torchrun, multinode training, and training a GPT-like model with DDP. Includes certificate of completion.",
+    "url": "https://blog.learncafe.com/courses/distributed-data-parallel-in-pytorch-tutorial-series-20260327115333",
+    "tags": [
+      "ddp",
+      "pytorch",
+      "distributed",
+      "torchrun",
+      "multinode",
+      "free"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "gpu-compute",
     "type": "course",
     "title": "Distributed Deep Learning with DeepSpeed",
     "description": "Microsoft DeepSpeed course covering ZeRO optimization, model parallelism, pipeline parallelism, mixed precision, and training models with trillions of parameters across GPU clusters.",
@@ -3233,6 +3406,36 @@
       "deployment"
     ],
     "difficulty": "beginner"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "course",
+    "title": "Fundamentals of Accelerated Computing with CUDA Python (NHR@FAU/NVIDIA DLI)",
+    "description": "Online course covering CUDA Python with CuPy, cuDF, CCCL, kernel authoring, and memory spaces. Designed for Python-first GPU computing.",
+    "url": "https://hpc.fau.de/calendar/fundamentals-of-accelerated-computing-with-cuda-python-online/",
+    "tags": [
+      "cuda",
+      "python",
+      "cupy",
+      "cudf",
+      "nvidia-dli"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "course",
+    "title": "Fundamentals of Accelerated Computing with Modern CUDA C++ (NHR@FAU/NVIDIA DLI)",
+    "description": "3-day online course by NVIDIA DLI Ambassador covering CUDA C++ fundamentals, kernel launches, memory management, profiling, GPU architecture, performance optimization, and modern C++ with GPUs.",
+    "url": "https://hpc.fau.de/calendar/fundamentals-of-accelerated-computing-with-modern-cuda-c-online/",
+    "tags": [
+      "cuda",
+      "nvidia-dli",
+      "c++",
+      "online",
+      "fundamentals"
+    ],
+    "difficulty": "intermediate"
   },
   {
     "topic": "gpu-compute",
@@ -3376,6 +3579,23 @@
   },
   {
     "topic": "gpu-compute",
+    "type": "tutorial",
+    "title": "NVIDIA Accelerated Python Tutorial (GitHub)",
+    "description": "Self-paced tutorial covering CUDA Python (CuPy, cuDF, CCCL, Kernels - 8hrs), CUDA core and CCCL (2hrs), and PyHPC (NumPy, CuPy, mpi4py - 4hrs). Run on NVIDIA Brev, Google Colab, or local Docker.",
+    "url": "https://github.com/NVIDIA/accelerated-computing-hub/tree/main/tutorials/accelerated-python",
+    "tags": [
+      "cuda",
+      "python",
+      "cupy",
+      "cudf",
+      "mpi4py",
+      "nvidia",
+      "tutorial"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "gpu-compute",
     "type": "course",
     "title": "NVIDIA Deep Learning Institute Courses",
     "description": "Official NVIDIA DLI courses covering fundamentals through advanced: Getting Started with GPUs, Accelerating CUDA C++ Applications, Optimizing Deep Learning with TensorRT, and Multi-GPU programming.",
@@ -3430,6 +3650,22 @@
       "optimization",
       "fusion",
       "quantization"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "course",
+    "title": "Oxford CUDA Programming on NVIDIA GPUs",
+    "description": "One-week intensive at Oxford Mathematical Institute covering CUDA fundamentals, memory types, warp shuffles, reduction/scan, Tensor Cores, multi-GPU, streams, auto-tuning. 3hrs lectures + 4hrs practicals per day.",
+    "url": "https://people.maths.ox.ac.uk/gilesm/cuda/index.html",
+    "tags": [
+      "cuda",
+      "oxford",
+      "in-person",
+      "tensor-cores",
+      "multi-gpu",
+      "workshop"
     ],
     "difficulty": "advanced"
   },
@@ -3624,6 +3860,22 @@
   },
   {
     "topic": "gpu-compute",
+    "type": "course",
+    "title": "Training and Deploying Large-Scale Models (University Course)",
+    "description": "8-session university course covering distributed LLM training, multi-GPU parallelization (pipeline, tensor, data), communication-efficient optimization, post-training with TorchTune, serving with vLLM, and agentic AI. Uses torchtitan, torchft, torchtune.",
+    "url": "https://training-large-models-course.github.io/",
+    "tags": [
+      "distributed",
+      "fsdp",
+      "pipeline-parallel",
+      "torchtitan",
+      "torchtune",
+      "vllm"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "gpu-compute",
     "type": "tool",
     "title": "Weights and Biases (W&B)",
     "description": "Experiment tracking platform for ML: hyperparameter sweeps, metric logging, artifact versioning, and model registry. Integrates with PyTorch, HuggingFace, and DeepSpeed.",
@@ -3706,6 +3958,22 @@
       "setup",
       "configuration",
       "tuning"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "inference",
+    "type": "tutorial",
+    "title": "Concurrent LLM Serving: Benchmarking vLLM vs SGLang vs Ollama (DEV Community)",
+    "description": "Practical benchmark comparing concurrent request handling across vLLM, SGLang, and Ollama. Shows Ollama flatlines ~22 req/s, vLLM and SGLang scale to hundreds. Includes Docker deployment configs.",
+    "url": "https://dev.to/zkaria_gamal_3cddbbff21c8/concurrent-llm-serving-benchmarking-vllm-vs-sglang-vs-ollama-1cpn",
+    "tags": [
+      "vllm",
+      "sglang",
+      "ollama",
+      "concurrency",
+      "benchmarks",
+      "docker"
     ],
     "difficulty": "intermediate"
   },
@@ -4191,6 +4459,21 @@
   },
   {
     "topic": "inference",
+    "type": "tutorial",
+    "title": "SGLang vs vLLM: Latency Cuts 40% Under Dynamic Batching (Markaicode)",
+    "description": "Benchmark-focused comparison showing SGLang achieving 40% latency reduction on prefix-heavy dynamic batching workloads via RadixAttention. Includes code examples and tuning guidance.",
+    "url": "https://markaicode.com/vs/sglang-vs-vllm/",
+    "tags": [
+      "sglang",
+      "vllm",
+      "latency",
+      "radixattention",
+      "benchmark"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "inference",
     "type": "course",
     "title": "SGLang: Efficient Serving for LLMs",
     "description": "Official SGLang documentation covering RadixAttention for shared-prefix workloads, achieving 29% higher throughput than vLLM. Used by xAI (Grok 3), Microsoft Azure, LinkedIn, Cursor.",
@@ -4408,6 +4691,22 @@
   },
   {
     "topic": "inference",
+    "type": "tutorial",
+    "title": "vLLM vs Ollama vs SGLang vs TensorRT-LLM Serving 2026 (The AI Engineer)",
+    "description": "Substack deep-dive comparing the four major inference engines with real-world benchmarks and deployment recommendations. Covers TGI maintenance mode, SGLang powering xAI Grok and LinkedIn AI on 400K+ GPUs.",
+    "url": "https://theaiengineer.substack.com/p/vllm-vs-ollama-vs-sglang-vs-tensorrt",
+    "tags": [
+      "vllm",
+      "sglang",
+      "ollama",
+      "tensorrt-llm",
+      "comparison",
+      "production"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "inference",
     "type": "course",
     "title": "vLLM vs Ollama vs TGI Comparison (ToolHalla 2026)",
     "description": "Detailed comparison of vLLM (production, 793 tok/s), Ollama (dev/prototyping, 52M downloads), and TGI (maintenance mode). Includes benchmarks, deployment guides, and recommendation matrix.",
@@ -4420,6 +4719,37 @@
       "benchmarks"
     ],
     "difficulty": "intermediate"
+  },
+  {
+    "topic": "inference",
+    "type": "tutorial",
+    "title": "vLLM vs SGLang vs TensorRT-LLM vs Ollama: Choosing an Inference Engine in 2026 (LeetLLM)",
+    "description": "Comprehensive 2026 comparison with H100 benchmarks (Llama 3.3 70B FP8). Covers PagedAttention vs RadixAttention vs compiled engines, decision framework, and common mistakes. SGLang spun out as RadixArk at $400M valuation.",
+    "url": "https://leetllm.com/blog/llm-inference-engine-comparison-2026",
+    "tags": [
+      "vllm",
+      "sglang",
+      "tensorrt-llm",
+      "ollama",
+      "comparison",
+      "benchmarks"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "inference",
+    "type": "tutorial",
+    "title": "vLLM vs SGLang: Inference Engine Comparison 2026 (TURION.AI)",
+    "description": "Detailed architectural comparison of PagedAttention (vLLM) vs RadixAttention (SGLang). Covers prefix caching, token-level reuse, disaggregated prefill/decode, and when each engine excels.",
+    "url": "https://turion.ai/blog/vllm-vs-sglang-inference-comparison-2026/",
+    "tags": [
+      "vllm",
+      "sglang",
+      "radixattention",
+      "pagedattention",
+      "architecture"
+    ],
+    "difficulty": "advanced"
   },
   {
     "topic": "mcp",
@@ -4435,6 +4765,21 @@
       "patterns"
     ],
     "difficulty": "advanced"
+  },
+  {
+    "topic": "mcp",
+    "type": "tutorial",
+    "title": "Apify MCP Server Handbook 2026",
+    "description": "Comprehensive handbook covering MCP server design patterns, tool implementation best practices, error handling, rate limiting, and production deployment considerations for 2026.",
+    "url": "https://use-apify.com/blog/mcp-server-handbook-2026",
+    "tags": [
+      "handbook",
+      "mcp",
+      "best-practices",
+      "production",
+      "design-patterns"
+    ],
+    "difficulty": "intermediate"
   },
   {
     "topic": "mcp",
@@ -4684,6 +5029,21 @@
       "production"
     ],
     "difficulty": "beginner"
+  },
+  {
+    "topic": "mcp",
+    "type": "tutorial",
+    "title": "LogRocket: How to Build an MCP Server with Node.js",
+    "description": "Node.js tutorial for building MCP servers using the TypeScript SDK. Covers server setup, tool registration, SSE transport, testing, and debugging patterns.",
+    "url": "https://blog.logrocket.com/how-to-build-mcp-server-nodejs/",
+    "tags": [
+      "nodejs",
+      "typescript",
+      "mcp",
+      "tutorial",
+      "sdk"
+    ],
+    "difficulty": "intermediate"
   },
   {
     "topic": "mcp",
@@ -4941,6 +5301,22 @@
   },
   {
     "topic": "mcp",
+    "type": "book",
+    "title": "MCP: Model Context Protocol Book (cloudstreet-dev, CC0)",
+    "description": "Open-source CC0-licensed book covering the full MCP specification, server/client implementation, tool design patterns, security considerations, and production deployment. Available on GitHub.",
+    "url": "https://github.com/cloudstreet-dev/MCP-Model-Context-Protocol",
+    "tags": [
+      "book",
+      "open-source",
+      "cc0",
+      "mcp",
+      "specification",
+      "comprehensive"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "mcp",
     "type": "pattern",
     "title": "Microsoft Agent Framework — MCP-Driven Multi-Agent Patterns",
     "description": "Microsoft's agent framework demonstrating four MCP-driven orchestration patterns with a customer support scenario: Single Agent (simple, domain-bound), Reflection (two-agent quality loop), Handoff (intent classification with domain-specific routing), and Magentic Orchestration (centralized planner with task ledger, parallel+sequential execution). Uses modular runtime to swap patterns via .env config without changing code.",
@@ -5002,6 +5378,21 @@
   },
   {
     "topic": "mcp",
+    "type": "course",
+    "title": "SudoAll.com MCP Protocol Course (55 Lessons)",
+    "description": "Comprehensive 55-lesson MCP course covering protocol basics, server/client architecture, tool design, resource handling, prompts, transport layers (SSE, Streamable HTTP), authentication, and production deployment patterns.",
+    "url": "https://sudoall.com/mcp-protocol-course-intro/",
+    "tags": [
+      "course",
+      "mcp",
+      "protocol",
+      "lessons",
+      "comprehensive"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "mcp",
     "type": "example",
     "title": "TypeScript MCP Client — Connecting to Remote and Local Servers",
     "description": "A TypeScript MCP client demonstrating both StreamableHTTPClientTransport for remote servers and StdioClientTransport for local servers. Shows client creation, capability negotiation, tool discovery, resource reading, and prompt listing patterns.",
@@ -5028,6 +5419,21 @@
       "client",
       "configuration",
       "microsoft"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "mcp",
+    "type": "tutorial",
+    "title": "env.dev: How to Build an MCP Server",
+    "description": "Step-by-step guide to building MCP servers covering project setup, tool definitions, resource handlers, transport configuration, testing, and deployment.",
+    "url": "https://env.dev/guides/how-to-build-an-mcp-server",
+    "tags": [
+      "tutorial",
+      "mcp",
+      "build",
+      "server",
+      "step-by-step"
     ],
     "difficulty": "beginner"
   },
@@ -5648,6 +6054,37 @@
   },
   {
     "topic": "mlops",
+    "type": "course",
+    "title": "MLOps and LLMOps: Deploying and Scaling AI in Production (Coursera/Board Infinity)",
+    "description": "Coursera course covering MLOps and LLMOps fundamentals, CI/CD for ML, model deployment, monitoring, scaling, and production best practices for both traditional ML and LLM workloads.",
+    "url": "https://www.coursera.org/learn/mlops-and-llmops-deploying-and-scaling-ai-in-production",
+    "tags": [
+      "mlops",
+      "llmops",
+      "coursera",
+      "deployment",
+      "scaling",
+      "production"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "mlops",
+    "type": "course",
+    "title": "MLOpsLab.org LLMOps Crash Course: Beginners Guide to LLM Operations",
+    "description": "Free crash course covering the LLM operations lifecycle and workflow: data pipelines, model training, deployment, monitoring, and scaling. Designed for engineers new to LLMOps.",
+    "url": "https://mlopslab.org/llmops-tutorial-a-beginners-guide-to-llm-operations-lifecycle-workflow/",
+    "tags": [
+      "llmops",
+      "crash-course",
+      "free",
+      "lifecycle",
+      "beginner"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "mlops",
     "type": "example",
     "title": "MLflow 3 Experiment Tracking and GenAI Evaluation",
     "description": "Python code for tracking ML experiments, registering models, and evaluating LLM outputs using MLflow 3 genai evaluation with built-in scorers.",
@@ -5813,6 +6250,22 @@
       "testing"
     ],
     "difficulty": "intermediate"
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "tutorial",
+    "title": "Advanced LLM Prompt Engineering: CoT, ReAct, and Tree of Thoughts (youngju.dev)",
+    "description": "Deep dive into CoT variants (zero-shot, few-shot, Auto-CoT, Layered CoT), ReAct with Wikipedia search tool, Self-Consistency sampling, ToT BFS implementation, structured output (JSON Mode + Pydantic, Function Calling), production prompt management (versioning, A/B testing, guardrails).",
+    "url": "https://www.youngju.dev/blog/llm/2026-03-10-llm-prompt-engineering-cot-react-advanced.en",
+    "tags": [
+      "cot",
+      "react",
+      "tot",
+      "self-consistency",
+      "structured-output",
+      "production"
+    ],
+    "difficulty": "advanced"
   },
   {
     "topic": "prompt-engineering",
@@ -5984,6 +6437,23 @@
       "performance"
     ],
     "difficulty": "beginner"
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "tutorial",
+    "title": "Every Prompt Engineering Technique Explained: The Research-Backed Guide (SurePrompts)",
+    "description": "12 techniques with research citations and benchmark numbers from original papers (ToT: 4% to 74% on Game of 24, Self-Consistency: +17.9% on GSM8K, ReAct: +34% on ALFWorld). Includes decision framework, technique stacking recommendations, and a prompt builder tool.",
+    "url": "https://sureprompts.com/blog/advanced-prompt-engineering-techniques",
+    "tags": [
+      "research",
+      "benchmarks",
+      "cot",
+      "tot",
+      "react",
+      "techniques",
+      "comprehensive"
+    ],
+    "difficulty": "intermediate"
   },
   {
     "topic": "prompt-engineering",
@@ -6300,6 +6770,38 @@
   {
     "topic": "prompt-engineering",
     "type": "tutorial",
+    "title": "Prompt Engineering 2026: The Frameworks That Actually Work (Pasquale Pillitteri)",
+    "description": "Framework-focused guide covering RTF, TAG, TASS, BAB, CARE, CREATE, COAST plus scientific techniques (CoT, ToT, ReAct, Self-Refine). Covers the shift from Prompt Engineering to Context Engineering. Includes A/B test data (CREATE+CoT: 64% reply rate vs 19% basic).",
+    "url": "https://pasqualepillitteri.it/en/news/1090/prompt-engineering-2026-frameworks-complete-guide",
+    "tags": [
+      "frameworks",
+      "context-engineering",
+      "cot",
+      "create",
+      "costar",
+      "ab-testing"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "tutorial",
+    "title": "Prompt Engineering Complete Guide: CoT, DSPy, Structured Output (youngju.dev)",
+    "description": "Extremely comprehensive guide covering zero-shot through CoT, ToT, Self-Consistency, ReAct, DSPy automatic optimization, Pydantic structured output, XML with Claude, Function Calling, model-specific optimization (GPT-4o, Claude 3.5, Gemini 2.0, Llama 3), Constitutional AI, Meta-Prompting, and prompt injection defense. Full Python code examples.",
+    "url": "https://www.youngju.dev/blog/ai/2026-03-17-prompt-engineering-complete-guide.en",
+    "tags": [
+      "cot",
+      "dspy",
+      "structured-output",
+      "meta-prompting",
+      "comprehensive",
+      "python"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "prompt-engineering",
+    "type": "tutorial",
     "title": "Prompt Engineering Guide (DAIR.AI)",
     "description": "Community-maintained guide with techniques, models, and papers. Covers CoT, ToT, self-consistency, ReAct, PAL, and more. Includes interactive examples and model comparisons.",
     "url": "https://www.promptingguide.ai/",
@@ -6545,6 +7047,21 @@
     ],
     "difficulty": "intermediate",
     "code": "EXTRACTION_PROMPT = \"\"\"\nYou are a data extraction assistant. Extract information from the provided text.\n\n<instructions>\n- Extract each field listed in <output_schema>\n- If a field is not found, output null\n- Do not infer or fabricate information\n- Preserve original text for extracted values\n</instructions>\n\n<output_schema>\n{\n  \"company_name\": \"string\",\n  \"revenue\": \"string - with currency symbol\",\n  \"fiscal_year\": \"string - YYYY format\",\n  \"key_products\": [\"string\"],\n  \"sentiment\": \"positive | negative | neutral\"\n}\n</output_schema>\n\n<text>\n{input_text}\n</text>\n\nOutput ONLY valid JSON matching the schema above.\n\"\"\""
+  },
+  {
+    "topic": "rag",
+    "type": "course",
+    "title": "Activeloop Gen AI 360: RAG Course (Free)",
+    "description": "Free RAG course from the Gen AI 360 series covering retrieval fundamentals, vector databases, embedding models, chunking strategies, and end-to-end RAG pipeline construction with Deep Lake.",
+    "url": "https://learn.activeloop.ai/courses/rag",
+    "tags": [
+      "activeloop",
+      "free",
+      "rag",
+      "course",
+      "deep-lake"
+    ],
+    "difficulty": "beginner"
   },
   {
     "topic": "rag",
@@ -7230,6 +7747,21 @@
   },
   {
     "topic": "rag",
+    "type": "course",
+    "title": "Udacity: Large Language Models (LLMs) and RAG",
+    "description": "Udacity course covering LLM fundamentals and RAG architecture with a NASA capstone project. Covers embeddings, vector search, retrieval strategies, generation, and evaluation.",
+    "url": "https://www.udacity.com/course/large-language-models-llms-and-rag--cd13318",
+    "tags": [
+      "udacity",
+      "rag",
+      "llm",
+      "course",
+      "capstone"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "rag",
     "type": "pattern",
     "title": "UniversalRAG: Modality-Aware Routing for Multimodal Retrieval",
     "description": "Multimodal RAG pattern that dynamically identifies the most appropriate modality-specific corpus (text, image, table, video) and performs targeted retrieval. Key finding: forcing all modalities into a unified embedding space causes a modality gap where retrieval favors items of the same modality as the query. Routing to modality-specific corpora avoids this gap. Supports both training-based routers (Qwen3-VL-2B, InternVL3.5-1B) and training-free routers (GPT-5). Multi-granularity retrieval (paragraphs vs. documents, clips vs. full videos) consistently improves performance.",
@@ -7635,6 +8167,23 @@
   },
   {
     "topic": "vector-db",
+    "type": "tutorial",
+    "title": "Milvus Tutorial: Vector DB RAG in 13 Steps [2026]",
+    "description": "Complete 13-step tutorial with working code: Docker Compose Milvus setup, schema design, Sentence Transformers embeddings, chunking/ingestion, vector search, metadata filtering, HNSW vs IVF_FLAT vs DISKANN index selection, LangChain RAG integration, BM25 hybrid search (Milvus 2.6), benchmarking, Prometheus monitoring, and production auth/TLS.",
+    "url": "https://tech-insider.org/milvus-vector-database-tutorial-rag-13-steps-2026/",
+    "tags": [
+      "milvus",
+      "rag",
+      "hybrid-search",
+      "hnsw",
+      "production",
+      "docker",
+      "tutorial"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "vector-db",
     "type": "example",
     "title": "Milvus Vector Search Pipeline",
     "description": "Python code for setting up Milvus with PyMilvus for production vector search.",
@@ -7729,6 +8278,22 @@
     ],
     "difficulty": "beginner",
     "code": "from pinecone import Pinecone, ServerlessSpec\n\npc = Pinecone(api_key=\"your-api-key\")\n\nindex_name = \"documents\"\nif index_name not in pc.list_indexes().names():\n    pc.create_index(\n        name=index_name,\n        dimension=384,\n        metric=\"cosine\",\n        spec=ServerlessSpec(cloud=\"aws\", region=\"us-east-1\")\n    )\n\nindex = pc.Index(index_name)\n\nvectors = [\n    {\"id\": \"doc1\", \"values\": [0.1] * 384, \"metadata\": {\"text\": \"RAG combines retrieval with generation\"}},\n    {\"id\": \"doc2\", \"values\": [0.2] * 384, \"metadata\": {\"text\": \"Vector databases enable semantic search\"}}\n]\nindex.upsert(vectors=vectors)\n\nresults = index.query(\n    vector=[0.15] * 384,\n    top_k=5,\n    include_metadata=True\n)"
+  },
+  {
+    "topic": "vector-db",
+    "type": "tutorial",
+    "title": "Pinecone vs Qdrant: Which Vector Database Fits Production in 30 Minutes (2026)",
+    "description": "Benchmarked comparison with full code samples. Pinecone Serverless: 1,000 QPS, 8.7ms p50, $324/mo. Qdrant v1.11.2 (T4 GPU): 4,200 QPS, 12ms p50, ~$378/mo EC2. Covers hybrid search differences, GPU acceleration, and production checklist.",
+    "url": "https://markaicode.com/vs/pinecone-vs-qdrant/",
+    "tags": [
+      "pinecone",
+      "qdrant",
+      "comparison",
+      "benchmarks",
+      "production",
+      "cost"
+    ],
+    "difficulty": "intermediate"
   },
   {
     "topic": "vector-db",
@@ -7940,6 +8505,23 @@
       "hnsw",
       "quantization",
       "aws"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "vector-db",
+    "type": "tutorial",
+    "title": "Vector Database in RAG: How It Works, Which One to Pick (2026 Guide)",
+    "description": "Decision framework guide with HNSW algorithm internals, similarity metrics comparison, detailed breakdown of Pinecone/Qdrant/Weaviate/Milvus/pgvector/Chroma, real cost numbers at 10M and 100M vector scale, and code examples for Qdrant and Weaviate.",
+    "url": "https://krunalkanojiya.com/blog/vector-database-in-rag",
+    "tags": [
+      "comparison",
+      "cost",
+      "hnsw",
+      "pinecone",
+      "qdrant",
+      "weaviate",
+      "decision-framework"
     ],
     "difficulty": "intermediate"
   },

@@ -5,7 +5,13 @@
     "title": "DeepLearning.AI Retrieval Augmented Generation (RAG) Course",
     "description": "Comprehensive 24.5-hour course covering RAG overview, information retrieval foundations, vector databases with Weaviate, LLMs and text generation, and RAG systems in production. Taught by Zain Hasan with 49 videos, 9 code examples, and 10 graded assignments. Builds domain-specific chatbots and implements hybrid search.",
     "url": "https://www.deeplearning.ai/courses/retrieval-augmented-generation",
-    "tags": ["course", "fundamentals", "weaviate", "hybrid-search", "production"],
+    "tags": [
+      "course",
+      "fundamentals",
+      "weaviate",
+      "hybrid-search",
+      "production"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -14,7 +20,14 @@
     "title": "Boot.dev Learn Retrieval Augmented Generation",
     "description": "40-hour, 75-lesson course that implements search techniques from scratch in Python. Covers TF-IDF, BM25 keyword search, semantic search with embeddings, chunking, hybrid search, LLMs, reranking, evaluation, agentic RAG, and multimodal RAG. Uses the Gemini API and teaches the full RAG stack.",
     "url": "https://www.boot.dev/courses/learn-retrieval-augmented-generation",
-    "tags": ["course", "fundamentals", "python", "bm25", "hybrid-search", "agentic-rag"],
+    "tags": [
+      "course",
+      "fundamentals",
+      "python",
+      "bm25",
+      "hybrid-search",
+      "agentic-rag"
+    ],
     "difficulty": "beginner"
   },
   {
@@ -23,7 +36,14 @@
     "title": "Coursera Generative AI Applications with RAG and LangChain",
     "description": "IBM-sponsored 9-hour intermediate course covering document loading and text-splitting with LangChain, embedding with watsonx, storing in ChromaDB/FAISS, advanced retrievers (Multi-Query, Self-Query, Parent Document), and building a QA bot with Gradio. Includes comparison of RAG vs. fine-tuning with InstructLab.",
     "url": "https://www.coursera.org/learn/project-generative-ai-applications-with-rag-and-langchain",
-    "tags": ["course", "langchain", "chromadb", "faiss", "ibm", "watsonx"],
+    "tags": [
+      "course",
+      "langchain",
+      "chromadb",
+      "faiss",
+      "ibm",
+      "watsonx"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -32,7 +52,13 @@
     "title": "Educative.io Fundamentals of RAG with LangChain",
     "description": "3-hour beginner course covering RAG architecture and workflows, indexing techniques, retrieval strategies, building end-to-end RAG pipelines with LangChain, and creating interactive web apps with Streamlit. Also covers transitioning between vector stores and an advanced challenge building RAG with Google Gemini.",
     "url": "https://www.educative.io/courses/rag-llm",
-    "tags": ["course", "langchain", "streamlit", "beginner", "gemini"],
+    "tags": [
+      "course",
+      "langchain",
+      "streamlit",
+      "beginner",
+      "gemini"
+    ],
     "difficulty": "beginner"
   },
   {
@@ -41,7 +67,13 @@
     "title": "LangChain Official RAG Agent Tutorial",
     "description": "Official LangChain tutorial demonstrating two RAG approaches: a RAG Agent with tool-based retrieval and a RAG Chain with single LLM call per query. Shows how to use the create_agent API, @tool decorator, and vector store similarity search in about 40 lines of code. Supports multiple LLM providers and vector stores.",
     "url": "https://docs.langchain.com/oss/python/langchain/rag",
-    "tags": ["tutorial", "langchain", "agent", "python", "vector-store"],
+    "tags": [
+      "tutorial",
+      "langchain",
+      "agent",
+      "python",
+      "vector-store"
+    ],
     "difficulty": "beginner"
   },
   {
@@ -50,7 +82,14 @@
     "title": "Qdrant Vector Database",
     "description": "High-performance open-source vector database written in Rust, supporting dense vectors, sparse vectors (SPLADE/BM25), and multi-vector late interaction (ColBERT). Offers the best price-to-performance ratio among vector databases, with advanced payload filtering, quantization, and a flexible Query API for hybrid search with RRF and DBSF fusion.",
     "url": "https://qdrant.tech/documentation/",
-    "tags": ["tool", "vector-database", "qdrant", "hybrid-search", "rust", "open-source"],
+    "tags": [
+      "tool",
+      "vector-database",
+      "qdrant",
+      "hybrid-search",
+      "rust",
+      "open-source"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -59,7 +98,14 @@
     "title": "Weaviate Vector Database",
     "description": "Open-source vector database with native BM25 + vector hybrid search, modular AI stack (vectorizers, generative modules, RAG modules), multi-tenancy support, and GraphQL API. Excels at enterprise RAG workloads requiring keyword and semantic search together. Available as self-hosted or managed Weaviate Cloud.",
     "url": "https://weaviate.io/developers/weaviate",
-    "tags": ["tool", "vector-database", "weaviate", "hybrid-search", "graphql", "open-source"],
+    "tags": [
+      "tool",
+      "vector-database",
+      "weaviate",
+      "hybrid-search",
+      "graphql",
+      "open-source"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -68,7 +114,14 @@
     "title": "ChromaDB Embedded Vector Database",
     "description": "Lightweight Python-native vector database with an embedded mode requiring no server. Provides dead-simple API, zero configuration, and excellent LangChain/LlamaIndex integration. Best for RAG prototyping, notebooks, and small internal tools. Not designed for production scale or multi-user concurrent access.",
     "url": "https://www.trychroma.com/docs",
-    "tags": ["tool", "vector-database", "chromadb", "embedded", "python", "prototyping"],
+    "tags": [
+      "tool",
+      "vector-database",
+      "chromadb",
+      "embedded",
+      "python",
+      "prototyping"
+    ],
     "difficulty": "beginner"
   },
   {
@@ -77,7 +130,13 @@
     "title": "Vector Database Selection Decision Framework",
     "description": "Decision framework for choosing the right vector database based on scale, operational requirements, and use case. Prototyping: ChromaDB. Production under 1M vectors without DevOps: Pinecone. Cost-sensitive production with 10-100M vectors: Qdrant. Enterprise hybrid search: Weaviate. Billions of vectors with K8s: Milvus. Existing PostgreSQL: pgvector. Migration path from dev to production scale.",
     "url": "https://genai.qa/blog/pinecone-vs-weaviate-vs-qdrant-vs-chroma-vs-milvus/",
-    "tags": ["pattern", "vector-database", "comparison", "decision-framework", "production"],
+    "tags": [
+      "pattern",
+      "vector-database",
+      "comparison",
+      "decision-framework",
+      "production"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -86,7 +145,13 @@
     "title": "Build a Basic RAG Pipeline End-to-End",
     "description": "Step-by-step workflow for building a minimal RAG pipeline from document ingestion to query answering. Covers the five core stages of RAG: loading documents, chunking text, generating embeddings, storing in a vector database, and retrieving plus generating answers. Uses LangChain and ChromaDB for the simplest possible production-quality pipeline.",
     "url": "https://docs.langchain.com/oss/python/langchain/rag",
-    "tags": ["workflow", "fundamentals", "langchain", "chromadb", "end-to-end"],
+    "tags": [
+      "workflow",
+      "fundamentals",
+      "langchain",
+      "chromadb",
+      "end-to-end"
+    ],
     "difficulty": "beginner",
     "workflow": [
       "Install dependencies: pip install langchain langchain-chroma langchain-openai",
@@ -105,7 +170,14 @@
     "title": "Set Up Qdrant Hybrid Search with Dense and Sparse Vectors",
     "description": "Complete workflow for implementing hybrid search in Qdrant combining dense vector semantic search with sparse vector keyword matching (BM25/SPLADE), fused using Reciprocal Rank Fusion (RRF). This pattern significantly outperforms either dense or sparse search alone, especially for queries containing specific terms or IDs.",
     "url": "https://qdrant.tech/documentation/tutorials-develop/hybrid-search-fastembed/",
-    "tags": ["workflow", "qdrant", "hybrid-search", "splade", "bm25", "rrf"],
+    "tags": [
+      "workflow",
+      "qdrant",
+      "hybrid-search",
+      "splade",
+      "bm25",
+      "rrf"
+    ],
     "difficulty": "intermediate",
     "workflow": [
       "Install: pip install qdrant-client[fastembed] fastembed",
@@ -125,7 +197,14 @@
     "title": "Evaluate RAG Quality with RAGAS Metrics",
     "description": "Workflow for systematically evaluating RAG pipeline quality using the RAGAS framework. Covers creating evaluation datasets, computing faithfulness, answer relevancy, context precision, and context recall metrics, and interpreting results. Emphasizes scoring retrieval and generation separately to catch silent regressions.",
     "url": "https://docs.ragas.io/en/stable/tutorials/rag/",
-    "tags": ["workflow", "evaluation", "ragas", "metrics", "faithfulness", "quality"],
+    "tags": [
+      "workflow",
+      "evaluation",
+      "ragas",
+      "metrics",
+      "faithfulness",
+      "quality"
+    ],
     "difficulty": "intermediate",
     "workflow": [
       "Install RAGAS: pip install ragas and ragas quickstart rag_eval",
@@ -145,7 +224,13 @@
     "title": "Build a GraphRAG Pipeline with Microsoft GraphRAG",
     "description": "Workflow for building a knowledge-graph-enhanced RAG system using Microsoft GraphRAG. Covers installation, configuration, indexing pipeline (chunking, entity extraction, relationship extraction, community detection, summarization), and querying with global, local, and DRIFT search methods. Enables answering holistic questions that standard vector RAG cannot.",
     "url": "https://microsoft-graphrag.mintlify.app/quickstart",
-    "tags": ["workflow", "graphrag", "knowledge-graph", "microsoft", "community-detection"],
+    "tags": [
+      "workflow",
+      "graphrag",
+      "knowledge-graph",
+      "microsoft",
+      "community-detection"
+    ],
     "difficulty": "advanced",
     "workflow": [
       "Install: pip install graphrag",
@@ -166,7 +251,14 @@
     "title": "Deploy Production RAG Monitoring with OpenTelemetry and Langfuse",
     "description": "Workflow for setting up comprehensive observability for a production RAG system using OpenTelemetry tracing and Langfuse for cost/latency/quality monitoring. Covers per-stage latency breakdown, token cost tracking, implicit quality signals, and alerting thresholds. Ensures silent regressions in answer quality are caught before they impact users.",
     "url": "https://langfuse.com/blog/2025-10-28-rag-observability-and-evals",
-    "tags": ["workflow", "production", "monitoring", "opentelemetry", "langfuse", "observability"],
+    "tags": [
+      "workflow",
+      "production",
+      "monitoring",
+      "opentelemetry",
+      "langfuse",
+      "observability"
+    ],
     "difficulty": "advanced",
     "workflow": [
       "Install Langfuse SDK: pip install langfuse",
@@ -186,7 +278,13 @@
     "title": "LangChain RAG Agent with Tool-Based Retrieval",
     "description": "Minimal working RAG agent using LangChain's create_agent API with a retrieval tool decorator. Demonstrates the recommended 2025 pattern of building RAG as an agent with tool-based retrieval rather than a single-chain call, enabling the LLM to decide when and how to retrieve context. Uses InMemoryVectorStore and OpenAI embeddings.",
     "url": "https://docs.langchain.com/oss/python/langchain/rag",
-    "tags": ["example", "langchain", "agent", "python", "retrieval"],
+    "tags": [
+      "example",
+      "langchain",
+      "agent",
+      "python",
+      "retrieval"
+    ],
     "difficulty": "beginner",
     "code": "import bs4\nfrom langchain.agents import create_agent\nfrom langchain.tools import tool\nfrom langchain_core.documents import Document\nfrom langchain_text_splitters import RecursiveCharacterTextSplitter\nfrom langchain_openai import ChatOpenAI, OpenAIEmbeddings\nfrom langchain_core.vectorstores import InMemoryVectorStore\n\n# 1. Load and chunk documents\ntext_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)\nall_splits = text_splitter.split_documents(docs)\n\n# 2. Index into vector store\nvector_store = InMemoryVectorStore.from_documents(\n    documents=all_splits,\n    embedding=OpenAIEmbeddings()\n)\n\n# 3. Define retrieval tool\n@tool(response_format=\"content_and_artifact\")\ndef retrieve_context(query: str):\n    \"\"\"Retrieve information from the knowledge base.\"\"\"\n    retrieved_docs = vector_store.similarity_search(query, k=4)\n    serialized = \"\\n\\n\".join(\n        f\"Source: {doc.metadata}\\nContent: {doc.page_content}\"\n        for doc in retrieved_docs\n    )\n    return serialized, retrieved_docs\n\n# 4. Create RAG agent\nmodel = ChatOpenAI(model=\"gpt-4o-mini\")\nagent = create_agent(model, [retrieve_context])\n\n# 5. Query\nfor step in agent.stream({\"messages\": [{\"role\": \"user\", \"content\": \"What is task decomposition?\"}]}):\n    step[\"messages\"][-1].pretty_print()"
   },
@@ -196,7 +294,14 @@
     "title": "Qdrant Hybrid Search with RRF Fusion",
     "description": "Complete working example of hybrid search in Qdrant combining dense vectors (all-MiniLM-L6-v2) with sparse vectors (BM25) using Reciprocal Rank Fusion. Uses Qdrant's Query API with FastEmbed for automatic embedding computation. This pattern yields significantly better recall than either dense or sparse search alone.",
     "url": "https://qdrant.tech/documentation/tutorials-develop/hybrid-search-fastembed/",
-    "tags": ["example", "qdrant", "hybrid-search", "bm25", "rrf", "fastembed"],
+    "tags": [
+      "example",
+      "qdrant",
+      "hybrid-search",
+      "bm25",
+      "rrf",
+      "fastembed"
+    ],
     "difficulty": "intermediate",
     "code": "from qdrant_client import QdrantClient, models\nfrom fastembed import TextEmbedding, SparseTextEmbedding\n\n# 1. Initialize client and models\nclient = QdrantClient(url=\"http://localhost:6333\")\ndense_model = \"sentence-transformers/all-MiniLM-L6-v2\"\nsparse_model = \"Qdrant/bm25\"\n\n# 2. Create collection with dense + sparse vectors\nclient.create_collection(\n    collection_name=\"hybrid_docs\",\n    vectors_config={\n        \"dense\": models.VectorParams(\n            size=384,\n            distance=models.Distance.COSINE\n        )\n    },\n    sparse_vectors_config={\n        \"sparse\": models.SparseVectorParams(\n            modifier=models.Modifier.IDF\n        )\n    },\n)\n\n# 3. Upsert documents with auto-embedded vectors\ndocuments = [\"RAG combines retrieval and generation.\", \"Hybrid search improves recall.\"]\nclient.upsert(\n    collection_name=\"hybrid_docs\",\n    points=[\n        models.PointStruct(\n            id=i,\n            vector={\n                \"dense\": models.Document(text=doc, model=dense_model),\n                \"sparse\": models.Document(text=doc, model=sparse_model),\n            },\n            payload={\"text\": doc}\n        )\n        for i, doc in enumerate(documents)\n    ]\n)\n\n# 4. Hybrid search with RRF fusion\nresults = client.query_points(\n    collection_name=\"hybrid_docs\",\n    query=models.FusionQuery(fusion=models.Fusion.RRF),\n    prefetch=[\n        models.Prefetch(\n            query=models.Document(text=\"How does RAG work?\", model=dense_model),\n            using=\"dense\",\n            limit=10,\n        ),\n        models.Prefetch(\n            query=models.Document(text=\"How does RAG work?\", model=sparse_model),\n            using=\"sparse\",\n            limit=10,\n        ),\n    ],\n    limit=5,\n)"
   },
@@ -206,7 +311,13 @@
     "title": "RAGAS RAG Evaluation Pipeline",
     "description": "Working code for evaluating a RAG system with RAGAS v0.3+ metrics. Demonstrates the modern evaluate() API with Faithfulness, FactualCorrectness, ResponseRelevancy, and LLMContextRecall. Shows how to create an EvaluationDataset, run evaluation with rate-limit-friendly settings, and interpret scores across quality thresholds.",
     "url": "https://docs.ragas.io/en/stable/tutorials/rag/",
-    "tags": ["example", "evaluation", "ragas", "metrics", "python"],
+    "tags": [
+      "example",
+      "evaluation",
+      "ragas",
+      "metrics",
+      "python"
+    ],
     "difficulty": "intermediate",
     "code": "from ragas import evaluate, EvaluationDataset, RunConfig\nfrom ragas.metrics import (\n    Faithfulness,\n    FactualCorrectness,\n    ResponseRelevancy,\n    LLMContextRecall,\n    NoiseSensitivity,\n)\nfrom ragas.llms import LangchainLLMWrapper\nfrom langchain_openai import ChatOpenAI\n\n# 1. Configure evaluator LLM\nevaluator_llm = LangchainLLMWrapper(ChatOpenAI(model=\"gpt-4o\"))\n\n# 2. Create evaluation dataset\neval_data = [\n    {\n        \"user_input\": \"What is RAG?\",\n        \"response\": \"RAG combines retrieval with generation...\",\n        \"reference\": \"Retrieval-Augmented Generation retrieves relevant documents...\",\n        \"retrieved_contexts\": [\"RAG retrieves documents from a knowledge base...\"]\n    }\n]\ndataset = EvaluationDataset.from_list(eval_data)\n\n# 3. Define metrics\nmetrics = [\n    Faithfulness(),\n    FactualCorrectness(),\n    ResponseRelevancy(),\n    LLMContextRecall(),\n    NoiseSensitivity(),\n]\n\n# 4. Run evaluation with rate-limit-friendly settings\nrate_config = RunConfig(\n    timeout=300,\n    max_retries=15,\n    max_wait=90,\n    max_workers=4,\n    log_tenacity=True\n)\n\nresults = evaluate(\n    dataset=dataset,\n    metrics=metrics,\n    llm=evaluator_llm,\n    run_config=rate_config\n)\n\n# 5. Interpret results\n# 0.8-1.0: Excellent, 0.6-0.8: Good, 0.4-0.6: Moderate, <0.4: Needs improvement\nprint(results)"
   },
@@ -216,7 +327,13 @@
     "title": "SPLADE Sparse Retrieval with Sentence Transformers",
     "description": "Working code for SPLADE sparse neural retrieval using the Sentence Transformers SparseEncoder API. Demonstrates encoding a corpus with SPLADE, performing semantic search, and inspecting which tokens influenced each result. SPLADE produces interpretable sparse representations where each dimension corresponds to a vocabulary term with an importance weight.",
     "url": "https://sbert.net/examples/sparse_encoder/training/retrievers/README.html",
-    "tags": ["example", "splade", "sparse-retrieval", "sentence-transformers", "python"],
+    "tags": [
+      "example",
+      "splade",
+      "sparse-retrieval",
+      "sentence-transformers",
+      "python"
+    ],
     "difficulty": "intermediate",
     "code": "from sentence_transformers import SparseEncoder\nfrom sentence_transformers.util import semantic_search\n\n# 1. Load SPLADE model\nmodel = SparseEncoder(\"naver/splade-v3-distilbert\")\n\n# 2. Encode corpus\ncorpus = [\n    \"Retrieval-Augmented Generation combines information retrieval with text generation.\",\n    \"Vector databases store high-dimensional embeddings for similarity search.\",\n    \"Hybrid search combines keyword and semantic matching for better recall.\",\n    \"Chunking strategies determine how documents are split for embedding.\",\n    \"Reranking improves retrieval precision by scoring candidates with a cross-encoder.\",\n]\ncorpus_embeddings = model.encode(corpus, convert_to_tensor=True)\n\n# 3. Query and search\nqueries = [\"How does RAG work?\"]\nquery_embeddings = model.encode(queries, convert_to_tensor=True)\n\nresults = semantic_search(\n    query_embeddings,\n    corpus_embeddings,\n    top_k=3,\n    score_function=model.similarity\n)\n\n# 4. Inspect influential tokens per result\nfor query_id, query in enumerate(queries):\n    pointwise_scores = model.intersection(\n        query_embeddings[query_id], corpus_embeddings\n    )\n    for res in results[query_id]:\n        corpus_id = res[\"corpus_id\"]\n        score = res[\"score\"]\n        token_scores = model.decode(pointwise_scores[corpus_id], top_k=10)\n        print(f\"Score: {score:.4f} - {corpus[corpus_id][:60]}...\")\n        print(f\"  Top tokens: {token_scores}\")"
   },
@@ -226,7 +343,13 @@
     "title": "LlamaIndex Semantic Chunking Pipeline",
     "description": "Working code for semantic chunking with LlamaIndex using the SemanticSplitterNodeParser. Splits documents adaptively based on embedding similarity between sentences rather than fixed chunk sizes, ensuring each chunk contains semantically related content. Includes parameter tuning for buffer_size and breakpoint_percentile_threshold.",
     "url": "https://developers.llamaindex.ai/python/examples/node_parsers/semantic_chunking/",
-    "tags": ["example", "chunking", "semantic", "llamaindex", "python"],
+    "tags": [
+      "example",
+      "chunking",
+      "semantic",
+      "llamaindex",
+      "python"
+    ],
     "difficulty": "intermediate",
     "code": "from llama_index.core import SimpleDirectoryReader\nfrom llama_index.core.node_parser import SemanticSplitterNodeParser\nfrom llama_index.embeddings.openai import OpenAIEmbedding\n\n# 1. Load documents\ndocuments = SimpleDirectoryReader(\"./data\").load_data()\n\n# 2. Configure semantic splitter\nembed_model = OpenAIEmbedding(model=\"text-embedding-3-small\")\nsemantic_splitter = SemanticSplitterNodeParser(\n    buffer_size=1,                        # Sentences per buffer (1 = most sensitive)\n    breakpoint_percentile_threshold=95,   # Higher = fewer, larger chunks\n    embed_model=embed_model\n)\n\n# 3. Split into semantically coherent nodes\nnodes = semantic_splitter.get_nodes_from_documents(documents)\n\n# 4. Inspect chunks\nfor i, node in enumerate(nodes[:5]):\n    print(f\"Chunk {i} ({len(node.text)} chars):\")\n    print(f\"  {node.text[:200]}...\")\n    print()\n\n# 5. Build vector index from semantic nodes\nfrom llama_index.core import VectorStoreIndex\nindex = VectorStoreIndex(nodes, embed_model=embed_model)\n\n# 6. Query\nquery_engine = index.as_query_engine()\nresponse = query_engine.query(\"What are the main themes?\")\nprint(response)"
   },
@@ -236,7 +359,14 @@
     "title": "Advanced Retrieval: Hybrid Search with RRF and DBSF Fusion",
     "description": "Pattern for combining dense vector search with sparse keyword matching using Reciprocal Rank Fusion (RRF) or Distribution-Based Score Fusion (DBSF) in Qdrant. RRF is robust and parameter-free; DBSF provides score normalization when dense and sparse scores have different distributions. Start with RRF, add ColBERT reranking for precision-critical use cases.",
     "url": "https://qdrant.tech/articles/hybrid-search/",
-    "tags": ["pattern", "hybrid-search", "rrf", "dbsf", "qdrant", "advanced-retrieval"],
+    "tags": [
+      "pattern",
+      "hybrid-search",
+      "rrf",
+      "dbsf",
+      "qdrant",
+      "advanced-retrieval"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -245,7 +375,14 @@
     "title": "Cascading Retrieval-Reranking Pipeline (SPLADE to Cross-Encoder to LLM)",
     "description": "Production retrieval pattern using a three-stage cascading pipeline: SPLADE or BM25 for first-stage candidate generation, cross-encoder (DeBERTa-v3) for efficient reranking of top-k candidates, and GPT-4 for listwise reranking of the final top-10. Achieves nDCG@10 of 63.7 on DL23, outperforming any single reranker. Cross-encoders remain competitive with LLM-based rerankers at far lower cost.",
     "url": "https://arxiv.org/abs/2403.10407",
-    "tags": ["pattern", "reranking", "splade", "cross-encoder", "cascading-pipeline", "advanced-retrieval"],
+    "tags": [
+      "pattern",
+      "reranking",
+      "splade",
+      "cross-encoder",
+      "cascading-pipeline",
+      "advanced-retrieval"
+    ],
     "difficulty": "advanced"
   },
   {
@@ -254,7 +391,13 @@
     "title": "ColBERT Late Interaction Reranking Pattern",
     "description": "Pattern for using ColBERT's MaxSim late interaction scoring as a reranking stage after initial candidate retrieval. ColBERT produces multi-vector token-level embeddings and computes fine-grained similarity via maximum similarity operations. Best used as a reranker on top 100-500 candidates from BM25 or dense retrieval, not as a first-stage retriever. Supports memory-mapped indexes for 90% RAM reduction.",
     "url": "https://github.com/stanford-futuredata/ColBERT",
-    "tags": ["pattern", "colbert", "late-interaction", "reranking", "advanced-retrieval"],
+    "tags": [
+      "pattern",
+      "colbert",
+      "late-interaction",
+      "reranking",
+      "advanced-retrieval"
+    ],
     "difficulty": "advanced"
   },
   {
@@ -263,7 +406,13 @@
     "title": "Recursive Semantic Chunking (RSC) Pattern",
     "description": "Advanced chunking pattern that recursively splits large chunks and merges small ones to maintain semantic coherence. Starts with initial semantic chunking in embedding space, then recursively splits chunks exceeding a threshold (T_chunk=1500 chars) with decreasing delta, merges short chunks (below T_merge=350 chars) with their most similar neighbor, and applies final size adjustment. Outperforms fixed and basic semantic chunking on contextual relevancy metrics.",
     "url": "https://aclanthology.org/2025.icnlsp-1.15.pdf",
-    "tags": ["pattern", "chunking", "semantic", "recursive", "advanced-retrieval"],
+    "tags": [
+      "pattern",
+      "chunking",
+      "semantic",
+      "recursive",
+      "advanced-retrieval"
+    ],
     "difficulty": "advanced"
   },
   {
@@ -272,7 +421,13 @@
     "title": "Pseudo-Instruction Chunking (PIC) Pattern",
     "description": "Chunking pattern that uses document summaries as pseudo-instructions to guide chunk boundaries. Without knowing real user queries in advance, summaries serve as proxies for the types of questions users might ask. Groups sentences whose embeddings are similar to the summary embedding into coherent chunks. Achieves highest average retrieval performance across 6 benchmarks. Validates that aligning chunks with query intent significantly improves retrieval.",
     "url": "https://aclanthology.org/2025.findings-acl.422.pdf",
-    "tags": ["pattern", "chunking", "query-aware", "embeddings", "advanced-retrieval"],
+    "tags": [
+      "pattern",
+      "chunking",
+      "query-aware",
+      "embeddings",
+      "advanced-retrieval"
+    ],
     "difficulty": "advanced"
   },
   {
@@ -281,7 +436,13 @@
     "title": "Multi-Granularity Chunking with Parent-Child Retrieval",
     "description": "Chunking and retrieval pattern that creates parent chunks (large, e.g. 2000 tokens) and child chunks (small, e.g. 500 tokens) at multiple granularities. Retrieves using small child chunks for precision but returns the parent chunk for full context. Score of a parent chunk equals the max score of its child chunks. LGMGC implements this with LLM logits-guided boundaries, achieving best performance and smallest variance across chunk size hyperparameters.",
     "url": "https://arxiv.org/abs/2501.09940",
-    "tags": ["pattern", "chunking", "multi-granularity", "parent-child", "advanced-retrieval"],
+    "tags": [
+      "pattern",
+      "chunking",
+      "multi-granularity",
+      "parent-child",
+      "advanced-retrieval"
+    ],
     "difficulty": "advanced"
   },
   {
@@ -290,7 +451,13 @@
     "title": "Fixed-Size vs Recursive vs Semantic Chunking Decision Guide",
     "description": "Practical decision guide for choosing chunking strategies based on use case. Fixed-size: lowest recall, best for quick prototyping. Recursive character (400-512 tokens, 10-20% overlap): 85-90% recall, best default starting point. Sentence-based: strong with ColBERT, best for Q&A and transcripts. Page-level: sleeper pick for PDFs with tables/figures. Semantic: up to 70% improvement, best for high-value content. LLM-based: highest recall (0.913) but highest cost.",
     "url": "https://www.onsomble.ai/blog/chunking-strategies-compared",
-    "tags": ["pattern", "chunking", "comparison", "decision-guide", "best-practices"],
+    "tags": [
+      "pattern",
+      "chunking",
+      "comparison",
+      "decision-guide",
+      "best-practices"
+    ],
     "difficulty": "beginner"
   },
   {
@@ -299,7 +466,13 @@
     "title": "OpenAI Embeddings (text-embedding-3-small/large)",
     "description": "OpenAI's embedding models: text-embedding-3-small ($0.02/1M tokens, 1536 dims) is the cheapest managed option and best default for new projects. text-embedding-3-large ($0.13/1M tokens, 3072 dims) offers higher quality at 6.5x cost. Both support Matryoshka dimension reduction (truncate to 256-1536 dims without re-embedding). No update in over 2 years; weaker multilingual performance vs. dedicated models; 8191-token context limit.",
     "url": "https://platform.openai.com/docs/guides/embeddings",
-    "tags": ["tool", "embeddings", "openai", "matryoshka", "managed-api"],
+    "tags": [
+      "tool",
+      "embeddings",
+      "openai",
+      "matryoshka",
+      "managed-api"
+    ],
     "difficulty": "beginner"
   },
   {
@@ -308,7 +481,14 @@
     "title": "BGE-M3 Multilingual Embedding Model",
     "description": "State-of-the-art open-source multilingual embedding model supporting 100+ languages with three retrieval methods in one model: dense, sparse (BM25-like), and multi-vector (ColBERT). Achieves best multilingual performance on MIRACL and MKQA benchmarks. 1024 dimensions, 8192-token context. Requires GPU for inference; self-hosting breaks even with commercial APIs at 9-18M tokens/month. No dimension flexibility.",
     "url": "https://huggingface.co/BAAI/bge-m3",
-    "tags": ["tool", "embeddings", "bge", "multilingual", "open-source", "colbert"],
+    "tags": [
+      "tool",
+      "embeddings",
+      "bge",
+      "multilingual",
+      "open-source",
+      "colbert"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -317,7 +497,13 @@
     "title": "Embedding Model Selection Decision Framework",
     "description": "Decision framework for choosing embedding models. Start with OpenAI text-embedding-3-small for new English projects (cheapest, zero infra). Choose BGE-M3 for multilingual/self-hosted. Choose Cohere embed-v4 for enterprise SLAs and 128K context. Choose E5-Mistral-7B for maximum open-source quality with long documents. Choose Voyage AI for domain-specialized retrieval. Critical: switching models requires full re-embedding of entire corpus.",
     "url": "https://app.ailog.fr/en/blog/guides/choosing-embedding-models",
-    "tags": ["pattern", "embeddings", "comparison", "decision-framework", "best-practices"],
+    "tags": [
+      "pattern",
+      "embeddings",
+      "comparison",
+      "decision-framework",
+      "best-practices"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -326,7 +512,14 @@
     "title": "RAGAS Evaluation Framework",
     "description": "The most popular RAG evaluation framework (13.3K GitHub stars) for automated quality assessment. v0.3+ introduces DiscreteMetric for pass/fail scoring, @experiment() decorator for evaluation loops, and llm_factory() for easy LLM setup. Core metrics: Faithfulness, FactualCorrectness, ResponseRelevancy, LLMContextRecall, ContextPrecision, NoiseSensitivity. Uses dual-judge averaging for more granular scoring. Supports OpenAI, Anthropic, Google, and Ollama.",
     "url": "https://docs.ragas.io/en/stable/",
-    "tags": ["tool", "evaluation", "ragas", "metrics", "faithfulness", "quality"],
+    "tags": [
+      "tool",
+      "evaluation",
+      "ragas",
+      "metrics",
+      "faithfulness",
+      "quality"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -335,7 +528,14 @@
     "title": "DeepEval RAG Evaluation and CI/CD",
     "description": "Comprehensive LLM evaluation framework (14.7K GitHub stars) with 50+ metrics covering RAG, agents, MCP, and safety. Native Pytest integration for CI/CD gates. Supports both reference-free and reference-based evaluation. Notable: tends to under-score golden contexts (mean 0.46 vs. 0.82-0.91 for other tools) due to statement decomposition penalizing off-topic sentences. Best for teams wanting evaluation-as-code with CI/CD enforcement.",
     "url": "https://docs.confident-ai.com/",
-    "tags": ["tool", "evaluation", "deepeval", "ci-cd", "pytest", "comprehensive"],
+    "tags": [
+      "tool",
+      "evaluation",
+      "deepeval",
+      "ci-cd",
+      "pytest",
+      "comprehensive"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -344,7 +544,13 @@
     "title": "Separate Retrieval and Generation Scoring",
     "description": "Critical production pattern: score retrieval and generation quality separately, never mix them into a single 'answer quality' metric. Retrieval metrics (context precision, context recall, context relevance) measure whether the right information was found. Generation metrics (faithfulness, answer relevance) measure whether the LLM used that information correctly. A RAG system can score 0.95 faithfulness and still produce wrong answers if retrieved content is stale or incorrect.",
     "url": "https://atlan.com/know/llm-evaluation-frameworks-compared/",
-    "tags": ["pattern", "evaluation", "best-practices", "metrics", "production"],
+    "tags": [
+      "pattern",
+      "evaluation",
+      "best-practices",
+      "metrics",
+      "production"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -353,7 +559,14 @@
     "title": "Langfuse Open-Source RAG Observability",
     "description": "Open-source (MIT license) observability platform for RAG systems built on OpenTelemetry, avoiding vendor lock-in. Offers free self-hosting via Docker Compose with EU data region options. Data model: Sessions, Traces, Observations with nesting. Component-level evaluation for testing different chunking strategies independently. Experiment Runner for running datasets against configurations. Lowest per-unit cost at scale ($6/100k units at 50M+). Background processing for non-blocking trace transmission.",
     "url": "https://langfuse.com/docs",
-    "tags": ["tool", "monitoring", "langfuse", "open-source", "opentelemetry", "production"],
+    "tags": [
+      "tool",
+      "monitoring",
+      "langfuse",
+      "open-source",
+      "opentelemetry",
+      "production"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -362,7 +575,14 @@
     "title": "Production RAG Cost Optimization Playbook",
     "description": "Systematic cost optimization playbook achieving 80-90% cost reduction for production RAG systems. Key strategies: deduplication (40-70% embedding savings), batch processing (50% API cost savings), float8 quantization (75% storage reduction with less than 0.3% accuracy loss), caching (60-80% hit rates reducing latency from 150ms to less than 20ms), context-aware chunking (80-85% token usage reduction), and conditional reranking (skip for high-confidence queries, 40-60% fewer invocations). Total cost of ownership for 10M documents drops from $482/month to $187/month.",
     "url": "https://brlikhon.engineer/blog/production-rag-architecture-that-scales-vector-databases-chunking-strategies-and-cost-optimization-for-2025",
-    "tags": ["pattern", "production", "cost-optimization", "caching", "quantization", "scaling"],
+    "tags": [
+      "pattern",
+      "production",
+      "cost-optimization",
+      "caching",
+      "quantization",
+      "scaling"
+    ],
     "difficulty": "advanced"
   },
   {
@@ -371,7 +591,14 @@
     "title": "Production RAG Monitoring: Per-Stage Latency Breakdown and SLOs",
     "description": "Pattern for monitoring production RAG systems with per-stage latency breakdowns and SLO definitions. Target p95 retrieval less than 200ms, p95 LLM generation less than 3s. LLM inference dominates the latency budget (~2.5s of ~2.7s total). Use OpenTelemetry plus Prometheus plus Grafana for end-to-end tracing. Key signals: per-stage latency, token counts, cache hit rates, 'I don't know' rate, answer length distribution. Use head-based sampling (1/1000) for high-volume embedding calls and tail-based sampling for expensive LLM inference.",
     "url": "https://markaicode.com/architecture/prometheus-rag-architecture/",
-    "tags": ["pattern", "production", "monitoring", "latency", "slos", "opentelemetry"],
+    "tags": [
+      "pattern",
+      "production",
+      "monitoring",
+      "latency",
+      "slos",
+      "opentelemetry"
+    ],
     "difficulty": "advanced"
   },
   {
@@ -380,7 +607,14 @@
     "title": "RAG Data Versioning and Regression Testing",
     "description": "Production pattern for versioning document stores and embedding models alongside RAG pipelines. Uses lakeFS for data versioning, stores embedding commit hashes alongside vectors, logs model names/versions with every request, and periodically re-runs fixed evaluation sets to catch regressions. Key principle: treat your vector store like application code, with version control, rollback capability, and CI/CD testing. Ensures that model upgrades, re-chunking, or re-embedding don't silently degrade retrieval quality.",
     "url": "https://pub.towardsai.net/rag-in-practice-exploring-versioning-observability-and-evaluation-in-production-systems-85dc28e1d9a8",
-    "tags": ["pattern", "production", "versioning", "regression-testing", "ci-cd", "best-practices"],
+    "tags": [
+      "pattern",
+      "production",
+      "versioning",
+      "regression-testing",
+      "ci-cd",
+      "best-practices"
+    ],
     "difficulty": "advanced"
   },
   {
@@ -389,7 +623,13 @@
     "title": "Microsoft GraphRAG",
     "description": "Microsoft's open-source GraphRAG library (32.8K+ GitHub stars) that chunks documents, extracts entities and relationships, builds knowledge graphs, detects communities, and generates summaries. Supports three query methods: global (holistic, dataset-wide questions via map-reduce over community summaries), local (entity-specific questions), and DRIFT (multi-level reasoning combining depth and breadth). Uses GPT-4o-mini by default with prompt tuning for domain optimization.",
     "url": "https://github.com/microsoft/GraphRAG",
-    "tags": ["tool", "graphrag", "knowledge-graph", "microsoft", "community-detection"],
+    "tags": [
+      "tool",
+      "graphrag",
+      "knowledge-graph",
+      "microsoft",
+      "community-detection"
+    ],
     "difficulty": "advanced"
   },
   {
@@ -398,7 +638,14 @@
     "title": "Neo4j GraphRAG Python Library",
     "description": "Official Neo4j GraphRAG Python package (1.1K+ GitHub stars) providing SimpleKGPipeline for knowledge graph construction, multiple retrievers (VectorRetriever, VectorCypherRetriever, Text2CypherRetriever, Hybrid retrievers), and a GraphRAG class for end-to-end Q&A. Supports multiple LLM backends (OpenAI, Anthropic, Ollama, Google, Cohere, Mistral, Bedrock) and vector DB integrations (Weaviate, Pinecone, Qdrant). Extensible TextSplitter base class for custom chunking.",
     "url": "https://github.com/neo4j/neo4j-graphrag-python",
-    "tags": ["tool", "graphrag", "neo4j", "knowledge-graph", "cypher", "python"],
+    "tags": [
+      "tool",
+      "graphrag",
+      "neo4j",
+      "knowledge-graph",
+      "cypher",
+      "python"
+    ],
     "difficulty": "advanced"
   },
   {
@@ -407,7 +654,13 @@
     "title": "GraphRAG vs Vector RAG Decision Framework",
     "description": "Decision pattern for choosing between vector RAG and GraphRAG. Use vector RAG when: queries are specific and local, you need fast simple answers, and corpus is well-structured. Use GraphRAG when: queries require holistic understanding across documents, you need to trace relationships between entities, you need explainable reasoning paths, and your data is rich in entities and relationships. GraphRAG indexing costs 20-40x more than vector indexing but enables answering global questions that vector RAG cannot.",
     "url": "https://microsoft-graphrag.mintlify.app/quickstart",
-    "tags": ["pattern", "graphrag", "decision-framework", "knowledge-graph", "comparison"],
+    "tags": [
+      "pattern",
+      "graphrag",
+      "decision-framework",
+      "knowledge-graph",
+      "comparison"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -416,7 +669,13 @@
     "title": "Microsoft GraphRAG Python API: Index, Query, and Search",
     "description": "Working code for Microsoft GraphRAG's Python API showing how to programmatically build indexes, run global/local/DRIFT searches, and generate domain-specific prompts. Covers the full workflow from configuration to entity extraction, community detection, and multi-level querying. Uses the async API for production deployments.",
     "url": "https://microsoft-graphrag.mintlify.app/guides/python-api",
-    "tags": ["example", "graphrag", "microsoft", "python", "knowledge-graph"],
+    "tags": [
+      "example",
+      "graphrag",
+      "microsoft",
+      "python",
+      "knowledge-graph"
+    ],
     "difficulty": "advanced",
     "code": "from graphrag.api import build_index, global_search, local_search, drift_search\nfrom graphrag.config.models.graph_rag_config import GraphRagConfig\n\n# 1. Load configuration\nconfig = GraphRagConfig.from_file(\"./my-project/settings.yaml\")\n\n# 2. Build index (chunks docs, extracts entities/relationships,\n#    builds knowledge graph, detects communities, generates summaries)\nresults = await build_index(config=config, verbose=True)\n\n# 3. Global Search - holistic, dataset-wide questions\nresponse, context = await global_search(\n    config=config,\n    entities=results.entities,\n    communities=results.communities,\n    community_reports=results.community_reports,\n    community_level=2,\n    query=\"What are the main themes across all documents?\",\n    response_type=\"Multiple Paragraphs\"\n)\n\n# 4. Local Search - entity-focused questions\nresponse, context = await local_search(\n    config=config,\n    entities=results.entities,\n    text_units=results.text_units,\n    relationships=results.relationships,\n    query=\"Tell me about the relationship between X and Y\"\n)\n\n# 5. DRIFT Search - multi-level reasoning\nresponse, context = await drift_search(\n    config=config,\n    entities=results.entities,\n    query=\"How do different themes relate across the corpus?\"\n)\n\nprint(response)"
   },
@@ -426,7 +685,13 @@
     "title": "RAG in Production with Haystack",
     "description": "O'Reilly published practical blueprint (132 pages, April 2025) for building RAG applications using the open-source Haystack framework. Covers extractive and generative QA, semantic search, and building secure ChatGPT-like experiences on technical documentation. Provides LLM software development lifecycle mental models for production RAG systems.",
     "url": "https://www.oreilly.com/library/view/retrieval-augmented-generation-in/9781098165161/",
-    "tags": ["book", "haystack", "production", "qa", "oreilly"],
+    "tags": [
+      "book",
+      "haystack",
+      "production",
+      "qa",
+      "oreilly"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -435,7 +700,14 @@
     "title": "Mastering Retrieval-Augmented Generation",
     "description": "Comprehensive 847-page Apress guide covering enterprise-grade RAG systems from architectural patterns to production deployment. Addresses scalable deployment with security, privacy, and governance; evaluation frameworks and quality assurance; advanced retrieval strategies including graph-based and agentic systems; and real-world applications in regulatory compliance, customer support, and code generation. Published January 2026.",
     "url": "https://www.oreilly.com/library/view/mastering-retrieval-augmented-generation/9798868818080/",
-    "tags": ["book", "production", "enterprise", "agentic-rag", "evaluation", "security"],
+    "tags": [
+      "book",
+      "production",
+      "enterprise",
+      "agentic-rag",
+      "evaluation",
+      "security"
+    ],
     "difficulty": "advanced"
   },
   {
@@ -444,7 +716,13 @@
     "title": "Hands-On RAG for Production",
     "description": "Comprehensive O'Reilly guide (400 pages, June 2026) by Ofer Mendelevitch and Forrest Bao covering the full roadmap for building, refining, and scaling production-grade RAG applications. Topics include data ingestion, embeddings, vector search, advanced techniques (multimodal RAG, agentic RAG, GraphRAG), and enterprise deployment challenges (security, privacy, explainability). Includes build vs. RAG-as-a-service decision frameworks.",
     "url": "https://www.oreilly.com/library/view/hands-on-rag-for/9798341621701/",
-    "tags": ["book", "production", "scaling", "enterprise", "oreilly"],
+    "tags": [
+      "book",
+      "production",
+      "scaling",
+      "enterprise",
+      "oreilly"
+    ],
     "difficulty": "advanced"
   },
   {
@@ -453,7 +731,13 @@
     "title": "RAG-Critic: Automated Error Identification and Correction in RAG",
     "description": "ACL 2025 paper proposing a hierarchical RAG error taxonomy (3 tiers, 4000+ error types) and a critic-guided agentic workflow. The Generate-Critic-Plan-Execute loop identifies errors, selects from 5 action functions (Retrieval, Rewrite, Decompose, Refine, Generate), and corrects them. A 3B critic model outperforms 70B models on fine-grained error identification (58.3% vs 31.5%). Achieves +2.8% to +5.3% F1 improvement over Self-RAG, FLARE, and MetaRAG baselines.",
     "url": "https://aclanthology.org/2025.acl-long.179.pdf",
-    "tags": ["tutorial", "agentic-rag", "self-correcting", "error-taxonomy", "critic"],
+    "tags": [
+      "tutorial",
+      "agentic-rag",
+      "self-correcting",
+      "error-taxonomy",
+      "critic"
+    ],
     "difficulty": "advanced"
   },
   {
@@ -462,7 +746,13 @@
     "title": "R3-RAG: Reinforcement Learning for Step-by-Step Retrieval",
     "description": "Agentic RAG pattern using RL to train LLMs to iteratively reason and retrieve step-by-step. Combines outcome rewards (answer correctness) and process rewards (relevance-based document verification at each retrieval step). Uses PPO training with cold start from SFT on synthesized interleaved reasoning-retrieval trajectories. Outperforms IRCoT by approximately 15 percentage points on multi-hop QA. Uses 22.8% fewer tokens than ReSearch while achieving higher accuracy. Strong transferability across retrievers (BM25, E5, BGE) with less than 3% variation.",
     "url": "https://aclanthology.org/2025.findings-emnlp.554.pdf",
-    "tags": ["pattern", "agentic-rag", "reinforcement-learning", "multi-step-retrieval", "process-reward"],
+    "tags": [
+      "pattern",
+      "agentic-rag",
+      "reinforcement-learning",
+      "multi-step-retrieval",
+      "process-reward"
+    ],
     "difficulty": "advanced"
   },
   {
@@ -471,7 +761,13 @@
     "title": "CoRAG: Chain-of-Retrieval Augmented Generation",
     "description": "Agentic RAG pattern that trains o1-like RAG models to dynamically reformulate queries step-by-step through rejection sampling-generated intermediate retrieval chains. Supports test-time compute scaling via greedy decoding, best-of-N sampling, and tree search strategies. The model learns to decompose complex queries and reformulate queries upon retrieval failure. Achieves greater than 10 points EM improvement over strong baselines on multi-hop QA and new SOTA on the KILT benchmark. Demonstrates log-linear scaling between token consumption and performance.",
     "url": "https://arxiv.org/abs/2505.02811",
-    "tags": ["pattern", "agentic-rag", "chain-of-retrieval", "query-reformulation", "test-time-compute"],
+    "tags": [
+      "pattern",
+      "agentic-rag",
+      "chain-of-retrieval",
+      "query-reformulation",
+      "test-time-compute"
+    ],
     "difficulty": "advanced"
   },
   {
@@ -480,7 +776,13 @@
     "title": "SIM-RAG: Self-Practicing When to Stop Retrieving",
     "description": "Agentic RAG pattern addressing the critical challenge of when to stop retrieving in multi-round RAG. Trains a lightweight Critic (783M or 2.85B Flan-T5) to assess information sufficiency using self-practiced synthetic data. Even the lightweight SIM-RAGlite outperforms Self-RAG on HotpotQA (27.8% vs 17.1% EM) with 1/10th the parameters. Key finding: a specialized lightweight Critic outperforms GPT-4-as-Critic for complex multi-hop tasks. Avoids both over-confidence and over-retrieval.",
     "url": "https://arxiv.org/abs/2501.14342",
-    "tags": ["pattern", "agentic-rag", "stopping-criteria", "self-practicing", "multi-round"],
+    "tags": [
+      "pattern",
+      "agentic-rag",
+      "stopping-criteria",
+      "self-practicing",
+      "multi-round"
+    ],
     "difficulty": "advanced"
   },
   {
@@ -489,7 +791,14 @@
     "title": "UniversalRAG: Modality-Aware Routing for Multimodal Retrieval",
     "description": "Multimodal RAG pattern that dynamically identifies the most appropriate modality-specific corpus (text, image, table, video) and performs targeted retrieval. Key finding: forcing all modalities into a unified embedding space causes a modality gap where retrieval favors items of the same modality as the query. Routing to modality-specific corpora avoids this gap. Supports both training-based routers (Qwen3-VL-2B, InternVL3.5-1B) and training-free routers (GPT-5). Multi-granularity retrieval (paragraphs vs. documents, clips vs. full videos) consistently improves performance.",
     "url": "https://arxiv.org/abs/2504.20734",
-    "tags": ["pattern", "multimodal-rag", "modality-routing", "video", "tables", "images"],
+    "tags": [
+      "pattern",
+      "multimodal-rag",
+      "modality-routing",
+      "video",
+      "tables",
+      "images"
+    ],
     "difficulty": "advanced"
   },
   {
@@ -498,7 +807,13 @@
     "title": "mRAG Design Space for Multimodal Retrieval-Augmented Generation",
     "description": "First systematic dissection of the multimodal RAG pipeline for large vision-language models. Investigates retrieval phase configurations (image-only, image+text, image+caption, caption-only), reranking strategies (pointwise, pairwise, listwise), and generation integration. Key findings: EVA-CLIP is the most robust zero-shot retriever; listwise reranking with LVLMs is the best zero-shot strategy (+2.6% Recall@1); adding more documents does NOT improve generation accuracy; an agentic framework with self-reflection boosts response accuracy by +5%/+2% on E-VQA/InfoSeek.",
     "url": "https://arxiv.org/abs/2505.24073",
-    "tags": ["pattern", "multimodal-rag", "design-space", "reranking", "vision-language"],
+    "tags": [
+      "pattern",
+      "multimodal-rag",
+      "design-space",
+      "reranking",
+      "vision-language"
+    ],
     "difficulty": "advanced"
   },
   {
@@ -507,7 +822,44 @@
     "title": "Multimodal RAG Survey: Scaling Beyond Context for Document Understanding",
     "description": "Comprehensive survey of 45+ multimodal RAG methods for document understanding covering text, tables, charts, and images. Organizes approaches by domain (open vs. closed), retrieval modality (image-only vs. image+text), granularity (page-level vs. element-level), and hybrid enhancements (graph-based, agent-based). Key trends: shift from page-level to element-level retrieval, multimodal knowledge graphs (mKG-RAG), and multi-agent workflows (ViDoRAG, HM-RAG).",
     "url": "https://arxiv.org/abs/2510.15253",
-    "tags": ["tutorial", "multimodal-rag", "survey", "document-understanding", "tables", "images"],
+    "tags": [
+      "tutorial",
+      "multimodal-rag",
+      "survey",
+      "document-understanding",
+      "tables",
+      "images"
+    ],
     "difficulty": "advanced"
+  },
+  {
+    "topic": "rag",
+    "type": "course",
+    "title": "Udacity: Large Language Models (LLMs) and RAG",
+    "description": "Udacity course covering LLM fundamentals and RAG architecture with a NASA capstone project. Covers embeddings, vector search, retrieval strategies, generation, and evaluation.",
+    "url": "https://www.udacity.com/course/large-language-models-llms-and-rag--cd13318",
+    "tags": [
+      "udacity",
+      "rag",
+      "llm",
+      "course",
+      "capstone"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "rag",
+    "type": "course",
+    "title": "Activeloop Gen AI 360: RAG Course (Free)",
+    "description": "Free RAG course from the Gen AI 360 series covering retrieval fundamentals, vector databases, embedding models, chunking strategies, and end-to-end RAG pipeline construction with Deep Lake.",
+    "url": "https://learn.activeloop.ai/courses/rag",
+    "tags": [
+      "activeloop",
+      "free",
+      "rag",
+      "course",
+      "deep-lake"
+    ],
+    "difficulty": "beginner"
   }
 ]

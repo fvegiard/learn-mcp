@@ -15,7 +15,7 @@
     "workflow": [
       "PLAN: Generate one or more candidate action trajectories for the task",
       "INSPECT: Execute each trajectory in a sandbox and compute structured textual gradients encoding plan-vs-execution discrepancies",
-      "EVOLVE: Using the discrepancy signals, repair only the unsupported suffix after the earliest divergence point \u2014 never regenerate the full plan",
+      "EVOLVE: Using the discrepancy signals, repair only the unsupported suffix after the earliest divergence point — never regenerate the full plan",
       "VERIFY: Run a final global constraint check on the evolved trajectory; accept only if it improves over the previous best (monotonic acceptance)",
       "RETRY: If verification fails or constraints are unsatisfied, loop back to EVOLVE with the updated gradient signals; exit after max iterations or acceptance"
     ]
@@ -58,7 +58,7 @@
     "workflow": [
       "RECEIVE: Parse the user query and identify sub-questions that require external evidence",
       "RETRIEVE: For each sub-question, generate targeted search queries and retrieve documents from the knowledge base",
-      "ASSESS: Evaluate retrieved evidence for relevance, grounding, and adequacy \u2014 use an Evidence Sufficiency Controller or Triple-Check verification",
+      "ASSESS: Evaluate retrieved evidence for relevance, grounding, and adequacy — use an Evidence Sufficiency Controller or Triple-Check verification",
       "COMMIT or RETRY: If evidence is sufficient, synthesize an answer; if gaps remain, generate new retrieval queries targeting the gaps and loop back",
       "SYNTHESIZE: Merge all sub-answers into a coherent response with citations; flag any remaining uncertainty"
     ]
@@ -79,7 +79,7 @@
     "workflow": [
       "PLAN: Break the task into independent subtasks that can run in parallel without file-level conflicts",
       "DISPATCH: Launch each subtask as a separate Claude Code session with `claude --worktree <name>`, creating isolated git checkouts under `.claude/worktrees/`",
-      "EXECUTE: Each worktree session independently reads, edits, tests, and commits changes on its own branch \u2014 no merge conflicts during execution",
+      "EXECUTE: Each worktree session independently reads, edits, tests, and commits changes on its own branch — no merge conflicts during execution",
       "REVIEW: Use `claude agents` to monitor all background sessions; review each worktree's changes before merging",
       "MERGE: Merge completed worktree branches back into the main branch; auto-cleanup removes empty worktrees, dirty ones prompt keep-or-discard"
     ]
@@ -100,7 +100,7 @@
     "difficulty": "advanced",
     "workflow": [
       "INSTRUMENT: Emit OpenTelemetry spans for every agent decision, tool call, and token spend; define judgment SLOs (decision quality, not just latency/uptime)",
-      "BUDGET: Set per-agent and per-operation-class token budgets; track token_cost_per_task as a leading indicator \u2014 a 40% spike precedes visible quality degradation by 24-48 hours",
+      "BUDGET: Set per-agent and per-operation-class token budgets; track token_cost_per_task as a leading indicator — a 40% spike precedes visible quality degradation by 24-48 hours",
       "DEGRADE: Implement a 4-level fallback chain: (1) retry with exponential backoff, (2) model fallback (Opus -> Sonnet -> Haiku), (3) queue and defer non-urgent tasks, (4) graceful decline with user notification",
       "RESPOND: When an alert fires (cost spike, quality drop, loop detection), execute the runbook: kill the runaway agent, fall back to cheaper model, notify the oncall, and preserve forensic traces",
       "LEARN: Run weekly behavioral chaos tests (inject malformed tool responses, contradictory instructions) to surface failure modes before they hit production"
@@ -180,7 +180,7 @@
     "topic": "autonomous-agents",
     "type": "example",
     "title": "MCP Tool Definition for Autonomous Agents (TypeScript)",
-    "description": "A Model Context Protocol (MCP) server that exposes tools for autonomous agents to discover and use at runtime. Demonstrates the tool definition pattern that enables dynamic tool discovery, progressive disclosure, and code-mode execution \u2014 reducing token consumption by up to 98.7% compared to loading all tool definitions upfront.",
+    "description": "A Model Context Protocol (MCP) server that exposes tools for autonomous agents to discover and use at runtime. Demonstrates the tool definition pattern that enables dynamic tool discovery, progressive disclosure, and code-mode execution — reducing token consumption by up to 98.7% compared to loading all tool definitions upfront.",
     "url": "https://www.anthropic.com/engineering/code-execution-with-mcp",
     "tags": [
       "MCP",
@@ -344,7 +344,7 @@
     "topic": "autonomous-agents",
     "type": "pattern",
     "title": "Synapse: Spreading Activation for Episodic-Semantic Memory in Agents",
-    "description": "Synapse implements a unified episodic-semantic memory graph with spreading activation, lateral inhibition, and temporal decay. It combines semantic similarity, activation-based traversal, and PageRank structural priors for retrieval. Achieves 40.5 average F1 on LoCoMo, with 96.6 on adversarial queries \u2014 dramatically outperforming A-Mem and Zep.",
+    "description": "Synapse implements a unified episodic-semantic memory graph with spreading activation, lateral inhibition, and temporal decay. It combines semantic similarity, activation-based traversal, and PageRank structural priors for retrieval. Achieves 40.5 average F1 on LoCoMo, with 96.6 on adversarial queries — dramatically outperforming A-Mem and Zep.",
     "url": "https://arxiv.org/pdf/2601.02744",
     "tags": [
       "memory-systems",
@@ -629,7 +629,7 @@
   {
     "topic": "autonomous-agents",
     "type": "pattern",
-    "title": "ACE: Agentic Context Evolution \u2014 Metacognitive To Retrieve or To Think",
+    "title": "ACE: Agentic Context Evolution — Metacognitive To Retrieve or To Think",
     "description": "ACE uses a multi-agent orchestrator with majority voting to dynamically decide between RETRIEVE (external search) and THINK (internal reasoning/sub-query generation) at each step. Achieves 62.8% on HotpotQA (vs. 38.9% for vanilla RAG) using 42% fewer tokens than brute-force IterDRAG, avoiding contextual saturation from over-retrieval.",
     "url": "https://arxiv.org/pdf/2601.08747",
     "tags": [
@@ -734,7 +734,7 @@
     "topic": "autonomous-agents",
     "type": "tutorial",
     "title": "LangGraph Tutorial by OpnCrafter: Cycles, Persistence, and Human-in-the-Loop",
-    "description": "A practical tutorial emphasizing that linear chains are insufficient for production agents \u2014 cycles via LangGraph are essential. Covers human-in-the-loop with interrupt_before, parallel node execution, persistence and time-travel with checkpointers, and recursion_limit as an essential safety guard (set to N_expected_hops * 2).",
+    "description": "A practical tutorial emphasizing that linear chains are insufficient for production agents — cycles via LangGraph are essential. Covers human-in-the-loop with interrupt_before, parallel node execution, persistence and time-travel with checkpointers, and recursion_limit as an essential safety guard (set to N_expected_hops * 2).",
     "url": "https://opncrafter.space/guide/langgraph-tutorial",
     "tags": [
       "LangGraph",
@@ -787,7 +787,7 @@
     "topic": "autonomous-agents",
     "type": "tool",
     "title": "Anthropic MCP: 10,000+ Community Servers and Registry API for Dynamic Tool Discovery",
-    "description": "The Model Context Protocol has grown to 10,000+ community-built servers enabling LLMs to connect to external tools, data sources, and APIs. The upcoming Registry API will enable agents to dynamically search for and discover new MCP servers on demand \u2014 a key enabler for autonomous tool acquisition. New features include Elicitation (server-initiated user input) and Tasks (durable execution wrappers).",
+    "description": "The Model Context Protocol has grown to 10,000+ community-built servers enabling LLMs to connect to external tools, data sources, and APIs. The upcoming Registry API will enable agents to dynamically search for and discover new MCP servers on demand — a key enabler for autonomous tool acquisition. New features include Elicitation (server-initiated user input) and Tasks (durable execution wrappers).",
     "url": "https://www.anthropic.com/news/model-context-protocol",
     "tags": [
       "MCP",
@@ -797,5 +797,50 @@
       "dynamic-tools"
     ],
     "difficulty": "beginner"
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "course",
+    "title": "Agentic AI with LangGraph, CrewAI, AutoGen and BeeAI (IBM/Coursera)",
+    "description": "Intermediate Coursera course by IBM covering multi-agent orchestration with LangGraph, CrewAI, BeeAI, and AG2/AutoGen. Includes agentic workflows, context management, and tool calling patterns.",
+    "url": "https://www.coursera.org/learn/agentic-ai-with-langgraph-crewai-autogen-and-beeai",
+    "tags": [
+      "langgraph",
+      "crewai",
+      "autogen",
+      "beeai",
+      "multi-agent",
+      "course"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "tutorial",
+    "title": "Google Codelab: Scale Agents with CrewAI, LangGraph, A2A, and ADK",
+    "description": "Hands-on codelab demonstrating cross-framework agent orchestration for a retail inventory restock system. Shows A2A protocol for inter-agent communication and Google ADK as orchestrator.",
+    "url": "https://codelabs.developers.google.com/next26/scale-agents",
+    "tags": [
+      "a2a",
+      "google-adk",
+      "multi-agent",
+      "orchestration",
+      "codelab"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "autonomous-agents",
+    "type": "tutorial",
+    "title": "AI Agent Frameworks Compared: CrewAI vs LangGraph vs AutoGen vs Claude Code",
+    "description": "2026 comparison covering architecture, learning curve, multi-agent patterns, production readiness, and best use cases. Includes cross-framework orchestration strategies.",
+    "url": "https://www.developersdigest.tech/guides/ai-agent-frameworks-compared",
+    "tags": [
+      "comparison",
+      "frameworks",
+      "multi-agent",
+      "production"
+    ],
+    "difficulty": "intermediate"
   }
 ]

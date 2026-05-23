@@ -5,7 +5,13 @@
     "title": "MCP Specification (2025-11-25) — Protocol Fundamentals",
     "description": "The canonical specification for the Model Context Protocol covering JSON-RPC 2.0 messaging, lifecycle management (initialize, operation, shutdown), capability negotiation, and the three server primitives (tools, resources, prompts) and three client primitives (sampling, roots, elicitation). Essential reading for anyone building MCP servers or clients.",
     "url": "https://modelcontextprotocol.io/specification/2025-11-25",
-    "tags": ["specification", "json-rpc", "lifecycle", "protocol", "architecture"],
+    "tags": [
+      "specification",
+      "json-rpc",
+      "lifecycle",
+      "protocol",
+      "architecture"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -14,7 +20,13 @@
     "title": "MCP Architecture Overview — Hosts, Clients, and Servers",
     "description": "Official documentation explaining the MCP architecture: hosts initiate connections (Claude Desktop, VS Code), clients live inside hosts as one-per-server connectors, and servers provide context and capabilities. Covers the separation of concerns and how primitives flow between participants.",
     "url": "https://modelcontextprotocol.io/docs/learn",
-    "tags": ["architecture", "hosts", "clients", "servers", "overview"],
+    "tags": [
+      "architecture",
+      "hosts",
+      "clients",
+      "servers",
+      "overview"
+    ],
     "difficulty": "beginner"
   },
   {
@@ -23,7 +35,13 @@
     "title": "MCP Transport Mechanisms — stdio and Streamable HTTP",
     "description": "Official specification of MCP transport layers: stdio for local process communication (client spawns server subprocess, newline-delimited JSON-RPC over stdin/stdout) and Streamable HTTP for remote server communication (single HTTP endpoint, POST for client messages, SSE for server-initiated messages). Includes session management with Mcp-Session-Id headers and resumability via Last-Event-ID.",
     "url": "https://modelcontextprotocol.io/specification/2025-06-18/basic/transports",
-    "tags": ["transport", "stdio", "streamable-http", "sse", "networking"],
+    "tags": [
+      "transport",
+      "stdio",
+      "streamable-http",
+      "sse",
+      "networking"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -32,7 +50,13 @@
     "title": "MCP Authorization — OAuth 2.1 Security Framework",
     "description": "The MCP authorization specification built on OAuth 2.1 with PKCE, RFC 8414 (Authorization Server Metadata), RFC 9728 (Protected Resource Metadata), and RFC 7591 (Dynamic Client Registration). Covers the full auth flow from 401 challenge through token exchange, security requirements (no token passthrough, mandatory audience binding), and scope management for production deployments.",
     "url": "https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization",
-    "tags": ["authorization", "oauth", "security", "pkce", "authentication"],
+    "tags": [
+      "authorization",
+      "oauth",
+      "security",
+      "pkce",
+      "authentication"
+    ],
     "difficulty": "advanced"
   },
   {
@@ -41,7 +65,13 @@
     "title": "MCP Server Quickstart — Build a Weather Server (Official)",
     "description": "The official quickstart tutorial that walks through building an MCP weather server from scratch using the Python SDK. Covers installing dependencies, creating tools with @mcp.tool() decorators, connecting to the National Weather Service API, running via stdio transport, and integrating with Claude for Desktop. Available in Python, TypeScript, Java/Kotlin, and C#.",
     "url": "https://github.com/modelcontextprotocol/docs/blob/main/quickstart/server.mdx",
-    "tags": ["quickstart", "python", "weather", "beginner", "official"],
+    "tags": [
+      "quickstart",
+      "python",
+      "weather",
+      "beginner",
+      "official"
+    ],
     "difficulty": "beginner"
   },
   {
@@ -50,7 +80,12 @@
     "title": "MCP Client Quickstart — Connect to Servers (Official)",
     "description": "The official client quickstart tutorial demonstrating how to build an MCP client that connects to MCP servers, discovers their tools and resources, and integrates with LLM APIs for interactive chat. Covers ClientSession, transport setup (stdio and Streamable HTTP), tool discovery, and the query-processing loop. Available in Python, TypeScript, Kotlin, C#, and Java.",
     "url": "https://github.com/modelcontextprotocol/docs/blob/main/quickstart/client.mdx",
-    "tags": ["client", "quickstart", "official", "beginner"],
+    "tags": [
+      "client",
+      "quickstart",
+      "official",
+      "beginner"
+    ],
     "difficulty": "beginner"
   },
   {
@@ -59,7 +94,13 @@
     "title": "Microsoft MCP for Beginners — Multi-Language Course",
     "description": "Microsoft's comprehensive MCP learning course with 10 lessons covering server and client development in TypeScript, Python, .NET, Java, and Rust. Includes hands-on exercises, step-by-step client creation, and multi-language code examples. Hosted on GitHub with full source code and GitHub Codespaces support for immediate development.",
     "url": "https://github.com/microsoft/mcp-for-beginners",
-    "tags": ["course", "beginner", "multi-language", "microsoft", "exercises"],
+    "tags": [
+      "course",
+      "beginner",
+      "multi-language",
+      "microsoft",
+      "exercises"
+    ],
     "difficulty": "beginner"
   },
   {
@@ -68,7 +109,13 @@
     "title": "MCP Inspector — Official Debugging and Testing Tool",
     "description": "The official MCP Inspector (@modelcontextprotocol/inspector) is a React-based web UI and CLI for interactively debugging MCP servers. Supports stdio, SSE, and Streamable HTTP transports. Provides tool testing with custom parameters, resource browsing, prompt management, full RPC logging of JSON-RPC messages, and server config export. Critical for development workflow.",
     "url": "https://github.com/modelcontextprotocol/inspector",
-    "tags": ["inspector", "debugging", "testing", "official", "development"],
+    "tags": [
+      "inspector",
+      "debugging",
+      "testing",
+      "official",
+      "development"
+    ],
     "difficulty": "beginner"
   },
   {
@@ -77,7 +124,13 @@
     "title": "MCP Python SDK — Building Servers (Official Documentation)",
     "description": "Official Python SDK documentation covering FastMCP server creation, lifespan management, all three primitives (@mcp.tool, @mcp.resource, @mcp.prompt), structured output with Pydantic, context objects (logging, progress, sampling, elicitation), transport options (Streamable HTTP, SSE, stdio), Starlette/ASGI integration, and CLI commands (mcp dev, mcp install).",
     "url": "https://modelcontextprotocol.github.io/python-sdk/server/",
-    "tags": ["python", "sdk", "fastmcp", "server", "official"],
+    "tags": [
+      "python",
+      "sdk",
+      "fastmcp",
+      "server",
+      "official"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -86,7 +139,13 @@
     "title": "MCP TypeScript SDK — Server Quickstart and API Reference",
     "description": "Official TypeScript SDK documentation covering McpServer creation, tool/resource/prompt registration with Zod schemas, structured output (outputSchema + structuredContent), tool annotations (destructiveHint, idempotentHint), DNS rebinding protection, Streamable HTTP transport, stdio transport, error handling patterns, and testing with the MCP Inspector.",
     "url": "https://github.com/modelcontextprotocol/typescript-sdk/blob/main/docs/server-quickstart.md",
-    "tags": ["typescript", "sdk", "server", "official", "quickstart"],
+    "tags": [
+      "typescript",
+      "sdk",
+      "server",
+      "official",
+      "quickstart"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -95,7 +154,13 @@
     "title": "Build a Secure MCP Server in TypeScript from Scratch",
     "description": "Production-focused tutorial by Rebecca DePrey covering secure MCP server development in TypeScript: input validation with Zod, path traversal prevention, DNS rebinding protection, rate limiting with express-rate-limit, CORS configuration, timeout handling with AbortController, structured error responses, health check endpoints, and Docker containerization.",
     "url": "https://rebeccamdeprey.com/blog/secure-mcp-server",
-    "tags": ["typescript", "security", "production", "docker", "best-practices"],
+    "tags": [
+      "typescript",
+      "security",
+      "production",
+      "docker",
+      "best-practices"
+    ],
     "difficulty": "advanced"
   },
   {
@@ -104,7 +169,12 @@
     "title": "FastMCP Python Server — Minimal Tool, Resource, and Prompt",
     "description": "A minimal FastMCP server demonstrating all three MCP primitives: a tool that adds numbers, a resource that exposes config data, and a prompt template for code review. Shows the decorator-based API, default stdio transport, and how to run with mcp dev for testing.",
     "url": "https://modelcontextprotocol.github.io/python-sdk/server/",
-    "tags": ["python", "fastmcp", "example", "beginner"],
+    "tags": [
+      "python",
+      "fastmcp",
+      "example",
+      "beginner"
+    ],
     "difficulty": "beginner",
     "code": "from mcp.server.fastmcp import FastMCP\n\nmcp = FastMCP(\"Demo Server\")\n\n@mcp.tool()\ndef add(a: int, b: int) -> int:\n    \"\"\"Add two numbers together.\"\"\"\n    return a + b\n\n@mcp.resource(\"config://settings\")\ndef get_settings() -> str:\n    \"\"\"Get application settings.\"\"\"\n    return '{\"theme\": \"dark\", \"language\": \"en\"}'\n\n@mcp.prompt()\ndef review_code(code: str) -> str:\n    \"\"\"Review code for issues.\"\"\"\n    return f\"Please review this code:\\n\\n{code}\"\n\nif __name__ == \"__main__\":\n    mcp.run()  # stdio transport by default"
   },
@@ -114,7 +184,13 @@
     "title": "TypeScript MCP Server with Streamable HTTP Transport",
     "description": "A complete TypeScript MCP server using the v2 SDK with Streamable HTTP transport for production deployment. Demonstrates tool registration with Zod input/output schemas, structured output, tool annotations, Express integration with DNS rebinding protection, and session management.",
     "url": "https://github.com/modelcontextprotocol/typescript-sdk/blob/main/docs/server-quickstart.md",
-    "tags": ["typescript", "streamable-http", "production", "express", "example"],
+    "tags": [
+      "typescript",
+      "streamable-http",
+      "production",
+      "express",
+      "example"
+    ],
     "difficulty": "intermediate",
     "code": "import { randomUUID } from 'node:crypto';\nimport { McpServer } from '@modelcontextprotocol/server';\nimport { NodeStreamableHTTPServerTransport } from '@modelcontextprotocol/node';\nimport { createMcpExpressApp } from '@modelcontextprotocol/express';\nimport * as z from 'zod/v4';\n\nconst server = new McpServer({ name: 'my-server', version: '1.0.0' });\n\nserver.registerTool(\n  'calculate-bmi',\n  {\n    title: 'BMI Calculator',\n    description: 'Calculate Body Mass Index',\n    inputSchema: z.object({ weightKg: z.number(), heightM: z.number() }),\n    outputSchema: z.object({ bmi: z.number() }),\n    annotations: { destructiveHint: false, idempotentHint: true }\n  },\n  async ({ weightKg, heightM }) => {\n    const bmi = weightKg / (heightM * heightM);\n    return {\n      content: [{ type: 'text', text: JSON.stringify({ bmi }) }],\n      structuredContent: { bmi }\n    };\n  }\n);\n\nconst app = createMcpExpressApp();\nconst transport = new NodeStreamableHTTPServerTransport({\n  sessionIdGenerator: () => randomUUID()\n});\nawait server.connect(transport);\napp.all('/mcp', async (req, res) => await transport.handleRequest(req, res, req.body));\napp.listen(3000);"
   },
@@ -124,7 +200,13 @@
     "title": "Python MCP Client — Connecting to a Server and Calling Tools",
     "description": "A complete async Python MCP client that connects to a server via stdio transport, initializes a session, discovers available tools, and calls them programmatically. Demonstrates the ClientSession API, transport setup, and tool invocation pattern used in production client applications.",
     "url": "https://github.com/modelcontextprotocol/python-sdk",
-    "tags": ["python", "client", "client-session", "stdio", "example"],
+    "tags": [
+      "python",
+      "client",
+      "client-session",
+      "stdio",
+      "example"
+    ],
     "difficulty": "intermediate",
     "code": "import asyncio\nfrom mcp import ClientSession, StdioServerParameters\nfrom mcp.client.stdio import stdio_client\n\nasync def main():\n    server_params = StdioServerParameters(\n        command=\"python\",\n        args=[\"server.py\"]\n    )\n\n    async with stdio_client(server_params) as (read, write):\n        async with ClientSession(read, write) as session:\n            await session.initialize()\n\n            # List available tools\n            tools_result = await session.list_tools()\n            for tool in tools_result.tools:\n                print(f\"Tool: {tool.name} - {tool.description}\")\n\n            # Call a tool\n            result = await session.call_tool(\"add\", arguments={\"a\": 5, \"b\": 3})\n            print(f\"Result: {result.content[0].text}\")\n\nasyncio.run(main())"
   },
@@ -134,7 +216,14 @@
     "title": "Python MCP Client — Streamable HTTP Transport with OAuth",
     "description": "A Python MCP client connecting to a remote server via Streamable HTTP transport with OAuth authentication. Demonstrates the streamable_http_client context manager, session initialization, and authenticated tool calls for production remote deployments.",
     "url": "https://github.com/modelcontextprotocol/python-sdk",
-    "tags": ["python", "client", "streamable-http", "oauth", "remote", "example"],
+    "tags": [
+      "python",
+      "client",
+      "streamable-http",
+      "oauth",
+      "remote",
+      "example"
+    ],
     "difficulty": "advanced",
     "code": "import asyncio\nfrom mcp import ClientSession\nfrom mcp.client.streamable_http import streamable_http_client\n\nasync def main():\n    async with streamable_http_client(\n        \"https://mcp.example.com/mcp\",\n        headers={\"Authorization\": \"Bearer <token>\"}\n    ) as (read_stream, write_stream, _):\n        async with ClientSession(read_stream, write_stream) as session:\n            await session.initialize()\n\n            # List and call remote tools\n            tools = await session.list_tools()\n            result = await session.call_tool(\n                \"search_documents\",\n                arguments={\"query\": \"MCP protocol\"}\n            )\n            for content in result.content:\n                print(content.text)\n\nasyncio.run(main())"
   },
@@ -144,7 +233,13 @@
     "title": "TypeScript MCP Client — Connecting to Remote and Local Servers",
     "description": "A TypeScript MCP client demonstrating both StreamableHTTPClientTransport for remote servers and StdioClientTransport for local servers. Shows client creation, capability negotiation, tool discovery, resource reading, and prompt listing patterns.",
     "url": "https://github.com/modelcontextprotocol/typescript-sdk/blob/HEAD/docs/client.md",
-    "tags": ["typescript", "client", "streamable-http", "stdio", "example"],
+    "tags": [
+      "typescript",
+      "client",
+      "streamable-http",
+      "stdio",
+      "example"
+    ],
     "difficulty": "intermediate",
     "code": "import { Client } from '@modelcontextprotocol/client';\nimport { StreamableHTTPClientTransport } from '@modelcontextprotocol/client';\nimport { StdioClientTransport } from '@modelcontextprotocol/client';\n\n// Remote server (Streamable HTTP)\nconst remoteClient = new Client({ name: 'my-client', version: '1.0.0' });\nconst httpTransport = new StreamableHTTPClientTransport(\n  new URL('https://mcp.example.com/mcp')\n);\nawait remoteClient.connect(httpTransport);\n\n// Discover tools\nconst tools = await remoteClient.listTools();\n\n// Call a tool\nconst result = await remoteClient.callTool({\n  name: 'search_documents',\n  arguments: { query: 'MCP protocol' }\n});\n\n// Local server (stdio)\nconst localClient = new Client({ name: 'local-client', version: '1.0.0' });\nconst stdioTransport = new StdioClientTransport({\n  command: 'node',\n  args: ['./build/index.js']\n});\nawait localClient.connect(stdioTransport);\nconst localTools = await localClient.listTools();"
   },
@@ -154,7 +249,13 @@
     "title": "MCP TypeScript SDK — Client Development Guide",
     "description": "Official TypeScript SDK client documentation covering Client class, transports (StreamableHTTPClientTransport, StdioClientTransport, SSEClientTransport), OAuth authentication (Bearer tokens, Client Credentials, Private Key JWT, Cross-App Access), middleware pipelines, resumption tokens for SSE reconnection, and error handling with ProtocolError and SdkError.",
     "url": "https://github.com/modelcontextprotocol/typescript-sdk/blob/HEAD/docs/client.md",
-    "tags": ["typescript", "client", "sdk", "oauth", "official"],
+    "tags": [
+      "typescript",
+      "client",
+      "sdk",
+      "oauth",
+      "official"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -163,7 +264,13 @@
     "title": "Building a Python MCP Client — Real Python Deep Dive",
     "description": "Comprehensive Real Python tutorial building a full MCP client with OpenAI integration. Covers project setup with uv, async context manager patterns for ClientSession, tool discovery, integrating with OpenAI's API for AI-powered chat, CLI argument parsing, and packaging with pyproject.toml. Goes beyond the official quickstart with production patterns.",
     "url": "https://realpython.com/python-mcp-client/",
-    "tags": ["python", "client", "openai", "tutorial", "production"],
+    "tags": [
+      "python",
+      "client",
+      "openai",
+      "tutorial",
+      "production"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -172,7 +279,13 @@
     "title": "VS Code MCP Integration — Server Configuration and Copilot",
     "description": "Official VS Code documentation for configuring MCP servers in Copilot. Covers mcp.json configuration (workspace and user levels), stdio and http server types, the MCP server gallery for discovering and installing servers, security features (trust prompts, sandbox mode, input variables), and enterprise policy management. VS Code 1.101+ supports remote servers with OAuth.",
     "url": "https://github.com/microsoft/vscode-docs/blob/main/docs/copilot/customization/mcp-servers.md",
-    "tags": ["vscode", "copilot", "client", "configuration", "microsoft"],
+    "tags": [
+      "vscode",
+      "copilot",
+      "client",
+      "configuration",
+      "microsoft"
+    ],
     "difficulty": "beginner"
   },
   {
@@ -181,7 +294,13 @@
     "title": "GitHub MCP Server — Official GitHub Integration",
     "description": "The official GitHub MCP server (29,700+ stars) providing tools for repos, issues, pull requests, actions, code security, discussions, notifications, and projects. Supports both remote (hosted at api.githubcopilot.com with OAuth) and local (Docker/self-hosted) deployment. Includes dynamic tool discovery, read-only mode, and fine-grained toolsets for security.",
     "url": "https://github.com/github/github-mcp-server",
-    "tags": ["github", "server", "official", "integration", "production"],
+    "tags": [
+      "github",
+      "server",
+      "official",
+      "integration",
+      "production"
+    ],
     "difficulty": "beginner"
   },
   {
@@ -190,7 +309,13 @@
     "title": "Deploy MCP Servers to Production with Docker and Streamable HTTP",
     "description": "Comprehensive guide on production MCP deployment covering Streamable HTTP transport (replacing deprecated SSE), multi-stage Docker builds with non-root users, Kubernetes deployment with health probes and session affinity, nginx/Caddy reverse proxy configuration with proxy_buffering off for SSE, Redis session persistence, and authentication patterns (Bearer tokens, API keys, OAuth 2.1).",
     "url": "https://systemprompt.io/guides/mcp-servers-production-deployment",
-    "tags": ["deployment", "docker", "kubernetes", "streamable-http", "production"],
+    "tags": [
+      "deployment",
+      "docker",
+      "kubernetes",
+      "streamable-http",
+      "production"
+    ],
     "difficulty": "advanced"
   },
   {
@@ -199,7 +324,13 @@
     "title": "MCP Streamable HTTP Transport — SSE Migration to Production",
     "description": "Detailed guide on migrating from deprecated SSE transport to Streamable HTTP. Covers the single-endpoint architecture (/mcp), stateless vs stateful session management, Mcp-Session-Id header handling, MCP-Protocol-Version requirements, proxy configuration for nginx and Caddy, and common production pitfalls (proxy buffering, session loss, 502 errors, OOM).",
     "url": "https://apigene.ai/blog/mcp-streamable-http",
-    "tags": ["deployment", "streamable-http", "sse", "migration", "production"],
+    "tags": [
+      "deployment",
+      "streamable-http",
+      "sse",
+      "migration",
+      "production"
+    ],
     "difficulty": "advanced"
   },
   {
@@ -208,7 +339,13 @@
     "title": "Deploy an MCP Server to Google Cloud Run",
     "description": "Google Cloud documentation for hosting remote MCP servers on Cloud Run with built-in HTTP streaming support, IAM authentication via roles/run.invoker, and gcloud run services proxy for local-to-remote auth. Covers Dockerfile setup, service configuration, and client connection patterns.",
     "url": "https://cloud.google.com/run/docs/host-mcp-servers",
-    "tags": ["deployment", "cloud-run", "gcp", "docker", "production"],
+    "tags": [
+      "deployment",
+      "cloud-run",
+      "gcp",
+      "docker",
+      "production"
+    ],
     "difficulty": "advanced",
     "workflow": [
       "Write Dockerfile for MCP server (multi-stage build, non-root user, EXPOSE port, HEALTHCHECK)",
@@ -225,7 +362,13 @@
     "title": "Claude Code Plugins — Skills, Hooks, MCP, and Worktrees",
     "description": "Comprehensive documentation on Claude Code's plugin system: .claude-plugin/plugin.json manifests bundling skills, agents, hooks, MCP servers, LSP servers, and themes. Covers plugin lifecycle (install, enable, disable, update), userConfig for prompting users at enable time, marketplace support, and integration with skills (unified commands), agents (isolation: worktree), and hooks (PreToolUse, PostToolUse, SessionStart).",
     "url": "https://code.claude.com/docs/en/plugins-reference",
-    "tags": ["claude-code", "plugins", "skills", "hooks", "worktrees"],
+    "tags": [
+      "claude-code",
+      "plugins",
+      "skills",
+      "hooks",
+      "worktrees"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -234,7 +377,13 @@
     "title": "Claude Code Full Stack — MCP, Skills, Subagents, and Hooks Explained",
     "description": "Deep analysis of how Claude Code's full stack works together: MCP servers connect to external tools and APIs (3,000+ available), hooks intercept and modify tool calls at 22+ lifecycle events, skills (.claude/skills/) provide reusable prompts and workflows, subagents execute isolated tasks, and worktrees enable parallel development branches. MCP tool hooks (type: mcp_tool) can invoke MCP servers directly.",
     "url": "https://alexop.dev/posts/understanding-claude-code-full-stack/",
-    "tags": ["claude-code", "architecture", "hooks", "skills", "subagents"],
+    "tags": [
+      "claude-code",
+      "architecture",
+      "hooks",
+      "skills",
+      "subagents"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -243,7 +392,12 @@
     "title": "Claude Code Hooks Reference — Lifecycle Events and Handler Types",
     "description": "Official hooks reference covering 22+ lifecycle events (PreToolUse, PostToolUse, SessionStart, Stop, WorktreeCreate, WorktreeRemove, TaskCreated, TaskCompleted), five handler types (command, http, mcp_tool, prompt, agent), hook configuration in settings files, plugin hooks merging, and terminalSequence output for desktop notifications.",
     "url": "https://code.claude.com/docs/en/hooks.md",
-    "tags": ["claude-code", "hooks", "lifecycle", "configuration"],
+    "tags": [
+      "claude-code",
+      "hooks",
+      "lifecycle",
+      "configuration"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -252,7 +406,13 @@
     "title": "MCP Tools vs Resources vs Prompts — Decision Framework",
     "description": "Comprehensive decision framework for choosing between MCP's three server primitives: Tools (actions with side effects and input parameters), Resources (read-only data with natural URIs that clients may cache), and Prompts (reusable templates encoding domain expertise). Includes a decision tree, comparison table, and guidance on when to use each primitive for optimal LLM interaction.",
     "url": "https://engineersofai.com/docs/agentic-ai/model-context-protocol/MCP-Tools-Resources-Prompts",
-    "tags": ["tools", "resources", "prompts", "patterns", "design"],
+    "tags": [
+      "tools",
+      "resources",
+      "prompts",
+      "patterns",
+      "design"
+    ],
     "difficulty": "beginner"
   },
   {
@@ -261,7 +421,13 @@
     "title": "MCP Tool Design Patterns — Building Agent-Friendly, Composable Tools",
     "description": "Design patterns for building MCP tools that work well with LLM agents: action-oriented naming (camelCase for tokenization), rich descriptions with when-to-use and when-not-to guidance, summary-first response patterns, error recovery hints with retry timing, confidence scoring, cursor-based pagination with next_tool/next_params references, and cross-tool references for guiding LLM workflows.",
     "url": "https://chatforest.com/guides/mcp-tool-design-patterns/",
-    "tags": ["tools", "design-patterns", "naming", "composition", "agent-friendly"],
+    "tags": [
+      "tools",
+      "design-patterns",
+      "naming",
+      "composition",
+      "agent-friendly"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -270,7 +436,13 @@
     "title": "Awesome MCP Best Practices — Curated Production Guidelines",
     "description": "Curated, opinionated best practices for MCP server development covering tool naming conventions, description writing, error handling (isError: true for actionable errors vs exceptions for system failures), idempotency tokens, stateful vs stateless design, pagination strategies, response size capping, and security (input validation, path traversal prevention, timeout handling).",
     "url": "https://github.com/lirantal/awesome-mcp-best-practices",
-    "tags": ["best-practices", "production", "security", "error-handling", "community"],
+    "tags": [
+      "best-practices",
+      "production",
+      "security",
+      "error-handling",
+      "community"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -279,7 +451,13 @@
     "title": "MCP Server Design Checklist — AgentPatterns.ai",
     "description": "A concise design checklist for MCP servers: pick the right primitive (tool vs resource vs prompt), optimize token efficiency with dynamic toolsets (96% reduction), write actionable error messages following the poka-yoke principle (include constraint, violation, and recovery context), use output schemas and annotations for structured content validation, and keep tool lists under 15 per server.",
     "url": "https://agentpatterns.ai/tool-engineering/mcp-server-design/",
-    "tags": ["design", "checklist", "token-efficiency", "error-messages", "agent-friendly"],
+    "tags": [
+      "design",
+      "checklist",
+      "token-efficiency",
+      "error-messages",
+      "agent-friendly"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -288,7 +466,13 @@
     "title": "Composable Tools for Enterprise MCP — Nine Design Patterns",
     "description": "Nine compositional design patterns for enterprise MCP tools: accept business identifiers not system IDs, build idempotency tokens into create/modify operations, coordinate state transitions atomically (one tool, not 11 API calls), embed authorization in tool interfaces, provide smart defaults, document prerequisites and error modes upfront, support partial updates, create defensive composition helpers, and design for natural language patterns.",
     "url": "https://dev.to/zaynelt/designing-composable-tools-for-enterprise-mcp-from-theory-to-practice-3df",
-    "tags": ["enterprise", "composition", "idempotency", "design-patterns", "atomic"],
+    "tags": [
+      "enterprise",
+      "composition",
+      "idempotency",
+      "design-patterns",
+      "atomic"
+    ],
     "difficulty": "advanced"
   },
   {
@@ -297,7 +481,13 @@
     "title": "Build and Deploy a FastMCP Server with Docker",
     "description": "Step-by-step workflow for building a FastMCP Python server, testing locally with MCP Inspector, and deploying to production with Docker. Covers the full lifecycle from development through containerized deployment.",
     "url": "https://www.firecrawl.dev/blog/fastmcp-tutorial-building-mcp-servers-python",
-    "tags": ["fastmcp", "docker", "deployment", "workflow", "python"],
+    "tags": [
+      "fastmcp",
+      "docker",
+      "deployment",
+      "workflow",
+      "python"
+    ],
     "difficulty": "intermediate",
     "workflow": [
       "Create FastMCP server: pip install fastmcp && create server.py with @mcp.tool() decorators",
@@ -315,7 +505,12 @@
     "title": "Build a Custom MCP Client in Python with LLM Integration",
     "description": "Workflow for building a custom MCP client that connects to MCP servers and integrates with an LLM API for interactive tool-calling chat. Covers the full client development lifecycle from transport setup through query processing.",
     "url": "https://github.com/modelcontextprotocol/docs/blob/main/quickstart/client.mdx",
-    "tags": ["client", "python", "llm-integration", "workflow"],
+    "tags": [
+      "client",
+      "python",
+      "llm-integration",
+      "workflow"
+    ],
     "difficulty": "intermediate",
     "workflow": [
       "Create project: mkdir mcp-client && cd mcp-client && uv init && uv add mcp anthropic",
@@ -333,7 +528,12 @@
     "title": "Configure MCP Servers for VS Code Copilot",
     "description": "Workflow for configuring MCP servers in VS Code for GitHub Copilot integration. Covers workspace and user-level configuration, server discovery via the gallery, trust management, and security settings.",
     "url": "https://github.com/microsoft/vscode-docs/blob/main/docs/copilot/reference/mcp-configuration.md",
-    "tags": ["vscode", "copilot", "configuration", "workflow"],
+    "tags": [
+      "vscode",
+      "copilot",
+      "configuration",
+      "workflow"
+    ],
     "difficulty": "beginner",
     "workflow": [
       "Create .vscode/mcp.json in your workspace for project-level servers, or use User profile for global servers",
@@ -351,7 +551,13 @@
     "title": "Set Up Claude Code Hooks with MCP Tool Integration",
     "description": "Workflow for creating Claude Code hooks that invoke MCP servers directly. Hooks can intercept tool calls, validate inputs, enrich context, and trigger MCP tool calls at 22+ lifecycle events without wrapping in Bash commands.",
     "url": "https://code.claude.com/docs/en/hooks.md",
-    "tags": ["claude-code", "hooks", "mcp-tool", "workflow", "integration"],
+    "tags": [
+      "claude-code",
+      "hooks",
+      "mcp-tool",
+      "workflow",
+      "integration"
+    ],
     "difficulty": "advanced",
     "workflow": [
       "Identify the lifecycle event to hook (PreToolUse, PostToolUse, SessionStart, etc.)",
@@ -369,7 +575,12 @@
     "title": "Debug an MCP Server with MCP Inspector",
     "description": "Workflow for using the official MCP Inspector to debug, test, and validate MCP servers during development. Covers connecting to servers, testing tools, browsing resources, and inspecting JSON-RPC messages.",
     "url": "https://github.com/modelcontextprotocol/inspector",
-    "tags": ["debugging", "inspector", "testing", "workflow"],
+    "tags": [
+      "debugging",
+      "inspector",
+      "testing",
+      "workflow"
+    ],
     "difficulty": "beginner",
     "workflow": [
       "Launch Inspector: npx @modelcontextprotocol/inspector (opens web UI at localhost:6274)",
@@ -389,7 +600,13 @@
     "title": "mcp-agent SDK — Composable Workflow Patterns for Multi-Agent Systems",
     "description": "The mcp-agent SDK (8,286 stars) implements Anthropic's Building Effective Agents patterns on top of MCP. Provides 7 workflow patterns (Parallel, Router, Intent Classifier, Orchestrator-Workers, Deep Research, Evaluator-Optimizer, Swarm), composition patterns (sequential, parallel, nested, event-driven), durable execution via Temporal, and Agent-as-MCP-Server pattern for exposing any agent as a standard MCP server.",
     "url": "https://github.com/lastmile-ai/mcp-agent",
-    "tags": ["multi-agent", "orchestration", "workflows", "temporal", "composition"],
+    "tags": [
+      "multi-agent",
+      "orchestration",
+      "workflows",
+      "temporal",
+      "composition"
+    ],
     "difficulty": "advanced"
   },
   {
@@ -398,7 +615,13 @@
     "title": "MCP Agent Orchestration — Chaining, Handoffs, and Multi-Agent Patterns",
     "description": "Three core multi-agent orchestration patterns built on MCP: Handoffs (orchestrator delegates sub-tasks to specialized sub-agents via standardized MCP interfaces), Chaining (linear pipelines where output of Agent A feeds Agent B), and Agent Graphs (non-linear topologies with bidirectional communication and feedback loops). Explains MCP as the protocol layer (tool/resource) while A2A handles agent coordination.",
     "url": "https://www.getknit.dev/blog/advanced-mcp-agent-orchestration-chaining-and-handoffs",
-    "tags": ["multi-agent", "orchestration", "handoffs", "chaining", "a2a"],
+    "tags": [
+      "multi-agent",
+      "orchestration",
+      "handoffs",
+      "chaining",
+      "a2a"
+    ],
     "difficulty": "advanced"
   },
   {
@@ -407,7 +630,13 @@
     "title": "Microsoft Agent Framework — MCP-Driven Multi-Agent Patterns",
     "description": "Microsoft's agent framework demonstrating four MCP-driven orchestration patterns with a customer support scenario: Single Agent (simple, domain-bound), Reflection (two-agent quality loop), Handoff (intent classification with domain-specific routing), and Magentic Orchestration (centralized planner with task ledger, parallel+sequential execution). Uses modular runtime to swap patterns via .env config without changing code.",
     "url": "https://techcommunity.microsoft.com/blog/azuredevcommunityblog/orchestrating-multi-agent-intelligence-mcp-driven-patterns-in-agent-framework/4462150",
-    "tags": ["multi-agent", "microsoft", "orchestration", "patterns", "reflection"],
+    "tags": [
+      "multi-agent",
+      "microsoft",
+      "orchestration",
+      "patterns",
+      "reflection"
+    ],
     "difficulty": "advanced"
   },
   {
@@ -416,7 +645,13 @@
     "title": "mcp-orchestrator — TypeScript Composition Library",
     "description": "A lightweight TypeScript library for composing MCP servers into domain-specific experts. Features Code Mode (LLMs write and execute TypeScript for complex operations, 60-75% token reduction), composition functions (sequence, parallel, retry, conditional), A2A Bridge for Agent-to-Agent protocol support, dual-level LLM sampling, and a snippet system to promote Code Mode scripts to first-class MCP tools.",
     "url": "https://github.com/mrorigo/mcp-orchestrator",
-    "tags": ["orchestration", "typescript", "composition", "a2a", "code-mode"],
+    "tags": [
+      "orchestration",
+      "typescript",
+      "composition",
+      "a2a",
+      "code-mode"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -425,7 +660,13 @@
     "title": "Advanced MCP Server Patterns — Circuit Breakers, Caching, and Error Handling",
     "description": "Production-grade patterns for MCP servers: Server Factory and Plugin Architecture for extensibility, structured error handling with typed MCPErrorType enums and MCPErrorHandler classes, Circuit Breaker pattern (CLOSED to OPEN to HALF_OPEN state machine) for external service calls, request deduplication, multi-level caching, sliding window rate limiting, event sourcing with snapshots, and distributed tracing with OpenTelemetry.",
     "url": "https://www.mcpstack.org/learn/advanced-mcp-patterns",
-    "tags": ["circuit-breaker", "caching", "error-handling", "production", "patterns"],
+    "tags": [
+      "circuit-breaker",
+      "caching",
+      "error-handling",
+      "production",
+      "patterns"
+    ],
     "difficulty": "advanced"
   },
   {
@@ -434,7 +675,13 @@
     "title": "MCP Tool Creation Patterns and Best Practices",
     "description": "Deep-dive practical guide covering LLM-optimized tool design (descriptive names, explicit return value docs, side-effect documentation), error handling (isError: true for user-facing actionable errors vs thrown exceptions for system failures), tool composition (shared logic extraction vs model-driven chaining), stateful vs stateless design (pagination cursors with expiration), long-running operations (progress reporting, cancellation via signal.aborted), and response size capping for token efficiency.",
     "url": "https://www.grizzlypeaksoftware.com/library/mcp-tool-creation-patterns-and-best-practices-sgph5f29",
-    "tags": ["tool-design", "best-practices", "error-handling", "pagination", "stateful"],
+    "tags": [
+      "tool-design",
+      "best-practices",
+      "error-handling",
+      "pagination",
+      "stateful"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -443,7 +690,13 @@
     "title": "MCP Gateway and Registry — Enterprise Production Platform",
     "description": "The agentic-community/mcp-gateway-registry (629+ stars) is an enterprise-ready platform centralizing AI tool access. Provides multi-IdP authentication (Keycloak, Entra ID, Okta, Auth0, Cognito), RBAC at the tool level, OpenTelemetry monitoring (Datadog, New Relic, Honeycomb, Grafana Cloud), MongoDB-backed registry with vector search, Docker Compose deployment, AWS ECS Fargate with Terraform, and security scanning via Cisco AI Defense.",
     "url": "https://github.com/agentic-community/mcp-gateway-registry",
-    "tags": ["gateway", "registry", "production", "auth", "monitoring"],
+    "tags": [
+      "gateway",
+      "registry",
+      "production",
+      "auth",
+      "monitoring"
+    ],
     "difficulty": "advanced"
   },
   {
@@ -452,7 +705,13 @@
     "title": "Centralized MCP Registry Architecture — Multi-Tenancy and Dynamic Discovery",
     "description": "TrueFoundry architecture guide for centralized MCP registries at enterprise scale. Covers auth metadata decoupling (credentials as tfy-secret:// references in AWS SSM/GCP Secret Manager/Vault), multi-tenant isolation (tenant ID in URL path), dynamic tool discovery with RBAC-filtered tools/list, health checking with circuit breaking (threshold-based state machine), and credential rotation without fleet-wide config pushes (240 engineers x 8 servers = 1,920 entries reduced to 8).",
     "url": "https://www.truefoundry.com/de/blog/centralized-mcp-registry-architecture",
-    "tags": ["registry", "multi-tenancy", "auth", "circuit-breaker", "enterprise"],
+    "tags": [
+      "registry",
+      "multi-tenancy",
+      "auth",
+      "circuit-breaker",
+      "enterprise"
+    ],
     "difficulty": "advanced"
   },
   {
@@ -461,7 +720,13 @@
     "title": "FastMCP 3.0 — Provider Architecture and Transform System",
     "description": "FastMCP 3.0 (PrefectHQ, 25,000+ stars) introduced the provider/transform architecture. Providers define component sources (LocalProvider for decorators, FileSystemProvider for auto-discovery, OpenAPIProvider for REST APIs, ProxyProvider for remote servers, SkillsProvider for .claude/skills). Transforms modify components as they flow to clients (Namespace prefixing, ToolTransform, VersionFilter, Visibility, ResourcesAsTools, PromptsAsTools). Also includes per-component authorization, session-scoped state, OpenTelemetry, and component versioning.",
     "url": "https://gofastmcp.com/servers/providers/overview",
-    "tags": ["fastmcp", "providers", "transforms", "architecture", "composition"],
+    "tags": [
+      "fastmcp",
+      "providers",
+      "transforms",
+      "architecture",
+      "composition"
+    ],
     "difficulty": "advanced"
   },
   {
@@ -470,7 +735,13 @@
     "title": "Building MCP Servers with Python — freeCodeCamp Guide",
     "description": "Beginner-friendly freeCodeCamp guide to building MCP servers with Python and FastMCP. Covers installation (pip install fastmcp requests), creating three example tools (add, get_secret_word, get_current_weather), running via SSE transport, testing with MCP Inspector, and deploying to cloud hosting (Sevalla). Good entry point for developers new to MCP.",
     "url": "https://www.freecodecamp.org/news/how-to-build-your-own-mcp-server-with-python/",
-    "tags": ["python", "fastmcp", "beginner", "tutorial", "deployment"],
+    "tags": [
+      "python",
+      "fastmcp",
+      "beginner",
+      "tutorial",
+      "deployment"
+    ],
     "difficulty": "beginner"
   },
   {
@@ -479,7 +750,13 @@
     "title": "Smithery — MCP Server Discovery and Registry Platform",
     "description": "Smithery (smithery.ai) is a platform for discovering, deploying, and managing MCP servers. Provides a searchable registry with API access, server metadata (qualifiedName, description, useCount, verified status), automatic server scanning to extract tools/prompts/resources, CLI for search/add/list (smithery mcp search/add/list), MCPB bundle distribution for stdio servers, and OAuth-free consumer authentication with automatic token refresh.",
     "url": "https://smithery.ai/docs",
-    "tags": ["registry", "discovery", "deployment", "platform", "community"],
+    "tags": [
+      "registry",
+      "discovery",
+      "deployment",
+      "platform",
+      "community"
+    ],
     "difficulty": "beginner"
   },
   {
@@ -488,7 +765,13 @@
     "title": "MCP 2026-07-28 Specification Release Candidate — Stateless Protocol Core",
     "description": "The largest revision of MCP since launch. Key changes: removal of initialize/initialized handshake (SEP-2575), removal of Mcp-Session-Id and protocol-level sessions (SEP-2567), new server/discover method replacing capability negotiation, client info and capabilities in _meta on every request, Extensions framework with reverse-DNS IDs (MCP Apps for server-rendered HTML UIs, Tasks for durable execution), authorization hardening (RFC 9207 iss validation, application_type declaration), and deprecations of Roots, Sampling, and Logging.",
     "url": "https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/",
-    "tags": ["specification", "stateless", "extensions", "2026", "breaking-changes"],
+    "tags": [
+      "specification",
+      "stateless",
+      "extensions",
+      "2026",
+      "breaking-changes"
+    ],
     "difficulty": "advanced"
   },
   {
@@ -497,7 +780,13 @@
     "title": "Claude Code Skills — Unified Commands and Auto-Activation",
     "description": "Documentation on Claude Code's unified skill/command system (.claude/skills/). Skills auto-activate based on task context when description matches, support frontmatter for invocation control (disable-model-invocation, user-invocable, context: fork, allowed-tools, model, paths), can define hooks scoped to their lifetime, and use ${CLAUDE_SKILL_DIR} for self-referencing file paths. The recommended approach for reusable, shareable workflows.",
     "url": "https://code.claude.com/docs/en/plugins",
-    "tags": ["claude-code", "skills", "commands", "auto-activation", "frontmatter"],
+    "tags": [
+      "claude-code",
+      "skills",
+      "commands",
+      "auto-activation",
+      "frontmatter"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -506,8 +795,90 @@
     "title": "FastMCP 3.0 Provider Composition — Mounting and Proxying Servers",
     "description": "FastMCP 3.0 example showing how to compose multiple MCP servers using the provider architecture: mounting a local server with FastMCPProvider, proxying a remote server with ProxyProvider, auto-discovering tools from files with FileSystemProvider, and wrapping a REST API with OpenAPIProvider. Also demonstrates transform chaining with Namespace and ToolTransform.",
     "url": "https://gofastmcp.com/servers/providers/overview",
-    "tags": ["fastmcp", "providers", "composition", "proxy", "example"],
+    "tags": [
+      "fastmcp",
+      "providers",
+      "composition",
+      "proxy",
+      "example"
+    ],
     "difficulty": "advanced",
     "code": "from fastmcp import FastMCP\nfrom fastmcp.server.proxy import ProxyProvider\nfrom fastmcp.server.openapi import OpenAPIProvider\nfrom fastmcp.server.filesystem import FileSystemProvider\n\n# Main server\nmcp = FastMCP(\"Gateway Server\")\n\n# Mount another local server\nfrom weather import weather_mcp\nmcp.mount(weather_mcp, prefix=\"weather\")  # FastMCPProvider\n\n# Proxy a remote server\nasync def create_proxy():\n    proxy = await ProxyProvider.create(\"https://api.example.com/mcp\")\n    mcp.add_provider(proxy)\n\n# Auto-discover tools from Python files\nfs_provider = FileSystemProvider(\"./mcp_tools/\")\nmcp.add_provider(fs_provider)  # standalone @tool decorators auto-discovered\n\n# Wrap a REST API\nimport httpx\nopenapi_spec = httpx.get(\"https://api.example.com/openapi.json\").json()\nclient = httpx.AsyncClient(base_url=\"https://api.example.com\")\napi_provider = OpenAPIProvider(openapi_spec=openapi_spec, client=client)\nmcp.add_provider(api_provider)\n\nif __name__ == \"__main__\":\n    mcp.run(transport=\"streamable-http\", host=\"0.0.0.0\", port=8000)"
+  },
+  {
+    "topic": "mcp",
+    "type": "course",
+    "title": "SudoAll.com MCP Protocol Course (55 Lessons)",
+    "description": "Comprehensive 55-lesson MCP course covering protocol basics, server/client architecture, tool design, resource handling, prompts, transport layers (SSE, Streamable HTTP), authentication, and production deployment patterns.",
+    "url": "https://sudoall.com/mcp-protocol-course-intro/",
+    "tags": [
+      "course",
+      "mcp",
+      "protocol",
+      "lessons",
+      "comprehensive"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "mcp",
+    "type": "tutorial",
+    "title": "Apify MCP Server Handbook 2026",
+    "description": "Comprehensive handbook covering MCP server design patterns, tool implementation best practices, error handling, rate limiting, and production deployment considerations for 2026.",
+    "url": "https://use-apify.com/blog/mcp-server-handbook-2026",
+    "tags": [
+      "handbook",
+      "mcp",
+      "best-practices",
+      "production",
+      "design-patterns"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "mcp",
+    "type": "tutorial",
+    "title": "env.dev: How to Build an MCP Server",
+    "description": "Step-by-step guide to building MCP servers covering project setup, tool definitions, resource handlers, transport configuration, testing, and deployment.",
+    "url": "https://env.dev/guides/how-to-build-an-mcp-server",
+    "tags": [
+      "tutorial",
+      "mcp",
+      "build",
+      "server",
+      "step-by-step"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "mcp",
+    "type": "tutorial",
+    "title": "LogRocket: How to Build an MCP Server with Node.js",
+    "description": "Node.js tutorial for building MCP servers using the TypeScript SDK. Covers server setup, tool registration, SSE transport, testing, and debugging patterns.",
+    "url": "https://blog.logrocket.com/how-to-build-mcp-server-nodejs/",
+    "tags": [
+      "nodejs",
+      "typescript",
+      "mcp",
+      "tutorial",
+      "sdk"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "mcp",
+    "type": "book",
+    "title": "MCP: Model Context Protocol Book (cloudstreet-dev, CC0)",
+    "description": "Open-source CC0-licensed book covering the full MCP specification, server/client implementation, tool design patterns, security considerations, and production deployment. Available on GitHub.",
+    "url": "https://github.com/cloudstreet-dev/MCP-Model-Context-Protocol",
+    "tags": [
+      "book",
+      "open-source",
+      "cc0",
+      "mcp",
+      "specification",
+      "comprehensive"
+    ],
+    "difficulty": "intermediate"
   }
 ]

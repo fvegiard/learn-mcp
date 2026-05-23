@@ -831,5 +831,68 @@
       "tool-use"
     ],
     "difficulty": "advanced"
+  },
+  {
+    "topic": "agents",
+    "type": "course",
+    "title": "Agentic AI with LangGraph, CrewAI, AutoGen and BeeAI (IBM/Coursera)",
+    "description": "Intermediate Coursera course by IBM covering LangGraph design patterns (stateful workflows, human-in-the-loop), CrewAI crews and flows, BeeAI, and AG2/AutoGen group chat. 3 modules, ~13 hours, 9400+ enrolled.",
+    "url": "https://www.coursera.org/learn/agentic-ai-with-langgraph-crewai-autogen-and-beeai",
+    "tags": [
+      "langgraph",
+      "crewai",
+      "autogen",
+      "beeai",
+      "course",
+      "ibm"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "agents",
+    "type": "tutorial",
+    "title": "Google Codelab: Scale Agents with CrewAI, LangGraph, A2A, and ADK",
+    "description": "Hands-on 35-minute codelab building a multi-agent retail inventory restock system. Demonstrates cross-framework orchestration: LangGraph for planning, CrewAI for execution, A2A Protocol for inter-agent communication, Google ADK as top-level orchestrator.",
+    "url": "https://codelabs.developers.google.com/next26/scale-agents",
+    "tags": [
+      "google-adk",
+      "a2a",
+      "crewai",
+      "langgraph",
+      "codelab",
+      "multi-agent"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "agents",
+    "type": "course",
+    "title": "LangChain Academy: Introduction to LangGraph (Free)",
+    "description": "Free official LangGraph course covering state management, memory, human-in-the-loop fundamentals. Video-based with hands-on exercises from the LangChain team.",
+    "url": "https://academy.langchain.com/courses/intro-to-langgraph",
+    "tags": [
+      "langgraph",
+      "langchain",
+      "free",
+      "course",
+      "fundamentals"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "agents",
+    "type": "tutorial",
+    "title": "AI Agent Frameworks Compared: CrewAI vs LangGraph vs AutoGen vs Claude Code",
+    "description": "Comprehensive 2026 comparison of architecture, learning curve, multi-agent support, production readiness, and best use cases across the four major agent frameworks. Includes a quick decision guide and cross-framework orchestration patterns.",
+    "url": "https://www.developersdigest.tech/guides/ai-agent-frameworks-compared",
+    "tags": [
+      "comparison",
+      "crewai",
+      "langgraph",
+      "autogen",
+      "claude-code",
+      "frameworks"
+    ],
+    "difficulty": "intermediate"
   }
 ]

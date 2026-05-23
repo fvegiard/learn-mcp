@@ -797,5 +797,83 @@
       "awq','fp8','deployment"
     ],
     "difficulty": "intermediate"
+  },
+  {
+    "topic": "inference",
+    "type": "tutorial",
+    "title": "vLLM vs SGLang vs TensorRT-LLM vs Ollama: Choosing an Inference Engine in 2026 (LeetLLM)",
+    "description": "Comprehensive 2026 comparison with H100 benchmarks (Llama 3.3 70B FP8). Covers PagedAttention vs RadixAttention vs compiled engines, decision framework, and common mistakes. SGLang spun out as RadixArk at $400M valuation.",
+    "url": "https://leetllm.com/blog/llm-inference-engine-comparison-2026",
+    "tags": [
+      "vllm",
+      "sglang",
+      "tensorrt-llm",
+      "ollama",
+      "comparison",
+      "benchmarks"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "inference",
+    "type": "tutorial",
+    "title": "vLLM vs Ollama vs SGLang vs TensorRT-LLM Serving 2026 (The AI Engineer)",
+    "description": "Substack deep-dive comparing the four major inference engines with real-world benchmarks and deployment recommendations. Covers TGI maintenance mode, SGLang powering xAI Grok and LinkedIn AI on 400K+ GPUs.",
+    "url": "https://theaiengineer.substack.com/p/vllm-vs-ollama-vs-sglang-vs-tensorrt",
+    "tags": [
+      "vllm",
+      "sglang",
+      "ollama",
+      "tensorrt-llm",
+      "comparison",
+      "production"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "inference",
+    "type": "tutorial",
+    "title": "vLLM vs SGLang: Inference Engine Comparison 2026 (TURION.AI)",
+    "description": "Detailed architectural comparison of PagedAttention (vLLM) vs RadixAttention (SGLang). Covers prefix caching, token-level reuse, disaggregated prefill/decode, and when each engine excels.",
+    "url": "https://turion.ai/blog/vllm-vs-sglang-inference-comparison-2026/",
+    "tags": [
+      "vllm",
+      "sglang",
+      "radixattention",
+      "pagedattention",
+      "architecture"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "inference",
+    "type": "tutorial",
+    "title": "Concurrent LLM Serving: Benchmarking vLLM vs SGLang vs Ollama (DEV Community)",
+    "description": "Practical benchmark comparing concurrent request handling across vLLM, SGLang, and Ollama. Shows Ollama flatlines ~22 req/s, vLLM and SGLang scale to hundreds. Includes Docker deployment configs.",
+    "url": "https://dev.to/zkaria_gamal_3cddbbff21c8/concurrent-llm-serving-benchmarking-vllm-vs-sglang-vs-ollama-1cpn",
+    "tags": [
+      "vllm",
+      "sglang",
+      "ollama",
+      "concurrency",
+      "benchmarks",
+      "docker"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "inference",
+    "type": "tutorial",
+    "title": "SGLang vs vLLM: Latency Cuts 40% Under Dynamic Batching (Markaicode)",
+    "description": "Benchmark-focused comparison showing SGLang achieving 40% latency reduction on prefix-heavy dynamic batching workloads via RadixAttention. Includes code examples and tuning guidance.",
+    "url": "https://markaicode.com/vs/sglang-vs-vllm/",
+    "tags": [
+      "sglang",
+      "vllm",
+      "latency",
+      "radixattention",
+      "benchmark"
+    ],
+    "difficulty": "advanced"
   }
 ]
