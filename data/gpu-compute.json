@@ -904,270 +904,121 @@
   {
     "topic": "gpu-compute",
     "type": "tool",
-    "title": "NVIDIA CUTLASS: CUDA Templates for Linear Algebra",
-    "description": "NVIDIA's open-source C++ template library and Python CuTe DSL for high-performance GEMM, convolution, and related computations on Tensor Cores. CUTLASS 4.5 adds Blackwell SM100/SM120 support, MXFP8 mixed precision, MoE grouped GEMM, and 2SM MMA instructions. Essential for writing custom high-performance GPU kernels.",
-    "url": "https://docs.nvidia.com/cutlass/latest/",
+    "title": "NVIDIA NGC Catalog: GPU-Optimized Containers, Models, and Helm Charts",
+    "description": "NVIDIA GPU Cloud catalog providing pre-built, GPU-optimized containers (PyTorch, TensorFlow, CUDA), pre-trained models, Helm charts, and Jupyter notebooks. All containers are digitally signed, include SBOM/VEX, and support release types from Early Access through Long-Term Supported. Government Ready containers available for regulated environments.",
+    "url": "https://docs.nvidia.com/ngc/latest/ngc-catalog-user-guide.html",
     "tags": [
-      "cutlass",
-      "gemm",
-      "tensor-cores",
+      "ngc",
+      "containers",
+      "models",
+      "helm",
+      "nvidia"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "tool",
+    "title": "CUDA 13.2 Toolkit: cuTile Python DSL and Tile Programming Model",
+    "description": "CUDA Toolkit 13.2 introduces the CUDA Tile Programming Model with cuTile Python DSL for writing GPU kernels in Python. Includes cuBLAS 13.4, cuFFT 12.2, cuSPARSE SpMVOp improvements (up to 2.5x speedup), and Nsight Compute 2026. Drops Maxwell, Pascal, and Volta support.",
+    "url": "https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html",
+    "tags": [
       "cuda",
+      "toolkit",
+      "cutile",
+      "python",
       "blackwell"
     ],
     "difficulty": "advanced"
   },
   {
     "topic": "gpu-compute",
-    "type": "tutorial",
-    "title": "PyTorch FSDP2 (fully_shard) API Documentation",
-    "description": "Official PyTorch FSDP2 documentation for the new fully_shard() API that replaces the deprecated FSDP1 (FullyShardedDataParallel). FSDP2 uses DTensor-based per-parameter sharding, preserves original parameters, supports mixing frozen and non-frozen parameters, and offers tensor subclass extension points for custom all-gather operations (e.g., float8, NF4/QLoRA).",
-    "url": "https://docs.pytorch.org/docs/stable/distributed.fsdp.fully_shard.md",
-    "tags": [
-      "fsdp2",
-      "pytorch",
-      "distributed",
-      "sharding",
-      "dtensor"
-    ],
-    "difficulty": "advanced"
-  },
-  {
-    "topic": "gpu-compute",
-    "type": "tutorial",
-    "title": "NVIDIA TensorRT Best Practices for Inference Optimization",
-    "description": "Official TensorRT performance best practices guide covering benchmarking with trtexec, profiling techniques (wall-clock timing, CUDA events, built-in profiling), optimization techniques (batching, multi-streaming, CUDA Graphs, layer fusion, tactic selection), and hardware configuration (GPU clock locking, power throttling, PCIe bandwidth, TCC mode).",
-    "url": "https://docs.nvidia.com/deeplearning/tensorrt/latest/performance/best-practices.html",
-    "tags": [
-      "tensorrt",
-      "inference",
-      "optimization",
-      "benchmarking",
-      "production"
-    ],
-    "difficulty": "advanced"
-  },
-  {
-    "topic": "gpu-compute",
-    "type": "tutorial",
-    "title": "TensorRT Optimization Study: Real-World Inference Optimization (tutorialQ)",
-    "description": "Detailed case study walking through optimization of a 7B transformer model from PyTorch FP32 (450ms, 2.2 RPS) to TensorRT INT8 (45ms, 22.2 RPS) \u2014 a 10x speedup. Covers ONNX export, layer fusion (85.5% node reduction), FP16 calibration, INT8 quantization, and deployment to Triton Inference Server with dynamic batching.",
-    "url": "https://tutorialq.com/ai/dl-infrastructure/tensorrt-optimization-study",
-    "tags": [
-      "tensorrt",
-      "inference",
-      "optimization",
-      "int8",
-      "quantization"
-    ],
-    "difficulty": "advanced"
-  },
-  {
-    "topic": "gpu-compute",
-    "type": "pattern",
-    "title": "FlashAttention-4: Blackwell-Optimized Attention with CuTe DSL",
-    "description": "FlashAttention-4 targets NVIDIA Blackwell GPUs (B200/GB200) with redesigned pipelines for asymmetric hardware where Tensor Core throughput doubled but shared memory bandwidth stayed constant. Key innovations: 128x128 tile sizes, software-emulated exponentials on FMA units, conditional softmax rescaling, 2-CTA MMA mode, and Tensor Memory (TMEM). Achieves 1.3x over cuDNN 9.13 and 2.7x over Triton on B200, reaching 71% utilization.",
-    "url": "https://arxiv.org/html/2603.05451",
-    "tags": [
-      "flash-attention",
-      "blackwell",
-      "attention",
-      "cuda",
-      "tensor-cores"
-    ],
-    "difficulty": "advanced"
-  },
-  {
-    "topic": "gpu-compute",
-    "type": "tutorial",
-    "title": "FlashAttention Guide 2026: FA-2, FA-3, FA-4, and Hopper Optimizations",
-    "description": "Comprehensive 2026 guide comparing FlashAttention-2, FA-3 (Hopper TMA+WGMMA+FP8), and FA-4 (Blackwell TMEM+2-CTA MMA). Includes performance benchmarks (H100 80GB with Llama 3.1 70B at 32K context), hardware support matrix (Ampere through Blackwell), installation instructions, PyTorch integration, and migration guidance between FA versions.",
-    "url": "https://localaimaster.com/blog/flash-attention-guide",
-    "tags": [
-      "flash-attention",
-      "benchmark",
-      "hopper",
-      "blackwell",
-      "pytorch"
-    ],
-    "difficulty": "intermediate"
-  },
-  {
-    "topic": "gpu-compute",
-    "type": "pattern",
-    "title": "CUDA Stream-Ordered Memory Allocator Pattern",
-    "description": "Pattern for using cudaMallocAsync/cudaFreeAsync instead of cudaMalloc/cudaFree to avoid GPU-wide synchronization. Stream-ordered allocation enables memory pool reuse within a stream, three controllable reuse policies (follow event dependencies, opportunistic, internal dependencies), explicit pool trimming with cudaMemPoolTrimTo, and release thresholds for reducing OS allocation overhead. Critical for high-throughput training and inference pipelines.",
-    "url": "https://docs.nvidia.com/cuda/cuda-programming-guide/04-special-topics/stream-ordered-memory-allocation.html",
+    "type": "tool",
+    "title": "CUDA C++ Best Practices Guide",
+    "description": "Official NVIDIA guide covering memory optimization, execution configuration, instruction-level optimization, and multi-GPU programming for CUDA C++. Essential reference for writing high-performance GPU kernels, with Blackwell and Hopper-specific tuning guidance.",
+    "url": "https://docs.nvidia.com/cuda/cuda-c-best-practices-guide/",
     "tags": [
       "cuda",
+      "best-practices",
+      "optimization",
       "memory",
-      "stream-ordered",
-      "allocation",
-      "performance"
+      "kernel"
     ],
     "difficulty": "advanced"
   },
   {
     "topic": "gpu-compute",
-    "type": "tutorial",
-    "title": "PyTorch Automatic Mixed Precision (torch.amp) Documentation",
-    "description": "Official PyTorch AMP documentation covering torch.autocast and torch.amp.GradScaler. Notable updates: torch.cuda.amp.GradScaler is deprecated in favor of torch.amp.GradScaler('cuda', ...) for multi-device support. Covers autocast device types (cuda, cpu, xpu), GradScaler usage with gradient accumulation, gradient penalty, multiple models/optimizers, and custom autograd functions.",
-    "url": "https://docs.pytorch.org/docs/stable/amp.md",
+    "type": "tool",
+    "title": "NVIDIA RAPIDS cuDF: GPU-Accelerated DataFrames",
+    "description": "GPU-accelerated DataFrame library providing zero-code-change acceleration for pandas (up to 30x), Polars (up to 13x), and Apache Spark. Built on Apache Arrow columnar format with Unified Virtual Memory for datasets larger than GPU VRAM. Part of the RAPIDS suite.",
+    "url": "https://docs.rapids.ai/api/cudf/nightly/user_guide/10min/",
     "tags": [
-      "pytorch",
-      "amp",
-      "mixed-precision",
-      "gradscaler",
-      "autocast"
+      "rapids",
+      "cudf",
+      "dataframe",
+      "pandas",
+      "gpu-acceleration"
     ],
     "difficulty": "intermediate"
   },
   {
     "topic": "gpu-compute",
-    "type": "tutorial",
-    "title": "Mixed Precision Training with PyTorch AMP: fp16, bf16, and GradScaler (ML Journey)",
-    "description": "Practical guide comparing fp16 and bf16 mixed precision training. Key insights: bf16 rarely overflows/underflows so no GradScaler needed; fp16 has limited range (max ~65,504) requiring GradScaler; hardware guidance (bf16 on A100/H100+, fp16 on V100); GradScaler defaults (init_scale=65536, growth_factor=2.0); common failure mode (scale collapsing = architecture issue); HuggingFace Trainer integration (bf16=True or fp16=True); and NaN debugging with forward hooks.",
-    "url": "https://mljourney.com/mixed-precision-training-with-pytorch-amp-fp16-bf16-and-gradscaler/",
+    "type": "tool",
+    "title": "NVIDIA RAPIDS cuML: GPU-Accelerated Machine Learning",
+    "description": "GPU-accelerated machine learning library with scikit-learn-compatible APIs. Achieves 10-50x average speedups (up to 1000x+ for t-SNE). Includes 50+ algorithms for clustering, regression, classification, dimensionality reduction, and time series. Zero-code-change acceleration via cuml.accel module.",
+    "url": "https://docs.rapids.ai/api/cuml/latest/cuml_intro/",
     "tags": [
-      "mixed-precision",
-      "fp16",
-      "bf16",
-      "gradscaler",
-      "training"
+      "rapids",
+      "cuml",
+      "scikit-learn",
+      "gpu-acceleration",
+      "machine-learning"
     ],
     "difficulty": "intermediate"
   },
   {
     "topic": "gpu-compute",
-    "type": "tutorial",
-    "title": "DeepSpeed Automatic Tensor Parallelism (AutoTP) Training",
-    "description": "Official DeepSpeed tutorial for AutoTP, which combines Tensor Parallelism (splitting model weights across GPUs) with Data Parallelism and ZeRO optimization stages 0-2. Supports HuggingFace tp_plan auto-detection for Llama, Qwen, and Gemma2 models. Custom regex-based partition patterns available for non-standard architectures. Enables training large models that don't fit on a single GPU without code refactoring.",
+    "type": "tool",
+    "title": "DeepSpeed AutoTP: Automatic Tensor Parallel Training",
+    "description": "DeepSpeed Automatic Tensor Parallelism (AutoTP) enables hybrid parallelism combining tensor parallelism, data parallelism, and ZeRO optimization without manual model code changes. Supports HuggingFace tp_plan for automatic sharding of Llama, Qwen, and Gemma2 models.",
     "url": "https://www.deepspeed.ai/tutorials/autotp-training/",
     "tags": [
       "deepspeed",
       "tensor-parallelism",
-      "autotp",
+      "automatic",
+      "huggingface",
+      "distributed"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "gpu-compute",
+    "type": "tool",
+    "title": "NVIDIA NeMo Framework: End-to-End LLM Training Platform",
+    "description": "NVIDIA NeMo Framework for pretraining, post-training, and RL of LLMs and multimodal models. NeMo 2.0 API provides nemo.collections.llm for training recipes, NeMo-Run for cluster orchestration, AutoModel for streamlined SFT/PEFT, and NeMo Curator for GPU-accelerated data preparation.",
+    "url": "https://www.nvidia.com/en-us/gpu-cloud/",
+    "tags": [
+      "nemo",
+      "pretraining",
+      "post-training",
       "distributed",
-      "multi-gpu"
+      "nvidia"
     ],
     "difficulty": "advanced"
   },
   {
     "topic": "gpu-compute",
     "type": "tutorial",
-    "title": "Distributed PyTorch Training Guide (LambdaLabs)",
-    "description": "Best practices and guides for writing distributed PyTorch training code. Covers DataParallel vs DistributedDataParallel, torchrun launcher, multi-node training, gradient synchronization, mixed precision, gradient accumulation, and debugging distributed training issues. Practical code examples for production multi-GPU setups.",
-    "url": "https://github.com/LambdaLabsML/distributed-training-guide",
+    "title": "NVIDIA NGC AI and HPC Containers Directory",
+    "description": "Curated directory of GPU-optimized containers on NGC including PyTorch, TensorFlow, Triton Inference Server, TensorRT, and NeMo Framework containers. Each container includes pre-configured CUDA, cuDNN, and NCCL with version compatibility guaranteed.",
+    "url": "https://developer.nvidia.com/ai-hpc-containers",
     "tags": [
-      "distributed",
-      "ddp",
+      "ngc",
+      "containers",
       "pytorch",
-      "multi-gpu",
-      "best-practices"
+      "tensorflow",
+      "hpc"
     ],
-    "difficulty": "intermediate"
-  },
-  {
-    "topic": "gpu-compute",
-    "type": "course",
-    "title": "LeetCUDA: Modern CUDA Learn Notes with 200+ Kernels",
-    "description": "Comprehensive CUDA learning resource with 200+ CUDA kernels covering Tensor Cores, HGEMM, Flash Attention MMA, and more. Provides beginner-friendly notes with progressive difficulty from basic CUDA concepts to advanced kernel optimization. Includes detailed explanations of memory coalescing, shared memory bank conflicts, warp-level primitives, and CUTLASS integration patterns.",
-    "url": "https://github.com/xlite-dev/LeetCUDA",
-    "tags": [
-      "cuda",
-      "kernels",
-      "tensor-cores",
-      "hgemm",
-      "learning"
-    ],
-    "difficulty": "intermediate"
-  },
-  {
-    "topic": "gpu-compute",
-    "type": "tool",
-    "title": "NVIDIA TensorRT-LLM: High-Performance LLM Inference Engine",
-    "description": "NVIDIA's open-source inference engine for LLMs with TensorRT optimization. Supports inflight batching, paged KV cache, tensor parallelism, pipeline parallelism, FP8/INT8 quantization, KV cache reuse API, built-in RoPE support, MoE inference, and Blackwell GPU support. Achieves 5-10x speedup over unoptimized PyTorch for LLM serving.",
-    "url": "https://github.com/NVIDIA/TensorRT-LLM",
-    "tags": [
-      "tensorrt",
-      "llm",
-      "inference",
-      "quantization",
-      "production"
-    ],
-    "difficulty": "advanced"
-  },
-  {
-    "topic": "gpu-compute",
-    "type": "tool",
-    "title": "NVIDIA Dynamo-Triton Inference Server (formerly Triton Inference Server)",
-    "description": "Production-ready open-source inference server (rebranded as Dynamo-Triton in 2026). Features OpenAI-compatible API endpoints (/v1/chat/completions, /v1/embeddings), dynamic model load/unload, LoRA adapter serving, vLLM and TensorRT-LLM backends, Kubernetes-native deployment, Prometheus monitoring, and KServe Predict v2 protocol. v2.68 adds explicit model control, endpoint access restrictions, and CUDA 13 support.",
-    "url": "https://developer.nvidia.com/dynamo-triton",
-    "tags": [
-      "triton",
-      "inference",
-      "serving",
-      "production",
-      "kubernetes"
-    ],
-    "difficulty": "intermediate"
-  },
-  {
-    "topic": "gpu-compute",
-    "type": "tool",
-    "title": "NVIDIA Nsight Compute 2026.1",
-    "description": "GPU kernel-level profiler (Nsight Compute 2026.1) with CUDA 13.2 support, Blackwell GPU profiling (GB10x through GB20c), Nsight Copilot AI-assisted profiling preview, Python Report Interface via PyPI (pip install ncu-report), Report Merge Tool for multi-GPU analysis, Clustering Window for performance pattern identification, and Register Dependencies analysis. Supports PM Sampling, CUDA Tile workload profiling, and compressed .ncu-repz report format.",
-    "url": "https://docs.nvidia.com/nsight-compute/2026.1/",
-    "tags": [
-      "nsight-compute",
-      "profiling",
-      "blackwell",
-      "cuda-13",
-      "kernel-analysis"
-    ],
-    "difficulty": "advanced"
-  },
-  {
-    "topic": "gpu-compute",
-    "type": "tool",
-    "title": "CUDA Tile IR: MLIR-Based Compiler Infrastructure for GPU Kernel Optimization",
-    "description": "NVIDIA's open-source MLIR-based intermediate representation for CUDA kernel optimization. Targets tile-based computation patterns and NVIDIA Tensor Core units. Provides a structured compiler flow from high-level tile operations to optimized GPU kernels, enabling automatic fusion, tiling, and memory hierarchy mapping for custom CUDA workloads.",
-    "url": "https://github.com/NVIDIA/cuda-tile",
-    "tags": [
-      "cuda",
-      "mlir",
-      "compiler",
-      "tile",
-      "tensor-cores"
-    ],
-    "difficulty": "advanced"
-  },
-  {
-    "topic": "gpu-compute",
-    "type": "tool",
-    "title": "Flash Linear Attention: Efficient Implementations for Linear Attention Models",
-    "description": "Open-source library providing efficient CUDA/Triton implementations for linear attention variants (RetNet, Mamba, RWKV, GLA, DeltaNet, etc.). Achieves 2-5x speedup over naive implementations by fusing recurrent computation with I/O-aware tiling. Essential for training and inference with sub-quadratic attention models that scale to very long sequences.",
-    "url": "https://github.com/fla-org/flash-linear-attention",
-    "tags": [
-      "linear-attention",
-      "mamba",
-      "retnet",
-      "rwk",
-      "efficient"
-    ],
-    "difficulty": "advanced"
-  },
-  {
-    "topic": "gpu-compute",
-    "type": "pattern",
-    "title": "VFA: Vector Relieved Flash Attention for Vector Bottleneck Elimination",
-    "description": "VFA addresses the emerging vector/SIMD bottleneck in Flash Attention by precomputing approximate row-wise running maxima (m-initialization), processing key blocks in sink+local order (prioritizing initial and diagonal blocks), and freezing running maxima for non-special blocks to skip rowmax reductions entirely. Composes with FA-4 for multiplicative speedups. Preserves accuracy on MMLU, MATH500, and HumanEval benchmarks while achieving up to 2x speedup on current architectures and projected 6x with future hardware.",
-    "url": "https://arxiv.org/pdf/2604.12798",
-    "tags": [
-      "flash-attention",
-      "vector-bottleneck",
-      "softmax",
-      "optimization"
-    ],
-    "difficulty": "advanced"
+    "difficulty": "beginner"
   }
 ]
