@@ -894,5 +894,377 @@
       "frameworks"
     ],
     "difficulty": "intermediate"
+  },
+  {
+    "topic": "agents",
+    "type": "tutorial",
+    "title": "Building Production AI Agents with LangGraph: Beyond the Toy Examples",
+    "description": "Comprehensive 2026 guide covering state persistence with PostgresSaver, human-in-the-loop with interrupt/resume, tool calling best practices, error handling with retry policies, LangSmith observability, and production deployment patterns including streaming and rate limiting.",
+    "url": "https://dev.to/young_gao/building-production-ai-agents-with-langgraph-beyond-the-toy-examples-2idm",
+    "tags": [
+      "langgraph",
+      "production",
+      "state-persistence",
+      "human-in-the-loop",
+      "observability"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "agents",
+    "type": "tutorial",
+    "title": "Deploy LangGraph to Production: Step-by-Step Postgres Tutorial",
+    "description": "An 8-step deployment guide covering production requirements auditing, typed state management, Postgres checkpointing, FastAPI containerization, Kubernetes horizontal scaling, OpenTelemetry tracing, and common pitfalls like infinite recursion and checkpoint bloat.",
+    "url": "https://rapidclaw.dev/blog/deploy-langgraph-production-tutorial-2026",
+    "tags": [
+      "langgraph",
+      "deployment",
+      "postgres",
+      "kubernetes",
+      "production"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "agents",
+    "type": "tutorial",
+    "title": "Build an AI Agent from Scratch: LangGraph Tutorial with Tools, Memory, and Human-in-the-Loop",
+    "description": "Step-by-step tutorial building a research assistant with LangGraph: state schema design, tool definitions with production safeguards, rate-limited tool execution, conditional routing, Postgres checkpointing, human-in-the-loop interrupt/resume, and 6 common failure modes.",
+    "url": "https://appscale.blog/ar/blog/build-ai-agent-langgraph-tools-memory-step-by-step-tutorial-2026",
+    "tags": [
+      "langgraph",
+      "tools",
+      "memory",
+      "human-in-the-loop",
+      "tutorial"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "agents",
+    "type": "example",
+    "title": "LangGraph AI Assistant Tutorial: 7-Module Structured Course",
+    "description": "A structured 7-module GitHub tutorial repository covering LangGraph basics, chatbot with StateGraph, tools with @tool decorator and ToolNode, memory with checkpointers, advanced patterns (HITL, multi-agent, retries), production (streaming, rate limiting, observability), and a complete agent with Streamlit UI and FastAPI.",
+    "url": "https://github.com/girijesh-ai/langgraph-ai-assistant-tutorial",
+    "tags": [
+      "langgraph",
+      "tutorial",
+      "course",
+      "production",
+      "streamlit"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "agents",
+    "type": "tutorial",
+    "title": "Stateful AI Agent with FastAPI, LangGraph, and PostgreSQL",
+    "description": "Focuses on solving the stateless API problem for AI agents. Covers FastAPI async backend integration with LangGraph, Postgres checkpoint persistence for conversation memory, production failure modes (context window explosion, race conditions, blocking LLM calls), and local deployment with Ollama.",
+    "url": "https://dev.to/shahzaib_dev/how-to-build-a-stateful-ai-agent-with-fastapi-langgraph-and-postgresql-5b45",
+    "tags": [
+      "langgraph",
+      "fastapi",
+      "postgres",
+      "stateful",
+      "production"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "agents",
+    "type": "tool",
+    "title": "CrewAI Production Architecture: Flows, State Management, and Gradual Autonomy",
+    "description": "CrewAI's official production architecture guide. Flows wrap Crews in event-driven orchestration with @start, @listen, @router decorators. Covers Pydantic-based state management, @persist decorator for SQLite/PostgreSQL crash recovery, task guardrails, structured outputs, LLM hooks, max_iter for loop prevention, and the gradual autonomy pattern (start 100% human review, reduce over time).",
+    "url": "https://docs.crewai.com/en/concepts/production-architecture",
+    "tags": [
+      "crewai",
+      "production",
+      "flows",
+      "state-management",
+      "gradual-autonomy"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "agents",
+    "type": "tutorial",
+    "title": "CrewAI Flows: Production Multi-Agent Guide 2026",
+    "description": "In-depth guide to CrewAI Flows for production multi-agent systems. Covers the @start/@listen/@router pattern, state management with Pydantic, @persist for crash recovery, gradual autonomy pattern with confidence thresholds exposed as env vars, and comparison with LangGraph (14x less code per DocuSign case study).",
+    "url": "https://www.jahanzaib.ai/blog/crewai-flows-production-multi-agent-guide",
+    "tags": [
+      "crewai",
+      "flows",
+      "production",
+      "multi-agent",
+      "gradual-autonomy"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "agents",
+    "type": "tool",
+    "title": "Agent Service Toolkit: Full Stack LangGraph Agent with FastAPI and Streaming",
+    "description": "Production-ready toolkit for running an AI agent service built with LangGraph, FastAPI, and Streamlit. Includes authentication, streaming responses, configurable agent graph, and a ready-to-deploy architecture serving as a reference implementation for production agent services.",
+    "url": "https://github.com/JoshuaC215/agent-service-toolkit",
+    "tags": [
+      "langgraph",
+      "fastapi",
+      "production",
+      "streaming",
+      "toolkit"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "agents",
+    "type": "example",
+    "title": "All Agentic Architectures: 17+ Implementations with LangGraph and CrewAI",
+    "description": "Implementation of 17+ agentic architecture patterns including ReAct, Plan-and-Execute, LATS, Reflexion, Multi-Agent Supervisor, Multi-Agent Swarm, Multi-Agent Graph, and more. Each pattern is a runnable implementation using LangGraph and/or CrewAI, designed for practical use across different domains.",
+    "url": "https://github.com/FareedKhan-dev/all-agentic-architectures",
+    "tags": [
+      "patterns",
+      "langgraph",
+      "crewai",
+      "multi-agent",
+      "architectures"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "agents",
+    "type": "example",
+    "title": "Agentic RAG for Dummies: Modular LangGraph Implementation",
+    "description": "A modular agentic RAG system built with LangGraph that teaches retrieval-augmented generation from the ground up. Covers adaptive retrieval, iterative evidence gathering, and self-correcting generation patterns in an accessible tutorial format.",
+    "url": "https://github.com/GiovanniPasq/agentic-rag-for-dummies",
+    "tags": [
+      "agentic-rag",
+      "langgraph",
+      "tutorial",
+      "retrieval"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "agents",
+    "type": "tutorial",
+    "title": "Building Multi-Agent AI Applications with AutoGen: Complete Tutorial 2026",
+    "description": "Builds a 7-agent automated blog generation engine using AutoGen v0.4+. Agents include OutlineArchitect, QueryGenerator, ResearchSynthesizer, WriterAgent, FactChecker, Reviewer, and HTMLFormatter. Uses Perplexity API for live web research, Pydantic for structured outputs, and human-in-the-loop feedback loops.",
+    "url": "https://medium.com/@vishwajeetv2003/building-multi-agent-ai-applications-with-autogen-complete-tutorial-2026-2fbd9af73a9c",
+    "tags": [
+      "autogen",
+      "multi-agent",
+      "production",
+      "tutorial",
+      "structured-outputs"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "agents",
+    "type": "example",
+    "title": "AutoGen Tutorial: Async Programming, Multi-Agent Teams, and Human-in-the-Loop",
+    "description": "Hands-on GitHub tutorial covering async programming, single agents, tool integration, multi-agent teams with RoundRobinGroupChat, and human-in-the-loop workflows. Uses autogen-agentchat and autogen-ext[openai] packages with Tavily and OpenWeather tool integrations.",
+    "url": "https://github.com/alfredang/autogen_tutorial",
+    "tags": [
+      "autogen",
+      "multi-agent",
+      "async",
+      "human-in-the-loop",
+      "tutorial"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "agents",
+    "type": "pattern",
+    "title": "Top 10 Agentic AI Frameworks Compared: LangGraph vs CrewAI vs AutoGen (Benchmarks)",
+    "description": "Six-week benchmark across 10 frameworks evaluating setup time, tool integration, multi-agent orchestration, memory handling, and error recovery. LangGraph leads in production resilience (automatic error recovery), CrewAI in developer ergonomics (8-min setup), Phidata in speed (6-min setup), and Pydantic AI in type-safe output validation.",
+    "url": "https://dev.to/dextralabs/top-10-agentic-ai-frameworks-compared-langgraph-vs-crewai-vs-autogen-vs-benchmarks-inside-1d6g",
+    "tags": [
+      "benchmark",
+      "comparison",
+      "langgraph",
+      "crewai",
+      "autogen"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "agents",
+    "type": "pattern",
+    "title": "Complete Guide to AI Agent Frameworks 2026",
+    "description": "Comprehensive 2026 guide comparing agent frameworks across architecture, state management, model lock-in, multi-agent patterns, and deployment options. Covers LangGraph, CrewAI, AutoGen, OpenAI Agents SDK, Claude Agent SDK, Strands Agents (AWS), Pydantic AI, and Vercel AI SDK with recommendation tables by use case.",
+    "url": "https://turion.ai/blog/complete-guide-ai-agent-frameworks-2026/",
+    "tags": [
+      "comparison",
+      "frameworks",
+      "production",
+      "2026",
+      "guide"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "agents",
+    "type": "pattern",
+    "title": "AI Agent Framework Showdown: Claude Agent SDK vs Strands vs LangGraph vs OpenAI Agents SDK",
+    "description": "Head-to-head comparison of four hyperscaler-backed agent frameworks across architecture, state management, model lock-in, multi-agent patterns, and best-fit use cases. Claude Agent SDK for coding/data agents, Strands for AWS-native minimalism, LangGraph for complex stateful workflows, OpenAI Agents SDK for simple sequential pipelines.",
+    "url": "https://qubittool.com/blog/ai-agent-framework-comparison-2026",
+    "tags": [
+      "comparison",
+      "claude-sdk",
+      "strands",
+      "langgraph",
+      "openai-agents"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "agents",
+    "type": "pattern",
+    "title": "Best AI Agent Frameworks 2026: LangGraph vs CrewAI Tested on 30 Repos",
+    "description": "Rigorous benchmark testing 5 frameworks on a 5-agent pipeline across 30 open-source repos. LangGraph achieves 83% task completion with 91% automatic error recovery at $0.42/run. CrewAI reaches 77% completion at $0.38/run but lacks automatic recovery. AutoGen at 43% and OpenAI Swarm at 37% require human intervention. Only LangGraph and CrewAI complete most runs autonomously.",
+    "url": "https://theeditorial.news/ai-agents/langgraph-vs-crewai-vs-autogen-vs-openai-swarm-vs-llamaindex-agents-which-agent-framework-ships-mpcl9yrq",
+    "tags": [
+      "benchmark",
+      "comparison",
+      "langgraph",
+      "crewai",
+      "production"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "agents",
+    "type": "pattern",
+    "title": "Framework Analysis: 44 Agent Frameworks Through a Context Engineering Lens",
+    "description": "Independent analysis of 44 agent frameworks organized into 3 tiers, evaluating context engineering quality. Key findings: no framework adequately monitors context quality or proactively compresses degrading context; the ecosystem is consolidating around LangGraph (ecosystem breadth), CrewAI (multi-agent), and Pydantic AI (type-safe Python); graph orchestration won as the dominant pattern.",
+    "url": "https://github.com/larsderidder/framework-analysis",
+    "tags": [
+      "comparison",
+      "context-engineering",
+      "frameworks",
+      "benchmark"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "agents",
+    "type": "pattern",
+    "title": "A2A Protocol v1.0 Specification: Agent-to-Agent Interoperability Standard",
+    "description": "The A2A Protocol v1.0 specification defining the open standard for agent-to-agent communication. Covers the 5-state task lifecycle (submitted, working, input-required, completed, failed, canceled, rejected), Agent Cards for discovery, SSE-only streaming, three protocol bindings (JSON-RPC, gRPC, REST), signed Agent Cards for cryptographic verification, and multi-tenancy support. Governed by the Agentic AI Foundation under the Linux Foundation.",
+    "url": "https://a2a-protocol.org/v1.0.0/specification/",
+    "tags": [
+      "a2a",
+      "protocol",
+      "interoperability",
+      "specification",
+      "multi-agent"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "agents",
+    "type": "pattern",
+    "title": "A2A Protocol v1.0 Production Patterns for Agent-to-Agent Work",
+    "description": "Production deployment guide for the A2A Protocol covering idempotency with Idempotency-Key, Agent Card cache invalidation, OAuth2 token exchange for cross-boundary auth, SSE-to-polling fallback for long-running input-required states, and OpenTelemetry GenAI semantic conventions for cross-agent observability.",
+    "url": "https://replyant.com/lab/a2a-protocol-v1-production/",
+    "tags": [
+      "a2a",
+      "production",
+      "interoperability",
+      "observability",
+      "auth"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "agents",
+    "type": "tool",
+    "title": "DeepAgents: The Batteries-Included Agent Harness by LangChain",
+    "description": "LangChain's DeepAgents project providing a full-featured agent harness with built-in tools, memory, and orchestration patterns. Includes pre-configured agent graphs for common use cases with production-ready defaults.",
+    "url": "https://github.com/langchain-ai/deepagents",
+    "tags": [
+      "langchain",
+      "agent-harness",
+      "production",
+      "tools",
+      "memory"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "agents",
+    "type": "example",
+    "title": "Google Gemini Fullstack LangGraph Quickstart",
+    "description": "Official Google quickstart for building fullstack agents with Gemini 2.5 and LangGraph. Includes a complete starter project with agent graph, streaming, and a web frontend, demonstrating production patterns for Gemini-powered agents.",
+    "url": "https://github.com/google-gemini/gemini-fullstack-langgraph-quickstart",
+    "tags": [
+      "langgraph",
+      "gemini",
+      "fullstack",
+      "quickstart",
+      "production"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "agents",
+    "type": "tool",
+    "title": "Python A2A: Library for Google's Agent-to-Agent Protocol",
+    "description": "A powerful, easy-to-use Python library for implementing Google's Agent-to-Agent (A2A) protocol. Simplifies creating A2A-compatible agents with task lifecycle management, Agent Card generation, and SSE streaming support.",
+    "url": "https://github.com/themanojdesai/python-a2a",
+    "tags": [
+      "a2a",
+      "protocol",
+      "python",
+      "agent-communication",
+      "library"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "agents",
+    "type": "tool",
+    "title": "AgentOps: AI Agent Monitoring, LLM Cost Tracking, and Benchmarking SDK",
+    "description": "Python SDK for AI agent monitoring with LLM cost tracking, benchmarking, session replay, and multi-agent tracing. Works with LangGraph, CrewAI, AutoGen, and OpenAI Agents SDK. Provides dashboards for agent performance analytics, error tracking, and token usage optimization.",
+    "url": "https://github.com/AgentOps-AI/agentops",
+    "tags": [
+      "monitoring",
+      "observability",
+      "cost-tracking",
+      "benchmarking",
+      "sdk"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "agents",
+    "type": "example",
+    "title": "CrewAI Studio: GUI for Managing and Running CrewAI Agents",
+    "description": "A user-friendly, multi-platform GUI for managing and running CrewAI agents and tasks. Provides visual workflow configuration, agent monitoring, and real-time execution tracking without writing code.",
+    "url": "https://github.com/strnad/CrewAI-Studio",
+    "tags": [
+      "crewai",
+      "gui",
+      "visualization",
+      "agent-management"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "agents",
+    "type": "example",
+    "title": "Full-Stack AI Agent Template: FastAPI + Next.js with CrewAI Agents and RAG",
+    "description": "Production-ready full-stack template combining FastAPI backend with Next.js frontend, featuring CrewAI agents, RAG integration, streaming responses, and a complete deployment pipeline. Serves as a starter for building agent-powered web applications.",
+    "url": "https://github.com/vstorm-co/full-stack-ai-agent-template",
+    "tags": [
+      "crewai",
+      "fullstack",
+      "fastapi",
+      "nextjs",
+      "production"
+    ],
+    "difficulty": "intermediate"
   }
 ]
