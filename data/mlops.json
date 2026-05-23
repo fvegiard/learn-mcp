@@ -814,165 +814,57 @@
   },
   {
     "topic": "mlops",
-    "type": "workflow",
-    "title": "LLMOps Best Practices: 6 Rules for Shipping LLMs Without Breaking Production",
-    "description": "Six foundational practices for production LLM deployment: version everything (prompts, configs, tool definitions — not just weights), eval before deploy (deterministic + LLM-as-judge), monitor in production (latency, cost, quality signals at 1-hour granularity), automate rollback (canary 1-5% with auto-rollback on regression), maintain audit trails (immutable records for EU AI Act compliance), and separate build from deploy.",
-    "url": "https://coverge.ai/blog/llmops-best-practices",
+    "type": "tool",
+    "title": "PromptTools",
+    "description": "Open-source tools for prompt testing and experimentation with support for LLMs and vector databases. 3k+ stars. Provides systematic prompt evaluation, comparison, and regression testing.",
+    "url": "https://github.com/hegelai/prompttools",
     "tags": [
-      "llmops",
-      "production",
-      "best-practices",
-      "monitoring",
-      "compliance"
+      "mlops",
+      "prompt-testing",
+      "evaluation",
+      "experimentation"
     ],
-    "difficulty": "intermediate",
-    "workflow": [
-      "VERSION EVERYTHING: Pin model versions explicitly (e.g., gpt-4o-2024-08-06, not just gpt-4o); version prompts, retrieval configs, tool definitions, and guardrails in Git alongside code",
-      "EVAL BEFORE DEPLOY: Maintain a golden dataset (50-100 examples minimum); run deterministic checks + LLM-as-judge with calibrated rubrics; nothing ships without passing automated evaluation",
-      "MONITOR IN PRODUCTION: Track latency by component (TTFT, TTOT, total), token cost per request, output quality signals, and error rates by category; use 1-hour granularity, not daily",
-      "AUTOMATE ROLLBACK: Maintain pointer to last known good deployment; canary at 1-5% traffic with automatic rollback on quality regression; use Argo Rollouts or Gateway API Inference Extension",
-      "MAINTAIN AUDIT TRAILS: Immutable records of what changed, evidence justifying it, and who approved it; required for EU AI Act (Article 11, 12, 14) and GDPR compliance",
-      "SEPARATE BUILD FROM DEPLOY: Every change goes through build -> eval -> review -> canary deploy -> full rollout pipeline; no direct production modifications"
-    ]
+    "difficulty": "intermediate"
   },
   {
     "topic": "mlops",
-    "type": "workflow",
-    "title": "GitHub Actions ML Pipeline: Validate-Train-Evaluate-Deploy with Model Quality Gates",
-    "description": "Complete production CI/CD pipeline for ML models using GitHub Actions with 4 job stages (validate-data, train, evaluate, deploy), MLflow model versioning, data drift detection (KS test / Chi-squared), canary deployment with automatic rollback, and model quality gates (accuracy >= 0.92, latency p99 < 100ms, size < 500MB).",
-    "url": "https://dev.to/young_gao/cicd-for-ml-models-from-training-notebooks-to-production-deployment-in-2026-3l9j",
+    "type": "tool",
+    "title": "Vector Admin",
+    "description": "Universal tool suite for vector database management. 2.2k+ stars. Manage Pinecone, Chroma, Qdrant, Weaviate, and more vector databases from a single interface.",
+    "url": "https://github.com/Mintplex-Labs/vector-admin",
     "tags": [
-      "github-actions",
-      "ci-cd",
-      "mlflow",
-      "canary",
-      "drift-detection"
+      "mlops",
+      "vector-db",
+      "management",
+      "admin"
     ],
-    "difficulty": "intermediate",
-    "workflow": [
-      "VALIDATE DATA: Schema validation with Great Expectations; statistical drift detection (KS test for numeric, Chi-squared for categorical); fail pipeline if data distribution shift exceeds threshold",
-      "TRAIN: On self-hosted GPU runner; log parameters, metrics, and model artifacts to MLflow; capture RUN_ID explicitly for downstream jobs; set timeout-minutes to avoid runaway training costs",
-      "EVALUATE: Load model from MLflow by RUN_ID; run against held-out test set; check quality gates (accuracy >= 0.92, latency p99 < 100ms, model size < 500MB); emit machine-readable metrics.json",
-      "DEPLOY: Canary rollout at 5% traffic; monitor error rate and latency for 10 minutes; automatic rollback on quality regression; promote to 100% on success; use OIDC for cloud credentials (no static keys)"
-    ]
-  },
-  {
-    "topic": "mlops",
-    "type": "workflow",
-    "title": "GitHub Actions for ML: Model Validation Gates with Path-Based Filtering",
-    "description": "Most comprehensive GitHub Actions ML workflow with 4 jobs (code-ci, detect-changes, training, integration-tests). Uses dorny/paths-filter to conditionally skip GPU training when only docs change (saves 60-80% on runner costs), includes self-hosted GPU runner setup scripts, OIDC-based AWS secrets, reusable workflows for multi-model repos, and matrix builds for multi-Python compatibility.",
-    "url": "https://engineersofai.com/docs/mlops/cicd-for-ml/Model-Validation-Gates",
-    "tags": [
-      "github-actions",
-      "gpu-runner",
-      "oidc",
-      "path-filtering",
-      "reusable-workflows"
-    ],
-    "difficulty": "advanced",
-    "workflow": [
-      "CODE-CI: Lint (ruff, black, isort) + unit tests + type checking (mypy); run on every PR; fail fast on style issues before expensive GPU training",
-      "DETECT-CHANGES: Use dorny/paths-filter@v3 to detect if src/**, data/**, or config/** changed; output boolean flags for downstream jobs; skip GPU training on doc-only changes",
-      "TRAINING: Run on self-hosted GPU runner (Ubuntu 22.04 + NVIDIA drivers + CUDA 12.1); log to MLflow with external backend (never local filesystem on ephemeral runners); capture RUN_ID explicitly",
-      "INTEGRATION-TESTS: Load trained model from MLflow; run integration tests against test data; validate quality gates (accuracy, latency, size); use Python for numeric comparison (not bc -l which fails on Alpine)"
-    ]
-  },
-  {
-    "topic": "mlops",
-    "type": "workflow",
-    "title": "LLM Evaluation CI/CD Pipeline: Smoke Evals, Full Evals, and Quality Gates",
-    "description": "Production-tested LLM evaluation pipeline (handling 280k sessions/month) with tiered eval suites: smoke (fast, every PR), full (agent changes only), and adversarial (nightly). Uses path-based filtering with dorny/paths-filter, threshold gating with dual thresholds (absolute floors + regression limits), and automatic PR commenting with eval summaries.",
-    "url": "https://callsphere.ai/blog/continuous-evaluation-langsmith-cicd-agent-releases",
-    "tags": [
-      "llm-eval",
-      "ci-cd",
-      "langsmith",
-      "quality-gates",
-      "regression"
-    ],
-    "difficulty": "advanced",
-    "workflow": [
-      "DETECT SCOPE: Use dorny/paths-filter to check if agent/, prompts/, tools/, or evaluators/ files changed; output boolean for downstream conditional jobs",
-      "SMOKE EVAL: Run on every PR with 8-minute timeout; fast subset of eval cases; threshold gating with both absolute floors (>= 0.92) and regression limits (not dropping > 0.02)",
-      "FULL EVAL: Run only when agent code changes (path-filtered); 20-minute timeout; comprehensive eval suite against full golden dataset; post results as PR comment",
-      "NIGHTLY ADVERSARIAL: Scheduled nightly run against red-team and edge-case dataset; catch regressions that individual PRs might miss",
-      "QUALITY GATE: Compare PR scores against main branch baseline (not just static thresholds); block merge if regression detected; make eval check required in branch protection rules"
-    ]
-  },
-  {
-    "topic": "mlops",
-    "type": "workflow",
-    "title": "MLOps on Kubernetes: MLflow Model Registry, LLM-as-Judge, and Runtime LoRA Loading",
-    "description": "End-to-end ML pipeline on Kubernetes with two complete examples: Triton (image classification with ONNX) and vLLM (Mistral-7B QLoRA fine-tuning). Features MLflow alias-based model promotion (candidate -> staged -> eval-passed -> perf-passed -> live), LLM-as-Judge evaluation gate, runtime LoRA loading (seconds vs 8+ min pod restarts), and Argo Workflows + ArgoCD for GitOps.",
-    "url": "https://github.com/hanasobi/mlops-on-kubernetes",
-    "tags": [
-      "kubernetes",
-      "mlflow",
-      "argo",
-      "llm-as-judge",
-      "lora",
-      "gitops"
-    ],
-    "difficulty": "advanced",
-    "workflow": [
-      "DATA PREP & VERSION: DVC for data versioning; track dataset hash; trigger pipeline on data drift detection",
-      "TRAIN & LOG: Argo Workflows orchestrates training on Kubernetes; QLoRA fine-tuning of Mistral-7B; log all parameters, metrics, and artifacts to external MLflow backend",
-      "EVALUATE (LLM-as-Judge): Automated A/B/C grading with 3-check decision (A-Rate, C-Rate, Refusal Rate); performance gate: P95 latency < 8s, P95 TTFT < 2s, throughput > 2 req/s, success rate > 99%",
-      "PROMOTE: MLflow Model Registry alias-based lifecycle: candidate -> staged -> eval-passed -> perf-passed -> live; require both quality and performance gates to pass",
-      "DEPLOY: Runtime LoRA loading via vLLM API (hot-swap adapters in seconds, no pod restart); 2-slot architecture for zero-downtime deployments; ArgoCD syncs GitOps manifests"
-    ]
-  },
-  {
-    "topic": "mlops",
-    "type": "workflow",
-    "title": "LLM Fine-Tuning CI/CD Pipeline: QLoRA Training with Machine-Readable Quality Gates",
-    "description": "End-to-end pipeline for fine-tuning, evaluating, and exporting specialized LLMs with 5 phases (Task Definition, SFT, DPO, Evaluation, Export). Emits machine-readable metrics.json with pass/fail flags for GitOps consumption, validates the shipping artifact (merged BF16 + quantized GGUF, not just the adapter), and captures reproducibility manifests (git commit, lockfile hash, dataset hash, hardware fingerprint).",
-    "url": "https://github.com/adedaramola/LLM-Specialization-Platform",
-    "tags": [
-      "qlora",
-      "ci-cd",
-      "quality-gates",
-      "dpo",
-      "reproducibility",
-      "gitops"
-    ],
-    "difficulty": "advanced",
-    "workflow": [
-      "DEFINE TASK: Specify the target task, evaluation criteria, and data format; create adversarial null-case pairs as first-class test citizens",
-      "SFT (QLoRA): Fine-tune Qwen2.5-7B-Instruct with QLoRA on NVIDIA A100 40GB; log all hyperparameters and training metrics; validate on held-out set",
-      "DPO ALIGNMENT: Run DPO (Direct Preference Optimization) on preference pairs; compare aligned vs. base model on field-level F1 metrics",
-      "EVALUATE: Test both constrained (structured output) and raw (freeform) decoding separately; validate against the shipping artifact (merged BF16 + quantized GGUF); compute field-level F1 per label",
-      "EXPORT: Emit machine-readable metrics.json with configurable pass/fail thresholds; if all gates pass, export merged BF16 model and quantized GGUF; capture reproducibility manifest (git SHA, lockfile, dataset hash, hardware)"
-    ]
+    "difficulty": "beginner"
   },
   {
     "topic": "mlops",
     "type": "example",
-    "title": "Promptfoo LLM Evaluation in CI/CD: Golden Dataset Pattern with Quality Gates",
-    "description": "Production pattern for using Promptfoo (21k+ GitHub stars, MIT license) as an LLM eval gate in CI/CD pipelines. Covers the golden dataset pattern (200-500 production-representative test cases split into smoke/golden/redteam suites), assertion types (deterministic, structural, semantic, LLM-as-Judge), cost caching to avoid re-running identical configurations, and custom quality gate thresholds with pass/fail exit codes.",
-    "url": "https://www.promptfoo.dev/docs/integrations/ci-cd/",
+    "title": "Awesome MLOps Contents",
+    "description": "Comprehensive curated collection of DataOps and MLOps contents. 132+ stars. Covers courses, books, blogs, tools, and best practices for ML operations.",
+    "url": "https://github.com/MLOpsKR/Awesome-MLOps-Contents",
     "tags": [
-      "promptfoo",
-      "ci-cd",
-      "evaluation",
-      "red-team",
-      "quality-gates"
+      "mlops",
+      "directory",
+      "resources",
+      "learning"
     ],
-    "difficulty": "intermediate",
-    "code": "# promptfoo eval configuration (promptfooconfig.yaml)\nproviders:\n  - openai:gpt-4o\n  - anthropic:claude-sonnet-4-20250514\n\ndefaults:\n  min_pass_rate: 0.95\n\ntests:\n  - vars:\n      question: \"What is the capital of France?\"\n    assert:\n      - type: contains\n        value: \"Paris\"\n      - type: llm-rubric\n        value: \"Answer is factually correct and concise\"\n        threshold: 0.9\n\n# CI/CD quality gate (GitHub Actions)\n# npx promptfoo@latest eval --fail-on-error\n# Custom threshold:\nPASS_RATE=$(jq '.results.stats.successes / (.results.stats.successes + .results.stats.failures) * 100' results.json)\nif (( $(echo \"$PASS_RATE < 95\" | bc -l) )); then\n  echo \"Quality gate failed: Pass rate ${PASS_RATE}% < 95%\"\n  exit 1\nfi\n\n# Golden dataset pattern:\n# evals/\n#   golden.yaml     <- 500 prod cases (CI gate)\n#   redteam.yaml    <- security scan (CI gate)\n#   smoke.yaml      <- 10 fast cases (dev loop)"
+    "difficulty": "beginner"
   },
   {
     "topic": "mlops",
-    "type": "pattern",
-    "title": "Enterprise LLMOps Architecture Guide: Full Lifecycle from Development to Monitoring",
-    "description": "Comprehensive enterprise LLMOps architecture covering the full lifecycle: model serving layer (vLLM, TGI, TensorRT-LLM), observability (Langfuse, LangSmith, Helicone), evaluation (Braintrust, promptfoo, DeepEval, RAGAS), orchestration (LangGraph, LlamaIndex, DSPy), guardrails (NeMo, Guardrails AI), and vector DBs. Includes cost optimization strategies (semantic caching 30-60% hit rate, prompt compression 4-6x, model routing 25x reduction), the 80/15/5 rule, and EU AI Act compliance requirements.",
-    "url": "https://qubittool.com/blog/enterprise-llmops-architecture-guide",
+    "type": "tool",
+    "title": "Rocketride Server",
+    "description": "High-performance AI pipeline engine with C++ core and 50+ Python-extensible nodes. 3.3k+ stars. Build, debug, and scale LLM workflows with 13+ model providers, 8+ vector databases, and agent orchestration.",
+    "url": "https://github.com/rocketride-org/rocketride-server",
     "tags": [
-      "enterprise",
-      "architecture",
-      "cost-optimization",
-      "compliance",
-      "monitoring"
+      "mlops",
+      "pipeline",
+      "orchestration",
+      "production"
     ],
     "difficulty": "intermediate"
   }

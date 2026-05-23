@@ -952,47 +952,114 @@
   },
   {
     "topic": "fine-tuning",
-    "type": "workflow",
-    "title": "Automated Gemini Fine-Tuning Pipeline: Event-Driven GCP Pipeline with Three Training Gates",
-    "description": "Event-driven, production-ready Gemini SFT pipeline on GCP. GCS upload triggers Cloud Run Job -> Vertex AI fine-tuning. Features three training gates (Lock: prevent concurrent runs, Sample validation: enough matched data pairs?, Delta check: enough new samples since last run?), GitLab CI/CD for automated build and deploy, GCS metadata tracking, and customizable data converter supporting text-only and multimodal tasks.",
-    "url": "https://github.com/vickymdn/Automated-gemini-finetuning-pipeline",
+    "type": "tool",
+    "title": "WeClone",
+    "description": "One-stop solution for creating your AI twin from chat history. 17k+ stars. Fine-tunes LLMs with your chat logs to capture unique style, then binds to a chatbot.",
+    "url": "https://github.com/xming521/WeClone",
     "tags": [
-      "gemini",
-      "vertex-ai",
-      "gcp",
-      "event-driven",
-      "ci-cd"
+      "fine-tuning",
+      "chat-data",
+      "personalization",
+      "llm"
     ],
-    "difficulty": "intermediate",
-    "workflow": [
-      "TRIGGER: GCS upload event triggers Cloud Run Job; data converter processes uploaded files into Gemini-compatible format",
-      "LOCK GATE: Check for concurrent training runs; acquire lock to prevent race conditions; release lock on completion or failure",
-      "SAMPLE VALIDATION GATE: Verify minimum number of matched data pairs (input-output examples) meet quality threshold; reject if insufficient or low-quality data",
-      "DELTA CHECK GATE: Compare new samples against last successful training run; only proceed if enough new/changed data exists to justify retraining; skip if delta is below threshold",
-      "FINE-TUNE: Submit fine-tuning job to Vertex AI for Gemini 2.0 Flash; track training duration, model details, and sample sizes; save metadata to GCS",
-      "DEPLOY: GitLab CI/CD pipeline builds and deploys updated model endpoint on push; automated rollback on failure"
-    ]
+    "difficulty": "intermediate"
   },
   {
     "topic": "fine-tuning",
-    "type": "workflow",
-    "title": "Agent-Forge: Automated Agent Creation Pipeline with SFT, RLHF, and Evaluation Gates",
-    "description": "End-to-end pipeline for creating specialized AI agents through automated training, evaluation, and deployment. Covers dataset curation, SFT (Supervised Fine-Tuning), RLHF (Reinforcement Learning from Human Feedback), automated evaluation with quality gates, and deployment to production with monitoring.",
-    "url": "https://github.com/0xvicky/agent-forge",
+    "type": "tool",
+    "title": "H2O LLM Studio",
+    "description": "Framework and no-code GUI for fine-tuning LLMs. 4.9k+ stars. Visual interface for configuring SFT, DPO, and RLHF training with experiment tracking.",
+    "url": "https://github.com/h2oai/h2o-llmstudio",
     "tags": [
-      "agent-creation",
-      "sft",
-      "rlhf",
-      "evaluation",
-      "pipeline"
+      "fine-tuning",
+      "gui",
+      "no-code",
+      "h2o"
     ],
-    "difficulty": "advanced",
-    "workflow": [
-      "CURATE DATASET: Collect and validate training data for the target agent task; apply data quality checks and deduplication; create train/validation/test splits with stratified sampling",
-      "SFT TRAINING: Run supervised fine-tuning on base model with curated dataset; log training metrics (loss, learning rate, token accuracy) to experiment tracker; evaluate checkpoint quality on validation set",
-      "RLHF ALIGNMENT: Train reward model on preference pairs; run PPO or DPO alignment training against reward model; validate alignment quality on held-out preference set",
-      "EVALUATE: Run comprehensive evaluation suite (task-specific metrics, safety checks, adversarial tests, regression tests against baseline); quality gate: pass rate >= 95% on all checks",
-      "DEPLOY: Package model artifact (merged weights + tokenizer + config); deploy to inference endpoint with canary rollout at 5%; monitor error rate, latency, and quality metrics for 30 minutes; promote to 100% on success"
-    ]
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "fine-tuning",
+    "type": "tool",
+    "title": "LlamaGym",
+    "description": "Fine-tune LLM agents with online reinforcement learning. 1.2k+ stars. Provides a Gym-style interface for training LLM-based agents through RL feedback loops.",
+    "url": "https://github.com/KhoomeiK/LlamaGym",
+    "tags": [
+      "fine-tuning",
+      "reinforcement-learning",
+      "agents",
+      "rl"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "fine-tuning",
+    "type": "tool",
+    "title": "mlx-tune",
+    "description": "Fine-tune LLMs on Mac with Apple Silicon using MLX. 1.2k+ stars. Supports SFT, DPO, GRPO, Vision, TTS, STT, Embedding, and OCR fine-tuning with Unsloth-compatible API.",
+    "url": "https://github.com/ARahim3/mlx-tune",
+    "tags": [
+      "fine-tuning",
+      "mlx",
+      "apple-silicon",
+      "mac"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "fine-tuning",
+    "type": "example",
+    "title": "Fine-Tuning LLMs Book (dvgodoy)",
+    "description": "Official repository of 'A Hands-On Guide to Fine-Tuning LLMs with PyTorch and Hugging Face' book. 825+ stars. Covers SFT, DPO, and RLHF with practical code examples.",
+    "url": "https://github.com/dvgodoy/FineTuningLLMs",
+    "tags": [
+      "fine-tuning",
+      "book",
+      "pytorch",
+      "huggingface"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "fine-tuning",
+    "type": "tool",
+    "title": "Memento - Fine-tuning LLM Agents",
+    "description": "Official code for Memento: fine-tuning LLM agents' policy networks without modifying the base LLM. 2.4k+ stars. Enables agent specialization at a fraction of the cost of full LLM fine-tuning.",
+    "url": "https://github.com/Memento-Teams/Memento",
+    "tags": [
+      "fine-tuning",
+      "agents",
+      "efficient",
+      "policy"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "fine-tuning",
+    "type": "tool",
+    "title": "MLX-GRPO",
+    "description": "Pure MLX-based training pipeline for fine-tuning LLMs using GRPO on Apple Silicon. 240+ stars. Enables reinforcement learning fine-tuning on Mac hardware.",
+    "url": "https://github.com/Doriandarko/MLX-GRPO",
+    "tags": [
+      "fine-tuning",
+      "grpo",
+      "mlx",
+      "apple-silicon"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "fine-tuning",
+    "type": "example",
+    "title": "LLM-Zero-to-Hundred",
+    "description": "Collection of LLM chatbot projects (RAG, agents) and well-known techniques for training and fine-tuning LLMs. 553+ stars. Progressive learning path from basics to advanced.",
+    "url": "https://github.com/Farzad-R/LLM-Zero-to-Hundred",
+    "tags": [
+      "fine-tuning",
+      "rag",
+      "agents",
+      "learning-path"
+    ],
+    "difficulty": "beginner"
   }
 ]

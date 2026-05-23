@@ -845,28 +845,16 @@
   },
   {
     "topic": "autonomous-agents",
-    "type": "workflow",
-    "title": "Lifecycle Agent Orchestrator: 9-Phase Multi-Agent Production Pipeline",
-    "description": "Claude Code and Cursor plugin that orchestrates 9 development phases using multiple agents: PM -> Experience Design -> Architecture (with cross-review gates), then per-ticket Intake -> Tech Design -> Plan -> Implement -> Validate -> Ship. Uses Preview-then-Execute model (simulates full pipeline before making real changes), cross-role review gates, and built-in TDD workflows.",
-    "url": "https://github.com/sandeep-mewara/lifecycle-agent-orchestrator",
+    "type": "tool",
+    "title": "Activepieces",
+    "description": "AI Agents and MCPs with AI Workflow Automation. 22k+ stars. Provides 400+ MCP server integrations and a visual workflow builder for orchestrating AI agents.",
+    "url": "https://github.com/activepieces/activepieces",
     "tags": [
-      "orchestration",
-      "multi-agent",
-      "production",
-      "tdd",
-      "review-gates"
+      "autonomous-agents",
+      "automation",
+      "mcp",
+      "workflow"
     ],
-    "difficulty": "advanced",
-    "workflow": [
-      "PM PHASE: Product manager agent analyzes requirements, defines scope, creates acceptance criteria; outputs specification document",
-      "XD PHASE: Experience design agent reviews PM output; creates wireframes, user flows, interaction patterns; cross-review gate with PM",
-      "ARCHITECTURE PHASE: Architecture agent reviews PM and XD outputs; designs system architecture, data models, API contracts; cross-review gate with PM and XD",
-      "INTAKE: Receive ticket from backlog; classify priority and complexity; assign to appropriate agent team",
-      "TECH DESIGN: Produce technical design document for the specific ticket; reference architecture decisions from phase 3",
-      "PLAN: Create implementation plan with tasks, dependencies, and estimates; preview the full pipeline before execution",
-      "IMPLEMENT: Write code following TDD workflow; write tests first, then implementation; validate against acceptance criteria",
-      "VALIDATE: Run test suite, linting, type checking; validate deployment readiness; check against architecture constraints",
-      "SHIP: Create PR with all validation passed; auto-merge when approved; update project status and metrics"
-    ]
+    "difficulty": "beginner"
   }
 ]

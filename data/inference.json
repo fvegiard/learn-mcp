@@ -878,87 +878,128 @@
   },
   {
     "topic": "inference",
-    "type": "workflow",
-    "title": "Deploying LLMs on Kubernetes: vLLM, Ray Serve, and GPU Scheduling Guide (2026)",
-    "description": "Comprehensive 2026 guide covering the full production Kubernetes stack for LLM serving: choosing between vLLM (single-node), Ray Serve + vLLM (multi-model), and llm-d (massive scale). Covers NVIDIA GPU Operator setup, MIG vs time-slicing, autoscaling on inference-specific metrics (queue depth, not CPU), KEDA scale-to-zero, Karpenter GPU node provisioning, and common production pitfalls.",
-    "url": "https://blog.premai.io/deploying-llms-on-kubernetes-vllm-ray-serve-gpu-scheduling-guide-2026/",
+    "type": "tool",
+    "title": "LoRAX (Multi-LoRA Inference)",
+    "description": "Multi-LoRA inference server that scales to thousands of fine-tuned LLMs. 3.7k+ stars. Dynamically loads and serves LoRA adapters alongside a base model for cost-effective multi-tenant serving.",
+    "url": "https://github.com/predibase/lorax",
     "tags": [
-      "kubernetes",
-      "vllm",
-      "ray-serve",
-      "gpu-scheduling",
-      "autoscaling"
-    ],
-    "difficulty": "advanced",
-    "workflow": [
-      "SETUP GPU OPERATOR: Install NVIDIA GPU Operator (v25.10.1) for MIG, time-slicing, and topology-aware scheduling; use MIG for production multi-tenant workloads on A100/H100",
-      "DEPLOY VLLM: Use official vllm/vllm-openai Docker image with bundled CUDA; add emptyDir medium=Memory for /dev/shm (tensor parallelism); set initialDelaySeconds: 120 on readiness probe for model loading",
-      "CONFIGURE AUTOSCALING: Wire vllm:num_requests_waiting to custom metric via Prometheus Adapter; use KEDA for scale-to-zero on low-traffic models; use Karpenter for GPU node auto-provisioning with spot + on-demand fallback",
-      "SET UP ROUTING: Deploy vLLM Production Stack Helm chart with request router (round-robin, session-ID, prefix-aware, or KV-aware); use Gateway API Inference Extension (GA Feb 2026) for model-aware traffic splitting",
-      "IMPLEMENT GRACEFUL SHUTDOWN: Set terminationGracePeriodSeconds: 300; add preStop hook with sleep 10 for load balancer drain; use PVC with ReadWriteMany for model weight caching to avoid re-downloading",
-      "MONITOR AND OBSERVE: Deploy Prometheus + Grafana dashboards tracking TTFT, KV cache utilization, queue depth, requests running; set alert thresholds at 2x baseline for p95 latency"
-    ]
-  },
-  {
-    "topic": "inference",
-    "type": "pattern",
-    "title": "llm-d: Disaggregated Prefill/Decode Serving for Large Models on Kubernetes",
-    "description": "llm-d (v0.6.0, CNCF Sandbox project) implements disaggregated prefill/decode serving on Kubernetes, separating compute-heavy prefill from latency-sensitive decode onto independent worker pools. Achieves 3x throughput improvement and 2x TTFT reduction vs. round-robin (Tesla + Red Hat benchmark on Llama 3.1 70B). Supports EPD, P/D, E/PD, and E/P/D topologies with KV-cache-aware routing.",
-    "url": "https://llm-d.ai/blog/production-grade-llm-inference-at-scale-kserve-llm-d-vllm",
-    "tags": [
-      "llm-d",
-      "disaggregated-prefill",
-      "kubernetes",
-      "kserve",
-      "production"
-    ],
-    "difficulty": "advanced"
-  },
-  {
-    "topic": "inference",
-    "type": "pattern",
-    "title": "The 2026 AI/ML on Kubernetes Stack: vLLM, Kueue, KAITO, KServe, llm-d, and Ray",
-    "description": "Consolidated guide to the 2026 Kubernetes AI/ML stack: vLLM (default inference engine), llm-d (distributed inference for 70B+ models, disaggregated P/D serving), KServe (CNCF-graduated model serving), Kueue (CNCF GPU scheduling with fair-share and preemption), KubeRay (Ray cluster operator for training), KAITO (Microsoft AKS AI/ML operator), and NVIDIA GPU Operator. Includes stack selection matrix by scenario.",
-    "url": "https://kubernetesguru.com/ai-ml-on-kubernetes-2026-stack-guide/",
-    "tags": [
-      "kubernetes",
-      "vllm",
-      "llm-d",
-      "kserve",
-      "kueue",
-      "stack-guide"
-    ],
-    "difficulty": "intermediate"
-  },
-  {
-    "topic": "inference",
-    "type": "pattern",
-    "title": "AIBrix: Kubernetes-Native LLM Serving Gateway with LoRA Management and SLO-Aware Routing",
-    "description": "AIBrix (vllm-project, 4.7k+ stars) provides cloud-native infrastructure for GenAI inference on Kubernetes: Envoy-based LLM gateway with 13+ routing strategies (random, least-request, prefix-cache, least-kv-cache, PD disaggregation, session-affinity, SLO-aware), high-density LoRA adapter lifecycle management with dynamic load/unload, StormService controller for distributed inference orchestration, and LLM-tailored autoscaling.",
-    "url": "https://aibrix.readthedocs.io/latest/index.html",
-    "tags": [
-      "aibrix",
-      "kubernetes",
+      "inference",
       "lora",
-      "gateway",
-      "routing",
-      "autoscaling"
+      "multi-tenant",
+      "serving"
     ],
     "difficulty": "advanced"
   },
   {
     "topic": "inference",
-    "type": "pattern",
-    "title": "Red Hat AI Inference: vLLM + KServe + llm-d on Any Managed Kubernetes",
-    "description": "Red Hat AI Inference (announced May 2026) runs on any managed Kubernetes starting with CoreWeave CKS and Azure AKS. Stack includes vLLM + KServe + llm-d + Istio (Sail Operator) + cert-manager + LWS + Gateway API. CoreWeave offers 5x faster model loading via Tensorizer (zero-copy architecture). Targets enterprise deployments needing multi-cloud portability and vendor support.",
-    "url": "https://www.redhat.com/en/blog/red-hat-ai-inference-brings-llm-d-any-managed-kubernetes-starting-coreweave-and-microsoft-azure",
+    "type": "tool",
+    "title": "web-llm (MLC AI)",
+    "description": "High-performance in-browser LLM inference engine. 18k+ stars. Runs LLMs directly in the browser using WebGPU with hardware acceleration, enabling client-side AI without server infrastructure.",
+    "url": "https://github.com/mlc-ai/web-llm",
     "tags": [
-      "red-hat",
-      "kserve",
-      "llm-d",
-      "enterprise",
-      "multi-cloud"
+      "inference",
+      "browser",
+      "webgpu",
+      "edge"
     ],
     "difficulty": "intermediate"
+  },
+  {
+    "topic": "inference",
+    "type": "tool",
+    "title": "Aphrodite Engine",
+    "description": "Large-scale LLM inference engine. 1.7k+ stars. Supports tensor parallelism, continuous batching, and multiple quantization formats for high-throughput serving.",
+    "url": "https://github.com/dphnAI/aphrodite-engine",
+    "tags": [
+      "inference",
+      "gpu",
+      "serving",
+      "parallelism"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "inference",
+    "type": "tool",
+    "title": "RTP-LLM (Alibaba)",
+    "description": "Alibaba's high-performance LLM inference engine for diverse applications. 1.1k+ stars. Production-tested at scale with prefix caching, speculative decoding, and multiple quantization formats.",
+    "url": "https://github.com/alibaba/rtp-llm",
+    "tags": [
+      "inference",
+      "alibaba",
+      "production",
+      "quantization"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "inference",
+    "type": "tool",
+    "title": "Jlama (Java LLM Inference)",
+    "description": "Modern LLM inference engine for Java. 1.2k+ stars. Enables running LLMs natively in the JVM ecosystem without Python dependencies.",
+    "url": "https://github.com/tjake/Jlama",
+    "tags": [
+      "inference",
+      "java",
+      "jvm",
+      "native"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "inference",
+    "type": "tool",
+    "title": "TokenSpeed",
+    "description": "Speed-of-light LLM inference engine. 1k+ stars. Focuses on maximizing throughput and minimizing latency for production LLM serving workloads.",
+    "url": "https://github.com/lightseekorg/tokenspeed",
+    "tags": [
+      "inference",
+      "performance",
+      "throughput",
+      "latency"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "inference",
+    "type": "tool",
+    "title": "LlamaEdge",
+    "description": "Easiest and fastest way to run customized and fine-tuned LLMs locally or on the edge. 1.6k+ stars. Uses Wasm (WebAssembly) for portable, lightweight LLM inference.",
+    "url": "https://github.com/LlamaEdge/LlamaEdge",
+    "tags": [
+      "inference",
+      "edge",
+      "wasm",
+      "portable"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "inference",
+    "type": "tool",
+    "title": "DashInfer (ModelScope)",
+    "description": "Native LLM inference engine delivering industry-leading performance across CUDA, x86, and ARMv9 architectures. 270+ stars. From Alibaba's ModelScope team for cross-platform deployment.",
+    "url": "https://github.com/modelscope/dash-infer",
+    "tags": [
+      "inference",
+      "cross-platform",
+      "cpu",
+      "arm"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "inference",
+    "type": "tool",
+    "title": "Checkpoint Engine (Moonshot AI)",
+    "description": "Simple middleware to update model weights in LLM inference engines. 955+ stars. Enables hot-swapping model weights without restarting inference servers.",
+    "url": "https://github.com/MoonshotAI/checkpoint-engine",
+    "tags": [
+      "inference",
+      "checkpoint",
+      "hot-swap",
+      "weights"
+    ],
+    "difficulty": "advanced"
   }
 ]
