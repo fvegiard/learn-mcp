@@ -1025,5 +1025,307 @@
       "production"
     ],
     "difficulty": "intermediate"
+  },
+  {
+    "topic": "inference",
+    "type": "tutorial",
+    "title": "NVIDIA NIM for LLMs: Quickstart Guide",
+    "description": "Official quickstart for running NVIDIA NIM Docker containers locally. Covers model-specific and model-free containers, HuggingFace integration, health check endpoints, and API usage with OpenAI-compatible /v1/chat/completions.",
+    "url": "https://docs.nvidia.com/nim/large-language-models/latest/get-started/quickstart.html",
+    "tags": [
+      "nvidia-nim",
+      "quickstart",
+      "docker",
+      "openai-compatible",
+      "llm"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "inference",
+    "type": "tutorial",
+    "title": "NVIDIA NIM LoRA/PEFT Adapter Serving Guide",
+    "description": "Official guide for serving LoRA adapters with NVIDIA NIM. Covers static and dynamic LoRA loading, three-tier PEFT cache architecture (source/CPU/GPU), multi-LoRA batched inference with CUTLASS kernels, and supported formats (NeMo, HuggingFace).",
+    "url": "https://docs.nvidia.com/nim/large-language-models/latest/peft.html",
+    "tags": [
+      "nvidia-nim",
+      "lora",
+      "peft",
+      "multi-lora",
+      "serving"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "inference",
+    "type": "tutorial",
+    "title": "NVIDIA NIM Structured Output and Guided Decoding",
+    "description": "Official documentation for constraining NIM output with JSON Schema, regex, choices, and context-free grammars. Covers XGrammar backend (default), Outlines, and lm-format-enforcer, plus configuration via NIM_GUIDED_DECODING_BACKEND.",
+    "url": "https://docs.nvidia.com/nim/large-language-models/latest/structured-generation.html",
+    "tags": [
+      "nvidia-nim",
+      "structured-output",
+      "json-schema",
+      "guided-decoding",
+      "xgrammar"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "inference",
+    "type": "tutorial",
+    "title": "NVIDIA NIM Function/Tool Calling Guide",
+    "description": "Official documentation for OpenAI-compatible function/tool calling with NVIDIA NIM. Covers tool_choice, tool schemas, parser configuration (llama3_json, mistral, hermes), and NIM_ENABLE_AUTO_TOOL_CHOICE for multi-LLM containers.",
+    "url": "https://docs.nvidia.com/nim/large-language-models/latest/function-calling.html",
+    "tags": [
+      "nvidia-nim",
+      "tool-calling",
+      "function-calling",
+      "openai-compatible",
+      "agents"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "inference",
+    "type": "tutorial",
+    "title": "NVIDIA NIM Operator Quick Start (Kubernetes)",
+    "description": "Official quickstart for the NVIDIA NIM Operator for Kubernetes. Covers installation via Helm, NIMCache and NIMService custom resources, GPU scheduling, health probes, autoscaling with HPA, and KServe serverless integration.",
+    "url": "https://docs.nvidia.com/nim-operator/latest/quickstart.html",
+    "tags": [
+      "nvidia-nim",
+      "kubernetes",
+      "operator",
+      "helm",
+      "autoscaling"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "inference",
+    "type": "tutorial",
+    "title": "NVIDIA NIM Cloud Deployment: AWS EKS",
+    "description": "Official guide for deploying NVIDIA NIM on Amazon EKS. Covers EKS cluster creation with GPU node groups, NVIDIA GPU Operator installation, EBS CSI driver, Helm-based NIM deployment, and SageMaker BYOC alternative with NGC model sources.",
+    "url": "https://docs.nvidia.com/nim/large-language-models/2.0.2/deployment/csp-deployment/aws.html",
+    "tags": [
+      "nvidia-nim",
+      "aws",
+      "eks",
+      "cloud",
+      "sagemaker"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "inference",
+    "type": "tutorial",
+    "title": "NVIDIA NIM Cloud Deployment: Azure AKS",
+    "description": "Official guide for deploying NVIDIA NIM on Azure AKS. Covers AKS cluster creation with GPU node pools, NVIDIA GPU Operator, Helm deployment, and Microsoft Foundry (Azure ML) ManagedOnlineEndpoint alternative.",
+    "url": "https://docs.nvidia.com/nim/large-language-models/2.0.1/deployment/csp-deployment/azure.html",
+    "tags": [
+      "nvidia-nim",
+      "azure",
+      "aks",
+      "cloud",
+      "azure-ml"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "inference",
+    "type": "tutorial",
+    "title": "NVIDIA NIM on Google Kubernetes Engine (GKE)",
+    "description": "Official guide for deploying NVIDIA NIM on GCP GKE. Covers GKE Marketplace one-click deployment, Terraform-based infrastructure provisioning, Helm chart configuration, and testing via port-forwarding with OpenAI-compatible endpoints.",
+    "url": "https://docs.nvidia.com/nim/cloud/gke/latest/overview.html",
+    "tags": [
+      "nvidia-nim",
+      "gcp",
+      "gke",
+      "cloud",
+      "terraform"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "inference",
+    "type": "tutorial",
+    "title": "NVIDIA NIM Multi-Node Deployment Guide",
+    "description": "Official guide for deploying large models (Llama 3.1 405B, DeepSeek R1) across multiple GPU nodes with Ray, vLLM, Pipeline Parallelism, and Tensor Parallelism. Covers LeaderWorkerSet architecture and InfiniBand/RDMA networking.",
+    "url": "https://docs.nvidia.com/nim/large-language-models/latest/deployment/multi-node-deployment.html",
+    "tags": [
+      "nvidia-nim",
+      "multi-node",
+      "pipeline-parallelism",
+      "ray",
+      "large-models"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "inference",
+    "type": "tutorial",
+    "title": "NVIDIA NIM Air-Gapped Deployment Guide",
+    "description": "Official guide for deploying NVIDIA NIM in completely disconnected environments. Two-phase workflow: connected phase for download-to-cache or create-model-store, then air-gapped phase with no outbound network or API keys. Supports model-specific and model-free NIM containers.",
+    "url": "https://docs.nvidia.com/nim/large-language-models/latest/deploy-air-gap.html",
+    "tags": [
+      "nvidia-nim",
+      "air-gapped",
+      "offline",
+      "enterprise",
+      "security"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "inference",
+    "type": "tutorial",
+    "title": "NVIDIA NIM LLM Benchmarks: Latency and Throughput",
+    "description": "Official benchmark data for NVIDIA NIM across H100, H200, A100, and L40s GPUs. Covers Llama 3.1/3.3 models with FP8 and BF16 precision, showing TTFT, inter-token latency, and throughput at various concurrency levels. Includes AIPerf benchmarking methodology.",
+    "url": "https://docs.nvidia.com/nim/benchmarking/llm/latest/performance.html",
+    "tags": [
+      "nvidia-nim",
+      "benchmarks",
+      "throughput",
+      "latency",
+      "h100"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "inference",
+    "type": "tutorial",
+    "title": "NVIDIA Build API Catalog Quickstart",
+    "description": "Official quickstart for the NVIDIA Build (integrate.api.nvidia.com) API catalog. Covers authentication with nvapi- keys, OpenAI SDK compatibility, model listing via /v1/models, and chat completion requests. Free tier provides ~40 req/min rate limit.",
+    "url": "https://docs.api.nvidia.com/nim/docs/api-quickstart",
+    "tags": [
+      "nvidia-nim",
+      "api",
+      "free-tier",
+      "openai-compatible",
+      "catalog"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "inference",
+    "type": "tutorial",
+    "title": "Finding Free Hosted Models on NVIDIA Builder (Steve Scargall)",
+    "description": "Blog post and bash script that programmatically probes all 189 models in the NVIDIA Build /v1/models catalog to identify which have free hosted endpoints. Found 101 live models, 62 retired (404), and provides automation for CI/CD pipeline model selection.",
+    "url": "https://stevescargall.com/blog/2026/04/using-the-api-to-find-free-hosted-models-on-nvidia-builder/",
+    "tags": [
+      "nvidia-nim",
+      "api",
+      "free-models",
+      "automation",
+      "catalog"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "inference",
+    "type": "tool",
+    "title": "NVIDIA nim-deploy: Reference Deployments for Kubernetes",
+    "description": "Official GitHub repository with Helm charts, YAML files, and reference implementations for deploying NVIDIA NIM on EKS, AKS, GKE, SageMaker, Azure ML, Cloud Run, and NVCF. Includes Terraform modules, KServe configs, and multi-node setup guides. 229 stars.",
+    "url": "https://github.com/NVIDIA/nim-deploy",
+    "tags": [
+      "nvidia-nim",
+      "kubernetes",
+      "helm",
+      "terraform",
+      "cloud"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "inference",
+    "type": "tool",
+    "title": "NVIDIA NIM Free API: 100+ Models at Zero Cost (aiHola)",
+    "description": "Overview of NVIDIA Build's free API tier offering 100+ AI models at no cost with ~40 req/min rate limit. Covers model categories, limitations, and the migration path from free to enterprise (zero code changes needed since both use OpenAI-compatible API).",
+    "url": "https://aihola.com/article/nvidia-nim-free-api-models",
+    "tags": [
+      "nvidia-nim",
+      "free-api",
+      "models",
+      "openai-compatible",
+      "catalog"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "inference",
+    "type": "tool",
+    "title": "NeMo Microservices Python SDK (nemo-microservices)",
+    "description": "Official Python SDK for NVIDIA NeMo Microservices including NIM deployment management, chat completions, model customization, evaluation, and guardrails. Supports both sync and async clients with auto-pagination, retries, and streaming. v1.5.0 on PyPI.",
+    "url": "https://pypi.org/project/nemo-microservices/",
+    "tags": [
+      "nvidia-nim",
+      "python",
+      "sdk",
+      "nemo",
+      "deployment"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "inference",
+    "type": "example",
+    "title": "NVIDIA NIM OpenAI-Compatible Client Setup",
+    "description": "Code example showing how to use the standard OpenAI Python SDK with NVIDIA NIM by changing base_url. Works for both self-hosted NIM containers and the NVIDIA Build hosted API at integrate.api.nvidia.com.",
+    "url": "https://developer.nvidia.com/blog/a-simple-guide-to-deploying-generative-ai-with-nvidia-nim/",
+    "tags": [
+      "nvidia-nim",
+      "openai",
+      "python",
+      "client",
+      "quickstart"
+    ],
+    "difficulty": "beginner",
+    "code": "from openai import OpenAI\n\n# Self-hosted NIM\nclient = OpenAI(\n    base_url=\"http://localhost:8000/v1\",\n    api_key=\"not-needed\"  # Self-hosted doesn't require key\n)\n\n# NVIDIA Build hosted API\nclient = OpenAI(\n    base_url=\"https://integrate.api.nvidia.com/v1\",\n    api_key=\"nvapi-YOUR_KEY_HERE\"\n)\n\ncompletion = client.chat.completions.create(\n    model=\"meta/llama-3.1-8b-instruct\",\n    messages=[{\"role\": \"user\", \"content\": \"What is a GPU?\"}],\n    temperature=0.5,\n    max_tokens=1024,\n    stream=True\n)\n\nfor chunk in completion:\n    print(chunk.choices[0].delta.content or \"\", end=\"\")"
+  },
+  {
+    "topic": "inference",
+    "type": "example",
+    "title": "NVIDIA NIM Docker Deployment with LoRA Adapters",
+    "description": "Docker run command for deploying NIM with dynamic LoRA adapter serving. Configures PEFT source directory, refresh interval, LoRA-specific model profile, and GPU cache limits.",
+    "url": "https://docs.nvidia.com/nim/large-language-models/2.0.5/advanced-use-cases/finetune-lora.html",
+    "tags": [
+      "nvidia-nim",
+      "docker",
+      "lora",
+      "peft",
+      "deployment"
+    ],
+    "difficulty": "advanced",
+    "code": "# Dynamic LoRA with directory watcher\ndocker run -it --rm --gpus all \\\n  -v \"$LOCAL_NIM_CACHE:/opt/nim/.cache\" \\\n  -v \"$PWD/loras:/opt/nim/loras\" \\\n  -p 8000:8000 \\\n  -e NGC_API_KEY \\\n  -e NIM_MODEL_PROFILE=vllm-fp16-tp1-pp1-feat_lora \\\n  -e NIM_PEFT_SOURCE=/opt/nim/loras \\\n  -e NIM_PEFT_REFRESH_INTERVAL=10 \\\n  -e NIM_MAX_GPU_LORAS=4 \\\n  nvcr.io/nim/meta/llama-3.1-8b-instruct:latest\n\n# Query available adapters\ncurl -s localhost:8000/v1/models | jq\n\n# Inference with specific LoRA adapter\ncurl -X POST http://localhost:8000/v1/chat/completions \\\n  -H 'Content-Type: application/json' \\\n  -d '{\"model\": \"my_lora_adapter\", \"messages\": [{\"role\": \"user\", \"content\": \"Hello!\"}], \"max_tokens\": 64}'"
+  },
+  {
+    "topic": "inference",
+    "type": "pattern",
+    "title": "NVIDIA NIM Three-Tier PEFT Cache Architecture",
+    "description": "NIM uses a three-tier PEFT cache: (1) PEFT Source on persistent storage with unlimited adapters, (2) CPU PEFT Cache with LRU eviction sized by NIM_MAX_CPU_LORAS, and (3) GPU PEFT Cache with LRU eviction sized by NIM_MAX_GPU_LORAS. CUTLASS batched GEMM kernels fuse heterogeneous LoRA requests into single kernels.",
+    "url": "https://docs.nvidia.com/nim/large-language-models/2.0.5/deployment/kubernetes-deployment/nim-operator-deployment.html",
+    "tags": [
+      "nvidia-nim",
+      "lora",
+      "caching",
+      "multi-tenant",
+      "gpu-memory"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "inference",
+    "type": "pattern",
+    "title": "NVIDIA NIM OpenAI-Compatible API Pattern",
+    "description": "NVIDIA NIM exposes a fully OpenAI-compatible REST API (/v1/chat/completions, /v1/completions, /v1/responses, /v1/models) on both self-hosted containers and the hosted integrate.api.nvidia.com endpoint. Zero code changes needed when migrating from OpenAI to NIM.",
+    "url": "https://docs.api.nvidia.com/nim/reference/llm-apis",
+    "tags": [
+      "nvidia-nim",
+      "openai-compatible",
+      "api",
+      "migration",
+      "hosted"
+    ],
+    "difficulty": "beginner"
   }
 ]
