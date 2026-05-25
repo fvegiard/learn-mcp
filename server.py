@@ -113,7 +113,7 @@ def search_references(query: str, topic: str | None = None, limit: int = 10) -> 
         query: Natural language search query
         topic: Optional topic filter (mcp, rag, agents, fine-tuning, mlops,
                prompt-engineering, inference, claude-code, vector-db,
-               gpu-compute, autonomous-agents)
+               gpu-compute, autonomous-agents, seo)
         limit: Maximum results to return (default 10, max 50)
     """
     if topic and topic not in TOPICS:
@@ -157,7 +157,7 @@ def get_topic_references(topic: str) -> str:
     Args:
         topic: Topic name (mcp, rag, agents, fine-tuning, mlops,
                prompt-engineering, inference, claude-code, vector-db,
-               gpu-compute, autonomous-agents)
+               gpu-compute, autonomous-agents, seo)
     """
     if topic not in TOPICS:
         return json.dumps(
@@ -178,7 +178,7 @@ def get_workflow(topic: str, workflow_name: str | None = None) -> str:
     Args:
         topic: Topic name (mcp, rag, agents, fine-tuning, mlops,
                prompt-engineering, inference, claude-code, vector-db,
-               gpu-compute, autonomous-agents)
+               gpu-compute, autonomous-agents, seo)
         workflow_name: Optional specific workflow name to retrieve
     """
     if topic not in TOPICS:
@@ -211,7 +211,7 @@ def get_examples(topic: str) -> str:
     Args:
         topic: Topic name (mcp, rag, agents, fine-tuning, mlops,
                prompt-engineering, inference, claude-code, vector-db,
-               gpu-compute, autonomous-agents)
+               gpu-compute, autonomous-agents, seo)
     """
     if topic not in TOPICS:
         return json.dumps(

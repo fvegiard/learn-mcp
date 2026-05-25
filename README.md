@@ -10,7 +10,7 @@ AI Engineering Learning Reference MCP Server — 801 searchable references for 2
 | `rag` | Retrieval-Augmented Generation — vector DBs, chunking, reranking | 60 |
 | `agents` | Agentic AI — LangGraph, CrewAI, AutoGen, tool use | 79 |
 | `fine-tuning` | LLM Fine-Tuning — LoRA, QLoRA, PEFT, deployment | 59 |
-| `mlops` | MLOps & LLMOps — CI/CD, Docker, K8s, MLflow | 63 |
+| `mlops` | MLOps & LLMOps — CI/CD, Docker, K8s, MLflow | 62 |
 | `prompt-engineering` | Advanced Prompting — CoT, ReAct, ToT, structured output | 56 |
 | `inference` | LLM Inference — vLLM, Ollama, SGLang, quantization | 86 |
 | `claude-code` | Claude Code — context engineering, hooks, skills, worktrees | 58 |

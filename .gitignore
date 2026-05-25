@@ -9,3 +9,4 @@ dist/
 build/
 references.json
 .ruff_cache/
+mcp-recommender/

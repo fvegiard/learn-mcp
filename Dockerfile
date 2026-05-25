@@ -1,3 +1,10 @@
+FROM python:3.14-slim AS builder
+
+WORKDIR /build
+COPY data/ /build/data/
+COPY merge_refs.py /build/merge_refs.py
+RUN python3 merge_refs.py
+
 FROM python:3.14-slim
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -9,9 +16,8 @@ COPY requirements.txt /app/requirements.txt
 RUN pip install --no-cache-dir -r /app/requirements.txt
 
 COPY server.py /app/server.py
-COPY merge_refs.py /app/merge_refs.py
 COPY data/ /app/data/
-COPY references.json /app/references.json
+COPY --from=builder /build/references.json /app/references.json
 
 VOLUME /root/.cache/huggingface
 
