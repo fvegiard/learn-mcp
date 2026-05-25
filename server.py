@@ -10,8 +10,12 @@ from __future__ import annotations
 import json
 import os
 import re
+import threading
 from mcp.server.fastmcp import FastMCP
 
+# Must bind 0.0.0.0 inside the container for docker-proxy + cross-container
+# (ai-recommender) access. Host exposure is limited by the compose
+# `127.0.0.1:8001:8001` port prefix.
 mcp = FastMCP("learn", host="0.0.0.0", port=8001)
 
 QDRANT_URL = os.environ.get("QDRANT_URL", "http://127.0.0.1:6333")
@@ -71,14 +75,24 @@ _load_references()
 _MODEL = None
 
 
+_MODEL_LOCK = threading.Lock()
+
+
 def _get_model():
-    """Lazy-load and cache the SentenceTransformer model."""
+    """Lazy-load and cache the SentenceTransformer model (thread-safe)."""
     global _MODEL
     if _MODEL is None:
-        from sentence_transformers import SentenceTransformer
+        with _MODEL_LOCK:
+            if _MODEL is None:
+                from sentence_transformers import SentenceTransformer
 
-        _MODEL = SentenceTransformer("all-MiniLM-L6-v2")
+                _MODEL = SentenceTransformer("all-MiniLM-L6-v2")
     return _MODEL
+
+
+# Background pre-warm: load the embedding model at startup so the first
+# semantic_search / index_to_qdrant call doesn't pay a 3-5s cold-start.
+threading.Thread(target=_get_model, daemon=True, name="model-prewarm").start()
 
 
 # ── Tools ─────────────────────────────────────────────────────────────────
@@ -109,22 +123,20 @@ def search_references(query: str, topic: str | None = None, limit: int = 10) -> 
 
     limit = min(limit, 50)
     results = []
-    query_terms = query.lower().split()
+    # Compile patterns once per query (not once per ref) — saves ~720 regex
+    # compilations on every search call.
+    patterns = [
+        re.compile(r"\b" + re.escape(term) + r"\b") for term in query.lower().split()
+    ]
 
     for ref in REFERENCES:
-        # Topic filter
         if topic and ref.get("topic") != topic:
             continue
-        # Build searchable text with proper list joining
         searchable = " ".join(
             v if isinstance(v, str) else " ".join(v) if isinstance(v, list) else ""
             for v in ref.values()
         ).lower()
-        # Word-boundary matching so "lang" doesn't match "langchain"
-        if all(
-            re.search(r"\b" + re.escape(term) + r"\b", searchable)
-            for term in query_terms
-        ):
+        if all(p.search(searchable) for p in patterns):
             results.append(ref)
             if len(results) >= limit:
                 break
@@ -322,4 +334,6 @@ def semantic_search(query: str, topic: str | None = None, limit: int = 10) -> st
 
 
 if __name__ == "__main__":
-    mcp.run(transport="sse")
+    # 2026: Streamable HTTP replaces SSE per MCP spec 2025-06-18 deprecation.
+    # FastMCP exposes this transport at /mcp (vs /sse for legacy SSE).
+    mcp.run(transport="streamable-http")

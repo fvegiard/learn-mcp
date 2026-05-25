@@ -6,7 +6,6 @@ and writes the combined references.json.
 """
 
 import json
-import sys
 from pathlib import Path
 
 DATA_DIR = Path(__file__).parent / "data"
