@@ -1,0 +1,701 @@
+[
+  {
+    "topic": "seo",
+    "type": "pattern",
+    "title": "F-Pattern Scanning — Eye-Tracking Evidence for Content Pages",
+    "description": "Users scan text-heavy pages in an F-shape: horizontal read at top, shorter horizontal scan, then vertical scan down the left margin. First lines and left-edge words get the most fixations. Place key info at top-left, use clear headings, start paragraphs with strong phrases, and use bullet points. Good formatting can upgrade users from F-scanning to more effective patterns like layer-cake scanning.",
+    "tags": ["f-pattern", "eye-tracking", "scanning", "reading-pattern", "content-design", "cognitive-load"],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "seo",
+    "type": "pattern",
+    "title": "Z-Pattern Scanning — Conversion Page Layout Principle",
+    "description": "On minimal-text pages (landing pages, homepages), eyes move in a Z: top-left to top-right, diagonal down, then bottom-left to bottom-right. Place logo at top-left, primary CTA at top-right, visual element along the diagonal, and final CTA at bottom-right. Z-pattern works for single-goal pages where you guide users toward one action.",
+    "tags": ["z-pattern", "scanning", "landing-page", "cta-placement", "conversion", "eye-tracking"],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "seo",
+    "type": "pattern",
+    "title": "50ms First Impression Rule — Visual Credibility Judgment",
+    "description": "Users form visual appeal judgments in approximately 50 milliseconds (Lindgaard et al., 2006). 94% of a user's impression is design-driven, not content-driven. This means your page's visual design — colors, layout, spacing, typography — must communicate trust and relevance before any text is read. A poor first impression is nearly impossible to reverse.",
+    "tags": ["first-impression", "visual-appeal", "credibility", "attention", "milliseconds", "design-psychology"],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "seo",
+    "type": "pattern",
+    "title": "Triune Brain Model in Design — Reptilian, Limbic, Neocortex Layers",
+    "description": "Design must satisfy three brain layers in order: (1) Reptilian/Old Brain — is this safe and simple? Clutter triggers amygdala stress responses. Clean layouts enable 23% faster focus. (2) Limbic/Mid Brain — does this feel emotionally right? Trust signals, social proof, color psychology. (3) Neocortex/New Brain — does the logic hold? Specs, ROI, features. You must pass the Reptilian safety check before emotion or logic can work.",
+    "tags": ["triune-brain", "neuromarketing", "reptilian-brain", "cognitive-load", "trust", "safety"],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "seo",
+    "type": "pattern",
+    "title": "Von Restorff Effect — Isolation Makes Elements Stand Out",
+    "description": "The Von Restorff effect (isolation effect) means an item that differs from its surroundings is far more likely to be remembered and noticed. Apply this by making your CTA button a contrasting color, using a unique size for key elements, or placing one element in whitespace while others are grouped. This is why high-contrast CTAs outperform harmonious ones — they trigger the brain's orientation response.",
+    "tags": ["von-restorff", "isolation-effect", "cta-design", "visual-hierarchy", "attention", "contrast"],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "seo",
+    "type": "pattern",
+    "title": "Hick's Law — More Choices Slow Decisions",
+    "description": "Hick's Law states that reaction time increases logarithmically with the number of choices. Every extra navigation item, CTA option, or form field adds cognitive processing time. This is why single-CTA landing pages outperform multi-option ones, and why fewer form fields dramatically increase completion rates. Target a 1:1 attention ratio — one primary action per page section.",
+    "tags": ["hicks-law", "decision-time", "cognitive-load", "choices", "form-design", "cta"],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "seo",
+    "type": "pattern",
+    "title": "Anchoring Bias — First Information Frames Perception",
+    "description": "The first number or piece of information a user sees anchors their perception of everything that follows. Display your highest price first (making others look like deals), show the biggest result first in testimonials, or lead with the most impressive metric. Pricing pages that show the enterprise tier first see higher mid-tier conversions because the mid-tier is anchored as 'reasonable' relative to the premium.",
+    "tags": ["anchoring", "cognitive-bias", "pricing", "perception", "framing", "conversion"],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "seo",
+    "type": "pattern",
+    "title": "Social Proof — Testimonials Beat Feature Lists",
+    "description": "People follow the behavior of similar others. Named testimonials with measurable results outperform generic logo strips. Specific social proof ('2,847 developers use this daily') beats vague claims ('thousands of users'). Personalized CTAs that reference the user's situation convert 202% better than generic ones. The closer the testimonial source is to the target user, the more persuasive it is.",
+    "tags": ["social-proof", "testimonials", "trust", "conversion", "personalization", "persuasion"],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "seo",
+    "type": "pattern",
+    "title": "Loss Aversion — FOMO Framing Outperforms Gain Framing",
+    "description": "Kahneman and Tversky's research shows losses feel roughly twice as painful as equivalent gains feel good. 'Don't miss out' outperforms 'Get this benefit'. 'Your competitors are already using this' outperforms 'Join the leaders'. Limited-time offers, countdown timers, and 'only X spots remaining' leverage loss aversion ethically. Avoid false scarcity — it destroys trust when discovered.",
+    "tags": ["loss-aversion", "fomo", "scarcity", "framing", "conversion", "kahneman"],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "seo",
+    "type": "pattern",
+    "title": "Zeigarnik Effect — Unfinished Tasks Stay in Memory",
+    "description": "People remember incomplete or interrupted tasks better than completed ones. This is why progress bars increase completion rates (showing what's left to finish), why multi-step forms with clear progress indicators outperform single long forms, and why 'complete your profile' prompts work. Show users what they've started but haven't finished to draw them back.",
+    "tags": ["zeigarnik", "progress-bar", "completion", "engagement", "multi-step", "memory"],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "seo",
+    "type": "pattern",
+    "title": "Processing Fluency — Easy to Read Means Easy to Trust",
+    "description": "The brain equates ease of processing with truth and trustworthiness. High-contrast text, familiar fonts, short sentences, ample whitespace, and clean layouts all increase processing fluency. Complex language, low contrast, unusual fonts, and cluttered layouts trigger cognitive strain, which the brain interprets as a warning signal. Blue themes boost trust by approximately 17% (Princeton studies).",
+    "tags": ["processing-fluency", "trust", "readability", "cognitive-ease", "contrast", "typography"],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "seo",
+    "type": "pattern",
+    "title": "Color Psychology in Web Design — Trust, Urgency, Action",
+    "description": "Colors trigger subconscious associations: Blue = trust, security, professionalism (best for finance/SaaS). Red = urgency, excitement, danger (sale badges, error states). Green = growth, nature, success (confirmation, eco brands). Orange = confidence, friendliness, CTA (high visibility without red's alarm). Yellow = creativity, optimism, caution. Black = sophistication, luxury. White = simplicity, cleanliness. Color choices must align with brand personality, not just aesthetics.",
+    "tags": ["color-psychology", "blue-trust", "red-urgency", "cta-color", "branding", "subconscious"],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "seo",
+    "type": "pattern",
+    "title": "Directional Cues — Guiding Eyes Toward the CTA",
+    "description": "The brain instinctively follows directional indicators: arrows pointing toward a CTA increase click-through by 20-30%. Human gaze in images draws the viewer's eyes to wherever the person is looking. Triangular compositions naturally guide attention. Even subtle cues like a tilted head or converging lines can pull attention. Place directional cues so they point toward your primary conversion action, never away from it.",
+    "tags": ["directional-cues", "arrows", "gaze-cueing", "visual-flow", "cta", "attention"],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "seo",
+    "type": "pattern",
+    "title": "Cognitive Load Theory — Every Extra Element Costs Attention",
+    "description": "The brain has limited working memory (Miller's Law: 7±2 items). Every unnecessary navigation link, decorative element, form field, or text block adds cognitive load that competes with your primary message. Remove navigation menus from landing pages for a 10-15% conversion lift (Unbounce data). Reduce form fields to the absolute minimum. Use progressive disclosure to hide complexity until it's needed.",
+    "tags": ["cognitive-load", "millers-law", "simplicity", "minimalism", "progressive-disclosure", "conversion"],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "seo",
+    "type": "pattern",
+    "title": "Layer-Cake Scanning — Headings Drive Reading Decisions",
+    "description": "NN/g eye-tracking identified the layer-cake pattern as the most effective scanning method: users fixate on headings and subheadings, then read body text only when a heading is relevant. This means headings must be descriptive and specific (not clever or vague). Use a clear heading hierarchy, front-load key words in headings, and ensure each heading accurately previews its section. Good headings upgrade users from F-scanning to layer-cake scanning.",
+    "tags": ["layer-cake", "scanning", "headings", "readability", "eye-tracking", "nng"],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "seo",
+    "type": "pattern",
+    "title": "Facial Coding in Design — Faces Draw and Direct Attention",
+    "description": "The human brain has a dedicated region (fusiform face area) for processing faces. Faces in design automatically capture attention, and the direction the face is looking guides the viewer's gaze. A person looking at your CTA will cause the viewer to look there too. Smiling faces create positive emotional associations. Use real faces (not stock models) for authenticity. Avoid faces looking away from your key content.",
+    "tags": ["faces", "facial-coding", "attention", "gaze", "authenticity", "emotion"],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "seo",
+    "type": "pattern",
+    "title": "Dopamine Loops — Micro-Interactions and Progress Rewards",
+    "description": "The brain's reward system releases dopamine in anticipation of a reward, not upon receiving it. Micro-interactions (button hover effects, smooth transitions, satisfying animations) create small dopamine releases that keep users engaged. Progress bars, streaks, badges, and completion celebrations all leverage this. The key is variable reward — predictable rewards lose their dopamine effect over time. Ethically applied, this improves UX without manipulation.",
+    "tags": ["dopamine", "micro-interactions", "rewards", "engagement", "animation", "gamification"],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "seo",
+    "type": "pattern",
+    "title": "Neuro-Copywriting — 'You' vs 'We' Framing for the Reptilian Brain",
+    "description": "The Reptilian brain is self-centered — it cares about 'what's in it for me' above all. Copy that uses 'you' and 'your' outperforms 'we' and 'our' framing. Lead with the user's problem, not your solution. 'Stop wasting hours on X' beats 'We provide Y'. Benefit-first headlines ('Ship 3x faster') beat feature-first headlines ('Built on Z framework'). The brain evaluates relevance before capability.",
+    "tags": ["neuro-copywriting", "copywriting", "framing", "reptilian-brain", "you-vs-we", "benefits"],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "seo",
+    "type": "pattern",
+    "title": "Hero Section Anatomy — Headline + Visual + CTA Above the Fold",
+    "description": "The hero section has approximately 5 seconds to communicate value and relevance. Structure: specific headline (who it's for + what outcome), supporting subheadline (1 sentence), product screenshot or demo (show, don't describe), and a single primary CTA button. Median landing page conversion rate in 2026 is 6.6%; top 10% achieve 11.45%+. The hero must earn the click in one glance.",
+    "tags": ["hero-section", "landing-page", "above-fold", "headline", "cta", "conversion"],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "seo",
+    "type": "pattern",
+    "title": "Single CTA Principle — 1:1 Attention Ratio",
+    "description": "Each page section should have exactly one primary action. Multiple CTAs create decision paralysis (Hick's Law). The highest-converting landing pages have one job: one button, one form, one outcome. If you need secondary actions, style them as text links (not buttons) so they don't visually compete with the primary CTA. Removing navigation menus from landing pages increases conversion by 10-15%.",
+    "tags": ["single-cta", "attention-ratio", "landing-page", "conversion", "focus", "decision-paralysis"],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "seo",
+    "type": "pattern",
+    "title": "Above-Fold Trust Signals — Instant Credibility Markers",
+    "description": "Users need proof of trust before they'll engage. Place trust signals visible without scrolling: customer count ('2,847 teams use this'), logo strip of known brands, star ratings, security badges, and press mentions. Specific metrics beat vague claims ('98% uptime' vs 'reliable'). Named customers with measurable results outperform generic logo marquees. Trust signals must be above the fold because 50-60% of users never scroll.",
+    "tags": ["trust-signals", "social-proof", "above-fold", "credibility", "logos", "metrics"],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "seo",
+    "type": "pattern",
+    "title": "Mobile-First CTA Placement — Thumb-Reach Design",
+    "description": "On mobile, the primary CTA must be visible and thumb-reachable on first load without scrolling. The bottom third of the screen is the natural thumb zone for right-handed users. Mobile decision time is under 6 seconds (vs 8-15s desktop). Place the CTA where the thumb naturally rests after scrolling, and make it large enough to tap easily (minimum 44x44px touch target). Mobile-first design means CTA placement is decided for mobile, then adapted for desktop.",
+    "tags": ["mobile-first", "cta-placement", "thumb-zone", "touch-target", "responsive", "mobile-ux"],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "seo",
+    "type": "pattern",
+    "title": "Bento Grid Layout — 2026 Design Trend for Feature Pages",
+    "description": "Bento grid layouts organize content into cards of varying sizes in a masonry-like grid, popularized by Apple's product pages. Each card focuses on one feature or benefit with a visual element. The layout creates visual interest through varied card sizes while maintaining clean alignment. Works well for product feature sections, pricing comparisons, and showcase pages. Combine with the Von Restorff effect by making the most important card larger.",
+    "tags": ["bento-grid", "layout", "card-design", "apple-style", "feature-page", "2026"],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "seo",
+    "type": "pattern",
+    "title": "Form Design — Fewer Fields = More Completions",
+    "description": "Baymard Institute research shows users abandon after 3 friction points. Every additional form field reduces completions: going from 4 to 11 fields can drop conversion by 50%+. Use inline validation (real-time error feedback), auto-fill where possible, and only require essential fields initially. Use progressive disclosure for optional details. Multi-step forms with progress indicators (Zeigarnik Effect) outperform long single-page forms.",
+    "tags": ["form-design", "conversion", "fields", "progressive-disclosure", "friction", "baymard"],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "seo",
+    "type": "pattern",
+    "title": "Show Product, Don't Describe It — Screenshots Beat Stock",
+    "description": "Product screenshots and live demos outperform stock illustrations and abstract descriptions. Users trust what they can see working. Linear, Stripe, Vercel, and Notion all use real product screenshots in their heroes. If your product is a CLI or API, show the terminal output or code with syntax highlighting. Animated GIFs of the product in action outperform static screenshots. Avoid generic laptop mockups with fake screens.",
+    "tags": ["screenshots", "product-demo", "visual-proof", "show-dont-tell", "landing-page", "authenticity"],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "seo",
+    "type": "pattern",
+    "title": "Speed Under 2.5s — Every Second Costs 7% Conversions",
+    "description": "Page load speed directly impacts conversion. Each additional second of load time costs approximately 7% in conversions. Target under 2.5 seconds for Time to Interactive. Google's Core Web Vitals (LCP, FID, CLS) are both ranking factors and user experience metrics. Use Lighthouse and PageSpeed Insights to measure. Optimize images (WebP/AVIF), lazy-load below-fold content, and use CDNs for static assets.",
+    "tags": ["speed", "core-web-vitals", "lighthouse", "conversion", "performance", "page-speed"],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "seo",
+    "type": "pattern",
+    "title": "User Decision Sequence — Recognition → Relevance → Risk → Effort → Commitment",
+    "description": "Users follow a subconscious 5-step decision sequence on a website: (1) Recognition — 'What is this?', (2) Relevance — 'Is this for me?', (3) Risk assessment — 'Is it safe/trustworthy?', (4) Effort calculation — 'How hard is it to start?', (5) Commitment — 'I'll try it'. Structure your page in this exact order to match the user's mental model. Matching page sequence to this mental sequence lifted conversion 23% in one study.",
+    "tags": ["decision-sequence", "mental-model", "conversion-funnel", "user-psychology", "page-structure"],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "seo",
+    "type": "pattern",
+    "title": "3 Friction Points = Abandonment — Reduce Interaction Cost",
+    "description": "Baymard Institute research shows that users abandon a flow after encountering approximately 3 friction points. Friction includes: confusing labels, slow page loads, too many form fields, unexpected steps, unclear error messages, lack of progress indicators, and hidden costs. Map every step of your user flow and eliminate or reduce friction at each point. The fewer interaction costs, the higher the conversion.",
+    "tags": ["friction", "abandonment", "interaction-cost", "baymard", "ux", "conversion"],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "seo",
+    "type": "tool",
+    "title": "Google Search Console",
+    "description": "Free tool from Google for monitoring and maintaining your site's presence in search results. Submit sitemaps, monitor indexing status, view search queries driving traffic, check for crawl errors, and receive alerts for manual actions. Essential for any website's SEO — without it, you're flying blind on Google search performance.",
+    "url": "https://search.google.com/search-console",
+    "tags": ["google", "search-console", "indexing", "sitemaps", "seo", "free"],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "seo",
+    "type": "tool",
+    "title": "Ahrefs — SEO Analysis & Keyword Research",
+    "description": "Comprehensive SEO tool for keyword research, backlink analysis, competitor research, rank tracking, and site audits. Provides the largest backlink index after Google itself. Key features: keyword difficulty scores, content gap analysis, and broken link checker. Essential for competitive SEO strategy.",
+    "url": "https://ahrefs.com/",
+    "tags": ["ahrefs", "keyword-research", "backlinks", "competitor-analysis", "seo", "paid"],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "seo",
+    "type": "tool",
+    "title": "SEMrush — All-in-One SEO and Marketing Platform",
+    "description": "SEO, content marketing, and competitor research platform with keyword tracking, site audit, on-page SEO checker, and content template recommendations. Offers a free tier with limited daily searches. Good for tracking keyword positions over time and identifying technical SEO issues.",
+    "url": "https://semrush.com/",
+    "tags": ["semrush", "keyword-tracking", "site-audit", "competitor", "seo", "marketing"],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "seo",
+    "type": "tutorial",
+    "title": "Schema.org Structured Data Guide",
+    "description": "Official documentation for implementing structured data (JSON-LD) on web pages. Structured data helps search engines understand your content and enables rich results (stars, FAQs, how-tos, breadcrumbs) in search listings. Rich results increase click-through rates by 20-30%. Use Google's Rich Results Test to validate your markup.",
+    "url": "https://schema.org/",
+    "tags": ["schema-org", "structured-data", "json-ld", "rich-results", "seo", "markup"],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "seo",
+    "type": "workflow",
+    "title": "Sitemap and robots.txt Setup for Web Projects",
+    "description": "How to create and submit sitemaps and configure robots.txt for search engine crawling. Sitemaps tell search engines which pages to index; robots.txt tells crawlers which pages to skip. Both are essential for any web project's discoverability.",
+    "tags": ["sitemap", "robots-txt", "crawling", "indexing", "seo", "configuration"],
+    "difficulty": "beginner",
+    "workflow": [
+      "Generate sitemap.xml (use sitemap generator or framework plugin)",
+      "Add sitemap reference to robots.txt: Sitemap: https://example.com/sitemap.xml",
+      "Configure robots.txt with Allow/Disallow rules for user-agents",
+      "Submit sitemap to Google Search Console and Bing Webmaster Tools",
+      "Monitor indexing status in Search Console coverage report",
+      "Regenerate sitemap automatically when content changes (framework plugin or CI step)"
+    ]
+  },
+  {
+    "topic": "seo",
+    "type": "pattern",
+    "title": "SSR vs SSG vs CSR — SEO Implications for Web Apps",
+    "description": "Search engines can render JavaScript but it's slower and less reliable. Server-Side Rendering (SSR) delivers full HTML to crawlers — best for SEO. Static Site Generation (SSG) pre-builds pages at deploy time — ideal for blogs/docs. Client-Side Rendering (CSR) relies on JavaScript execution — worst for SEO unless using dynamic rendering or prerendering. For MCP project sites, SSG (Astro, Next.js static) is the best balance of SEO and simplicity.",
+    "tags": ["ssr", "ssg", "csr", "rendering", "seo", "javascript", "crawling"],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "seo",
+    "type": "tool",
+    "title": "Prerender.io — Dynamic Rendering for SEO",
+    "description": "Serves pre-rendered HTML to search engine bots while keeping your SPA/CSR experience for users. Detects bot user-agents and returns a cached static HTML snapshot. Supports Googlebot, Bingbot, and social media crawlers (for Open Graph previews). Useful when you can't migrate from CSR to SSR/SSG immediately.",
+    "url": "https://prerender.io/",
+    "tags": ["prerender", "dynamic-rendering", "bot", "spa", "seo", "crawling"],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "seo",
+    "type": "tool",
+    "title": "Lighthouse — Web Performance and SEO Auditor",
+    "description": "Google's open-source auditing tool that scores pages on Performance, Accessibility, Best Practices, and SEO. Scores range 0-100; aim for 90+ on all categories. Run via Chrome DevTools, CLI, or PageSpeed Insights. Provides specific recommendations for each issue found. The Performance score is heavily influenced by Core Web Vitals (LCP, FID/INP, CLS).",
+    "url": "https://developer.chrome.com/docs/lighthouse/",
+    "tags": ["lighthouse", "audit", "performance", "seo", "accessibility", "google"],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "seo",
+    "type": "tool",
+    "title": "PageSpeed Insights — Google's Performance Scorer",
+    "description": "Google's online tool that runs Lighthouse on both mobile and desktop, then combines it with real-world Chrome UX Report data. Shows both lab data (controlled test) and field data (real user metrics). Field data is what Google uses for ranking signals. Provides specific optimization suggestions with estimated impact.",
+    "url": "https://pagespeed.web.dev/",
+    "tags": ["pagespeed", "google", "performance", "core-web-vitals", "field-data", "optimization"],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "seo",
+    "type": "tool",
+    "title": "web.dev — Google's Web Development Learning Platform",
+    "description": "Google's official resource for web developers covering performance, accessibility, SEO, and modern web APIs. Includes the 'Learn Performance' and 'Learn SEO' structured courses, the Core Web Vitals documentation, and tools like the CSS Triggers reference. Essential reading for understanding Google's ranking priorities.",
+    "url": "https://web.dev/",
+    "tags": ["web-dev", "google", "performance", "learn", "core-web-vitals", "best-practices"],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "seo",
+    "type": "pattern",
+    "title": "Core Web Vitals — LCP, INP, CLS Explained",
+    "description": "Google's three user experience metrics: LCP (Largest Contentful Paint) — main content loads in under 2.5s. INP (Interaction to Next Paint, replaced FID in 2024) — page responds to interaction in under 200ms. CLS (Cumulative Layout Shift) — visual stability score under 0.1. These are ranking signals and directly impact SEO. Measure with Lighthouse and Chrome UX Report.",
+    "tags": ["core-web-vitals", "lcp", "inp", "cls", "google", "ranking", "performance"],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "seo",
+    "type": "tool",
+    "title": "Vercel Analytics — Real-Time Web Performance Monitoring",
+    "description": "Real-time performance monitoring built into Vercel's platform. Tracks Web Vitals (LCP, FID, CLS, TTFB) from real user sessions, not synthetic tests. Provides geographic breakdowns and route-level performance data. Free tier includes 2,500 events/month. Works with Next.js and other frameworks deployed on Vercel.",
+    "url": "https://vercel.com/docs/analytics",
+    "tags": ["vercel", "analytics", "web-vitals", "monitoring", "real-user", "performance"],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "seo",
+    "type": "pattern",
+    "title": "Image Optimization — Formats, Sizing, and Lazy Loading",
+    "description": "Images are the largest assets on most pages. Use WebP (30% smaller than JPEG) or AVIF (50% smaller) with fallbacks. Serve responsive sizes via srcset so mobile gets smaller files. Lazy-load below-fold images with loading='lazy'. Use blur-up placeholders for perceived performance. For icons, use SVGs (scalable, tiny file size). Tools: Squoosh, Sharp, ImageMagick, and framework-specific image components.",
+    "tags": ["image-optimization", "webp", "avif", "lazy-loading", "srcset", "performance"],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "seo",
+    "type": "pattern",
+    "title": "CDN Strategies for Static Assets",
+    "description": "Content Delivery Networks serve assets from edge servers closest to the user, dramatically reducing latency. Use CDNs for all static assets (images, CSS, JS, fonts). Major options: Cloudflare (free tier with CDN), Vercel Edge (built-in for deployments), Fastly (real-time purging). For open-source project sites, Cloudflare's free tier is often sufficient. Cache-bust with content hashes in filenames.",
+    "tags": ["cdn", "cloudflare", "edge", "caching", "latency", "static-assets"],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "seo",
+    "type": "workflow",
+    "title": "GitHub Pages Deployment for Open-Source Projects",
+    "description": "How to deploy a static site for your open-source project using GitHub Pages. Free hosting directly from your repository, automatic HTTPS, and custom domain support. Integrates with Jekyll, Hugo, Astro, Next.js (static export), and any SSG.",
+    "tags": ["github-pages", "static-site", "deployment", "free-hosting", "open-source", "documentation"],
+    "difficulty": "beginner",
+    "workflow": [
+      "Choose your SSG (Astro, Hugo, Next.js static, or plain HTML)",
+      "Create a docs/ folder in your repo or a separate gh-pages branch",
+      "Configure GitHub Actions to build and deploy on push to main",
+      "Enable GitHub Pages in repo Settings → Pages → Source: GitHub Actions",
+      "Add custom domain if needed (CNAME file + DNS records)",
+      "Verify HTTPS is enforced and site is indexed by Google"
+    ]
+  },
+  {
+    "topic": "seo",
+    "type": "tutorial",
+    "title": "Open Source Guides — Building Welcoming Communities",
+    "description": "GitHub's official guide to launching and growing open-source projects. Covers writing a great README, choosing a license, building community, handling contributions, and maintaining health. Essential reading for anyone promoting an open-source project — the README is your landing page.",
+    "url": "https://opensource.guide/",
+    "tags": ["open-source", "community", "readme", "contributing", "github", "guide"],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "seo",
+    "type": "workflow",
+    "title": "Product Hunt Launch Strategy for Developer Tools",
+    "description": "How to launch a developer tool on Product Hunt for maximum visibility. A successful PH launch can drive 5,000-20,000 visits in a single day and create lasting backlinks.",
+    "tags": ["product-hunt", "launch", "marketing", "developer-tools", "visibility", "backlinks"],
+    "difficulty": "intermediate",
+    "workflow": [
+      "Build your PH page 2 weeks before launch: tagline, screenshots, demo video",
+      "Prepare maker comment explaining the problem and solution in 3 sentences",
+      "Line up 10-20 early supporters (friends, community members) for launch day",
+      "Launch on a Tuesday or Wednesday (highest traffic days)",
+      "Post at 12:01 AM PST to get the full 24-hour voting window",
+      "Engage with every comment within 30 minutes",
+      "Cross-post to Hacker News, Reddit r/SideProject, and Dev.to",
+      "After launch: thank supporters, write a retrospective blog post with metrics"
+    ]
+  },
+  {
+    "topic": "seo",
+    "type": "tutorial",
+    "title": "GitHub README Best Practices — Your Project's Landing Page",
+    "description": "A GitHub README is the first thing visitors see. Best practices: lead with a one-line description and badge strip, add a demo GIF or screenshot, include a quick-start code snippet, show installation in 3 commands or fewer, link to full docs, add contributing guidelines, and include a license. Badges (build status, version, license) serve as trust signals. Use a Table of Contents for long READMEs.",
+    "url": "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes",
+    "tags": ["readme", "github", "documentation", "open-source", "first-impression", "badges"],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "seo",
+    "type": "pattern",
+    "title": "Awesome-List Strategy — Piggyback on Curated Discovery",
+    "description": "Getting your project listed on relevant 'awesome-X' lists (awesome-mcp, awesome-ai, etc.) provides free, targeted traffic and high-authority backlinks. These lists rank well on Google and are many developers' go-to discovery tool. Submit a PR to add your project, following the list's contribution format. Track which lists your competitors appear on and target those first.",
+    "tags": ["awesome-list", "discovery", "backlinks", "open-source", "curation", "seo"],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "seo",
+    "type": "pattern",
+    "title": "Dev.to and Hashnode — Developer Blogging Platforms for Promotion",
+    "description": "Writing technical articles on Dev.to and Hashnode builds authority and drives traffic to your project. These platforms have built-in audiences of developers and rank well on Google. Write 'how we built X' posts, comparison articles, and tutorials that naturally reference your project. Cross-post to both platforms (use canonical URL pointing to your original). Aim for 1-2 articles per month during a launch period.",
+    "tags": ["dev-to", "hashnode", "blogging", "technical-writing", "content-marketing", "developer-traffic"],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "seo",
+    "type": "tool",
+    "title": "Google Analytics 4 — Website Analytics",
+    "description": "Free analytics platform tracking page views, user behavior, conversions, and events. GA4 uses an event-based model (not pageview-based like Universal Analytics). Set up conversion tracking for CTAs, measure traffic sources (organic, social, referral), and use the real-time report during launches. Privacy note: GA4 uses cookies; consider Plausible or Umami for privacy-focused alternatives.",
+    "url": "https://analytics.google.com/",
+    "tags": ["google-analytics", "analytics", "tracking", "conversions", "free", "privacy"],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "seo",
+    "type": "tool",
+    "title": "Plausible Analytics — Privacy-Focused Web Analytics",
+    "description": "Lightweight, open-source, privacy-focused alternative to Google Analytics. No cookies, no personal data, fully GDPR/CCPA compliant out of the box. Only 1KB script (vs GA4's ~45KB). Simple dashboard with page views, referrers, goals, and country data. Self-hosted (Docker) or cloud-hosted. Ideal for privacy-conscious open-source projects.",
+    "url": "https://plausible.io/",
+    "tags": ["plausible", "privacy", "gdpr", "analytics", "open-source", "lightweight"],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "seo",
+    "type": "tool",
+    "title": "Umami — Self-Hosted Privacy Analytics",
+    "description": "Open-source, self-hosted web analytics alternative. Built with Next.js, runs on any Node.js server or Docker. Tracks page views, events, referrers, and demographics without cookies or personal data. Database-backed (MySQL or PostgreSQL) for fast queries. Fully GDPR compliant. Great for projects already running their own infrastructure.",
+    "url": "https://umami.is/",
+    "tags": ["umami", "self-hosted", "privacy", "analytics", "open-source", "docker"],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "seo",
+    "type": "pattern",
+    "title": "UTM Parameters — Tracking Campaign Traffic Sources",
+    "description": "UTM parameters (utm_source, utm_medium, utm_campaign, utm_content, utm_term) appended to URLs let analytics tools attribute traffic to specific campaigns. Use them for Product Hunt launches (utm_source=producthunt), newsletter links (utm_medium=email), and social posts (utm_source=twitter). Google's Campaign URL Builder generates tagged links. Consistency in naming is critical — use a shared spreadsheet to track UTM conventions.",
+    "tags": ["utm", "tracking", "campaigns", "analytics", "attribution", "traffic-source"],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "seo",
+    "type": "tool",
+    "title": "Hotjar — Heatmaps and Session Recordings",
+    "description": "Heatmap and session recording tool that shows where users click, scroll, and move on your pages. Heatmaps reveal whether users see your CTA (click maps) and how far they scroll (scroll maps). Session recordings show real user journeys including frustration signals (rage clicks, rapid scrolling). Free tier includes 35 sessions/day. Invaluable for optimizing landing page layouts based on actual behavior.",
+    "url": "https://www.hotjar.com/",
+    "tags": ["hotjar", "heatmaps", "session-recording", "ux", "click-tracking", "scroll-tracking"],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "seo",
+    "type": "pattern",
+    "title": "Material 3 Expressive — CHI 2026 Eye-Tracking Validated Design",
+    "description": "Google's Material 3 Expressive design system (CHI 2026 study, 48 participants with eye-tracking glasses) produced 33% faster time to fixate on correct UI elements and 20% faster task completion vs baseline M3. Key changes: variable button sizes (Extra Large/Extra Small for hierarchy), color-based containment replacing white backgrounds, and return to fundamentals (size, shape, color, typography, motion, hierarchy). Proves that expressive, varied design outperforms uniform design.",
+    "tags": ["material-3", "expressive-design", "eye-tracking", "google", "chi-2026", "visual-hierarchy"],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "seo",
+    "type": "tool",
+    "title": "Carbon UI — Neuroscience-Optimized React Design System",
+    "description": "Design system applying neuroscience principles to React/React Native components. Claims 40% higher engagement and up to 58% conversion boosts. Implements: minimalist design for reduced cognitive load, blue themes for trust (+17%), F/Z scanning-aligned layouts, and cognitive fluency patterns. Open-source and research-backed with citations.",
+    "url": "https://www.carbon-ui.com/the-neuroscience-of/",
+    "tags": ["carbon-ui", "neuroscience", "design-system", "react", "cognitive-load", "trust"],
+    "difficulty": "advanced"
+  },
+  {
+    "topic": "seo",
+    "type": "tool",
+    "title": "Tailwind CSS — Utility-First CSS for Rapid UI Building",
+    "description": "Utility-first CSS framework that lets you build custom designs without writing custom CSS. Perfect for landing pages: rapid prototyping, consistent spacing, responsive utilities, and dark mode out of the box. No shipped CSS framework overhead — only used utilities are included in production. Pairs well with Astro or Next.js for static promotional sites.",
+    "url": "https://tailwindcss.com/",
+    "tags": ["tailwind", "css", "utility-first", "responsive", "landing-page", "framework"],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "seo",
+    "type": "tool",
+    "title": "Astro — Static Site Generator for Content-Focused Sites",
+    "description": "Modern SSG that ships zero JavaScript by default — perfect for fast, SEO-friendly marketing sites. Supports multiple UI frameworks (React, Vue, Svelte) as island components. Built-in content collections, image optimization, and view transitions. Excellent Lighthouse scores out of the box. Best choice for open-source project documentation and promotional landing pages.",
+    "url": "https://astro.build/",
+    "tags": ["astro", "ssg", "static-site", "seo", "performance", "zero-js"],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "seo",
+    "type": "tool",
+    "title": "Next.js Static Export — SSG Mode for SEO-Friendly Sites",
+    "description": "Next.js can generate fully static HTML at build time (output: 'export'), combining React's component model with SSG's SEO benefits. Supports dynamic routes, image optimization, and metadata API for social sharing tags. Deploy to Vercel, Cloudflare Pages, or any static host. Good if you're already in the React/Next.js ecosystem and want SEO without a server.",
+    "url": "https://nextjs.org/docs/app/building-your-application/deploying/static-exports",
+    "tags": ["nextjs", "ssg", "static-export", "seo", "react", "vercel"],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "seo",
+    "type": "pattern",
+    "title": "Responsive Design and Accessibility in Promotion Pages",
+    "description": "Your promotion page must work on all devices and be accessible to all users. Responsive design (mobile-first, flexible grids, fluid typography) is now table stakes. Accessibility (WCAG 2.2) is both ethical and practical — 15% of the global population has a disability, and accessible sites rank better (Google rewards accessible pages). Use semantic HTML, alt text for images, sufficient color contrast (4.5:1 minimum), and keyboard-navigable CTAs.",
+    "tags": ["responsive", "accessibility", "wcag", "mobile-first", "semantic-html", "seo"],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "seo",
+    "type": "pattern",
+    "title": "DevRel Strategy — Developer Relations for Open-Source Growth",
+    "description": "Developer Relations (DevRel) is the marketing function for developer tools. Key activities: write technical blog posts, give conference talks, maintain Discord/Slack communities, create video tutorials, respond to GitHub issues quickly, and build in public. For open-source projects, DevRel is often the founder. Measure success by GitHub stars, npm downloads, community activity, and organic search traffic — not MQLs.",
+    "tags": ["devrel", "developer-relations", "community", "content-marketing", "open-source", "growth"],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "seo",
+    "type": "tool",
+    "title": "Substack — Newsletter Platform for Developer Audiences",
+    "description": "Newsletter platform for building a subscriber audience. Free to start, monetization optional. Developer newsletters (like Pragmatic Engineer, Last Week in AWS) demonstrate that technical audiences engage with email. Use newsletters for changelog announcements, tips and tricks, and community spotlights. Consistency (weekly or biweekly) matters more than frequency. Cross-promote with other newsletters in your niche.",
+    "url": "https://substack.com/",
+    "tags": ["substack", "newsletter", "email", "audience", "content-marketing", "developer"],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "seo",
+    "type": "tool",
+    "title": "Beehiiv — Modern Newsletter Platform with Growth Tools",
+    "description": "Newsletter platform built for growth with built-in referral programs, recommendation network (cross-promote with other newsletters), and ad network. Better analytics than Substack. Free tier supports up to 2,500 subscribers. Clean, modern editor with custom domains. Good alternative to Substack if you want built-in growth mechanics.",
+    "url": "https://www.beehiiv.com/",
+    "tags": ["beehiiv", "newsletter", "growth", "referrals", "analytics", "email"],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "seo",
+    "type": "pattern",
+    "title": "Community Building for Open-Source Projects",
+    "description": "Growing a community around your open-source project accelerates adoption and creates a feedback loop. Start with a GitHub Discussions board, add a Discord or Slack channel, create a CONTRIBUTING.md, label good first issues, and recognize contributors publicly. Respond to issues within 24 hours. Release regularly. A thriving community is your strongest marketing asset — word of mouth from satisfied users beats any ad campaign.",
+    "tags": ["community", "open-source", "contributing", "discord", "github-discussions", "growth"],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "seo",
+    "type": "example",
+    "title": "Base64 Encoding for Inline Images (Data URIs) in HTML/CSS",
+    "description": "Embed small images directly in HTML or CSS using base64-encoded data URIs, eliminating an HTTP request. Useful for icons, small logos, and decorative images under ~2KB. Format: src='data:image/svg+xml;base64,...' or background-image: url(data:image/png;base64,...). Base64 increases file size by ~33%, so only use for tiny assets where the request overhead outweighs the size increase.",
+    "tags": ["base64", "data-uri", "inline-images", "performance", "css", "html"],
+    "difficulty": "beginner",
+    "code": "<!-- HTML img with base64 SVG -->\n<img src=\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCI+PC9zdmc+\" alt=\"Icon\">\n\n/* CSS background with base64 PNG */\n.logo {\n  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUg...);\n  background-size: contain;\n  width: 32px;\n  height: 32px;\n}\n\n/* Better: use SVG inline instead of base64 for vector graphics */\n<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\">\n  <path d=\"M12 2L2 22h20L12 2z\" fill=\"#4F46E5\"/>\n</svg>"
+  },
+  {
+    "topic": "seo",
+    "type": "example",
+    "title": "SVG Optimization and Base64 Embedding Workflow",
+    "description": "Optimize SVGs before base64 encoding: remove metadata, simplify paths, convert shapes to paths, and strip unnecessary attributes. Use SVGO (CLI) or SVGOMG (web tool) for optimization. After optimization, base64-encode the SVG for data URI use. For large SVGs, inline the SVG directly instead of base64 to avoid the 33% size overhead.",
+    "tags": ["svg", "svgo", "svgomg", "optimization", "base64", "workflow"],
+    "difficulty": "intermediate",
+    "code": "# Install and run SVGO\nnpx svgo input.svg -o output.min.svg\n\n# Base64 encode an SVG\ncat icon.min.svg | base64 | tr -d '\\n'\n\n# Better: inline SVG directly in HTML (no base64 overhead)\n# Use the <svg> tag directly — it's smaller and styleable\n\n# Python: base64 encode for data URI\nimport base64\nwith open('icon.min.svg', 'rb') as f:\n    encoded = base64.b64encode(f.read()).decode()\n    print(f'data:image/svg+xml;base64,{encoded}')"
+  },
+  {
+    "topic": "seo",
+    "type": "pattern",
+    "title": "Image Format Selection — WebP, AVIF vs PNG/JPG for Web",
+    "description": "Choose the right image format for web: WebP — 30% smaller than JPEG, supports transparency, 97% browser support. AVIF — 50% smaller than JPEG, newer, 92% browser support. PNG — lossless, use only for screenshots/text. JPEG — legacy, use as fallback. SVG — vector graphics, infinitely scalable, tiny file size for icons/logos. Use <picture> with multiple sources and format fallbacks. Modern frameworks (Astro, Next.js) handle this automatically.",
+    "tags": ["webp", "avif", "image-formats", "optimization", "svg", "picture-element"],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "seo",
+    "type": "example",
+    "title": "CSS Background-Image with Base64 Data URI",
+    "description": "Use base64-encoded images as CSS background-image values for small decorative elements. This eliminates HTTP requests for tiny assets. Best for: small icons, placeholder images, and CSS-only decorative elements. Avoid for images over 2KB — the 33% base64 overhead and lack of caching makes it worse than a separate file.",
+    "tags": ["css", "background-image", "base64", "data-uri", "inline", "performance"],
+    "difficulty": "beginner",
+    "code": "/* Small icon as base64 background (under 2KB) */\n.icon-github {\n  display: inline-block;\n  width: 24px;\n  height: 24px;\n  background-image: url(data:image/svg+xml;base64,PHN2Zy...);\n  background-size: contain;\n}\n\n/* Responsive background with fallback */\n.hero-bg {\n  background-image:\n    image-set(\n      url('/hero.avif') type('image/avif'),\n      url('/hero.webp') type('image/webp'),\n      url('/hero.jpg') type('image/jpeg')\n    );\n  background-size: cover;\n}"
+  },
+  {
+    "topic": "seo",
+    "type": "pattern",
+    "title": "When to Use Base64 vs File References — Performance Tradeoffs",
+    "description": "Base64 eliminates HTTP requests but increases payload by ~33% and prevents browser caching. Use base64 when: image is under 2KB, used only once per page, and critical above-fold (e.g., a tiny logo). Use file references when: image is over 2KB, reused across pages (benefits from caching), or lazy-loaded below the fold. The break-even point is roughly 2KB — below that, the request overhead is worse than the base64 overhead.",
+    "tags": ["base64", "performance", "http-requests", "caching", "tradeoffs", "optimization"],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "seo",
+    "type": "tool",
+    "title": "Figma — Collaborative Design and Prototyping",
+    "description": "Industry-standard collaborative design tool for UI/UX, prototyping, and developer handoff. Free tier allows 3 files with unlimited collaborators. Use for designing landing pages, creating marketing graphics, and sharing specs with developers (CSS export, dev mode). Figma's component system ensures consistency across marketing pages. Plugins for accessibility checking and auto-layout.",
+    "url": "https://www.figma.com/",
+    "tags": ["figma", "design", "prototyping", "collaboration", "ui-ux", "free-tier"],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "seo",
+    "type": "tool",
+    "title": "Canva — Quick Marketing Graphics and Social Media Images",
+    "description": "Template-based design tool for non-designers. Create social media posts, presentation decks, YouTube thumbnails, blog headers, and marketing flyers from thousands of templates. Free tier includes 250K+ templates and 100+ design types. Perfect for developers who need professional-looking graphics without learning design tools. Export as PNG, JPG, SVG, or PDF.",
+    "url": "https://www.canva.com/",
+    "tags": ["canva", "marketing", "templates", "social-media", "graphics", "non-designer"],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "seo",
+    "type": "tool",
+    "title": "Excalidraw — Diagrams and Wireframes",
+    "description": "Open-source virtual whiteboard for sketch-style diagrams and wireframes. Hand-drawn aesthetic makes it approachable and non-intimidating. Perfect for: architecture diagrams, flow charts, wireframe mockups, and brainstorming visuals. Exports to SVG and PNG. Self-hosted or use the free hosted version. Great for technical blog posts and README diagrams.",
+    "url": "https://excalidraw.com/",
+    "tags": ["excalidraw", "diagrams", "wireframes", "whiteboard", "open-source", "sketch"],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "seo",
+    "type": "tool",
+    "title": "SVGO — SVG Optimization CLI Tool",
+    "description": "Node.js-based SVG optimization tool that removes metadata, simplifies paths, converts shapes to paths, and strips unnecessary attributes. Reduces SVG file sizes by 30-80% without visual quality loss. Use as CLI, Node.js API, or via the web UI (SVGOMG). Essential before inlining SVGs or base64-encoding them. Integrates with build tools (webpack, Vite, Astro).",
+    "url": "https://github.com/svg/svgo",
+    "tags": ["svgo", "svg", "optimization", "cli", "node-js", "svgomg"],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "seo",
+    "type": "tool",
+    "title": "Lucide Icons — Open-Source Icon Library for Web",
+    "description": "Community-maintained fork of Feather Icons with 1,400+ beautifully crafted, consistent icons. Each icon is an individual SVG component available for React, Vue, Svelte, and plain SVG. Tree-shakeable (only import what you use). Consistent 24x24 grid, 2px stroke. Perfect for UI elements, navigation, and marketing pages. MIT licensed.",
+    "url": "https://lucide.dev/",
+    "tags": ["lucide", "icons", "svg", "open-source", "react", "consistent"],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "seo",
+    "type": "tool",
+    "title": "Hugo — Fast Static Site Generator for Documentation Sites",
+    "description": "The world's fastest static site generator, written in Go. Builds sites in milliseconds, making it ideal for documentation and marketing sites that need frequent rebuilds. Supports Markdown content, shortcodes, taxonomies, and multilingual sites. Single binary with no dependencies. Great for open-source project docs that need to build fast in CI.",
+    "url": "https://gohugo.io/",
+    "tags": ["hugo", "ssg", "go", "documentation", "fast", "static-site"],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "seo",
+    "type": "workflow",
+    "title": "Technical Blog Post Structure for Developer Tool Promotion",
+    "description": "How to write a technical blog post that promotes your developer tool without being salesy. The key: teach something valuable and use your tool naturally as part of the solution.",
+    "tags": ["blogging", "technical-writing", "content-marketing", "devrel", "promotion", "structure"],
+    "difficulty": "intermediate",
+    "workflow": [
+      "Start with a relatable problem the reader faces (not your tool)",
+      "Explain the context and why existing solutions fall short",
+      "Introduce your approach — your tool solves it naturally, as one part of a bigger solution",
+      "Include working code examples the reader can copy and run",
+      "Show real results (benchmarks, screenshots, before/after)",
+      "Link to your project at the end with a low-pressure 'if you want to try it' CTA",
+      "Cross-post to Dev.to, Hashnode, and your own blog (canonical URL to your original)",
+      "Share on social media with a one-sentence hook, not the full title"
+    ]
+  },
+  {
+    "topic": "seo",
+    "type": "pattern",
+    "title": "YouTube Tutorials as Developer Marketing",
+    "description": "Video tutorials are the highest-trust marketing format for developers. A 10-minute 'getting started' video on your project's YouTube channel drives more adoption than any blog post. Screen recordings with voiceover showing the tool in action create 'show, don't tell' moments. Optimize titles for search ('How to [do X] with [your tool]'). Add timestamps in descriptions. Embed videos on your landing page for dual engagement.",
+    "tags": ["youtube", "video", "tutorials", "developer-marketing", "screen-recording", "seo"],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "seo",
+    "type": "pattern",
+    "title": "Meta Tags and Open Graph — Social Sharing Preview Optimization",
+    "description": "Meta tags control how your page appears in search results and social shares. Title tag: 50-60 characters, include primary keyword. Meta description: 150-160 characters, include a benefit and CTA. Open Graph tags (og:title, og:description, og:image) control link previews on Twitter, LinkedIn, Slack, and Discord. A good OG image (1200x630px) increases social click-through rates by 2-3x. Use Twitter Card tags for Twitter-specific formatting.",
+    "tags": ["meta-tags", "open-graph", "social-sharing", "twitter-cards", "seo", "previews"],
+    "difficulty": "beginner"
+  },
+  {
+    "topic": "seo",
+    "type": "pattern",
+    "title": "Canonical URLs and Hreflang — Avoiding Duplicate Content",
+    "description": "Canonical tags (rel='canonical') tell search engines which version of a page is the original, preventing duplicate content penalties. Essential for: cross-posted blog content, paginated pages, pages with URL parameters, and AMP versions. Hreflang tags tell Google which language/region version to serve. Always self-reference canonical (every page should declare itself canonical). For cross-posted articles, canonical points to the original source.",
+    "tags": ["canonical", "hreflang", "duplicate-content", "seo", "internationalization", "link-tags"],
+    "difficulty": "intermediate"
+  },
+  {
+    "topic": "seo",
+    "type": "example",
+    "title": "Astro Landing Page with SEO Meta Tags and Schema.org",
+    "description": "Complete example of an Astro component for a landing page with proper SEO meta tags, Open Graph, Schema.org JSON-LD structured data, and accessibility attributes. This is the template you'd use for promoting a project like learn-mcp.",
+    "tags": ["astro", "seo", "meta-tags", "schema-org", "open-graph", "landing-page"],
+    "difficulty": "intermediate",
+    "code": "---\n// src/layouts/Landing.astro\nconst { title, description, url, image } = Astro.props;\nconst siteName = 'learn-mcp';\n---\n\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"utf-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>{title}</title>\n  <meta name=\"description\" content={description} />\n  <link rel=\"canonical\" href={url} />\n\n  <!-- Open Graph -->\n  <meta property=\"og:type\" content=\"website\" />\n  <meta property=\"og:url\" content={url} />\n  <meta property=\"og:title\" content={title} />\n  <meta property=\"og:description\" content={description} />\n  <meta property=\"og:image\" content={image} />\n  <meta property=\"og:site_name\" content={siteName} />\n\n  <!-- Twitter Card -->\n  <meta name=\"twitter:card\" content=\"summary_large_image\" />\n  <meta name=\"twitter:title\" content={title} />\n  <meta name=\"twitter:description\" content={description} />\n  <meta name=\"twitter:image\" content={image} />\n\n  <!-- Schema.org JSON-LD -->\n  <script type=\"application/ld+json\" set:html={JSON.stringify({\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"SoftwareSourceCode\",\n    \"name\": siteName,\n    \"description\": description,\n    \"url\": url,\n    \"programmingLanguage\": \"Python\",\n    \"license\": \"https://opensource.org/licenses/MIT\"\n  })} />\n</head>\n<body>\n  <slot />\n</body>\n</html>"
+  }
+]

@@ -1,6 +1,6 @@
 # learn-mcp
 
-AI Engineering Learning Reference MCP Server — 722 searchable references for 2026.
+AI Engineering Learning Reference MCP Server — 801 searchable references for 2026.
 
 ## Topics
 
@@ -16,7 +16,8 @@ AI Engineering Learning Reference MCP Server — 722 searchable references for 2
 | `claude-code` | Claude Code — context engineering, hooks, skills, worktrees | 58 |
 | `vector-db` | Vector Databases — Qdrant, Pinecone, Weaviate, Milvus | 61 |
 | `gpu-compute` | GPU & CUDA — PyTorch, kernels, mixed precision | 64 |
-| `autonomous-agents` | Autonomous Systems — self-correcting loops, memory, planning | 67 |
+| `autonomous-agents` | Autonomous Systems — self-correcting loops, memory, planning | 64 |
+| `seo` | SEO & Web Promotion — landing pages, design psychology, Core Web Vitals, marketing | 79 |
 
 ## Tools
 

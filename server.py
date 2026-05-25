@@ -35,6 +35,7 @@ TOPICS = {
     "vector-db": "Vector Databases — Qdrant, Pinecone, Weaviate, Milvus, ChromaDB, HNSW, hybrid search",
     "gpu-compute": "GPU & CUDA Programming — PyTorch, CUDA kernels, mixed precision, memory optimization",
     "autonomous-agents": "Autonomous & Agentic Systems — self-correcting loops, tool use, memory, planning",
+    "seo": "SEO & Web Promotion — landing pages, design psychology, Core Web Vitals, open-source marketing, analytics",
 }
 
 # ── Reference data ───────────────────────────────────────────────────────

@@ -141,7 +141,7 @@ MCP_SERVERS = [
     {
         "name": "learn",
         "category": "education",
-        "description": "AI/ML learning reference MCP — 722 references across 11 topics with semantic search",
+        "description": "AI/ML learning reference MCP — 801 references across 12 topics with semantic search",
         "install": "custom",
         "stars": 50,
         "tags": ["learning", "education", "references", "search"],

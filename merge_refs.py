@@ -28,6 +28,7 @@ VALID_TOPICS = {
     "vector-db",
     "gpu-compute",
     "autonomous-agents",
+    "seo",
 }
 
 
