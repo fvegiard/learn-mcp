@@ -333,6 +333,24 @@ def semantic_search(query: str, topic: str | None = None, limit: int = 10) -> st
     return json.dumps({"query": query, "total": len(hits), "results": hits}, indent=2)
 
 
+def _auto_reindex():
+    """Reindex Qdrant if the collection is empty (e.g. after a container restart)."""
+    try:
+        from qdrant_client import QdrantClient
+
+        client = QdrantClient(url=QDRANT_URL)
+        if (
+            not client.collection_exists(COLLECTION)
+            or client.count(COLLECTION).count == 0
+        ):
+            index_to_qdrant()
+    except Exception:
+        pass
+
+
+threading.Thread(target=_auto_reindex, daemon=True, name="qdrant-auto-reindex").start()
+
+
 if __name__ == "__main__":
     # 2026: Streamable HTTP replaces SSE per MCP spec 2025-06-18 deprecation.
     # FastMCP exposes this transport at /mcp (vs /sse for legacy SSE).

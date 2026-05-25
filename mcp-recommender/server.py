@@ -137,7 +137,7 @@ MCP_SERVERS = [
     {
         "name": "learn",
         "category": "education",
-        "description": "AI/ML learning reference MCP — 588 references across 11 topics with semantic search",
+        "description": "AI/ML learning reference MCP — 722 references across 11 topics with semantic search",
         "install": "custom",
         "stars": 50,
         "tags": ["learning", "education", "references", "search"],
@@ -384,4 +384,5 @@ Provide a comprehensive explanation including:
 
 
 if __name__ == "__main__":
-    mcp.run(transport="sse")
+    # 2026: Streamable HTTP replaces SSE per MCP spec 2025-06-18 deprecation.
+    mcp.run(transport="streamable-http")

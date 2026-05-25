@@ -1,22 +1,22 @@
 # learn-mcp
 
-AI Engineering Learning Reference MCP Server — 550+ searchable references for 2026.
+AI Engineering Learning Reference MCP Server — 722 searchable references for 2026.
 
 ## Topics
 
 | Topic | Description | Refs |
 |-------|-------------|------|
-| `mcp` | Model Context Protocol — servers, clients, deployment | 50+ |
-| `rag` | Retrieval-Augmented Generation — vector DBs, chunking, reranking | 50+ |
-| `agents` | Agentic AI — LangGraph, CrewAI, AutoGen, tool use | 50+ |
-| `fine-tuning` | LLM Fine-Tuning — LoRA, QLoRA, PEFT, deployment | 50+ |
-| `mlops` | MLOps & LLMOps — CI/CD, Docker, K8s, MLflow | 50+ |
-| `prompt-engineering` | Advanced Prompting — CoT, ReAct, ToT, structured output | 50+ |
-| `inference` | LLM Inference — vLLM, Ollama, SGLang, quantization | 50+ |
-| `claude-code` | Claude Code — context engineering, hooks, skills, worktrees | 50+ |
-| `vector-db` | Vector Databases — Qdrant, Pinecone, Weaviate, Milvus | 50+ |
-| `gpu-compute` | GPU & CUDA — PyTorch, kernels, mixed precision | 50+ |
-| `autonomous-agents` | Autonomous Systems — self-correcting loops, memory, planning | 50+ |
+| `mcp` | Model Context Protocol — servers, clients, deployment | 73 |
+| `rag` | Retrieval-Augmented Generation — vector DBs, chunking, reranking | 60 |
+| `agents` | Agentic AI — LangGraph, CrewAI, AutoGen, tool use | 79 |
+| `fine-tuning` | LLM Fine-Tuning — LoRA, QLoRA, PEFT, deployment | 59 |
+| `mlops` | MLOps & LLMOps — CI/CD, Docker, K8s, MLflow | 63 |
+| `prompt-engineering` | Advanced Prompting — CoT, ReAct, ToT, structured output | 56 |
+| `inference` | LLM Inference — vLLM, Ollama, SGLang, quantization | 86 |
+| `claude-code` | Claude Code — context engineering, hooks, skills, worktrees | 58 |
+| `vector-db` | Vector Databases — Qdrant, Pinecone, Weaviate, Milvus | 61 |
+| `gpu-compute` | GPU & CUDA — PyTorch, kernels, mixed precision | 64 |
+| `autonomous-agents` | Autonomous Systems — self-correcting loops, memory, planning | 67 |
 
 ## Tools
 
@@ -55,7 +55,7 @@ python merge_refs.py  # Merges data/*.json into references.json
 
 ```
 learn-mcp/
-  server.py          # FastMCP server (SSE on port 8001)
+  server.py          # FastMCP server (Streamable HTTP on port 8001)
   references.json     # Merged reference database (generated)
   merge_refs.py       # Merge + validate script
   data/               # Per-topic reference files
