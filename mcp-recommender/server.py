@@ -6,11 +6,15 @@ for the task. Uses NVIDIA NIM (free) as primary LLM with Ollama fallback.
 
 from __future__ import annotations
 
+import functools
+import hashlib
 import json
 import os
 import httpx
 from mcp.server.fastmcp import FastMCP
 
+# Must bind 0.0.0.0 inside container for docker-proxy + cross-container access.
+# Host exposure limited by the compose `127.0.0.1:8002:8002` port prefix.
 mcp = FastMCP("mcp-recommender", host="0.0.0.0", port=8002)
 
 NVIDIA_API_KEY = os.environ.get("NVIDIA_API_KEY", "")
@@ -148,7 +152,20 @@ MCP_SERVERS = [
 # ── LLM client ────────────────────────────────────────────────────────────
 
 
+@functools.lru_cache(maxsize=128)
+def _cached_llm(cache_key: str, prompt: str, system: str, max_tokens: int) -> str:
+    """Wrapper around _call_llm that caches by content hash. Identical inputs
+    return identical outputs without burning a paid API round-trip."""
+    return _call_llm_uncached(prompt, system, max_tokens)
+
+
 def _call_llm(prompt: str, system: str = "", max_tokens: int = 2048) -> str:
+    """Public LLM call — hashes inputs and routes through the LRU cache."""
+    cache_key = hashlib.sha256(f"{system}\0{prompt}\0{max_tokens}".encode()).hexdigest()
+    return _cached_llm(cache_key, prompt, system, max_tokens)
+
+
+def _call_llm_uncached(prompt: str, system: str = "", max_tokens: int = 2048) -> str:
     """Call NVIDIA NIM API, falling back to Ollama if unavailable."""
     if NVIDIA_API_KEY:
         try:
@@ -384,5 +401,5 @@ Provide a comprehensive explanation including:
 
 
 if __name__ == "__main__":
-    # 2026: Streamable HTTP replaces SSE per MCP spec 2025-06-18 deprecation.
+    # 2026: Streamable HTTP replaces SSE per MCP spec 2025-06-18.
     mcp.run(transport="streamable-http")
