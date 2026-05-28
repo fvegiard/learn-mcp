@@ -352,7 +352,21 @@ def _auto_reindex():
 threading.Thread(target=_auto_reindex, daemon=True, name="qdrant-auto-reindex").start()
 
 
+def main():
+    import sys
+
+    transport = "streamable-http"
+    if "--transport" in sys.argv:
+        idx = sys.argv.index("--transport")
+        if idx + 1 < len(sys.argv):
+            transport = sys.argv[idx + 1]
+    elif len(sys.argv) > 1 and sys.argv[1] in ("stdio", "streamable-http"):
+        transport = sys.argv[1]
+    if transport == "stdio":
+        mcp.run(transport="stdio")
+    else:
+        mcp.run(transport="streamable-http")
+
+
 if __name__ == "__main__":
-    # 2026: Streamable HTTP replaces SSE per MCP spec 2025-06-18 deprecation.
-    # FastMCP exposes this transport at /mcp (vs /sse for legacy SSE).
-    mcp.run(transport="streamable-http")
+    main()

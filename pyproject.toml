@@ -1,0 +1,19 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "learn-mcp"
+version = "0.1.0"
+description = "AI Engineering Learning Reference MCP Server — searchable knowledge base of 2026 AI/ML courses, patterns, and code examples"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.11"
+dependencies = [
+    "mcp[cli]>=1.6.0",
+    "qdrant-client>=1.9.0",
+    "sentence-transformers>=2.7.0",
+]
+
+[project.scripts]
+learn-mcp = "server:main"
